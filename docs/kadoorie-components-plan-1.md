@@ -411,8 +411,8 @@ Phase 0B Design Token Layer + Icon System (6)      ── tokens (done, §5) + L
 |---|---|---|---|---|---|
 | 0 | Package scaffold + Docker env + quality bootstrap | — | — | 10 | ✅ Complete |
 | 0B | Design token layer + icon system | 0 | — | 6 | ✅ Complete |
-| 1 | Core form controls | 0B | 2,3,4 | 11 | ⬜ Next |
-| 2 | Feedback & overlays | 0B | 1,3,4 | 11 | ⬜ |
+| 1 | Core form controls | 0B | 2,3,4 | 11 | ✅ Complete |
+| 2 | Feedback & overlays | 0B | 1,3,4 | 11 | ⬜ Next |
 | 3 | Layout & content (incl. responsive Nav collapse + sticky) | 0B | 1,2,4 | 16 | ⬜ |
 | 4 | Data display | 0B | 1,2,3 | 14 | ⬜ |
 | 5 | Page templates | 1,2,3 | — | 10 | ⬜ |

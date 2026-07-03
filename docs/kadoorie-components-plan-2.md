@@ -257,13 +257,14 @@ stylesheet, **and the foundational icon system** — the visual foundation every
 Light theme only (dark mode is out of scope).
 
 ### Tasks
-- [ ] `resources/css/tokens.css` — all `--kad-*` on `:root` (light theme, §5; AA-safe muted split) (**2**)
-- [ ] `tailwind-preset.js` — map theme scales to `var(--kad-*)`; breakpoints + container (**1**)
-- [ ] `resources/css/kadoorie.css` — Tailwind layers + base + focus utility + **`prefers-reduced-motion`
-      reset** + `tabular-nums` utility (**1**)
-- [ ] **Icon system**: `<x-kadoorie::icon>` + SVG registry (Lucide subset + Figma-extracted Kadoorie
-      icons), size tokens, aria handling (§6.6) (**1**)
-- [ ] Build pipeline produces `resources/dist/kadoorie.css`; snapshot test (**1**)
+- [x] `resources/css/tokens.css` — all `--kad-*` on `:root` (light theme, §5; AA-safe muted split) (**2**)
+- [x] `tailwind-preset.cjs` — map theme scales to `var(--kad-*)`; breakpoints + container (**1**)
+      — shipped as `.cjs` (+ `tailwind.config.cjs`, `postcss.config.cjs`) since `package.json` is `type: module`
+- [x] `resources/css/kadoorie.css` — Tailwind layers + base + focus utility + **`prefers-reduced-motion`
+      reset** + `tabular-nums` utility (`.kad-nums`) + `.kad-spinner` (**1**)
+- [x] **Icon system**: `<x-kadoorie::icon>` + SVG registry (Lucide subset + bespoke Kadoorie
+      icons), `IconSize` tokens, aria handling, path-traversal-safe name validation (§6.6) (**1**)
+- [x] Build pipeline produces `resources/dist/kadoorie.css`; content-assertion test (**1**)
 
 ### Key code deltas
 

@@ -1,0 +1,74 @@
+/*
+ * Project: Kadoorie Livewire Components
+ * File: kadoorie.css
+ * User: dappelbe
+ * Created: 2026-07-03
+ * Last updated by: dappelbe
+ * Last updated on: 2026-07-03
+ * Version: 0.1.0
+ *
+ * Entry stylesheet. Imports the design tokens, layers Tailwind, and defines the
+ * shared accessibility helpers. `npm run build` compiles this to
+ * resources/dist/kadoorie.css (committed, publishable to non-Tailwind hosts).
+ */
+
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--kad-font-sans);
+    line-height: 1.5;
+    color: var(--kad-color-text-body);
+    background-color: var(--kad-color-bg);
+  }
+}
+
+/*
+ * Shared helpers are authored as plain CSS (outside Tailwind's layers) so they
+ * are never purged, regardless of the host's content configuration.
+ */
+
+/* Always-visible focus ring (never removed). */
+.kad-focusable:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--kad-ring);
+}
+
+/* Tabular figures for data tables, prices, and timers. */
+.kad-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessible loading spinner. */
+.kad-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--kad-radius-full);
+  animation: kad-spin 0.6s linear infinite;
+}
+
+@keyframes kad-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Respect reduced-motion for every component transition (CSS + Alpine). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

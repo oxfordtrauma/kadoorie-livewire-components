@@ -670,6 +670,10 @@ body {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-0 {
   inset: 0px;
 }
@@ -720,6 +724,10 @@ body {
   right: 100%;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .top-0\.5 {
   top: 0.125rem;
 }
@@ -736,12 +744,21 @@ body {
   z-index: 10;
 }
 
+.z-40 {
+  z-index: 40;
+}
+
 .z-50 {
   z-index: 50;
 }
 
 .-m-1 {
   margin: -0.25rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .-mb-px {
@@ -786,6 +803,10 @@ body {
 
 .inline-flex {
   display: inline-flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .size-1\/4 {
@@ -834,6 +855,10 @@ body {
   min-height: 2.75rem;
 }
 
+.min-h-14 {
+  min-height: 3.5rem;
+}
+
 .w-11 {
   width: 2.75rem;
 }
@@ -844,6 +869,10 @@ body {
 
 .w-px {
   width: 1px;
+}
+
+.max-w-container {
+  max-width: var(--kad-container-max);
 }
 
 .max-w-lg {
@@ -895,6 +924,10 @@ body {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-start {
@@ -1404,9 +1437,44 @@ body {
   background-color: var(--kad-color-surface-muted);
 }
 
+.hover\:text-primary:hover {
+  color: var(--kad-color-primary);
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
 .hover\:brightness-95:hover {
   --tw-brightness: brightness(.95);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.focus\:absolute:focus {
+  position: absolute;
+}
+
+.focus\:left-2:focus {
+  left: 0.5rem;
+}
+
+.focus\:top-2:focus {
+  top: 0.5rem;
+}
+
+.focus\:z-50:focus {
+  z-index: 50;
 }
 
 .disabled\:cursor-not-allowed:disabled {
@@ -1463,6 +1531,14 @@ body {
 }
 
 @media (min-width: 768px) {
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
 
   .md\:text-base {
     font-size: var(--kad-text-base);

@@ -24,4 +24,12 @@ return [
          */
         'inter_webfont' => true,
     ],
+
+    'nav' => [
+        /*
+         * Default sticky behaviour for <x-kadoorie::nav>. The `sticky` prop
+         * overrides this per instance.
+         */
+        'sticky' => false,
+    ],
 ];

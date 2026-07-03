@@ -413,8 +413,8 @@ Phase 0B Design Token Layer + Icon System (6)      ── tokens (done, §5) + L
 | 0B | Design token layer + icon system | 0 | — | 6 | ✅ Complete |
 | 1 | Core form controls | 0B | 2,3,4 | 11 | ✅ Complete |
 | 2 | Feedback & overlays | 0B | 1,3,4 | 11 | ✅ Complete |
-| 3 | Layout & content (incl. responsive Nav collapse + sticky) | 0B | 1,2,4 | 16 | ⬜ Next |
-| 4 | Data display | 0B | 1,2,3 | 14 | ⬜ |
+| 3 | Layout & content (incl. responsive Nav collapse + sticky) | 0B | 1,2,4 | 16 | ✅ Complete |
+| 4 | Data display | 0B | 1,2,3 | 14 | ⬜ Next |
 | 5 | Page templates | 1,2,3 | — | 10 | ⬜ |
 | 6 | Integration & workbench demo | 1–5 | — | 6 | ⬜ |
 | 7 | Static showcase & user guides | 6 | — | 11 | ⬜ |

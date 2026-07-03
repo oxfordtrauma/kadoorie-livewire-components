@@ -1,0 +1,161 @@
+<?php
+
+/**
+ * Project: Kadoorie Livewire Components
+ * File: DataTable.php
+ * User: dappelbe
+ * Created: 2026-07-03
+ * Last updated by: dappelbe
+ * Last updated on: 2026-07-03
+ * Version: 0.1.0
+ */
+
+declare(strict_types=1);
+
+namespace Kadoorie\LivewireComponents\Livewire;
+
+use Illuminate\Contracts\View\View;
+use Kadoorie\LivewireComponents\Support\Column;
+use Livewire\Component;
+
+final class DataTable extends Component
+{
+    /**
+     * Column definitions as arrays (Livewire-serialisable). See columnDefs().
+     *
+     * @var array<int, array{field: string, label: string, sortable: bool, numeric: bool}>
+     */
+    public array $columns = [];
+
+    /**
+     * @var array<int, array<string, mixed>>
+     */
+    public array $rows = [];
+
+    public string $sortField = '';
+
+    public string $sortDirection = 'asc';
+
+    public bool $selectable = false;
+
+    /**
+     * @var array<int, string>
+     */
+    public array $selected = [];
+
+    public int $perPage = 10;
+
+    public int $page = 1;
+
+    public string $emptyHeading = 'No records found';
+
+    /**
+     * Hard upper bound on page size (project performance rule: bounded reads).
+     */
+    private const MAX_PER_PAGE = 100;
+
+    /**
+     * @param  array<int, Column|array{field: string, label: string, sortable?: bool, numeric?: bool}>  $columns
+     * @param  array<int, array<string, mixed>>  $rows
+     */
+    public function mount(
+        array $columns = [],
+        array $rows = [],
+        bool $selectable = false,
+        int $perPage = 10,
+        string $emptyHeading = 'No records found',
+    ): void {
+        $this->columns = array_map(
+            static fn(Column|array $column): array => $column instanceof Column
+                ? $column->toArray()
+                : Column::fromArray($column)->toArray(),
+            $columns,
+        );
+        $this->rows = array_values($rows);
+        $this->selectable = $selectable;
+        $this->perPage = max(1, min($perPage, self::MAX_PER_PAGE));
+        $this->emptyHeading = $emptyHeading;
+    }
+
+    /**
+     * @return array<int, Column>
+     */
+    public function columnDefs(): array
+    {
+        return array_map(Column::fromArray(...), $this->columns);
+    }
+
+    public function sortBy(string $field): void
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortField = $field;
+            $this->sortDirection = 'asc';
+        }
+
+        $this->page = 1;
+    }
+
+    public function ariaSort(string $field): string
+    {
+        if ($this->sortField !== $field) {
+            return 'none';
+        }
+
+        return $this->sortDirection === 'asc' ? 'ascending' : 'descending';
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public function sortedRows(): array
+    {
+        $rows = $this->rows;
+
+        if ($this->sortField === '') {
+            return $rows;
+        }
+
+        $field = $this->sortField;
+
+        usort($rows, static function (array $a, array $b) use ($field): int {
+            return ($a[$field] ?? null) <=> ($b[$field] ?? null);
+        });
+
+        return $this->sortDirection === 'desc' ? array_reverse($rows) : $rows;
+    }
+
+    public function totalPages(): int
+    {
+        return (int) max(1, ceil(count($this->rows) / $this->perPage));
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public function pageRows(): array
+    {
+        return array_slice($this->sortedRows(), ($this->page - 1) * $this->perPage, $this->perPage);
+    }
+
+    public function gotoPage(int $page): void
+    {
+        $this->page = max(1, min($page, $this->totalPages()));
+    }
+
+    public function nextPage(): void
+    {
+        $this->gotoPage($this->page + 1);
+    }
+
+    public function previousPage(): void
+    {
+        $this->gotoPage($this->page - 1);
+    }
+
+    public function render(): View
+    {
+        return view('kadoorie::livewire.data-table');
+    }
+}

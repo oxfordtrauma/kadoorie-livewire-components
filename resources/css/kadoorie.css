@@ -49,6 +49,68 @@
   font-variant-numeric: tabular-nums;
 }
 
+/*
+ * Responsive table: below md the table reflows to one stacked card per row,
+ * each cell labelled by its column, so there is no horizontal scroll.
+ */
+@media (max-width: 767px) {
+  .kad-table-stack thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .kad-table-stack tr {
+    display: block;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--kad-color-border);
+    border-radius: var(--kad-radius-md);
+    padding: 0.25rem 0.75rem;
+  }
+
+  .kad-table-stack td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 0;
+    padding: 0.5rem 0;
+    text-align: right;
+  }
+
+  .kad-table-stack td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--kad-color-text);
+    text-align: left;
+  }
+}
+
+/* Shimmer for skeleton loading cells. */
+.kad-skeleton {
+  border-radius: var(--kad-radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--kad-color-surface-muted) 25%,
+    var(--kad-color-border) 37%,
+    var(--kad-color-surface-muted) 63%
+  );
+  background-size: 400% 100%;
+  animation: kad-shimmer 1.4s ease infinite;
+}
+
+@keyframes kad-shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
 /* Accessible loading spinner. */
 .kad-spinner {
   display: inline-block;

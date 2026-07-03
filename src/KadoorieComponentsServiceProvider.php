@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Kadoorie\LivewireComponents;
 
 use Illuminate\Support\Facades\Blade;
+use Kadoorie\LivewireComponents\Livewire\DataTable;
 use Kadoorie\LivewireComponents\Livewire\Modal;
 use Kadoorie\LivewireComponents\Livewire\Toast;
 use Livewire\Livewire;
@@ -51,5 +52,6 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
     {
         Livewire::component('kadoorie::modal', Modal::class);
         Livewire::component('kadoorie::toast', Toast::class);
+        Livewire::component('kadoorie::data-table', DataTable::class);
     }
 }

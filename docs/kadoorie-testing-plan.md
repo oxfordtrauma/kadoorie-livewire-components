@@ -152,7 +152,7 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 | 1B | Functional: feedback & overlays | 0 | 1A,1C,1D,1E | 3 | ✅ |
 | 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ✅ |
 | 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ✅ |
-| 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ⬜ |
+| 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ✅ |
 | 2 | WCAG axe matrix (all pages) | 1A–1E | — | 5 | ⬜ |
 | 3 | CI + global guards + docs | 2 | — | 3 | ⬜ |
 | | **Total** | | | **29** | |
@@ -251,8 +251,14 @@ projects. Every page-level spec calls `expectNoHorizontalScroll(page)`.
   **reflow to stacked cards < md** (asserted via computed `display`), row select;
   Dropdown open→first-item focus, arrow-nav, Esc + focus return; Pagination current
   page + prev/next. Added a selectable, 12-row DataTable example to the registry.
-- **1E Pages** (`login.spec.ts`): submit validation, error focus, semantic
-  landmarks, remember-me + forgot link.
+- **1E Pages** (`login.spec.ts`) ✅: empty-submit validation (errors **announced
+  via `role="alert"`** + `aria-invalid`, the WCAG-AA mechanism — the component does
+  not move focus, which is not an AA requirement), valid submit clears errors,
+  semantic landmarks, remember-me + forgot link. **Fixed a real defect**: the
+  Button hard-coded `data-test="kadoorie-button"` before spreading `$attributes`,
+  emitting a duplicate `data-test` the browser discarded, so `login-submit` (and
+  any caller override) never reached the DOM; the default now lives in
+  `merge()`. Added `forgot-url` to the login registry example.
 
 **Representative** — `tests/Playwright/nav.spec.ts`:
 ```ts

@@ -71,10 +71,12 @@ module.exports = {
         danger: {
           DEFAULT: 'var(--kad-color-danger)',
           subtle: 'var(--kad-color-danger-subtle)',
+          solid: 'var(--kad-color-danger-solid)',
         },
         success: {
           DEFAULT: 'var(--kad-color-success)',
           subtle: 'var(--kad-color-success-subtle)',
+          solid: 'var(--kad-color-success-solid)',
         },
         info: {
           DEFAULT: 'var(--kad-color-info)',

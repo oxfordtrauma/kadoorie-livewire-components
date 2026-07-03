@@ -42,8 +42,11 @@
   --kad-color-danger: #dc2626;
   --kad-color-danger-accent: #e53935;
   --kad-color-danger-subtle: #fef2f2;
+  /* Darkened fills so white text clears WCAG AA (4.5:1) on solid tone widgets. */
+  --kad-color-danger-solid: #b91c1c;
   --kad-color-success: #16a34a;
   --kad-color-success-subtle: #f0fdf4;
+  --kad-color-success-solid: #15803d;
   --kad-color-info: #2563eb;
   --kad-color-info-subtle: #eff6ff;
   --kad-color-warning: #f59e0b;

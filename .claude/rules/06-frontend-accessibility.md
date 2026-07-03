@@ -13,7 +13,7 @@
 
 ```js
 /**
- * Project: SMC Tennis Website
+ * Project: Kadoorie Livewire Components
  * File: <filename>
  * User: <username>
  * Created: <date>
@@ -57,7 +57,7 @@ and resolve violations before committing.
   for spacing/styling) do not need `data-test` attributes.
 - Format: `data-test="<context>-<element-type>"`. Examples:
   `data-test="login-form"`, `data-test="nav-logout-button"`,
-  `data-test="fixtures-table"`.
+  `data-test="users-table"`.
 - Do not remove or rename `data-test` attributes without updating related
   Gherkin feature files and Playwright tests.
 - Do not use IDs or CSS classes as test selectors.

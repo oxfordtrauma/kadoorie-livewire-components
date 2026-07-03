@@ -11,7 +11,7 @@
 
 ## Pest
 
-- Create Pest tests with `docker exec app php artisan make:test --pest Name`.
+- Create Pest tests with `docker exec kadoorie-app php artisan make:test --pest Name`.
 - Do not include the suite directory in the generated test name.
 - Use feature tests for user-visible behavior, endpoints, authorization, and
   framework integration.
@@ -19,8 +19,8 @@
 - Run tests with:
 
 ```bash
-docker exec app php artisan test --compact
-docker exec app php artisan test --compact --filter=testName
+docker exec kadoorie-app php artisan test --compact
+docker exec kadoorie-app php artisan test --compact --filter=testName
 ```
 
 ## Database-Aware Tests

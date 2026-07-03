@@ -22,7 +22,7 @@ Use this header for PHP files:
 
 ```php
 /**
- * Project: SMC Tennis Website
+ * Project: Kadoorie Livewire Components
  * File: <filename>
  * User: <username>
  * Created: <date>
@@ -167,7 +167,7 @@ class Order extends Model
 - Use the project Pint command through Docker:
 
 ```bash
-docker exec app ./vendor/bin/pint --dirty --format agent
+docker exec kadoorie-app ./vendor/bin/pint --dirty --format agent
 ```
 
 Do not conclude work with pending Pint changes.

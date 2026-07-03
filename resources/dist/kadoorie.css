@@ -700,6 +700,10 @@ body {
   bottom: 100%;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .left-0\.5 {
   left: 0.125rem;
 }
@@ -783,6 +787,10 @@ body {
 
 .mt-1 {
   margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-3 {
@@ -869,6 +877,10 @@ body {
 
 .w-px {
   width: 1px;
+}
+
+.min-w-44 {
+  min-width: 11rem;
 }
 
 .max-w-container {
@@ -1125,6 +1137,10 @@ body {
      object-fit: cover;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -1135,6 +1151,10 @@ body {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-2 {
@@ -1201,6 +1221,10 @@ body {
 
 .text-left {
   text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .align-middle {

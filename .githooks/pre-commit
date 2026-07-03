@@ -1,0 +1,100 @@
+#!/usr/bin/env sh
+# ---------------------------------------------------------------------------
+# Kadoorie Livewire Components pre-commit hook.
+#
+# 1. Maintains the project file header on staged PHP/JS files that already
+#    carry it: updates "Last updated by", "Last updated on", and bumps the
+#    patch "Version" (JavaScript test files are excluded from the version bump).
+# 2. Blocks the commit when dependency audits fail for staged lock files:
+#      - composer audit          (composer.lock staged)
+#      - npm audit --audit-level=high (package-lock.json staged)
+#    osv-scanner runs as a warning only when lock files are staged.
+#
+# Runs on the host. Audit steps are skipped when the tool is unavailable
+# locally (this project runs them inside the kadoorie-app container / CI).
+# ---------------------------------------------------------------------------
+set -eu
+
+AUTHOR="$(git config user.name 2>/dev/null || echo 'unknown')"
+TODAY="$(date +%Y-%m-%d)"
+
+staged_files="$(git diff --cached --name-only --diff-filter=ACM)"
+
+is_js_test() {
+    case "$1" in
+        tests/JavaScript/*) return 0 ;;
+        *.test.js) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+for file in $staged_files; do
+    [ -f "$file" ] || continue
+
+    case "$file" in
+        *.php | *.js | *.mjs | *.cjs) ;;
+        *) continue ;;
+    esac
+
+    grep -q 'Project: Kadoorie Livewire Components' "$file" || continue
+
+    tmp="$(mktemp)"
+    sed \
+        -e "s#\(Last updated by:\).*#\1 ${AUTHOR}#" \
+        -e "s#\(Last updated on:\).*#\1 ${TODAY}#" \
+        "$file" > "$tmp"
+
+    if ! is_js_test "$file"; then
+        current="$(grep -oE 'Version:[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+' "$tmp" | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || true)"
+        if [ -n "$current" ]; then
+            major="${current%%.*}"
+            rest="${current#*.}"
+            minor="${rest%%.*}"
+            patch="${rest##*.}"
+            patch=$((patch + 1))
+            next="${major}.${minor}.${patch}"
+            sed "s#\(Version:\)[[:space:]]*[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*#\1 ${next}#" "$tmp" > "${tmp}.v"
+            mv "${tmp}.v" "$tmp"
+        fi
+    fi
+
+    if ! cmp -s "$file" "$tmp"; then
+        cp "$tmp" "$file"
+        git add "$file"
+    fi
+    rm -f "$tmp"
+done
+
+staged_lock() {
+    printf '%s\n' "$staged_files" | grep -qx "$1"
+}
+
+if staged_lock 'composer.lock'; then
+    if command -v composer >/dev/null 2>&1; then
+        echo 'pre-commit: composer audit'
+        composer audit || {
+            echo 'pre-commit: composer audit failed — resolve advisories before committing.' >&2
+            exit 1
+        }
+    fi
+fi
+
+if staged_lock 'package-lock.json'; then
+    if command -v npm >/dev/null 2>&1; then
+        echo 'pre-commit: npm audit --audit-level=high'
+        npm audit --audit-level=high || {
+            echo 'pre-commit: high-severity npm advisories found — resolve before committing.' >&2
+            exit 1
+        }
+    fi
+fi
+
+if staged_lock 'composer.lock' || staged_lock 'package-lock.json'; then
+    if command -v osv-scanner >/dev/null 2>&1; then
+        echo 'pre-commit: osv-scanner (warning only)'
+        osv-scanner --lockfile=composer.lock --lockfile=package-lock.json \
+            || echo 'pre-commit: osv-scanner reported findings (warning only).' >&2
+    fi
+fi
+
+exit 0

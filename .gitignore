@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Kadoorie Livewire Components
+# ---------------------------------------------------------------------------
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Build / generated
+#   NOTE: resources/dist/kadoorie.css IS committed (publishable asset) — do not ignore it.
+/build/
+/workbench/build/
+
+# PHP tooling caches
+/.phpunit.cache/
+.phpunit.result.cache
+/.pest/
+.php-cs-fixer.cache
+/.phpstan.cache/
+phpstan.cache
+
+# Coverage reports
+/coverage/
+coverage.xml
+.coverage/
+/tests/coverage/
+
+# JavaScript / Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/blob-report/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.backup
+.env.*.local
+
+# OS / editor cruft
+.DS_Store
+.DS_Store?
+Thumbs.db
+/.idea/
+/.vscode/
+*.swp
+*~
+
+# Claude Code local settings (keep shared .claude/settings.json tracked)
+/.claude/settings.local.json
+
+# ui-ux-pro-max is a ~1.8MB third-party design tool, not project source.
+# Reinstall from: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+/.claude/skills/ui-ux-pro-max/

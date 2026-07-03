@@ -1,0 +1,24 @@
+# ---------------------------------------------------------------------------
+# Kadoorie Livewire Components — dev environment
+# Usage:
+#   docker compose build
+#   docker compose up -d
+#   docker exec kadoorie-app composer install
+#   docker exec kadoorie-app ./vendor/bin/pint --dirty --format agent
+#   docker exec kadoorie-app php artisan test --compact   # via Testbench workbench
+# ---------------------------------------------------------------------------
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kadoorie/livewire-components-dev:php8.3
+    container_name: kadoorie-app
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    tty: true
+    stdin_open: true
+    command: sleep infinity
+    ports:
+      - "8000:8000" # Testbench workbench demo (Phase 6)

@@ -1,0 +1,9 @@
+.git
+vendor
+node_modules
+.idea
+.vscode
+docs/showcase
+test-results
+playwright-report
+.claude/skills/ui-ux-pro-max

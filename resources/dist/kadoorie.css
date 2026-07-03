@@ -744,6 +744,10 @@ body {
   margin: -0.25rem;
 }
 
+.-mb-px {
+  margin-bottom: -1px;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -868,6 +872,11 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -928,12 +937,26 @@ body {
   gap: 1rem;
 }
 
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-border > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--kad-color-border);
+}
+
 .self-stretch {
   align-self: stretch;
 }
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .whitespace-nowrap {
@@ -968,6 +991,10 @@ body {
   border-bottom-width: 1px;
 }
 
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
 .border-t {
   border-top-width: 1px;
 }
@@ -986,6 +1013,10 @@ body {
 
 .border-success {
   border-color: var(--kad-color-success);
+}
+
+.border-transparent {
+  border-color: transparent;
 }
 
 .border-warning {
@@ -1123,8 +1154,20 @@ body {
   padding-bottom: 0.75rem;
 }
 
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
 .pr-10 {
   padding-right: 2.5rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .align-middle {
@@ -1253,6 +1296,10 @@ body {
 
 .ring-surface {
   --tw-ring-color: var(--kad-color-surface);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
@@ -1386,6 +1433,14 @@ body {
 
 .peer:disabled ~ .peer-disabled\:opacity-50 {
   opacity: 0.5;
+}
+
+.aria-selected\:border-primary[aria-selected="true"] {
+  border-color: var(--kad-color-primary);
+}
+
+.aria-selected\:text-primary[aria-selected="true"] {
+  color: var(--kad-color-primary);
 }
 
 .aria-\[invalid\=true\]\:border-danger[aria-invalid="true"] {

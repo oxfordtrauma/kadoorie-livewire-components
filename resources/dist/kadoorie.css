@@ -879,6 +879,10 @@ body {
   width: 1px;
 }
 
+.min-w-11 {
+  min-width: 2.75rem;
+}
+
 .min-w-44 {
   min-width: 11rem;
 }
@@ -916,6 +920,10 @@ body {
 .rotate-180 {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
 }
 
 .cursor-pointer {
@@ -1157,6 +1165,11 @@ body {
   padding: 2rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1304,6 +1317,10 @@ body {
 
 .text-text-body {
   color: var(--kad-color-text-body);
+}
+
+.text-text-disabled {
+  color: var(--kad-color-text-disabled);
 }
 
 .text-text-muted {

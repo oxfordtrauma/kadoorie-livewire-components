@@ -149,7 +149,7 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 |---|---|---|---|---|---|
 | 0 | Test harness bootstrap | — | — | 5 | ✅ |
 | 1A | Functional: form controls | 0 | 1B,1C,1D,1E | 3 | ✅ |
-| 1B | Functional: feedback & overlays | 0 | 1A,1C,1D,1E | 3 | ⬜ |
+| 1B | Functional: feedback & overlays | 0 | 1A,1C,1D,1E | 3 | ✅ |
 | 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ⬜ |
 | 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ⬜ |
 | 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ⬜ |
@@ -234,9 +234,10 @@ projects. Every page-level spec calls `expectNoHorizontalScroll(page)`.
   `aria-checked` with `x-bind` on the non-reactive `$el.checked`, so it never
   updated after interaction (stale state for `role="switch"`); now synced via
   `x-on:change`.
-- **1B Overlays/Feedback** (`overlays.spec.ts`): **Modal focus-trap + return on
+- **1B Overlays/Feedback** (`overlays.spec.ts`) ✅: **Modal focus-trap + return on
   Esc/backdrop**, scroll lock; Toast appears on event, auto-dismisses, **pauses on
-  hover**; Tooltip hover/focus + Esc; Alert dismiss.
+  hover**; Tooltip hover/focus + Esc; Alert dismiss. Modal/Toast are driven via
+  `Livewire.dispatch(...)` from the page (no trigger button in the gallery).
 - **1C Layout/Nav** (`nav.spec.ts`, `tabs.spec.ts`, `accordion.spec.ts`): **1920 =
   inline bar, no toggle**; **360/768 = hamburger, sheet hidden→toggled, focus moves
   in, Esc closes + returns focus**; **sticky vs non-sticky scroll assertion**; Tabs

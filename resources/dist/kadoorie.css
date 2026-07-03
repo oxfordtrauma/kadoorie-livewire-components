@@ -801,6 +801,10 @@ body {
   margin-top: 0.75rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -909,6 +913,10 @@ body {
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 .max-w-sm {
@@ -1278,6 +1286,11 @@ body {
   line-height: 1.33;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-base {
   font-size: var(--kad-text-base);
   line-height: 1.43;
@@ -1301,6 +1314,10 @@ body {
 .text-xs {
   font-size: var(--kad-text-xs);
   line-height: 1.5;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .font-medium {

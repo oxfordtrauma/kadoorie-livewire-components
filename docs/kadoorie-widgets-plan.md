@@ -160,7 +160,7 @@ W6 Showcase tests, docs & final sweep (3) ── showcase functional + WCAG spec
 | W1 | Profile menu (+ Dropdown triggerClass) | W0 | W2,W3 | 3 | ✅ |
 | W2 | Footer | W0 | W1,W3 | 3 | ✅ |
 | W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ✅ |
-| W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ⬜ |
+| W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ✅ |
 | W5 | Interactive showcase admin shell | W1–W3 | W4 | 8 | ⬜ |
 | W6 | Showcase tests, docs & final sweep | W4,W5 | — | 3 | ⬜ |
 | | **Total** | | | **32** | |
@@ -288,17 +288,21 @@ test('opens the profile menu and exposes change-details and logout', async ({ pa
 ### Phase W4 — Filament Recolour Theme (v3 + v4) · 8 pts
 
 **Tasks**
-- [ ] `resources/filament/kadoorie-v3.css` + `kadoorie-v4.css`: map Filament colour/
-      radius/font variables to `--kad-*` (import `tokens.css`); brand primary,
-      surfaces, borders, Inter, radii.
-- [ ] `src/Filament/KadoorieColors.php`: `primary(): array` returns the 50–950 shade
-      ramp (hex) for `FilamentColor::register()`; no hard Filament dependency
-      (`filament/support` as `require-dev` + `suggest`).
-- [ ] Publish tag `kadoorie-filament` (both CSS files → app theme dir).
-- [ ] `docs/filament.md`: v3 (Vite theme import + `FilamentColor::register`) and v4
-      (CSS-first theme reference) install steps; note the recolour scope.
-- [ ] Pest: the `kadoorie-filament` tag publishes both files; each CSS contains the
-      Kadoorie primary token; `KadoorieColors::primary()` returns 11 shades.
+- [x] `resources/filament/kadoorie-v3.css` + `kadoorie-v4.css`: import `tokens.css`
+      and map Filament typography (Inter), surfaces, borders, radii, and primary to
+      `--kad-*` (v3 via `.fi-*` overrides, v4 via `@theme` + `--primary-*`).
+- [x] `src/Filament/KadoorieColors.php`: `primary(): array` returns the 50–950 ramp
+      as Filament's native **RGB-channel strings** (so it needs no `filament/support`
+      import) anchored on `#aa1a2d` at shade 700.
+- [x] Publish tag `kadoorie-filament` → `resource_path('css/filament/kadoorie')`.
+- [x] `docs/filament.md`: v3 (theme import + `FilamentColor::register`) and v4
+      (CSS-first) install steps + recolour scope.
+- [x] `FilamentThemeTest`: 11-shade ramp with channel format, shade-700 anchor,
+      both CSS files reference `tokens.css` + `--kad-color-primary`, publish tag
+      registered. **Deviation**: `filament/support` added to `suggest` only (not
+      `require-dev`) — the tests don't use Filament classes, and require-dev would
+      force a lock update pulling the whole Filament tree (risking CI's
+      `composer install`); the theme is verified manually in a host panel (A5).
 
 **DoD**: standard (minus Playwright — Filament theme has no showcase page; validated
 by publish/asset Pest + documented manual verification in a Filament app).

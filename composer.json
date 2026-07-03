@@ -17,6 +17,9 @@
         "pestphp/pest-plugin-laravel": "^3.0",
         "roave/security-advisories": "dev-latest"
     },
+    "suggest": {
+        "filament/support": "Apply the Kadoorie recolour theme to Filament v3/v4 panels (see docs/filament.md)."
+    },
     "autoload": {
         "psr-4": {
             "Kadoorie\\LivewireComponents\\": "src/"

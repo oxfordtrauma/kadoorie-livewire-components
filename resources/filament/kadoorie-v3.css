@@ -1,0 +1,55 @@
+/**
+ * Project: Kadoorie Livewire Components
+ * File: kadoorie-v3.css
+ * User: dappelbe
+ * Created: 2026-07-03
+ * Last updated by: dappelbe
+ * Last updated on: 2026-07-03
+ * Version: 0.1.0
+ */
+
+/*
+ * Kadoorie recolour theme for Filament v3.
+ *
+ * Import this file from your panel's theme CSS (for example
+ * resources/css/filament/admin/theme.css) after the Filament + Tailwind
+ * directives, then register the brand colour ramp in a service provider:
+ *
+ *   FilamentColor::register(['primary' => KadoorieColors::primary()]);
+ *
+ * This file aligns typography, surfaces, borders, and radii with the Kadoorie
+ * design tokens; the primary colour ramp itself is registered in PHP above.
+ */
+
+@import '../css/tokens.css';
+
+:root {
+    --font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.fi-body {
+    background-color: var(--kad-color-bg);
+    color: var(--kad-color-text-body);
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.fi-sidebar,
+.fi-topbar > nav,
+.fi-section,
+.fi-ta-ctn {
+    background-color: var(--kad-color-surface);
+    border-color: var(--kad-color-border);
+}
+
+.fi-sidebar-item-button:hover {
+    background-color: var(--kad-color-surface-muted);
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-button {
+    color: var(--kad-color-primary);
+    background-color: var(--kad-color-primary-subtle);
+}
+
+.fi-link {
+    color: var(--kad-color-primary);
+}

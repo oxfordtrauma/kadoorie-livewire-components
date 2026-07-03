@@ -44,6 +44,10 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/dist' => public_path('vendor/kadoorie'),
         ], 'kadoorie-styles');
+
+        $this->publishes([
+            __DIR__ . '/../resources/filament' => resource_path('css/filament/kadoorie'),
+        ], 'kadoorie-filament');
     }
 
     private function registerBladeComponents(): void

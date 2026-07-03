@@ -1,0 +1,36 @@
+/**
+ * Project: Kadoorie Livewire Components
+ * File: kadoorie-v4.css
+ * User: dappelbe
+ * Created: 2026-07-03
+ * Last updated by: dappelbe
+ * Last updated on: 2026-07-03
+ * Version: 0.1.0
+ */
+
+/*
+ * Kadoorie recolour theme for Filament v4 (CSS-first theming).
+ *
+ * Reference this file from your panel theme and register the brand ramp in a
+ * service provider:
+ *
+ *   FilamentColor::register(['primary' => KadoorieColors::primary()]);
+ *
+ * The @theme block aligns typography and radii with the Kadoorie tokens; the
+ * :root overrides map Filament's primary CSS variables onto the brand tokens
+ * for anything not covered by the registered ramp.
+ */
+
+@import '../css/tokens.css';
+
+@theme {
+    --font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius-lg: var(--kad-radius-lg, 0.5rem);
+}
+
+:root {
+    --primary-50: var(--kad-color-primary-subtle);
+    --primary-500: var(--kad-color-primary);
+    --primary-600: var(--kad-color-primary);
+    --primary-700: var(--kad-color-primary-emphasis);
+}

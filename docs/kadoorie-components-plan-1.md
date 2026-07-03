@@ -416,8 +416,8 @@ Phase 0B Design Token Layer + Icon System (6)      ── tokens (done, §5) + L
 | 3 | Layout & content (incl. responsive Nav collapse + sticky) | 0B | 1,2,4 | 16 | ✅ Complete |
 | 4 | Data display | 0B | 1,2,3 | 14 | ✅ Complete |
 | 5 | Page templates | 1,2,3 | — | 10 | ✅ Complete |
-| 6 | Integration & workbench demo | 1–5 | — | 6 | ⬜ Next |
-| 7 | Static showcase & user guides | 6 | — | 11 | ⬜ |
+| 6 | Integration & workbench demo | 1–5 | — | 6 | ✅ Complete |
+| 7 | Static showcase & user guides | 6 | — | 11 | ⬜ Next |
 | 8 | Release | 7 | — | 3 | ⬜ |
 | | **Total** | | | **98** | |
 

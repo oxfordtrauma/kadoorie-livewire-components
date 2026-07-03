@@ -1,0 +1,12 @@
+providers:
+  - Livewire\LivewireServiceProvider
+  - Kadoorie\LivewireComponents\KadoorieComponentsServiceProvider
+
+workbench:
+  start: '/'
+  install: false
+  discovers:
+    web: true
+
+env:
+  - APP_NAME="Kadoorie Components Workbench"

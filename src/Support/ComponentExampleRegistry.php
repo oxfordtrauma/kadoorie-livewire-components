@@ -114,6 +114,8 @@ final class ComponentExampleRegistry
 
             ['component' => 'profile-menu', 'title' => 'Account menu', 'snippet' => '<x-kadoorie::profile-menu name="Jane Doe" email="jane@example.com" initials="JD" change-details-url="#" logout-url="#" />'],
 
+            ['component' => 'footer', 'title' => 'Site footer', 'snippet' => '<x-kadoorie::footer brand="Kadoorie" tagline="Accessible Livewire components in the Kadoorie style." :columns="[[\'heading\' => \'Product\', \'links\' => [[\'label\' => \'Components\', \'url\' => \'#\'], [\'label\' => \'Showcase\', \'url\' => \'#\']]], [\'heading\' => \'Resources\', \'links\' => [[\'label\' => \'User guide\', \'url\' => \'#\'], [\'label\' => \'Changelog\', \'url\' => \'#\']]], [\'heading\' => \'Company\', \'links\' => [[\'label\' => \'About\', \'url\' => \'#\'], [\'label\' => \'Contact\', \'url\' => \'#\']]]]" copyright="© 2026 Kadoorie" :legal-links="[[\'label\' => \'Privacy\', \'url\' => \'#\'], [\'label\' => \'Terms\', \'url\' => \'#\']]" />'],
+
             ['component' => 'pagination', 'title' => 'Windowed', 'snippet' => '@php($paginator = new \Illuminate\Pagination\LengthAwarePaginator(range(1, 10), 95, 10, 4, [\'path\' => \'#\']))' . "\n" . '<x-kadoorie::pagination :paginator="$paginator" />'],
 
             ['component' => 'error-page', 'title' => '404', 'snippet' => '<x-kadoorie::error-page :status="404" />'],

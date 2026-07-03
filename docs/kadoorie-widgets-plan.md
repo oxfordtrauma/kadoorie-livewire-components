@@ -158,7 +158,7 @@ W6 Showcase tests, docs & final sweep (3) ── showcase functional + WCAG spec
 |---|---|---|---|---|---|
 | W0 | Tone solid palette | testing-plan | — | 2 | ✅ |
 | W1 | Profile menu (+ Dropdown triggerClass) | W0 | W2,W3 | 3 | ✅ |
-| W2 | Footer | W0 | W1,W3 | 3 | ⬜ |
+| W2 | Footer | W0 | W1,W3 | 3 | ✅ |
 | W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ⬜ |
 | W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ⬜ |
 | W5 | Interactive showcase admin shell | W1–W3 | W4 | 8 | ⬜ |
@@ -238,14 +238,13 @@ test('opens the profile menu and exposes change-details and logout', async ({ pa
 ### Phase W2 — Footer · 3 pts
 
 **Tasks**
-- [ ] `src/View/Components/Footer.php` + `footer.blade.php`: `<footer
-      role="contentinfo">` with a brand/tagline block, a responsive grid of link
-      columns (`:columns` = `[['heading','links'=>[['label','url']]]]`), and a legal
-      bar (`copyright` + `:legalLinks`). Kadoorie tokens; stacks to one column on
-      mobile (no h-scroll).
-- [ ] Register `ComponentExample`; Pest (contentinfo, columns, legal, links);
-      `tests/Playwright/footer.spec.ts` (renders, links reachable, no h-scroll at
-      each viewport).
+- [x] `Footer.php` + `footer.blade.php`: `<footer role="contentinfo">` with a
+      brand/tagline block, a `md:grid-cols-4` grid of data-driven link columns
+      (`:columns` = `[['heading','links'=>[['label','url']]]]`), and an optional
+      legal bar (`copyright` + `:legalLinks`). Stacks to one column below md.
+- [x] Registered `ComponentExample`; `FooterTest` (contentinfo, columns, links,
+      legal bar, omission when empty); `footer.spec.ts` (every column + legal link
+      has an href, no h-scroll). WCAG green at mobile + desktop.
 
 **DoD**: standard. **Commit**: `feat: Add configurable multi-column Footer`
 

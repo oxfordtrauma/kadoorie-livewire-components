@@ -32,6 +32,11 @@
  * are never purged, regardless of the host's content configuration.
  */
 
+/* Hide Alpine-cloaked elements (tooltip, toast) until Alpine initialises. */
+[x-cloak] {
+  display: none !important;
+}
+
 /* Always-visible focus ring (never removed). */
 .kad-focusable:focus-visible {
   outline: 2px solid transparent;

@@ -148,7 +148,7 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 | Phase | Name | Depends on | Parallel with | Estimate | Status |
 |---|---|---|---|---|---|
 | 0 | Test harness bootstrap | — | — | 5 | ✅ |
-| 1A | Functional: form controls | 0 | 1B,1C,1D,1E | 3 | ⬜ |
+| 1A | Functional: form controls | 0 | 1B,1C,1D,1E | 3 | ✅ |
 | 1B | Functional: feedback & overlays | 0 | 1A,1C,1D,1E | 3 | ⬜ |
 | 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ⬜ |
 | 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ⬜ |
@@ -228,9 +228,12 @@ Parallelizable sub-agents; each writes `tests/Playwright/<area>.spec.ts` using
 `data-test` selectors against the live workbench, run by the three `functional-*`
 projects. Every page-level spec calls `expectNoHorizontalScroll(page)`.
 
-- **1A Forms** (`forms.spec.ts`): label↔control focus, keyboard entry, error
+- **1A Forms** (`forms.spec.ts`) ✅: label↔control focus, keyboard entry, error
   `aria-invalid`/`aria-describedby`, toggle Space, radio arrow-group, select
-  keyboard, ≥44px targets.
+  keyboard, ≥44px targets. **Fixed a real defect**: the Toggle bound
+  `aria-checked` with `x-bind` on the non-reactive `$el.checked`, so it never
+  updated after interaction (stale state for `role="switch"`); now synced via
+  `x-on:change`.
 - **1B Overlays/Feedback** (`overlays.spec.ts`): **Modal focus-trap + return on
   Esc/backdrop**, scroll lock; Toast appears on event, auto-dismisses, **pauses on
   hover**; Tooltip hover/focus + Esc; Alert dismiss.

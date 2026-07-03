@@ -1,6 +1,8 @@
 {{-- Accessible switch: a native checkbox (keyboard + wire:model friendly)
      with role="switch"; the visual track/thumb are driven by peer-checked.
-     Alpine keeps aria-checked in sync at runtime. Inherits field state via @aware. --}}
+     Alpine syncs aria-checked on every change so assistive tech reads the live
+     state (role="switch" exposes state via aria-checked). Inherits field state
+     via @aware. --}}
 @aware(['error' => null, 'hint' => null])
 @php($describedBy = $describedBy(filled($hint), filled($error)))
 <label
@@ -17,7 +19,7 @@
             data-test="{{ $name }}-toggle"
             aria-checked="{{ $checked ? 'true' : 'false' }}"
             x-data
-            x-bind:aria-checked="$el.checked ? 'true' : 'false'"
+            x-on:change="$el.setAttribute('aria-checked', $el.checked ? 'true' : 'false')"
             @checked($checked)
             @disabled($disabled)
             @required($required)

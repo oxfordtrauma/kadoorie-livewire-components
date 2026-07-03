@@ -16,6 +16,7 @@ namespace Kadoorie\LivewireComponents;
 
 use Illuminate\Support\Facades\Blade;
 use Kadoorie\LivewireComponents\Livewire\Modal;
+use Kadoorie\LivewireComponents\Livewire\Toast;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -49,5 +50,6 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
     private function registerLivewireComponents(): void
     {
         Livewire::component('kadoorie::modal', Modal::class);
+        Livewire::component('kadoorie::toast', Toast::class);
     }
 }

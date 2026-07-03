@@ -12,6 +12,15 @@ components implementing the **Kadoorie look and feel** for Laravel applications.
 > Status: in active development. See the implementation plan under
 > [`docs/kadoorie-components-plan-1.md`](docs/kadoorie-components-plan-1.md).
 
+## Documentation
+
+- [User guide](docs/user-guide.md) — installation, publishing, theming,
+  accessibility, and a catalogue of every component.
+- [Data-binding guide](docs/data-binding.md) — how to push data into Blade and
+  Livewire components (props, slots, `wire:model`, events, Alpine).
+- [Static showcase](docs/showcase/index.html) — a rendered gallery of every
+  component, generated with `php artisan kadoorie:build-showcase`.
+
 ## Requirements
 
 - PHP `^8.3`

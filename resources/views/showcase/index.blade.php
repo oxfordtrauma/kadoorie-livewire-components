@@ -1,23 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        @include('kadoorie::showcase.partials.head', ['title' => 'Component gallery'])
-    </head>
-    <body class="bg-bg text-text-body">
-        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
-            <header class="mb-8">
-                <h1 class="text-3xl font-semibold text-text">Kadoorie Components</h1>
-                <p class="mt-1 text-sm text-text-muted">
-                    A static gallery of every component. Alpine-driven components are interactive;
-                    Livewire components show their markup and initial state.
-                </p>
-            </header>
+@extends('kadoorie::showcase.layout')
 
-            <ul
-                data-test="showcase-index"
-                class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
-            >
-                @foreach ($components as $component)
+@section('content')
+    <header class="mb-6">
+        <h1 data-test="showcase-heading" class="text-3xl font-semibold text-text">Component dashboard</h1>
+        <p class="mt-1 text-sm text-text-muted">
+            A live gallery of every Kadoorie component — the shell, widgets, and previews are built
+            from the components themselves.
+        </p>
+    </header>
+
+    <div class="mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-test="showcase-hero">
+        <x-kadoorie::small-box tone="primary" value="{{ count($allComponents) }}" label="Components" icon="menu" />
+        <x-kadoorie::small-box tone="success" value="AA" label="WCAG 2.1" icon="circle-check" />
+        <x-kadoorie::small-box tone="info" value="3" label="Livewire" icon="info" />
+        <x-kadoorie::small-box tone="warning" value="3" label="Viewports" icon="triangle-alert" />
+    </div>
+
+    <div class="mb-8 grid gap-4 sm:grid-cols-2">
+        <x-kadoorie::info-box tone="primary" icon="circle-check" label="Test coverage" value="3 layers" description="Pest feature, Playwright functional, and WCAG axe." />
+        <x-kadoorie::info-box tone="accent" icon="info" label="Theming" value="Design tokens" :progress="100" description="Override any --kad-* token to retheme." />
+    </div>
+
+    @foreach ($navigation as $category => $items)
+        <section class="mb-6" data-test="showcase-category">
+            <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-text-muted">{{ $category }}</h2>
+            <ul data-test="showcase-index" class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach ($items as $component)
                     <li>
                         <a
                             href="{{ $component }}.html"
@@ -29,7 +37,6 @@
                     </li>
                 @endforeach
             </ul>
-        </main>
-        @include('kadoorie::showcase.partials.scripts')
-    </body>
-</html>
+        </section>
+    @endforeach
+@endsection

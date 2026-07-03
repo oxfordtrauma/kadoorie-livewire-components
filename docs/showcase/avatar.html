@@ -6,26 +6,573 @@
 <title>Avatar — Kadoorie Components</title>
 <link rel="stylesheet" href="kadoorie.css" />
     </head>
-    <body class="bg-bg text-text-body">
-        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
-            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
-                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
-                    &larr; All components
+    <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
+        <a
+            href="#main-content"
+            class="sr-only rounded bg-surface px-3 py-2 text-sm font-medium text-primary focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50"
+        >
+            Skip to content
+        </a>
+
+        <header
+            data-test="showcase-topbar"
+            class="sticky top-0 z-30 flex min-h-14 items-center gap-3 border-b border-border bg-surface px-4"
+        >
+            <button
+                type="button"
+                data-test="showcase-sidebar-toggle"
+                aria-label="Toggle navigation"
+                aria-controls="showcase-sidebar"
+                x-bind:aria-expanded="sidebar ? 'true' : 'false'"
+                x-on:click="sidebar = ! sidebar"
+                class="kad-focusable inline-flex size-11 items-center justify-center rounded-md text-text lg:hidden"
+            >
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+            </button>
+
+            <a href="index.html" data-test="showcase-brand" class="flex items-center gap-2 font-semibold text-text">
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-primary"
+>
+        <path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>
+</svg>
+                Kadoorie Components
+            </a>
+
+            <span class="ml-auto text-xs text-text-muted" data-test="showcase-count">
+                33 components
+            </span>
+        </header>
+
+        <div class="mx-auto flex max-w-container flex-col lg:flex-row">
+            <nav
+                id="showcase-sidebar"
+                data-test="showcase-sidebar"
+                aria-label="Components"
+                x-bind:class="{ '!block': sidebar }"
+                class="hidden border-b border-border bg-surface p-3 lg:sticky lg:top-14 lg:block lg:max-h-[calc(100dvh-3.5rem)] lg:w-60 lg:shrink-0 lg:self-start lg:overflow-y-auto lg:border-b-0 lg:border-r"
+            >
+                <a
+                    href="index.html"
+                    data-test="showcase-nav-dashboard"
+                    class="kad-focusable flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                >
+                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+                    Dashboard
                 </a>
-            </nav>
 
-            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
-                Avatar
-            </h1>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Forms
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="label.html"
+                                    data-test="showcase-nav-label"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    label
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="field.html"
+                                    data-test="showcase-nav-field"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    field
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="input.html"
+                                    data-test="showcase-nav-input"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    input
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="textarea.html"
+                                    data-test="showcase-nav-textarea"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    textarea
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="select.html"
+                                    data-test="showcase-nav-select"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    select
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="checkbox.html"
+                                    data-test="showcase-nav-checkbox"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    checkbox
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="radio.html"
+                                    data-test="showcase-nav-radio"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    radio
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="toggle.html"
+                                    data-test="showcase-nav-toggle"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    toggle
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Actions
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="button.html"
+                                    data-test="showcase-nav-button"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    button
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="dropdown.html"
+                                    data-test="showcase-nav-dropdown"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    dropdown
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="profile-menu.html"
+                                    data-test="showcase-nav-profile-menu"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    profile menu
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Feedback
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="alert.html"
+                                    data-test="showcase-nav-alert"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    alert
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="toast.html"
+                                    data-test="showcase-nav-toast"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    toast
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="tooltip.html"
+                                    data-test="showcase-nav-tooltip"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    tooltip
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="spinner.html"
+                                    data-test="showcase-nav-spinner"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    spinner
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="modal.html"
+                                    data-test="showcase-nav-modal"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    modal
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Navigation
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="nav.html"
+                                    data-test="showcase-nav-nav"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    nav
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="breadcrumbs.html"
+                                    data-test="showcase-nav-breadcrumbs"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    breadcrumbs
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="tabs.html"
+                                    data-test="showcase-nav-tabs"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    tabs
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="accordion.html"
+                                    data-test="showcase-nav-accordion"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    accordion
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="pagination.html"
+                                    data-test="showcase-nav-pagination"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    pagination
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Data display
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="badge.html"
+                                    data-test="showcase-nav-badge"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    badge
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="card.html"
+                                    data-test="showcase-nav-card"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    card
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="avatar.html"
+                                    data-test="showcase-nav-avatar"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                >
+                                    avatar
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="divider.html"
+                                    data-test="showcase-nav-divider"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    divider
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="data-table.html"
+                                    data-test="showcase-nav-data-table"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    data table
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="empty-state.html"
+                                    data-test="showcase-nav-empty-state"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    empty state
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Widgets
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="small-box.html"
+                                    data-test="showcase-nav-small-box"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    small box
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="info-box.html"
+                                    data-test="showcase-nav-info-box"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    info box
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Layout
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="footer.html"
+                                    data-test="showcase-nav-footer"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    footer
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Pages
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="login.html"
+                                    data-test="showcase-nav-login"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    login
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="error-page.html"
+                                    data-test="showcase-nav-error-page"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    error page
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Media
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="icon.html"
+                                    data-test="showcase-nav-icon"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    icon
+                                </a>
+                            </li>
+                                            </ul>
+                            </nav>
 
-            <div class="flex flex-col gap-6">
-                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
-                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
-                            Initials + presence
-                        </h2>
+            <main id="main-content" class="min-w-0 flex-1 px-4 py-8">
+                                    <nav aria-label="Breadcrumb" data-test="breadcrumbs" class="mb-4">
+    <ol class="flex flex-wrap items-center gap-1 text-sm text-text-muted">
+                    <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
+                                    <a
+                        href="index.html"
+                        data-test="breadcrumb-link"
+                        class="kad-focusable rounded hover:text-primary hover:underline"
+                    >
+                        Dashboard
+                    </a>
+                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-text-muted-large"
+>
+        <path d="m9 18 6-6-6-6"/>
+</svg>
+                            </li>
+                    <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
+                                    <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
+                        Avatar
+                    </span>
+                            </li>
+            </ol>
+</nav>
+                
+                    <header class="mb-6">
+        <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
+            Avatar
+        </h1>
+    </header>
 
-                                                    <div class="p-4">
-                                <span
+    <div class="flex flex-col gap-6">
+                    
+                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Initials + presence</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Initials + presence view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-c203193e-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-c203193e-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-c203193e-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-c203193e-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-c203193e-panel-preview"
+    aria-labelledby="ex-c203193e-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <span
     data-test="avatar"
     class="relative inline-flex shrink-0 size-12 text-base"
 >
@@ -46,13 +593,40 @@
         <span class="sr-only">Online</span>
     </span>
 
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-c203193e-panel-code"
+    aria-labelledby="ex-c203193e-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::avatar alt=&quot;Jane Doe&quot; initials=&quot;JD&quot; presence=&quot;online&quot; size=&quot;lg&quot; /&gt;</code></pre>
                             </div>
-                        
-                        
-                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::avatar alt=&quot;Jane Doe&quot; initials=&quot;JD&quot; presence=&quot;online&quot; size=&quot;lg&quot; /&gt;</code></pre>
-                    </article>
-                            </div>
-        </main>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+            </div>
+            </main>
+        </div>
+
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>

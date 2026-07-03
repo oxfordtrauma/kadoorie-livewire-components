@@ -1,48 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        @include('kadoorie::showcase.partials.head', ['title' => $heading])
-    </head>
-    <body class="bg-bg text-text-body">
-        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
-            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
-                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
-                    &larr; All components
-                </a>
-            </nav>
+@extends('kadoorie::showcase.layout')
 
-            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
-                {{ str_replace('-', ' ', $heading) }}
-            </h1>
+@section('content')
+    <header class="mb-6">
+        <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
+            {{ str_replace('-', ' ', $heading) }}
+        </h1>
+    </header>
 
-            <div class="flex flex-col gap-6">
-                @foreach ($examples as $example)
-                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
-                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
-                            {{ $example->title }}
-                        </h2>
+    <div class="flex flex-col gap-6">
+        @foreach ($examples as $example)
+            {{-- Alias before the <x-...> slot: inside a component slot $component is
+                 reserved (the component instance), so the demo needs its own name. --}}
+            @php($componentName = $component)
+            @php($exampleId = substr(md5($component . '-' . $example->title), 0, 8))
+            <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">{{ $example->title }}</h2>
+                </div>
 
-                        @if ($example->isLivewire())
-                            <p
-                                role="note"
-                                data-test="showcase-livewire-note"
-                                class="border-b border-border bg-info-subtle px-4 py-2 text-xs text-text-body"
-                            >
-                                This is a Livewire component. Its full interactive behaviour needs a
-                                Livewire runtime; the source is shown below.
-                            </p>
-                        @else
-                            <div class="p-4">
-                                {!! \Illuminate\Support\Facades\Blade::render($example->snippet) !!}
+                <div class="p-4">
+                    <x-kadoorie::tabs
+                        id="ex-{{ $exampleId }}"
+                        label="{{ $example->title }} view"
+                        :tabs="[['id' => 'preview', 'label' => 'Preview'], ['id' => 'code', 'label' => 'Code']]"
+                    >
+                        <x-kadoorie::tab-panel tab="preview" group="ex-{{ $exampleId }}">
+                            <div data-test="showcase-preview" class="pt-4">
+                                @if ($example->isLivewire())
+                                    @include('kadoorie::showcase.partials.demo', ['component' => $componentName])
+                                @else
+                                    {!! \Illuminate\Support\Facades\Blade::render($example->snippet) !!}
+                                @endif
                             </div>
-                        @endif
+                        </x-kadoorie::tab-panel>
 
-                        {{-- tabindex makes the horizontally scrollable code block keyboard-operable (WCAG 2.1.1). --}}
-                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>{{ $example->snippet }}</code></pre>
-                    </article>
-                @endforeach
-            </div>
-        </main>
-        @include('kadoorie::showcase.partials.scripts')
-    </body>
-</html>
+                        <x-kadoorie::tab-panel tab="code" group="ex-{{ $exampleId }}">
+                            <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>{{ $example->snippet }}</code></pre>
+                            </div>
+                        </x-kadoorie::tab-panel>
+                    </x-kadoorie::tabs>
+                </div>
+            </article>
+        @endforeach
+    </div>
+@endsection

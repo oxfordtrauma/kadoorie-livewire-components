@@ -24,6 +24,25 @@ final class BuildShowcaseCommand extends Command
 
     protected $description = 'Render every registered component example to static HTML.';
 
+    /**
+     * Sidebar grouping for the admin-shell navigation. Any registered component
+     * not listed here falls through to an "Other" group, so this never drops a
+     * component from the sidebar.
+     *
+     * @var array<string, array<int, string>>
+     */
+    private const CATEGORIES = [
+        'Forms' => ['label', 'field', 'input', 'textarea', 'select', 'checkbox', 'radio', 'toggle'],
+        'Actions' => ['button', 'dropdown', 'profile-menu'],
+        'Feedback' => ['alert', 'toast', 'tooltip', 'spinner', 'modal'],
+        'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'pagination'],
+        'Data display' => ['badge', 'card', 'avatar', 'divider', 'data-table', 'empty-state'],
+        'Widgets' => ['small-box', 'info-box'],
+        'Layout' => ['footer'],
+        'Pages' => ['login', 'error-page'],
+        'Media' => ['icon'],
+    ];
+
     public function handle(): int
     {
         $output = $this->resolveOutput();
@@ -33,10 +52,18 @@ final class BuildShowcaseCommand extends Command
         $this->copyStylesheet($output);
 
         $grouped = ComponentExampleRegistry::grouped();
+        $components = array_keys($grouped);
+        $navigation = $this->navigation($components);
 
         File::put(
             $output . '/index.html',
-            view('kadoorie::showcase.index', ['components' => array_keys($grouped)])->render(),
+            view('kadoorie::showcase.index', [
+                'title' => 'Dashboard',
+                'allComponents' => $components,
+                'navigation' => $navigation,
+                'current' => null,
+                'heading' => null,
+            ])->render(),
         );
 
         foreach ($grouped as $component => $examples) {
@@ -46,6 +73,10 @@ final class BuildShowcaseCommand extends Command
                     'component' => $component,
                     'heading' => ucfirst(str_replace('-', ' ', $component)),
                     'examples' => $examples,
+                    'title' => ucfirst(str_replace('-', ' ', $component)),
+                    'allComponents' => $components,
+                    'navigation' => $navigation,
+                    'current' => $component,
                 ])->render(),
             );
         }
@@ -53,6 +84,39 @@ final class BuildShowcaseCommand extends Command
         $this->info(sprintf('Showcase written to %s (%d component pages).', $output, count($grouped)));
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Build the categorised sidebar navigation, preserving category order and
+     * sweeping any uncategorised components into a trailing "Other" group.
+     *
+     * @param  array<int, string>  $components
+     * @return array<string, array<int, string>>
+     */
+    private function navigation(array $components): array
+    {
+        $navigation = [];
+        $seen = [];
+
+        foreach (self::CATEGORIES as $category => $items) {
+            $present = array_values(array_filter(
+                $items,
+                static fn(string $component): bool => in_array($component, $components, true),
+            ));
+
+            if ($present !== []) {
+                $navigation[$category] = $present;
+                $seen = array_merge($seen, $present);
+            }
+        }
+
+        $other = array_values(array_diff($components, $seen));
+
+        if ($other !== []) {
+            $navigation['Other'] = $other;
+        }
+
+        return $navigation;
     }
 
     private function resolveOutput(): string

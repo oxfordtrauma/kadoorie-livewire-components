@@ -161,7 +161,7 @@ W6 Showcase tests, docs & final sweep (3) ── showcase functional + WCAG spec
 | W2 | Footer | W0 | W1,W3 | 3 | ✅ |
 | W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ✅ |
 | W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ✅ |
-| W5 | Interactive showcase admin shell | W1–W3 | W4 | 8 | ⬜ |
+| W5 | Interactive showcase admin shell | W1–W3 | W4 | 8 | ✅ |
 | W6 | Showcase tests, docs & final sweep | W4,W5 | — | 3 | ⬜ |
 | | **Total** | | | **32** | |
 
@@ -312,21 +312,22 @@ by publish/asset Pest + documented manual verification in a Filament app).
 ### Phase W5 — Interactive Showcase Admin Shell · 8 pts
 
 **Tasks**
-- [ ] `resources/views/showcase/layout.blade.php`: an AdminLTE-v4-style shell built
-      from Kadoorie components — collapsible labelled left-sidebar `nav` (Alpine
-      toggle < md), a top bar, a breadcrumb, and a `<main id="main-content">`.
-- [ ] Rework `BuildShowcaseCommand` + `index.blade.php` into a **dashboard landing**:
-      a hero row of `small-box` + `info-box` widgets, then a category grid of
-      component links.
-- [ ] Rework `component.blade.php`: each example in a `Card` with Alpine
-      **Preview | Code** tabs (`role=tablist`), a copy-to-clipboard button
-      (`navigator.clipboard`, Alpine), and **live behaviour demos** — Alpine
-      reimplementations for the Livewire components (demo dialog open/close, demo
-      toast trigger, static paged table) so behaviour shows with no server.
-- [ ] Optional `highlight.js` via CDN for code colouring; add `resources/js/showcase.js`
-      only if an interaction can't be done in Alpine (ESM + header + ESLint/Prettier;
-      light Jest test for any pure logic).
-- [ ] Regenerate `docs/showcase/`; keep output deterministic (no `wire:` snapshot ids).
+- [x] `showcase/layout.blade.php`: an admin shell built from Kadoorie components —
+      a `lg`-collapsible labelled left-sidebar `nav` (Alpine `sidebar` toggle below
+      lg), a sticky top bar, a dogfooded `<x-kadoorie::breadcrumbs>`, and a
+      `<main id="main-content">`. Both pages `@extends` it.
+- [x] `BuildShowcaseCommand` builds a categorised sidebar (catch-all "Other") and
+      `index.blade.php` is a dashboard: a hero of `small-box` + `info-box` widgets,
+      then the category grid.
+- [x] `component.blade.php`: each example reuses the accessible
+      `<x-kadoorie::tabs>` for **Preview | Code** (roving tablist, free ARIA), an
+      Alpine copy-to-clipboard button, and Alpine demos for the Livewire components
+      (`partials/demo.blade.php`: modal open/close + focus trap, toast trigger;
+      others fall back to a note). **Gotcha fixed**: `$component` is reserved inside
+      a `<x-...>` slot, so the demo name is aliased before the slot.
+- [x] Alpine-first — no bespoke JS file; highlight.js skipped for determinism.
+- [x] Regenerated `docs/showcase/`; deterministic (demos are Alpine, so no
+      volatile `wire:` snapshot ids). Whole shell axe-clean at all three viewports.
 
 **DoD**: standard; the showcase is a coherent admin-shell site, interactive with no
 server, deterministic, and every page renders from the registry.

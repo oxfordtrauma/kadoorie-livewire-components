@@ -190,7 +190,182 @@
 
                             </div>
                         
-                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::nav brand=&quot;Kadoorie&quot; :items=&quot;[[&#039;label&#039; =&gt; &#039;Dashboard&#039;, &#039;url&#039; =&gt; &#039;#&#039;, &#039;active&#039; =&gt; true], [&#039;label&#039; =&gt; &#039;Reports&#039;, &#039;url&#039; =&gt; &#039;#&#039;], [&#039;label&#039; =&gt; &#039;Settings&#039;, &#039;url&#039; =&gt; &#039;#&#039;]]&quot; /&gt;</code></pre>
+                        
+                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::nav brand=&quot;Kadoorie&quot; :items=&quot;[[&#039;label&#039; =&gt; &#039;Dashboard&#039;, &#039;url&#039; =&gt; &#039;#&#039;, &#039;active&#039; =&gt; true], [&#039;label&#039; =&gt; &#039;Reports&#039;, &#039;url&#039; =&gt; &#039;#&#039;], [&#039;label&#039; =&gt; &#039;Settings&#039;, &#039;url&#039; =&gt; &#039;#&#039;]]&quot; /&gt;</code></pre>
+                    </article>
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            Sticky top bar
+                        </h2>
+
+                                                    <div class="p-4">
+                                <nav
+    data-test="nav"
+    aria-label="Main"
+    x-data="{ open: false }"
+    x-on:keydown.escape.window="open = false"
+    class="relative w-full border-b border-border bg-surface sticky top-0 z-40"
+>
+    <a
+        href="#main-content"
+        data-test="nav-skip-link"
+        class="sr-only rounded bg-surface px-3 py-2 text-sm font-medium text-primary focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50"
+    >
+        Skip to content
+    </a>
+
+    <div class="mx-auto flex min-h-14 max-w-container items-center justify-between gap-4 px-4">
+        <a
+            href="/"
+            data-test="nav-brand"
+            class="kad-focusable inline-flex items-center gap-2 rounded font-semibold text-text"
+        >
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-primary"
+>
+        <path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>
+</svg>
+            Kadoorie
+        </a>
+
+        <ul data-test="nav-menu" class="hidden items-center gap-1 md:flex">
+                            <li>
+                    <a
+                        href="#"
+                        data-test="nav-link"
+                         aria-current="page"                         class="kad-focusable inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium bg-primary-subtle text-primary"
+                    >
+                        Dashboard
+                    </a>
+                </li>
+                            <li>
+                    <a
+                        href="#"
+                        data-test="nav-link"
+                                                class="kad-focusable inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                    >
+                        Reports
+                    </a>
+                </li>
+                            <li>
+                    <a
+                        href="#"
+                        data-test="nav-link"
+                                                class="kad-focusable inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                    >
+                        Settings
+                    </a>
+                </li>
+                    </ul>
+
+        <button
+            type="button"
+            data-test="nav-toggle"
+            x-ref="toggle"
+            aria-controls="nav-sheet"
+            aria-expanded="false"
+            aria-label="Open menu"
+            x-bind:aria-expanded="open ? 'true' : 'false'"
+            x-bind:aria-label="open ? 'Close menu' : 'Open menu'"
+            x-on:click="open = ! open"
+            class="kad-focusable inline-flex size-11 items-center justify-center rounded-md text-text md:hidden"
+        >
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle" x-show="! open"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle" x-show="open" x-cloak="x-cloak"
+>
+        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+</svg>
+        </button>
+    </div>
+
+    <div
+        id="nav-sheet"
+        data-test="nav-sheet"
+        role="region"
+        aria-label="Main menu"
+        x-show="open"
+        x-cloak
+        x-trap="open"
+        x-on:click.outside="open = false"
+        class="border-t border-border bg-surface md:hidden"
+    >
+        <ul class="flex flex-col gap-1 px-2 py-2">
+                            <li>
+                    <a
+                        href="#"
+                        data-test="nav-sheet-link"
+                         aria-current="page"                         class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm font-medium bg-primary-subtle text-primary"
+                    >
+                        Dashboard
+                    </a>
+                </li>
+                            <li>
+                    <a
+                        href="#"
+                        data-test="nav-sheet-link"
+                                                class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                    >
+                        Reports
+                    </a>
+                </li>
+                            <li>
+                    <a
+                        href="#"
+                        data-test="nav-sheet-link"
+                                                class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                    >
+                        Settings
+                    </a>
+                </li>
+                    </ul>
+    </div>
+</nav>
+
+                            </div>
+                        
+                        
+                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::nav brand=&quot;Kadoorie&quot; :sticky=&quot;true&quot; :items=&quot;[[&#039;label&#039; =&gt; &#039;Dashboard&#039;, &#039;url&#039; =&gt; &#039;#&#039;, &#039;active&#039; =&gt; true], [&#039;label&#039; =&gt; &#039;Reports&#039;, &#039;url&#039; =&gt; &#039;#&#039;], [&#039;label&#039; =&gt; &#039;Settings&#039;, &#039;url&#039; =&gt; &#039;#&#039;]]&quot; /&gt;</code></pre>
                     </article>
                             </div>
         </main>

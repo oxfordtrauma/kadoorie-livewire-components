@@ -139,7 +139,131 @@
 
                             </div>
                         
-                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::accordion id=&quot;faq&quot;&gt;&lt;x-kadoorie::accordion-item id=&quot;one&quot; heading=&quot;How do I install?&quot; group=&quot;faq&quot;&gt;Via Composer.&lt;/x-kadoorie::accordion-item&gt;&lt;x-kadoorie::accordion-item id=&quot;two&quot; heading=&quot;Is it accessible?&quot; group=&quot;faq&quot;&gt;Yes, WCAG 2.1 AA.&lt;/x-kadoorie::accordion-item&gt;&lt;/x-kadoorie::accordion&gt;</code></pre>
+                        
+                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::accordion id=&quot;faq&quot;&gt;&lt;x-kadoorie::accordion-item id=&quot;one&quot; heading=&quot;How do I install?&quot; group=&quot;faq&quot;&gt;Via Composer.&lt;/x-kadoorie::accordion-item&gt;&lt;x-kadoorie::accordion-item id=&quot;two&quot; heading=&quot;Is it accessible?&quot; group=&quot;faq&quot;&gt;Yes, WCAG 2.1 AA.&lt;/x-kadoorie::accordion-item&gt;&lt;/x-kadoorie::accordion&gt;</code></pre>
+                    </article>
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            Multiple open
+                        </h2>
+
+                                                    <div class="p-4">
+                                <div
+    data-test="accordion"
+    x-data="{
+        multiple: true,
+        items: [],
+        toggle(id) {
+            if (this.multiple) {
+                this.items.includes(id) ? (this.items = this.items.filter((i) => i !== id)) : this.items.push(id)
+            } else {
+                this.items = this.items.includes(id) ? [] : [id]
+            }
+        },
+        isOpen(id) { return this.items.includes(id) },
+    }"
+    class="divide-y divide-border rounded-lg border border-border"
+>
+    <div data-test="accordion-item-size">
+    <h3>
+        <button
+            type="button"
+            id="specs-header-size"
+            aria-controls="specs-panel-size"
+            data-test="accordion-trigger-size"
+            aria-expanded="false"
+            x-bind:aria-expanded="isOpen('size') ? 'true' : 'false'"
+            x-on:click="toggle('size')"
+            class="kad-focusable flex min-h-11 w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-medium text-text"
+        >
+            <span>Dimensions</span>
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle shrink-0 text-text-muted-large transition-transform" x-bind:class="isOpen('size') && 'rotate-180'"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+        </button>
+    </h3>
+
+    <div
+        id="specs-panel-size"
+        role="region"
+        aria-labelledby="specs-header-size"
+        data-test="accordion-panel-size"
+        x-show="isOpen('size')"
+        x-cloak
+        x-collapse
+    >
+        <div class="px-4 pb-3 text-sm text-text-body">
+            100 x 50 cm.
+        </div>
+    </div>
+</div>
+<div data-test="accordion-item-weight">
+    <h3>
+        <button
+            type="button"
+            id="specs-header-weight"
+            aria-controls="specs-panel-weight"
+            data-test="accordion-trigger-weight"
+            aria-expanded="false"
+            x-bind:aria-expanded="isOpen('weight') ? 'true' : 'false'"
+            x-on:click="toggle('weight')"
+            class="kad-focusable flex min-h-11 w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-medium text-text"
+        >
+            <span>Weight</span>
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle shrink-0 text-text-muted-large transition-transform" x-bind:class="isOpen('weight') && 'rotate-180'"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+        </button>
+    </h3>
+
+    <div
+        id="specs-panel-weight"
+        role="region"
+        aria-labelledby="specs-header-weight"
+        data-test="accordion-panel-weight"
+        x-show="isOpen('weight')"
+        x-cloak
+        x-collapse
+    >
+        <div class="px-4 pb-3 text-sm text-text-body">
+            2.5 kg.
+        </div>
+    </div>
+</div>
+</div>
+
+                            </div>
+                        
+                        
+                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::accordion id=&quot;specs&quot; :multiple=&quot;true&quot;&gt;&lt;x-kadoorie::accordion-item id=&quot;size&quot; heading=&quot;Dimensions&quot; group=&quot;specs&quot;&gt;100 x 50 cm.&lt;/x-kadoorie::accordion-item&gt;&lt;x-kadoorie::accordion-item id=&quot;weight&quot; heading=&quot;Weight&quot; group=&quot;specs&quot;&gt;2.5 kg.&lt;/x-kadoorie::accordion-item&gt;&lt;/x-kadoorie::accordion&gt;</code></pre>
                     </article>
                             </div>
         </main>

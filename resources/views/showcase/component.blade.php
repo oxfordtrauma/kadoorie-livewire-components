@@ -37,7 +37,8 @@
                             </div>
                         @endif
 
-                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>{{ $example->snippet }}</code></pre>
+                        {{-- tabindex makes the horizontally scrollable code block keyboard-operable (WCAG 2.1.1). --}}
+                        <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>{{ $example->snippet }}</code></pre>
                     </article>
                 @endforeach
             </div>

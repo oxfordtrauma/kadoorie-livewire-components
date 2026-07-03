@@ -31,7 +31,7 @@
                                 <div class="p-4">
                                     {!! \Illuminate\Support\Facades\Blade::render($example->snippet) !!}
                                 </div>
-                                <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>{{ $example->snippet }}</code></pre>
+                                <pre tabindex="0" class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>{{ $example->snippet }}</code></pre>
                             </article>
                         @endforeach
                     </div>

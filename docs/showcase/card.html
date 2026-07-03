@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Card — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="bg-bg text-text-body">
+        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
+            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
+                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
+                    &larr; All components
+                </a>
+            </nav>
+
+            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
+                Card
+            </h1>
+
+            <div class="flex flex-col gap-6">
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            With header
+                        </h2>
+
+                                                    <div class="p-4">
+                                <div
+    data-test="card"
+    class="overflow-hidden rounded-lg border border-border bg-surface shadow-sm"
+>
+            <div data-test="card-header" class="border-b border-border px-4 py-3">
+            <h3 class="text-base font-semibold text-text">Monthly report</h3>
+        </div>
+    
+    <div data-test="card-body" class="p-4 text-sm text-text-body">
+        Revenue is up 12% on last month.
+    </div>
+
+    </div>
+
+                            </div>
+                        
+                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::card title=&quot;Monthly report&quot;&gt;Revenue is up 12% on last month.&lt;/x-kadoorie::card&gt;</code></pre>
+                    </article>
+                            </div>
+        </main>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    </body>
+</html>

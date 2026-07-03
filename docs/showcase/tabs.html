@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tabs — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="bg-bg text-text-body">
+        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
+            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
+                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
+                    &larr; All components
+                </a>
+            </nav>
+
+            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
+                Tabs
+            </h1>
+
+            <div class="flex flex-col gap-6">
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            Two panels
+                        </h2>
+
+                                                    <div class="p-4">
+                                <div
+    data-test="tabs"
+    x-data="{
+        active: 'details',
+        ids: JSON.parse('[\u0022details\u0022,\u0022history\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Tabs"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="demo-tab-details"
+                x-ref="tab-details"
+                data-test="tab-details"
+                aria-controls="demo-panel-details"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'details' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'details' ? '0' : '-1'"
+                x-on:click="active = 'details'"
+                x-on:keydown.arrow-right.prevent="next('details')"
+                x-on:keydown.arrow-left.prevent="prev('details')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Details
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="demo-tab-history"
+                x-ref="tab-history"
+                data-test="tab-history"
+                aria-controls="demo-panel-history"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'history' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'history' ? '0' : '-1'"
+                x-on:click="active = 'history'"
+                x-on:keydown.arrow-right.prevent="next('history')"
+                x-on:keydown.arrow-left.prevent="prev('history')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                History
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="demo-panel-details"
+    aria-labelledby="demo-tab-details"
+    data-test="tab-panel-details"
+    tabindex="0"
+    x-show="active === 'details'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    Detail content.
+</div>
+<div
+    role="tabpanel"
+    id="demo-panel-history"
+    aria-labelledby="demo-tab-history"
+    data-test="tab-panel-history"
+    tabindex="0"
+    x-show="active === 'history'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    History content.
+</div>
+    </div>
+</div>
+
+                            </div>
+                        
+                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::tabs :tabs=&quot;[[&#039;id&#039; =&gt; &#039;details&#039;, &#039;label&#039; =&gt; &#039;Details&#039;], [&#039;id&#039; =&gt; &#039;history&#039;, &#039;label&#039; =&gt; &#039;History&#039;]]&quot; id=&quot;demo&quot;&gt;&lt;x-kadoorie::tab-panel tab=&quot;details&quot; group=&quot;demo&quot;&gt;Detail content.&lt;/x-kadoorie::tab-panel&gt;&lt;x-kadoorie::tab-panel tab=&quot;history&quot; group=&quot;demo&quot;&gt;History content.&lt;/x-kadoorie::tab-panel&gt;&lt;/x-kadoorie::tabs&gt;</code></pre>
+                    </article>
+                            </div>
+        </main>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    </body>
+</html>

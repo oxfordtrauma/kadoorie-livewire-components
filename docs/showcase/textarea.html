@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Textarea — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="bg-bg text-text-body">
+        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
+            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
+                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
+                    &larr; All components
+                </a>
+            </nav>
+
+            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
+                Textarea
+            </h1>
+
+            <div class="flex flex-col gap-6">
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            Notes
+                        </h2>
+
+                                                    <div class="p-4">
+                                <div
+    data-test="notes-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="notes"
+            data-test="notes-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Notes
+                    </label>
+    
+    <textarea
+    id="notes"
+    name="notes"
+    rows="3"
+    data-test="notes-textarea"
+                            class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 py-2 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+></textarea>
+
+    
+    </div>
+
+                            </div>
+                        
+                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::field label=&quot;Notes&quot; name=&quot;notes&quot;&gt;&lt;x-kadoorie::textarea name=&quot;notes&quot; rows=&quot;3&quot; /&gt;&lt;/x-kadoorie::field&gt;</code></pre>
+                    </article>
+                            </div>
+        </main>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    </body>
+</html>

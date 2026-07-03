@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accordion — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="bg-bg text-text-body">
+        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
+            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
+                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
+                    &larr; All components
+                </a>
+            </nav>
+
+            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
+                Accordion
+            </h1>
+
+            <div class="flex flex-col gap-6">
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            FAQ
+                        </h2>
+
+                                                    <div class="p-4">
+                                <div
+    data-test="accordion"
+    x-data="{
+        multiple: false,
+        items: [],
+        toggle(id) {
+            if (this.multiple) {
+                this.items.includes(id) ? (this.items = this.items.filter((i) => i !== id)) : this.items.push(id)
+            } else {
+                this.items = this.items.includes(id) ? [] : [id]
+            }
+        },
+        isOpen(id) { return this.items.includes(id) },
+    }"
+    class="divide-y divide-border rounded-lg border border-border"
+>
+    <div data-test="accordion-item-one">
+    <h3>
+        <button
+            type="button"
+            id="faq-header-one"
+            aria-controls="faq-panel-one"
+            data-test="accordion-trigger-one"
+            aria-expanded="false"
+            x-bind:aria-expanded="isOpen('one') ? 'true' : 'false'"
+            x-on:click="toggle('one')"
+            class="kad-focusable flex min-h-11 w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-medium text-text"
+        >
+            <span>How do I install?</span>
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle shrink-0 text-text-muted-large transition-transform" x-bind:class="isOpen('one') && 'rotate-180'"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+        </button>
+    </h3>
+
+    <div
+        id="faq-panel-one"
+        role="region"
+        aria-labelledby="faq-header-one"
+        data-test="accordion-panel-one"
+        x-show="isOpen('one')"
+        x-cloak
+        x-collapse
+    >
+        <div class="px-4 pb-3 text-sm text-text-body">
+            Via Composer.
+        </div>
+    </div>
+</div>
+<div data-test="accordion-item-two">
+    <h3>
+        <button
+            type="button"
+            id="faq-header-two"
+            aria-controls="faq-panel-two"
+            data-test="accordion-trigger-two"
+            aria-expanded="false"
+            x-bind:aria-expanded="isOpen('two') ? 'true' : 'false'"
+            x-on:click="toggle('two')"
+            class="kad-focusable flex min-h-11 w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-medium text-text"
+        >
+            <span>Is it accessible?</span>
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle shrink-0 text-text-muted-large transition-transform" x-bind:class="isOpen('two') && 'rotate-180'"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+        </button>
+    </h3>
+
+    <div
+        id="faq-panel-two"
+        role="region"
+        aria-labelledby="faq-header-two"
+        data-test="accordion-panel-two"
+        x-show="isOpen('two')"
+        x-cloak
+        x-collapse
+    >
+        <div class="px-4 pb-3 text-sm text-text-body">
+            Yes, WCAG 2.1 AA.
+        </div>
+    </div>
+</div>
+</div>
+
+                            </div>
+                        
+                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::accordion id=&quot;faq&quot;&gt;&lt;x-kadoorie::accordion-item id=&quot;one&quot; heading=&quot;How do I install?&quot; group=&quot;faq&quot;&gt;Via Composer.&lt;/x-kadoorie::accordion-item&gt;&lt;x-kadoorie::accordion-item id=&quot;two&quot; heading=&quot;Is it accessible?&quot; group=&quot;faq&quot;&gt;Yes, WCAG 2.1 AA.&lt;/x-kadoorie::accordion-item&gt;&lt;/x-kadoorie::accordion&gt;</code></pre>
+                    </article>
+                            </div>
+        </main>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    </body>
+</html>

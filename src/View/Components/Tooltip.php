@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Kadoorie\LivewireComponents\View\Components;
 
-use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -27,7 +26,8 @@ final class Tooltip extends Component
         public string $placement = 'top',
         ?string $id = null,
     ) {
-        $this->id = $id ?? 'tooltip-' . Str::random(6);
+        // Deterministic id (stable across renders) so static output does not churn.
+        $this->id = $id ?? 'tooltip-' . substr(md5($text), 0, 8);
     }
 
     public function positionClasses(): string

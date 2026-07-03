@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Select — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="bg-bg text-text-body">
+        <main id="main-content" class="mx-auto max-w-container px-4 py-8">
+            <nav aria-label="Breadcrumb" class="mb-4 text-sm">
+                <a href="index.html" class="kad-focusable rounded text-primary hover:underline">
+                    &larr; All components
+                </a>
+            </nav>
+
+            <h1 class="mb-6 text-3xl font-semibold capitalize text-text">
+                Select
+            </h1>
+
+            <div class="flex flex-col gap-6">
+                                    <article class="overflow-hidden rounded-lg border border-border bg-surface">
+                        <h2 class="border-b border-border px-4 py-2 text-sm font-medium text-text-muted">
+                            Roles
+                        </h2>
+
+                                                    <div class="p-4">
+                                <div
+    data-test="role-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="role"
+            data-test="role-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Role
+                    </label>
+    
+    <div class="relative" data-test="role-select-wrap">
+    <select
+        id="role"
+        name="role"
+        data-test="role-select"
+                                        class="kad-focusable block w-full appearance-none rounded-md border border-border bg-surface text-text shadow-sm min-h-11 pr-10 aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-sm px-3"
+    >
+                    <option value="" disabled selected>Choose a role</option>
+                            <option value="admin" >
+                Admin
+            </option>
+                    <option value="editor" >
+                Editor
+            </option>
+                    <option value="viewer" >
+                Viewer
+            </option>
+                
+    </select>
+    <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-text-muted-large">
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+    </span>
+</div>
+
+    
+    </div>
+
+                            </div>
+                        
+                        <pre class="overflow-x-auto border-t border-border bg-surface-muted p-4 text-xs text-text-body"><code>&lt;x-kadoorie::field label=&quot;Role&quot; name=&quot;role&quot;&gt;&lt;x-kadoorie::select name=&quot;role&quot; placeholder=&quot;Choose a role&quot; :options=&quot;[&#039;admin&#039; =&gt; &#039;Admin&#039;, &#039;editor&#039; =&gt; &#039;Editor&#039;, &#039;viewer&#039; =&gt; &#039;Viewer&#039;]&quot; /&gt;&lt;/x-kadoorie::field&gt;</code></pre>
+                    </article>
+                            </div>
+        </main>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    </body>
+</html>

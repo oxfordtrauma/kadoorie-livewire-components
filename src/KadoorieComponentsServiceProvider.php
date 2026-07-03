@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Kadoorie\LivewireComponents;
 
 use Illuminate\Support\Facades\Blade;
+use Kadoorie\LivewireComponents\Console\BuildShowcaseCommand;
 use Kadoorie\LivewireComponents\Livewire\DataTable;
 use Kadoorie\LivewireComponents\Livewire\Modal;
 use Kadoorie\LivewireComponents\Livewire\Pages\Login;
@@ -31,7 +32,8 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
             ->name('kadoorie-livewire-components')
             ->hasConfigFile('kadoorie')
             ->hasViews('kadoorie')
-            ->hasAssets();
+            ->hasAssets()
+            ->hasCommand(BuildShowcaseCommand::class);
     }
 
     public function packageBooted(): void

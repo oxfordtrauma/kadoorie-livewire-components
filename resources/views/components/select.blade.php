@@ -1,13 +1,13 @@
 {{-- Native select (fully keyboard-accessible) with a token-styled chevron. --}}
 @aware(['error' => null, 'hint' => null])
-@php($describedBy = $describedBy($hint !== null, $error !== null))
+@php($describedBy = $describedBy(filled($hint), filled($error)))
 <div class="relative" data-test="{{ $name }}-select-wrap">
     <select
         id="{{ $fieldId() }}"
         name="{{ $name }}"
         data-test="{{ $name }}-select"
         @if ($describedBy !== null) aria-describedby="{{ $describedBy }}" @endif
-        @if ($error !== null) aria-invalid="true" @endif
+        @if (filled($error)) aria-invalid="true" @endif
         @disabled($disabled)
         @required($required)
         {{ $attributes->merge([

@@ -2,7 +2,7 @@
      with role="switch"; the visual track/thumb are driven by peer-checked.
      Alpine keeps aria-checked in sync at runtime. Inherits field state via @aware. --}}
 @aware(['error' => null, 'hint' => null])
-@php($describedBy = $describedBy($hint !== null, $error !== null))
+@php($describedBy = $describedBy(filled($hint), filled($error)))
 <label
     data-test="{{ $name }}-toggle-label"
     class="inline-flex min-h-11 cursor-pointer items-center gap-2"
@@ -22,7 +22,7 @@
             @disabled($disabled)
             @required($required)
             @if ($describedBy !== null) aria-describedby="{{ $describedBy }}" @endif
-            @if ($error !== null) aria-invalid="true" @endif
+            @if (filled($error)) aria-invalid="true" @endif
             class="peer sr-only"
         />
         <span

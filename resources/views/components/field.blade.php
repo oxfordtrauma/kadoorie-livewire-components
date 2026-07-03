@@ -18,13 +18,13 @@
 
     {{ $slot }}
 
-    @if ($hint !== null)
+    @if (filled($hint))
         <p id="{{ $hintId() }}" data-test="{{ $name }}-hint" class="text-xs text-text-muted">
             {{ $hint }}
         </p>
     @endif
 
-    @if ($error !== null)
+    @if (filled($error))
         <p
             id="{{ $errorId() }}"
             data-test="{{ $name }}-error"

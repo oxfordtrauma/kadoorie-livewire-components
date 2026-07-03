@@ -773,6 +773,10 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -869,6 +873,10 @@ body {
 
 .min-h-14 {
   min-height: 3.5rem;
+}
+
+.min-h-dvh {
+  min-height: 100dvh;
 }
 
 .w-10 {
@@ -1082,6 +1090,10 @@ body {
 
 .border-warning {
   border-color: var(--kad-color-warning);
+}
+
+.bg-bg {
+  background-color: var(--kad-color-bg);
 }
 
 .bg-black\/40 {

@@ -1,6 +1,6 @@
 {{-- Inherits hint/error state from a wrapping <x-kadoorie::field> via @aware. --}}
 @aware(['error' => null, 'hint' => null])
-@php($describedBy = $describedBy($hint !== null, $error !== null))
+@php($describedBy = $describedBy(filled($hint), filled($error)))
 <textarea
     id="{{ $fieldId() }}"
     name="{{ $name }}"
@@ -8,7 +8,7 @@
     data-test="{{ $name }}-textarea"
     @if ($placeholder !== null) placeholder="{{ $placeholder }}" @endif
     @if ($describedBy !== null) aria-describedby="{{ $describedBy }}" @endif
-    @if ($error !== null) aria-invalid="true" @endif
+    @if (filled($error)) aria-invalid="true" @endif
     @disabled($disabled)
     @readonly($readonly)
     @required($required)

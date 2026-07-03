@@ -32,4 +32,15 @@ return [
          */
         'sticky' => false,
     ],
+
+    'login' => [
+        /*
+         * Optional server-side handler invoked with the validated credentials
+         * (email, password, remember). Keeps the password server-side rather
+         * than dispatching it to the browser. Accepts an invokable class name
+         * or "Class@method" string. When null, the Login component only
+         * dispatches a "kadoorie:login-submitted" event (without the password).
+         */
+        'handler' => null,
+    ],
 ];

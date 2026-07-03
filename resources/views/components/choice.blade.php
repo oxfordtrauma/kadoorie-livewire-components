@@ -2,7 +2,7 @@
      hint/error state via @aware; the wrapping <label> gives an implicit
      association and a 44px touch target. --}}
 @aware(['error' => null, 'hint' => null])
-@php($describedBy = $describedBy($hint !== null, $error !== null))
+@php($describedBy = $describedBy(filled($hint), filled($error)))
 @php($controlId = $id ?? ($type === 'radio' ? $name . '-' . \Illuminate\Support\Str::slug($value) : $name))
 <label
     for="{{ $controlId }}"
@@ -19,7 +19,7 @@
         @disabled($disabled)
         @required($required)
         @if ($describedBy !== null) aria-describedby="{{ $describedBy }}" @endif
-        @if ($error !== null) aria-invalid="true" @endif
+        @if (filled($error)) aria-invalid="true" @endif
         {{ $attributes->merge([
             'class' =>
                 'kad-focusable size-5 shrink-0 accent-primary border-border '

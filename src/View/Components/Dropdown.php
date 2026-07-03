@@ -22,6 +22,8 @@ final class Dropdown extends Component
     public function __construct(
         public string $label = 'Options',
         public string $align = 'right',
+        public string $triggerClass = 'kad-focusable inline-flex min-h-11 items-center gap-1.5 rounded-md border border-border bg-surface px-3 text-sm font-medium text-text hover:bg-surface-muted',
+        public string $triggerTest = 'dropdown-trigger',
     ) {}
 
     public function alignClasses(): string

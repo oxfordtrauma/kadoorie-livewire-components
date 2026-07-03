@@ -21,6 +21,7 @@ final class DropdownItem extends Component
 {
     public function __construct(
         public ?string $href = null,
+        public string $type = 'button',
     ) {}
 
     public function render(): View

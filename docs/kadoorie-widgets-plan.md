@@ -159,7 +159,7 @@ W6 Showcase tests, docs & final sweep (3) ── showcase functional + WCAG spec
 | W0 | Tone solid palette | testing-plan | — | 2 | ✅ |
 | W1 | Profile menu (+ Dropdown triggerClass) | W0 | W2,W3 | 3 | ✅ |
 | W2 | Footer | W0 | W1,W3 | 3 | ✅ |
-| W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ⬜ |
+| W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ✅ |
 | W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ⬜ |
 | W5 | Interactive showcase admin shell | W1–W3 | W4 | 8 | ⬜ |
 | W6 | Showcase tests, docs & final sweep | W4,W5 | — | 3 | ⬜ |
@@ -251,16 +251,17 @@ test('opens the profile menu and exposes change-details and logout', async ({ pa
 ### Phase W3 — Small-box + Info-box Widgets · 5 pts
 
 **Tasks**
-- [ ] `SmallBox.php` + `small-box.blade.php`: solid `tone->solidClasses()` fill, big
-      `.kad-nums` value, label, large faded decorative icon (`aria-hidden`), optional
-      **More info** footer link (`url`). Props: `value`, `label`, `tone`, `icon`, `url`.
-- [ ] `InfoBox.php` + `info-box.blade.php`: surface card, coloured icon square
-      (`tone` solid), label + big value, optional `role="progressbar"`
-      (`aria-valuenow/min/max`) + `description`. Props: `icon`, `tone`, `label`,
-      `value`, `progress`, `description`.
-- [ ] Register both in `ComponentExample`; Pest for each (data-test hooks, solid
-      contrast class, progressbar aria); `tests/Playwright/widgets.spec.ts`
-      (small-box link navigates; info-box progressbar exposes values; no h-scroll).
+- [x] `SmallBox.php` + `small-box.blade.php`: `tone->solidClasses()` fill, big
+      `.kad-nums` value, label, faded decorative icon (`aria-hidden`), optional
+      **More info** footer link. Props: `value`, `label`, `tone`, `icon`, `url`.
+- [x] `InfoBox.php` + `info-box.blade.php`: surface card, solid tone icon square,
+      label + big value, optional `role="progressbar"` (`aria-valuenow/min/max` +
+      label) and `description`. Props: `icon`, `tone`, `label`, `value`,
+      `progress`, `description`.
+- [x] Registered both; `SmallBoxTest` + `InfoBoxTest` (hooks, solid fill class,
+      progressbar aria, optional link/progress); `widgets.spec.ts` (small-box link
+      href, info-box progressbar values, no h-scroll). **WCAG contrast verified**:
+      every tone's solid fill passes axe at all three viewports.
 
 **Small-box sketch**:
 ```blade

@@ -151,7 +151,7 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 | 1A | Functional: form controls | 0 | 1B,1C,1D,1E | 3 | ✅ |
 | 1B | Functional: feedback & overlays | 0 | 1A,1C,1D,1E | 3 | ✅ |
 | 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ✅ |
-| 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ⬜ |
+| 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ✅ |
 | 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ⬜ |
 | 2 | WCAG axe matrix (all pages) | 1A–1E | — | 5 | ⬜ |
 | 3 | CI + global guards + docs | 2 | — | 3 | ⬜ |
@@ -245,9 +245,12 @@ projects. Every page-level spec calls `expectNoHorizontalScroll(page)`.
   "360/768"); **sticky vs non-sticky** asserted via computed `position`/`top`; Tabs
   roving Arrow/Left/Home/End; Accordion single vs multi. Added a sticky-nav and a
   multiple-open accordion example to the registry to exercise both variants.
-- **1D Data** (`data-table.spec.ts`, `dropdown.spec.ts`, `pagination.spec.ts`):
-  DataTable sort toggles `aria-sort` + row order, paginate next/prev, **reflow to
-  stacked cards < md**, row select; Dropdown arrow-nav + focus return; Pagination.
+- **1D Data** (`data-table.spec.ts`, `dropdown.spec.ts`, `pagination.spec.ts`) ✅:
+  DataTable sort toggles `aria-sort` + row order (tablet/desktop — the stacked
+  mobile view hides the header, so sort is skipped at 360), paginate next/prev,
+  **reflow to stacked cards < md** (asserted via computed `display`), row select;
+  Dropdown open→first-item focus, arrow-nav, Esc + focus return; Pagination current
+  page + prev/next. Added a selectable, 12-row DataTable example to the registry.
 - **1E Pages** (`login.spec.ts`): submit validation, error focus, semantic
   landmarks, remember-me + forgot link.
 

@@ -121,6 +121,7 @@ final class ComponentExampleRegistry
             ['component' => 'toast', 'title' => 'Region', 'snippet' => '<livewire:kadoorie::toast />'],
 
             ['component' => 'data-table', 'title' => 'Sortable', 'snippet' => '<livewire:kadoorie::data-table :columns="[[\'field\' => \'name\', \'label\' => \'Name\', \'sortable\' => true], [\'field\' => \'age\', \'label\' => \'Age\', \'sortable\' => true, \'numeric\' => true]]" :rows="[[\'id\' => 1, \'name\' => \'Alice\', \'age\' => 30], [\'id\' => 2, \'name\' => \'Bob\', \'age\' => 25]]" />'],
+            ['component' => 'data-table', 'title' => 'Selectable and paginated', 'snippet' => '@php($rows = collect(range(1, 12))->map(fn (int $n): array => [\'id\' => $n, \'name\' => \'User \' . $n, \'age\' => 20 + $n])->all())' . "\n" . '<livewire:kadoorie::data-table :selectable="true" :columns="[[\'field\' => \'name\', \'label\' => \'Name\', \'sortable\' => true], [\'field\' => \'age\', \'label\' => \'Age\', \'sortable\' => true, \'numeric\' => true]]" :rows="$rows" />'],
 
             ['component' => 'login', 'title' => 'Sign in', 'snippet' => '<livewire:kadoorie::pages.login />'],
         ];

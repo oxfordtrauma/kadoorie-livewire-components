@@ -153,7 +153,7 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 | 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ✅ |
 | 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ✅ |
 | 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ✅ |
-| 2 | WCAG axe matrix (all pages) | 1A–1E | — | 5 | ⬜ |
+| 2 | WCAG axe matrix (all pages) | 1A–1E | — | 5 | ✅ |
 | 3 | CI + global guards + docs | 2 | — | 3 | ⬜ |
 | | **Total** | | | **29** | |
 
@@ -299,10 +299,16 @@ focus + reflow verified; no-h-scroll guard passes.
 ### Phase 2 — WCAG axe Matrix · 5 pts
 
 **Tasks**
-- [ ] `tests/WCAG/<component>.spec.ts` per showcase page + `index.spec.ts`:
-      `new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa']).analyze()` → expect
-      zero violations, at all three `wcag-*` viewports.
-- [ ] Triage any real violation back into the component (fix), then re-run Pest.
+- [x] `tests/WCAG/showcase.spec.ts` — one data-driven `test()` per showcase page
+      (read from disk, so new pages are covered automatically), `new AxeBuilder({
+      page }).withTags(['wcag2a','wcag2aa']).analyze()` → zero violations, at all
+      three `wcag-*` viewports. (One DRY spec rather than 30 near-identical files,
+      per rule 14; each page is still its own named test.)
+- [x] Triaged the only violation — `scrollable-region-focusable` on the showcase
+      `<pre>` code blocks (WCAG 2.1.1): added `tabindex="0"` so the horizontally
+      scrollable snippet is keyboard-operable, in both the showcase template and
+      the workbench gallery; regenerated the showcase. Re-ran Pest (green).
+- [x] Result: 90 checks (30 pages × 3 viewports) pass with zero violations.
 
 **Representative** — `tests/WCAG/button.spec.ts`:
 ```ts

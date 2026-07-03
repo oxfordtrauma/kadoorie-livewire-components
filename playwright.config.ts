@@ -9,10 +9,12 @@
  */
 
 import { defineConfig, devices } from '@playwright/test';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
 
 /**
  * Reference viewports the component library must support (Part 1 §5.10).
- * Specs iterate these via `test.use({ viewport })` to cover the matrix.
+ * Each suite runs once per viewport, giving the six-project matrix below.
  */
 export const REFERENCE_VIEWPORTS = {
   mobile: { width: 360, height: 800 },
@@ -20,8 +22,28 @@ export const REFERENCE_VIEWPORTS = {
   desktop: { width: 1920, height: 1080 },
 } as const;
 
-const PORT = Number(process.env.PLAYWRIGHT_PORT ?? 8000);
-const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? `http://127.0.0.1:${PORT}`;
+type Suite = 'functional' | 'wcag';
+type ViewportName = keyof typeof REFERENCE_VIEWPORTS;
+
+/** Live Testbench workbench (real Livewire + Alpine) for functional specs. */
+const WORKBENCH_URL = process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:8123';
+
+/** Committed static showcase served over file:// for the axe/WCAG specs. */
+const SHOWCASE_URL = `${pathToFileURL(resolve('docs/showcase')).href}/`;
+
+/**
+ * Build one suite-by-viewport project. `--project=functional-mobile` (etc.)
+ * selects a single matrix cell so CI can shard the six projects.
+ */
+const cell = (suite: Suite, name: ViewportName, baseURL: string) => ({
+  name: `${suite}-${name}`,
+  testDir: suite === 'wcag' ? './tests/WCAG' : './tests/Playwright',
+  use: {
+    ...devices['Desktop Chrome'],
+    viewport: REFERENCE_VIEWPORTS[name],
+    baseURL,
+  },
+});
 
 export default defineConfig({
   fullyParallel: true,
@@ -29,22 +51,23 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
   use: {
-    baseURL: BASE_URL,
     trace: 'on-first-retry',
-    viewport: REFERENCE_VIEWPORTS.desktop,
+    // The library standardises on data-test selectors (rule 06), so point
+    // Playwright's getByTestId() at that attribute instead of data-testid.
+    testIdAttribute: 'data-test',
   },
   projects: [
-    {
-      // Functional / interaction browser tests.
-      name: 'functional',
-      testDir: './tests/Playwright',
-      use: { ...devices['Desktop Chrome'] },
-    },
-    {
-      // WCAG / accessibility browser tests (@axe-core/playwright).
-      name: 'wcag',
-      testDir: './tests/WCAG',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    cell('functional', 'mobile', WORKBENCH_URL),
+    cell('functional', 'tablet', WORKBENCH_URL),
+    cell('functional', 'desktop', WORKBENCH_URL),
+    cell('wcag', 'mobile', SHOWCASE_URL),
+    cell('wcag', 'tablet', SHOWCASE_URL),
+    cell('wcag', 'desktop', SHOWCASE_URL),
   ],
+  webServer: {
+    command: 'vendor/bin/testbench serve --port=8123',
+    url: WORKBENCH_URL,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+  },
 });

@@ -38,6 +38,7 @@
                 </section>
             @endforeach
         </main>
-        @livewireScripts
+        @livewireScriptConfig
+        <script type="module" src="/assets/workbench.js"></script>
     </body>
 </html>

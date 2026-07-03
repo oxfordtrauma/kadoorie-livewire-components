@@ -4,19 +4,23 @@
   "type": "module",
   "scripts": {
     "build": "postcss resources/css/kadoorie.css -o resources/dist/kadoorie.css",
+    "build:workbench": "esbuild resources/js/workbench.js --bundle --format=esm --outfile=resources/dist/workbench.js",
     "dev": "postcss resources/css/kadoorie.css -o resources/dist/kadoorie.css --watch",
     "lint": "eslint resources/js --no-error-on-unmatched-pattern",
     "format:check": "prettier --check --no-error-on-unmatched-pattern resources/js resources/css",
     "format:write": "prettier --write --no-error-on-unmatched-pattern resources/js resources/css",
     "test:js": "jest --coverage",
-    "test:e2e": "playwright test --project=functional",
-    "test:wcag": "playwright test --project=wcag"
+    "test:e2e": "playwright test --project=functional-mobile --project=functional-tablet --project=functional-desktop",
+    "test:wcag": "playwright test --project=wcag-mobile --project=wcag-tablet --project=wcag-desktop"
   },
   "devDependencies": {
+    "@alpinejs/collapse": "^3.15.12",
+    "@alpinejs/focus": "^3.15.12",
     "@axe-core/playwright": "^4.10.0",
     "@eslint/js": "^9.14.0",
     "@playwright/test": "^1.48.0",
     "autoprefixer": "^10.4.0",
+    "esbuild": "^0.25.12",
     "eslint": "^9.14.0",
     "globals": "^15.12.0",
     "jest": "^29.7.0",

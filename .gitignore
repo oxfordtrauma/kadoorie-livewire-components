@@ -8,6 +8,8 @@
 
 # Build / generated
 #   NOTE: resources/dist/kadoorie.css IS committed (publishable asset) — do not ignore it.
+#   resources/dist/workbench.js is a workbench-only esbuild bundle (not shipped) — rebuilt in CI.
+/resources/dist/workbench.js
 /build/
 /workbench/build/
 

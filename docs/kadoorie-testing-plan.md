@@ -150,7 +150,7 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 | 0 | Test harness bootstrap | — | — | 5 | ✅ |
 | 1A | Functional: form controls | 0 | 1B,1C,1D,1E | 3 | ✅ |
 | 1B | Functional: feedback & overlays | 0 | 1A,1C,1D,1E | 3 | ✅ |
-| 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ⬜ |
+| 1C | Functional: layout & Nav (collapse+sticky) | 0 | 1A,1B,1D,1E | 5 | ✅ |
 | 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ⬜ |
 | 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ⬜ |
 | 2 | WCAG axe matrix (all pages) | 1A–1E | — | 5 | ⬜ |
@@ -238,10 +238,13 @@ projects. Every page-level spec calls `expectNoHorizontalScroll(page)`.
   Esc/backdrop**, scroll lock; Toast appears on event, auto-dismisses, **pauses on
   hover**; Tooltip hover/focus + Esc; Alert dismiss. Modal/Toast are driven via
   `Livewire.dispatch(...)` from the page (no trigger button in the gallery).
-- **1C Layout/Nav** (`nav.spec.ts`, `tabs.spec.ts`, `accordion.spec.ts`): **1920 =
-  inline bar, no toggle**; **360/768 = hamburger, sheet hidden→toggled, focus moves
-  in, Esc closes + returns focus**; **sticky vs non-sticky scroll assertion**; Tabs
-  roving Arrow/Home/End; Accordion expand/collapse single vs multi.
+- **1C Layout/Nav** (`nav.spec.ts`, `tabs.spec.ts`, `accordion.spec.ts`) ✅:
+  **768/1920 = inline bar, no toggle**; **360 = hamburger, sheet hidden→toggled,
+  focus trapped in, Esc closes + returns focus to the toggle** (the collapse
+  breakpoint is `md`=768, so the hamburger is mobile-only — correcting the plan's
+  "360/768"); **sticky vs non-sticky** asserted via computed `position`/`top`; Tabs
+  roving Arrow/Left/Home/End; Accordion single vs multi. Added a sticky-nav and a
+  multiple-open accordion example to the registry to exercise both variants.
 - **1D Data** (`data-table.spec.ts`, `dropdown.spec.ts`, `pagination.spec.ts`):
   DataTable sort toggles `aria-sort` + row order, paginate next/prev, **reflow to
   stacked cards < md**, row select; Dropdown arrow-nav + focus return; Pagination.

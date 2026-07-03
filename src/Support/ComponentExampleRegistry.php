@@ -101,10 +101,12 @@ final class ComponentExampleRegistry
             ['component' => 'tabs', 'title' => 'Two panels', 'snippet' => '<x-kadoorie::tabs :tabs="[[\'id\' => \'details\', \'label\' => \'Details\'], [\'id\' => \'history\', \'label\' => \'History\']]" id="demo"><x-kadoorie::tab-panel tab="details" group="demo">Detail content.</x-kadoorie::tab-panel><x-kadoorie::tab-panel tab="history" group="demo">History content.</x-kadoorie::tab-panel></x-kadoorie::tabs>'],
 
             ['component' => 'accordion', 'title' => 'FAQ', 'snippet' => '<x-kadoorie::accordion id="faq"><x-kadoorie::accordion-item id="one" heading="How do I install?" group="faq">Via Composer.</x-kadoorie::accordion-item><x-kadoorie::accordion-item id="two" heading="Is it accessible?" group="faq">Yes, WCAG 2.1 AA.</x-kadoorie::accordion-item></x-kadoorie::accordion>'],
+            ['component' => 'accordion', 'title' => 'Multiple open', 'snippet' => '<x-kadoorie::accordion id="specs" :multiple="true"><x-kadoorie::accordion-item id="size" heading="Dimensions" group="specs">100 x 50 cm.</x-kadoorie::accordion-item><x-kadoorie::accordion-item id="weight" heading="Weight" group="specs">2.5 kg.</x-kadoorie::accordion-item></x-kadoorie::accordion>'],
 
             ['component' => 'breadcrumbs', 'title' => 'Trail', 'snippet' => '<x-kadoorie::breadcrumbs :items="[[\'label\' => \'Home\', \'url\' => \'#\'], [\'label\' => \'Library\', \'url\' => \'#\'], [\'label\' => \'Buttons\']]" />'],
 
             ['component' => 'nav', 'title' => 'Top bar', 'snippet' => '<x-kadoorie::nav brand="Kadoorie" :items="[[\'label\' => \'Dashboard\', \'url\' => \'#\', \'active\' => true], [\'label\' => \'Reports\', \'url\' => \'#\'], [\'label\' => \'Settings\', \'url\' => \'#\']]" />'],
+            ['component' => 'nav', 'title' => 'Sticky top bar', 'snippet' => '<x-kadoorie::nav brand="Kadoorie" :sticky="true" :items="[[\'label\' => \'Dashboard\', \'url\' => \'#\', \'active\' => true], [\'label\' => \'Reports\', \'url\' => \'#\'], [\'label\' => \'Settings\', \'url\' => \'#\']]" />'],
 
             ['component' => 'dropdown', 'title' => 'Menu', 'snippet' => '<x-kadoorie::dropdown label="Actions"><x-kadoorie::dropdown-item href="#">Edit</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Duplicate</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item>Delete</x-kadoorie::dropdown-item></x-kadoorie::dropdown>'],
 

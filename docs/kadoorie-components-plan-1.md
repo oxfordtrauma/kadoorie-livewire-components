@@ -418,7 +418,7 @@ Phase 0B Design Token Layer + Icon System (6)      ── tokens (done, §5) + L
 | 5 | Page templates | 1,2,3 | — | 10 | ✅ Complete |
 | 6 | Integration & workbench demo | 1–5 | — | 6 | ✅ Complete |
 | 7 | Static showcase & user guides | 6 | — | 11 | ✅ Complete |
-| 8 | Release | 7 | — | 3 | ⬜ Next |
+| 8 | Release | 7 | — | 3 | ✅ Complete |
 | | **Total** | | | **98** | |
 
 Phase detail (goals, tasks, code deltas, tests, Definition of Done, commit messages) is in

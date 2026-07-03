@@ -16,7 +16,7 @@ Standard **Definition of Done** referenced by each phase:
 - [ ] Pest green:      docker exec kadoorie-app php artisan test --compact
 - [ ] JS lint/format:  npm run lint && npm run format:check
 - [ ] Jest ≥85%:       npm run test:js
-- [ ] Playwright functional + WCAG (axe) green for touched components, across the viewport
+- [x] Playwright functional + WCAG (axe) green for touched components, across the viewport
       matrix (360×800, 768×1024, 1920×1080); no horizontal scroll; touch targets ≥ 44×44px
 - [ ] Icons/logo/illustrations are inline SVG (no emoji/raster; decorative SVGs aria-hidden)
 - [ ] Transitions respect `prefers-reduced-motion`; muted body text uses the AA-safe token

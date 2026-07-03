@@ -16,6 +16,7 @@ component. For pushing data into components, see the
 - [Theming with design tokens](#theming-with-design-tokens)
 - [Alpine plugins](#alpine-plugins)
 - [Accessibility](#accessibility)
+- [Testing](#testing)
 - [Component catalogue](#component-catalogue)
 
 ## Requirements
@@ -163,6 +164,42 @@ All components target **WCAG 2.1 Level AA**:
 
 Every meaningful element exposes a unique `data-test` attribute for reliable
 end-to-end testing.
+
+## Testing
+
+The package ships three test layers:
+
+- **Pest** (`vendor/bin/pest`) — renders every component and asserts markup,
+  state, and ARIA wiring.
+- **Playwright functional** (`npm run test:e2e`) — drives the components in a real
+  browser against a live Testbench workbench: keyboard interaction, focus
+  trapping and return, Nav collapse, DataTable sort/paginate/reflow, Toast
+  auto-dismiss, and more.
+- **Playwright WCAG** (`npm run test:wcag`) — runs axe-core (WCAG 2.1 A/AA) against
+  every generated showcase page.
+
+Both Playwright suites run across the three reference viewports (360×800,
+768×1024, 1920×1080) as six projects (`functional-*` and `wcag-*`).
+
+First-time setup installs the browser and its system libraries:
+
+```bash
+npx playwright install --with-deps chromium
+```
+
+Build the assets the workbench needs, then run the suites:
+
+```bash
+npm run build            # resources/dist/kadoorie.css
+npm run build:workbench  # resources/dist/workbench.js (Alpine focus/collapse + Livewire)
+npm run test:e2e         # functional-mobile / -tablet / -desktop
+npm run test:wcag        # wcag-mobile / -tablet / -desktop
+```
+
+Playwright boots the workbench automatically via its `webServer`
+(`vendor/bin/testbench serve`). The WCAG suite scans the committed static
+showcase over `file://`; regenerate it with
+`vendor/bin/testbench kadoorie:build-showcase` after changing a component.
 
 ## Component catalogue
 

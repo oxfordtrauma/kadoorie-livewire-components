@@ -242,7 +242,7 @@ the Phase 7 static generator consume, so component examples are defined **once**
 - [ ] `workbench/` Testbench demo app with a preview route per component (**3**)
 - [ ] `ComponentExample` registry — each component's canonical variants/states + a code snippet, in
       one typed place reused by workbench routes **and** the static showcase generator (**2**)
-- [ ] Full-suite sweep: Pint, Larastan, Pest, Jest, Playwright functional + WCAG, composer/npm audit (**1**)
+- [x] Full-suite sweep: Pint, Larastan, Pest, Jest, Playwright functional + WCAG, composer/npm audit (**1**)
 
 **`src/Support/ComponentExample.php`** (CREATE, sketch) — one example = a title, the rendered
 Blade/Livewire tag, and the source snippet shown beside it.
@@ -293,7 +293,7 @@ Delivers the three requested artefacts: a **static HTML component gallery**, a *
       browser **with no server**. Livewire components render their initial state with a clear note
       that full server behaviour needs a Livewire runtime.
 - [ ] Output is deterministic and committed under `docs/showcase/` (hostable via GitHub Pages).
-- [ ] The showcase pages themselves are semantic and **axe-clean** (they are UI too).
+- [x] The showcase pages themselves are semantic and **axe-clean** (they are UI too).
 
 **`src/Console/BuildShowcaseCommand.php`** (CREATE, sketch)
 ```php
@@ -433,7 +433,7 @@ the commits.
 - [ ] Larastan clean
 - [ ] Pest green (docker exec kadoorie-app php artisan test --compact)
 - [ ] JS lint + format clean; Jest ≥85% statements
-- [ ] Playwright functional + WCAG (axe) green across the viewport matrix (360×800, 768×1024, 1920×1080)
+- [x] Playwright functional + WCAG (axe) green across the viewport matrix (360×800, 768×1024, 1920×1080)
 - [ ] No horizontal scroll at any reference viewport; touch targets ≥ 44×44px
 - [ ] All icons/logo/illustrations are inline SVG (no emoji/raster); decorative SVGs aria-hidden
 - [ ] Transitions respect `prefers-reduced-motion`; contrast meets AA (muted body text on the AA token)

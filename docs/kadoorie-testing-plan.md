@@ -154,8 +154,8 @@ P3 CI + global guards + docs (3) ── browsers in CI, no-h-scroll/touch-target
 | 1D | Functional: data display | 0 | 1A,1B,1C,1E | 3 | ✅ |
 | 1E | Functional: pages (login) | 0 | 1A,1B,1C,1D | 2 | ✅ |
 | 2 | WCAG axe matrix (all pages) | 1A–1E | — | 5 | ✅ |
-| 3 | CI + global guards + docs | 2 | — | 3 | ⬜ |
-| | **Total** | | | **29** | |
+| 3 | CI + global guards + docs | 2 | — | 3 | ✅ |
+| | **Total** | | | **29 (done)** | |
 
 ---
 
@@ -328,18 +328,19 @@ test('button page has no axe violations', async ({ page }) => {
 ### Phase 3 — CI + Global Guards + Docs · 3 pts
 
 **Tasks**
-- [ ] `.github/workflows/ci.yml` browser job: build CSS + workbench JS,
-      `vendor:publish` + `kadoorie:build-showcase`, `npx playwright install
-      --with-deps chromium`, run `test:e2e` then `test:wcag` (remove the
-      "skip if no specs" guards).
-- [ ] Ensure the no-horizontal-scroll + touch-target helpers are applied on every
-      page-level functional spec.
-- [ ] Update `docs/user-guide.md` (running the browser suite) and check off the
-      components-plan DoD boxes for browser tests.
-- [ ] Final sweep: Pint · Larastan · Pest · ESLint · Prettier · Playwright
-      functional + wcag · composer/npm audit.
+- [x] `.github/workflows/ci.yml` browser job now sets up **PHP + Composer** (the
+      functional suite needs `testbench serve`), builds the CSS + workbench JS,
+      regenerates the showcase, installs Chromium `--with-deps`, and runs
+      `test:e2e` then `test:wcag` unconditionally (guards removed).
+- [x] Every page-level functional spec calls `expectNoHorizontalScroll`; the
+      form controls carry an explicit ≥44px touch-target assertion.
+- [x] Added a **Testing** section to `docs/user-guide.md`; ticked the
+      components-plan DoD boxes for browser tests (plan-2 §0, plan-3 Phase 7/8).
+- [x] Final sweep green: Pint · Larastan · Pest (115) · ESLint · Prettier ·
+      Playwright functional (144 pass / 6 viewport-skips) + wcag (90) ·
+      composer/npm audit (0 vulns).
 
-**DoD**: CI green including browsers; both matrices pass; docs updated.
+**DoD**: CI green including browsers; both matrices pass; docs updated. ✅
 
 **Commit**: `ci: Run Playwright functional and WCAG suites in CI`
 

@@ -80,30 +80,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Functional specs run against a live Testbench workbench, so PHP and the
+      # Composer dependencies are required alongside Node.
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: intl, zip, pcntl, bcmath, mbstring, pdo_sqlite
+          coverage: none
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
 
-      - name: Install dependencies
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Install npm dependencies
         run: npm ci
+
+      - name: Build stylesheet and workbench bundle
+        run: |
+          npm run build
+          npm run build:workbench
+
+      - name: Regenerate the static showcase (WCAG target)
+        run: vendor/bin/testbench kadoorie:build-showcase
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
       - name: Functional tests
-        run: |
-          if ls tests/Playwright/*.spec.ts >/dev/null 2>&1; then
-            npm run test:e2e
-          else
-            echo "No functional specs yet; skipping."
-          fi
+        run: npm run test:e2e
 
       - name: WCAG tests
-        run: |
-          if ls tests/WCAG/*.spec.ts >/dev/null 2>&1; then
-            npm run test:wcag
-          else
-            echo "No WCAG specs yet; skipping."
-          fi
+        run: npm run test:wcag

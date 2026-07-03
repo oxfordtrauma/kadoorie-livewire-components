@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace Kadoorie\LivewireComponents;
 
 use Illuminate\Support\Facades\Blade;
+use Kadoorie\LivewireComponents\Livewire\Modal;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -46,7 +48,6 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
 
     private function registerLivewireComponents(): void
     {
-        // Livewire components are registered here as phases add them, e.g.:
-        // Livewire::component('kadoorie::modal', \Kadoorie\LivewireComponents\Livewire\Modal::class);
+        Livewire::component('kadoorie::modal', Modal::class);
     }
 }

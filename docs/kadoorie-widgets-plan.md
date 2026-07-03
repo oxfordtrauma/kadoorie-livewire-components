@@ -157,7 +157,7 @@ W6 Showcase tests, docs & final sweep (3) ── showcase functional + WCAG spec
 | Phase | Name | Depends on | Parallel with | Estimate | Status |
 |---|---|---|---|---|---|
 | W0 | Tone solid palette | testing-plan | — | 2 | ✅ |
-| W1 | Profile menu (+ Dropdown triggerClass) | W0 | W2,W3 | 3 | ⬜ |
+| W1 | Profile menu (+ Dropdown triggerClass) | W0 | W2,W3 | 3 | ✅ |
 | W2 | Footer | W0 | W1,W3 | 3 | ⬜ |
 | W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ⬜ |
 | W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ⬜ |
@@ -208,15 +208,18 @@ and rely on the WCAG matrix scanning its generated showcase page.
 ### Phase W1 — Profile Menu · 3 pts
 
 **Tasks**
-- [ ] Add `triggerClass` prop to `Dropdown` (default = current classes).
-- [ ] `src/View/Components/ProfileMenu.php` + `profile-menu.blade.php`: wraps
-      `<x-kadoorie::dropdown>` with an avatar (+ name on `sm+`) trigger, a menu
-      header (name/email), a **Change details** `dropdown-item` link, and a
-      **Log out** action — a `POST` form with `@csrf` when `logoutUrl` is set, or a
-      `logout` slot. Props: `name`, `email`, `src`/`initials`, `changeDetailsUrl`,
-      `logoutUrl`.
-- [ ] Register `ComponentExample`; Pest (trigger, menu items, csrf form, aria);
-      `tests/Playwright/profile-menu.spec.ts` (functional).
+- [x] Added `triggerClass` **and** `triggerTest` props to `Dropdown`, a `type`
+      prop to `DropdownItem`, and moved both components' hard-coded `data-test`
+      into `merge()` (same latent bug as Button) so a wrapper can relabel the
+      trigger/items and use a submit button.
+- [x] `ProfileMenu.php` + `profile-menu.blade.php`: wraps `<x-kadoorie::dropdown>`
+      with an avatar (+ name on `sm+`) trigger, a name/email header, a **Change
+      details** link, and a **Log out** POST form with `@csrf` (or a `logout`
+      slot). Props: `name`, `email`, `src`/`initials`, `changeDetailsUrl`,
+      `logoutUrl`. Auth-agnostic.
+- [x] Registered `ComponentExample`; `ProfileMenuTest` (trigger, change-details
+      link, csrf POST logout form, omission when no urls); `profile-menu.spec.ts`
+      (open, Esc + focus return, logout form + `_token`, no h-scroll). WCAG green.
 
 **Failing Playwright first** — `profile-menu.spec.ts`:
 ```ts

@@ -112,6 +112,8 @@ final class ComponentExampleRegistry
 
             ['component' => 'empty-state', 'title' => 'No results', 'snippet' => '<x-kadoorie::empty-state heading="No results found" description="Try adjusting your filters." />'],
 
+            ['component' => 'profile-menu', 'title' => 'Account menu', 'snippet' => '<x-kadoorie::profile-menu name="Jane Doe" email="jane@example.com" initials="JD" change-details-url="#" logout-url="#" />'],
+
             ['component' => 'pagination', 'title' => 'Windowed', 'snippet' => '@php($paginator = new \Illuminate\Pagination\LengthAwarePaginator(range(1, 10), 95, 10, 4, [\'path\' => \'#\']))' . "\n" . '<x-kadoorie::pagination :paginator="$paginator" />'],
 
             ['component' => 'error-page', 'title' => '404', 'snippet' => '<x-kadoorie::error-page :status="404" />'],

@@ -100,18 +100,21 @@ export function useDataTable<Row extends DataTableRow>({
     [sortedRows, currentPage, boundedPerPage]
   );
 
-  const sortBy = useCallback((field: string) => {
-    setSortField((currentField) => {
-      if (currentField === field) {
+  const sortBy = useCallback(
+    (field: string) => {
+      // Update each piece of state directly rather than nesting a setter inside
+      // another setter's updater: an updater must be pure, and React StrictMode
+      // double-invokes it, which would toggle the direction twice and cancel out.
+      if (sortField === field) {
         setSortDirection((direction) => (direction === 'asc' ? 'desc' : 'asc'));
       } else {
+        setSortField(field);
         setSortDirection('asc');
       }
-
-      return field;
-    });
-    setPage(1);
-  }, []);
+      setPage(1);
+    },
+    [sortField]
+  );
 
   const ariaSort = useCallback(
     (field: string): 'none' | 'ascending' | 'descending' => {

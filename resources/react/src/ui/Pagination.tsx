@@ -80,7 +80,7 @@ export function Pagination({
       role="navigation"
       aria-label={label}
       data-test="pagination"
-      className={cn('flex items-center gap-1', className)}
+      className={cn('flex flex-wrap items-center gap-1', className)}
       {...rest}
     >
       {onFirstPage ? (

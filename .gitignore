@@ -10,8 +10,10 @@
 #   NOTE: resources/dist/kadoorie.css IS committed (publishable asset) — do not ignore it.
 #   resources/dist/workbench.js is a workbench-only esbuild bundle (not shipped) — rebuilt in CI.
 #   resources/dist/showcase.js is the showcase Alpine bundle — rebuilt in CI, copied into docs/showcase/.
+#   resources/dist/react-workbench/ is the built React workbench (not shipped) — rebuilt in CI for the react-* Playwright projects.
 /resources/dist/workbench.js
 /resources/dist/showcase.js
+/resources/dist/react-workbench/
 /build/
 /workbench/build/
 

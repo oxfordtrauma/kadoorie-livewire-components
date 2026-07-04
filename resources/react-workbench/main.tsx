@@ -11,6 +11,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { findStory, stories } from './registry';
+// The compiled Kadoorie stylesheet (design tokens + Tailwind output). Importing
+// it here loads it in both the Vite dev server and the built workbench, so the
+// Playwright WCAG run measures real component contrast.
+import '../dist/kadoorie.css';
 
 /**
  * Mount the story named in ?component=<id>. With no id (or an unknown one) the
@@ -25,11 +29,15 @@ function mount(): void {
 
   const id = new URLSearchParams(window.location.search).get('component');
   const story = findStory(id);
+  // Render the story as a component element (not story.render()) so its hooks run
+  // inside React's render cycle; calling it as a plain function triggers an
+  // "Invalid hook call" for any story that uses useState/useFieldState.
+  const StoryView = story?.render;
 
   createRoot(container).render(
     <StrictMode>
-      {story ? (
-        story.render()
+      {StoryView ? (
+        <StoryView />
       ) : (
         <nav data-test="react-workbench-index" aria-label="Stories">
           <ul>

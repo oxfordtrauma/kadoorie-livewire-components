@@ -72,6 +72,9 @@ function FoundationStory(): ReactElement {
         aria-hidden="true"
         dangerouslySetInnerHTML={{ __html: inner }}
       />
+      <label htmlFor={field.fieldId} data-test="foundation-label">
+        Email
+      </label>
       <p id={field.hintId} data-test="foundation-hint">
         Work email
       </p>
@@ -224,10 +227,10 @@ function LayoutNavStory(): ReactElement {
   );
 }
 
-/** R4 data & pages gallery. */
-function DataPagesStory(): ReactElement {
+/** R4 data table gallery. */
+function DataTableStory(): ReactElement {
   return (
-    <section data-test="story-data-pages" style={{ display: 'grid', gap: '2rem', padding: '1rem' }}>
+    <section data-test="story-data-table" style={{ display: 'grid', gap: '2rem', padding: '1rem' }}>
       <DataTable
         selectable
         perPage={3}
@@ -242,12 +245,22 @@ function DataPagesStory(): ReactElement {
           { id: 4, name: 'Alan', score: 72 },
         ]}
       />
-
-      <LoginForm onSubmit={() => {}} forgotUrl="#" />
-
-      <ErrorPage status={404} />
     </section>
   );
+}
+
+/**
+ * R4 login page. Rendered as its own story (not stacked with the error page) so
+ * a single `<main id="main-content">` lands on the page — the page templates
+ * each own the document main, so duplicating them would break the landmark.
+ */
+function LoginStory(): ReactElement {
+  return <LoginForm onSubmit={() => {}} forgotUrl="#" />;
+}
+
+/** R4 error page, isolated for the same single-main reason as the login story. */
+function ErrorPageStory(): ReactElement {
+  return <ErrorPage status={404} />;
 }
 
 export const stories: Story[] = [
@@ -255,7 +268,9 @@ export const stories: Story[] = [
   { id: 'form-controls', render: FormControlsStory },
   { id: 'feedback', render: FeedbackStory },
   { id: 'layout-nav', render: LayoutNavStory },
-  { id: 'data-pages', render: DataPagesStory },
+  { id: 'data-table', render: DataTableStory },
+  { id: 'login', render: LoginStory },
+  { id: 'error-page', render: ErrorPageStory },
   { id: 'widgets', render: WidgetsStory },
 ];
 

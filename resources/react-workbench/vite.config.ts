@@ -28,10 +28,15 @@ export default defineConfig({
     },
   },
   server: {
+    // Bind IPv4 explicitly: Playwright's webServer waits on http://127.0.0.1:8124,
+    // and Vite's default localhost binding can resolve to IPv6 only (::1) inside
+    // the container, which would make Playwright time out waiting for the server.
+    host: '127.0.0.1',
     port: 8124,
     strictPort: true,
   },
   preview: {
+    host: '127.0.0.1',
     port: 8124,
     strictPort: true,
   },

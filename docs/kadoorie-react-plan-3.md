@@ -124,24 +124,41 @@ just like the Blade showcase — so it must match the roving-tabindex contract.
 
 ### Tasks
 
-- [ ] Fill `resources/react-workbench/App.tsx` to render **every** React component
-      (wrapped in `<ToastProvider>`), importing the compiled `kadoorie.css`, each
-      in a labelled section (`data-test="react-showcase-<name>"`) mirroring the
-      Blade workbench.
-- [ ] `build:react-workbench` → static output; Playwright `react-wcag-*` serve it
-      over `file://`; `react-functional-*` drive the Vite dev server (or the built
-      output) — reusing `REFERENCE_VIEWPORTS` and `testIdAttribute: 'data-test'`.
-- [ ] **Functional specs** `tests/Playwright/react-*.spec.ts` — port the Blade
-      specs (forms, overlays, nav, tabs, accordion, data-table, dropdown,
-      pagination, login, widgets, validation): keyboard, **focus trap + return**,
-      Nav collapse + sticky, DataTable sort/paginate/**reflow**, Toast
-      auto-dismiss + **hover-pause**, across the matrix; `expectNoHorizontalScroll`
-      on every page. Many assertions copy over verbatim thanks to `data-test`
-      parity.
-- [ ] **WCAG specs** — axe (`wcag2a`+`wcag2aa`) on each workbench section × 3
-      viewports, **zero violations** — this is where **contrast** is verified
-      (the jsdom/`vitest-axe` gap from Part 1 §4).
-- [ ] Triage any real violation back into the component; re-run Vitest.
+- [x] Workbench renders **every** React component across eight `?component=<id>`
+      stories (`data-test="story-<id>"`), each mounted as a component and importing
+      the compiled `kadoorie.css` (via `main.tsx`) so contrast is measurable. The
+      page templates (login, error-page) are isolated stories to keep a single
+      `<main>` per page.
+- [x] Playwright `react-functional-*` and `react-wcag-*` both drive the Vite dev
+      server on `127.0.0.1:8124`, reusing `REFERENCE_VIEWPORTS` and
+      `testIdAttribute: 'data-test'`. (WCAG scans the live app rather than
+      `file://` — the app is a client-rendered SPA.)
+- [x] **Functional specs** `tests/ReactPlaywright/*.spec.ts` (forms, overlays,
+      layout-nav, data-table, login, widgets): keyboard, **focus trap + return**,
+      Nav collapse, DataTable sort/paginate/**reflow**, Toast auto-dismiss +
+      **hover-pause**, login client validation + password-stays-client-side,
+      across the matrix; `expectNoHorizontalScroll` on every page. Header-sort and
+      the inline/hamburger nav are viewport-gated like the Blade suite.
+- [x] **WCAG specs** — `tests/ReactWCAG/stories.spec.ts`: axe (`wcag2a`+`wcag2aa`)
+      on each story × 3 viewports, **zero violations** — real **contrast** now
+      verified in-browser.
+- [x] Triaged the violations/failures the real-browser run surfaced (see below);
+      re-ran Vitest (124 pass) with no regressions.
+
+> **R6 status: ✅ complete.** Gates green: React functional **101 passed / 4
+> viewport-skipped**, React WCAG **24 passed** (8 stories × 3 viewports, zero
+> violations incl. contrast), Vitest 124, `tsc` clean, ESLint + Prettier clean.
+> **Five real issues the browser run caught (invisible to jsdom/Vitest):**
+> (1) the Vite dev server bound to IPv6-only `localhost`, so Playwright's
+> `127.0.0.1` webServer wait timed out → pinned `server.host`/`preview.host` to
+> `127.0.0.1`; (2) `main.tsx` invoked `story.render()` as a plain function, so any
+> story using hooks threw "Invalid hook call" and never mounted → render the story
+> as a component (`<StoryView />`); (3) the compiled CSS `<link>` 404'd under the
+> dev server → import `kadoorie.css` in `main.tsx`; (4) `useDataTable.sortBy`
+> called `setSortDirection` **inside** the `setSortField` updater — an impure
+> updater React StrictMode double-invokes, cancelling the toggle → set each piece
+> of state directly; (5) `<Pagination>` couldn't fit a 10-page window at 360px →
+> added `flex-wrap`. Also labelled the foundation smoke input for axe.
 
 **DoD**: `react-functional-*` + `react-wcag-*` green across 360·768·1920; no
 h-scroll; ≥44px targets; contrast AA. **Commit**: `test(react): Add React workbench functional + WCAG specs`

@@ -181,6 +181,63 @@ final class ComponentExampleRegistry
     </div>
 </x-kadoorie::card>'],
 
+            ['component' => 'validation', 'title' => 'Live validation', 'snippet' => '{{-- Client-side (Alpine) validation. In a Livewire app you would instead use
+     #[Validate] rules and :error="$errors->first(...)"; see docs/data-binding.md. --}}
+<form
+    data-test="validation-form"
+    novalidate
+    class="flex max-w-sm flex-col gap-4"
+    x-data="{
+        values: { email: \'\', role: \'\', terms: false },
+        errors: { email: \'\', role: \'\', terms: \'\' },
+        done: false,
+        check(field) {
+            if (field === \'email\') { this.errors.email = ! this.values.email ? \'Email is required.\' : ! this.values.email.includes(\'@\') ? \'Enter a valid email address.\' : \'\' }
+            if (field === \'role\') { this.errors.role = this.values.role ? \'\' : \'Please choose a role.\' }
+            if (field === \'terms\') { this.errors.terms = this.values.terms ? \'\' : \'You must accept the terms.\' }
+        },
+        submit() { [\'email\', \'role\', \'terms\'].forEach((f) => this.check(f)); this.done = Object.values(this.errors).every((e) => ! e) },
+    }"
+    x-on:submit.prevent="submit()"
+>
+    <x-kadoorie::field label="Email" name="signup-email">
+        <x-kadoorie::input type="email" name="signup-email" placeholder="you@example.com" x-model="values.email" x-on:blur="check(\'email\')" x-bind:aria-invalid="errors.email ? \'true\' : \'false\'" x-bind:aria-describedby="errors.email ? \'signup-email-error\' : false" />
+        <p data-test="signup-email-error" id="signup-email-error" role="alert" x-show="errors.email" x-cloak x-text="errors.email" class="text-xs text-danger"></p>
+    </x-kadoorie::field>
+
+    <x-kadoorie::field label="Role" name="signup-role">
+        <x-kadoorie::select name="signup-role" placeholder="Choose a role" :options="[\'admin\' => \'Admin\', \'editor\' => \'Editor\', \'viewer\' => \'Viewer\']" x-model="values.role" x-on:change="$nextTick(() => check(\'role\'))" x-bind:aria-invalid="errors.role ? \'true\' : \'false\'" x-bind:aria-describedby="errors.role ? \'signup-role-error\' : false" />
+        <p data-test="signup-role-error" id="signup-role-error" role="alert" x-show="errors.role" x-cloak x-text="errors.role" class="text-xs text-danger"></p>
+    </x-kadoorie::field>
+
+    <div>
+        <x-kadoorie::checkbox name="signup-terms" label="I accept the terms" x-model="values.terms" x-on:change="$nextTick(() => check(\'terms\'))" x-bind:aria-invalid="errors.terms ? \'true\' : \'false\'" x-bind:aria-describedby="errors.terms ? \'signup-terms-error\' : false" />
+        <p data-test="signup-terms-error" id="signup-terms-error" role="alert" x-show="errors.terms" x-cloak x-text="errors.terms" class="mt-1 text-xs text-danger"></p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <x-kadoorie::button type="submit" data-test="validation-submit">Create account</x-kadoorie::button>
+        <p data-test="validation-success" x-show="done" x-cloak role="status" class="text-sm font-medium text-success">Account created.</p>
+    </div>
+</form>'],
+
+            ['component' => 'validation', 'title' => 'Error states', 'snippet' => '{{-- Any control shows its error accessibly (role="alert" + aria-invalid +
+     aria-describedby) when the wrapping field is given an :error. --}}
+<div class="flex max-w-sm flex-col gap-4">
+    <x-kadoorie::field label="Email" name="v-email" error="Enter a valid email address.">
+        <x-kadoorie::input type="email" name="v-email" value="not-an-email" />
+    </x-kadoorie::field>
+    <x-kadoorie::field label="Bio" name="v-bio" error="Bio is required.">
+        <x-kadoorie::textarea name="v-bio" rows="2" />
+    </x-kadoorie::field>
+    <x-kadoorie::field label="Role" name="v-role" error="Please choose a role.">
+        <x-kadoorie::select name="v-role" placeholder="Choose a role" :options="[\'admin\' => \'Admin\', \'editor\' => \'Editor\']" />
+    </x-kadoorie::field>
+    <x-kadoorie::field label="Accept" name="v-terms" error="You must accept the terms.">
+        <x-kadoorie::checkbox name="v-terms" label="I accept the terms" />
+    </x-kadoorie::field>
+</div>'],
+
             ['component' => 'pagination', 'title' => 'Windowed', 'snippet' => '@php($paginator = new \Illuminate\Pagination\LengthAwarePaginator(range(1, 10), 95, 10, 4, [\'path\' => \'#\']))' . "\n" . '<x-kadoorie::pagination :paginator="$paginator" />'],
 
             ['component' => 'error-page', 'title' => '404', 'snippet' => '<x-kadoorie::error-page :status="404" />'],

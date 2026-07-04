@@ -32,7 +32,7 @@ final class BuildShowcaseCommand extends Command
      * @var array<string, array<int, string>>
      */
     private const CATEGORIES = [
-        'Forms' => ['label', 'field', 'input', 'textarea', 'select', 'checkbox', 'radio', 'toggle'],
+        'Forms' => ['label', 'field', 'input', 'textarea', 'select', 'checkbox', 'radio', 'toggle', 'validation'],
         'Actions' => ['button', 'dropdown', 'profile-menu'],
         'Feedback' => ['alert', 'toast', 'tooltip', 'spinner', 'modal'],
         'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'pagination'],

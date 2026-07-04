@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
 
 permissions:
@@ -42,7 +42,7 @@ jobs:
         run: ./vendor/bin/pint --test
 
       - name: Larastan
-        run: ./vendor/bin/phpstan analyse --no-progress
+        run: ./vendor/bin/phpstan analyse --no-progress --memory-limit=-1
 
       - name: Pest
         run: ./vendor/bin/pest --compact
@@ -80,7 +80,7 @@ jobs:
   browser:
     name: Browser (functional + WCAG)
     runs-on: ubuntu-latest
-    needs: [php, javascript]
+    needs: [ php, javascript ]
     steps:
       - uses: actions/checkout@v4
 

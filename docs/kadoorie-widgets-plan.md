@@ -162,8 +162,8 @@ W6 Showcase tests, docs & final sweep (3) ── showcase functional + WCAG spec
 | W3 | Small-box + Info-box widgets | W0 | W1,W2 | 5 | ✅ |
 | W4 | Filament recolour theme (v3 + v4) | W0 | — | 8 | ✅ |
 | W5 | Interactive showcase admin shell | W1–W3 | W4 | 8 | ✅ |
-| W6 | Showcase tests, docs & final sweep | W4,W5 | — | 3 | ⬜ |
-| | **Total** | | | **32** | |
+| W6 | Showcase tests, docs & final sweep | W4,W5 | — | 3 | ✅ |
+| | **Total** | | | **32 (done)** | |
 
 ---
 
@@ -337,17 +337,20 @@ server, deterministic, and every page renders from the registry.
 ### Phase W6 — Showcase Tests, Docs & Final Sweep · 3 pts
 
 **Tasks**
-- [ ] `tests/Playwright/showcase.spec.ts` (functional, via absolute `file://` through a
-      `showcaseUrl()` helper): Preview/Code tab toggle switches content, copy button
-      works, sidebar collapses/expands < md, a demo trigger (dialog/toast) fires —
-      across the viewport matrix, no horizontal scroll.
-- [ ] WCAG specs for the new shell: `tests/WCAG/showcase-index.spec.ts` +
-      the four new component pages (profile-menu, footer, small-box, info-box) — zero
-      axe violations × 3 viewports.
-- [ ] Extend `docs/user-guide.md` catalogue with the four widgets + a Filament link;
-      note the interactive showcase; rebuild `resources/dist/kadoorie.css`.
-- [ ] Final full sweep: Pint · Larastan · Pest · ESLint · Prettier · Playwright
-      functional + wcag · composer/npm audit.
+- [x] `tests/Playwright/showcase-shell.spec.ts` (functional, via absolute `file://`
+      through a `showcaseUrl()` helper): Preview/Code tab toggle, copy-button
+      feedback, sidebar collapse/expand below lg (mobile + tablet), modal + toast
+      demo triggers — across the matrix, no horizontal scroll. Alpine loads on the
+      `file://` pages and every interaction works.
+- [x] WCAG for the new shell is covered by the existing **data-driven**
+      `tests/WCAG/showcase.spec.ts` (reads the dir), so the index + profile-menu +
+      footer + small-box + info-box pages are already scanned — 102 checks, zero
+      violations. No extra spec files needed (rule 14).
+- [x] Extended `docs/user-guide.md` catalogue with the four widgets + a Filament
+      section linking `docs/filament.md`; rebuilt `resources/dist/kadoorie.css`.
+- [x] Final sweep green: Pint (93 files) · Larastan · Pest (145) · ESLint ·
+      Prettier · Playwright functional (189 pass / 9 skips) + wcag (102) ·
+      composer + npm audit (0 vulns).
 
 **DoD**: standard; whole suite green including the new components' and the showcase's
 browser tests.

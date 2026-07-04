@@ -351,3 +351,51 @@ Configure a server-side handler to receive the credentials, or listen for the
 
 One component covers 401/403/404/405/406/412/500/501/502 plus a generic
 fallback for any other status.
+
+### Profile menu, Footer
+
+```blade
+<x-kadoorie::profile-menu
+    name="Jane Doe"
+    email="jane@example.com"
+    initials="JD"
+    change-details-url="/account"
+    logout-url="/logout"
+/>
+
+<x-kadoorie::footer
+    brand="Kadoorie"
+    tagline="Accessible Livewire components"
+    :columns="[['heading' => 'Product', 'links' => [['label' => 'Docs', 'url' => '/docs']]]]"
+    copyright="© 2026 Kadoorie"
+    :legal-links="[['label' => 'Privacy', 'url' => '/privacy']]"
+/>
+```
+
+The profile menu is auth-agnostic: it renders a `POST` logout form with `@csrf`
+when `logout-url` is set, or you can override the action via a `logout` slot.
+
+### Dashboard widgets (Small-box, Info-box)
+
+```blade
+<x-kadoorie::small-box tone="primary" value="150" label="New orders" icon="info" url="/orders" />
+
+<x-kadoorie::info-box
+    tone="success"
+    icon="circle-check"
+    label="Bookmarks"
+    value="410"
+    :progress="70"
+    description="70% increase in 30 days"
+/>
+```
+
+The solid tone fills use AA-verified on-colours; `info-box` exposes an accessible
+`role="progressbar"` when `:progress` is set.
+
+## Filament
+
+A theme-only **recolour** for Filament v3 and v4 ships in the package. Publish it
+with `php artisan vendor:publish --tag=kadoorie-filament` and register the brand
+ramp with `FilamentColor::register(['primary' => KadoorieColors::primary()])`.
+See the [Filament theme guide](filament.md) for the full setup.

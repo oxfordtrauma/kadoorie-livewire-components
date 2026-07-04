@@ -11,6 +11,7 @@ component. For pushing data into components, see the
 
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Quick start](#quick-start)
 - [Publishing assets](#publishing-assets)
 - [Styling: preset vs precompiled CSS](#styling-preset-vs-precompiled-css)
 - [Theming with design tokens](#theming-with-design-tokens)
@@ -56,9 +57,51 @@ components are available under the `kadoorie` namespace (for example
 `<x-kadoorie::button>`), and Livewire components under `kadoorie::` (for example
 `<livewire:kadoorie::modal>`).
 
+## Quick start
+
+Once `composer require` has pulled the package, the service provider is
+auto-discovered — there is nothing to register. Three short steps get you
+rendering components:
+
+**1. Add the styles.** The quickest path (no build step) is the precompiled
+stylesheet:
+
+```bash
+php artisan vendor:publish --tag=kadoorie-styles
+```
+
+Link it in your layout `<head>`:
+
+```blade
+<link rel="stylesheet" href="{{ asset('vendor/kadoorie/kadoorie.css') }}" />
+```
+
+Tailwind apps can consume the preset instead — see
+[Styling](#styling-preset-vs-precompiled-css).
+
+**2. (Recommended) Register the Alpine plugins** so overlays trap focus and the
+accordion animates — see [Alpine plugins](#alpine-plugins). The components still
+work without them; they just lose focus-trapping and the collapse animation.
+
+**3. Use a component** in any Blade view:
+
+```blade
+<x-kadoorie::button>Save changes</x-kadoorie::button>
+
+<x-kadoorie::field label="Email" name="email">
+    <x-kadoorie::input type="email" name="email" wire:model="email" />
+</x-kadoorie::field>
+
+{{-- Place a Livewire component once near your layout root --}}
+<livewire:kadoorie::toast />
+```
+
+That is the whole setup. Browse [rendered examples and recipes](showcase/index.html),
+and see the [Data-binding guide](data-binding.md) for pushing data in.
+
 ## Publishing assets
 
-Three publish tags are available:
+Four publish tags are available:
 
 ```bash
 # Configuration (config/kadoorie.php)
@@ -69,6 +112,9 @@ php artisan vendor:publish --tag=kadoorie-views
 
 # Precompiled stylesheet -> public/vendor/kadoorie/kadoorie.css
 php artisan vendor:publish --tag=kadoorie-styles
+
+# Filament recolour theme (v3 + v4) -> resources/css/filament/kadoorie/
+php artisan vendor:publish --tag=kadoorie-filament
 ```
 
 ## Styling: preset vs precompiled CSS

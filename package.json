@@ -5,6 +5,7 @@
   "scripts": {
     "build": "postcss resources/css/kadoorie.css -o resources/dist/kadoorie.css",
     "build:workbench": "esbuild resources/js/workbench.js --bundle --format=esm --outfile=resources/dist/workbench.js",
+    "build:showcase": "esbuild resources/js/showcase.js --bundle --minify --format=iife --outfile=resources/dist/showcase.js",
     "dev": "postcss resources/css/kadoorie.css -o resources/dist/kadoorie.css --watch",
     "lint": "eslint resources/js --no-error-on-unmatched-pattern",
     "format:check": "prettier --check --no-error-on-unmatched-pattern resources/js resources/css",
@@ -19,6 +20,7 @@
     "@axe-core/playwright": "^4.10.0",
     "@eslint/js": "^9.14.0",
     "@playwright/test": "^1.48.0",
+    "alpinejs": "^3.15.12",
     "autoprefixer": "^10.4.0",
     "esbuild": "^0.25.12",
     "eslint": "^9.14.0",

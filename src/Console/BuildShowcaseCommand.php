@@ -38,6 +38,7 @@ final class BuildShowcaseCommand extends Command
         'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'pagination'],
         'Data display' => ['badge', 'card', 'avatar', 'divider', 'data-table', 'empty-state'],
         'Widgets' => ['small-box', 'info-box'],
+        'Recipes' => ['recipe'],
         'Layout' => ['footer'],
         'Pages' => ['login', 'error-page'],
         'Media' => ['icon'],
@@ -50,6 +51,7 @@ final class BuildShowcaseCommand extends Command
         File::ensureDirectoryExists($output);
 
         $this->copyStylesheet($output);
+        $this->copyScript($output);
 
         $grouped = ComponentExampleRegistry::grouped();
         $components = array_keys($grouped);
@@ -137,6 +139,15 @@ final class BuildShowcaseCommand extends Command
 
         if (is_file($dist)) {
             File::copy($dist, $output . '/kadoorie.css');
+        }
+    }
+
+    private function copyScript(string $output): void
+    {
+        $dist = dirname(__DIR__, 2) . '/resources/dist/showcase.js';
+
+        if (is_file($dist)) {
+            File::copy($dist, $output . '/showcase.js');
         }
     }
 }

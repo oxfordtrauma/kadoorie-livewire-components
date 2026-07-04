@@ -26,6 +26,7 @@ Rebuild the publishable stylesheet and the static showcase so both are current:
 
 ```bash
 docker exec kadoorie-app npm run build
+docker exec kadoorie-app npm run build:showcase
 docker exec kadoorie-app vendor/bin/testbench kadoorie:build-showcase
 ```
 

@@ -101,10 +101,11 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
-      - name: Build stylesheet and workbench bundle
+      - name: Build stylesheet and JS bundles
         run: |
           npm run build
           npm run build:workbench
+          npm run build:showcase
 
       - name: Regenerate the static showcase (WCAG target)
         run: vendor/bin/testbench kadoorie:build-showcase

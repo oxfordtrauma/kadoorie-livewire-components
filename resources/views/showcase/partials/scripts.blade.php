@@ -1,5 +1,3 @@
-{{-- Standalone Alpine + plugins so Alpine-driven components work with no server.
-     Plugins load before core; defer preserves order. --}}
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+{{-- Locally bundled Alpine + focus + collapse (resources/js/showcase.js), so the
+     static showcase is fully interactive with no network access. --}}
+<script defer src="showcase.js"></script>

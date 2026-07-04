@@ -98,6 +98,36 @@ export const badgeShape: Record<BadgeShape, string> = {
   pill: 'rounded-full',
 };
 
+/** Mirror of Badge::sizeClasses(). */
+export const badgeSize: Record<Size, string> = {
+  sm: 'gap-1 px-2 py-0.5 text-xs',
+  md: 'gap-1.5 px-2.5 py-1 text-sm',
+  lg: 'gap-1.5 px-3 py-1.5 text-base',
+};
+
+/** Mirror of Avatar::sizeClasses(). */
+export const avatarSize: Record<Size, string> = {
+  sm: 'size-8 text-xs',
+  md: 'size-10 text-sm',
+  lg: 'size-12 text-base',
+};
+
+export type Presence = 'online' | 'busy' | 'offline';
+
+/** Mirror of Avatar::presenceClasses(). */
+export const presenceClasses: Record<Presence, string> = {
+  online: 'bg-success',
+  busy: 'bg-danger',
+  offline: 'bg-text-muted-large',
+};
+
+/** Mirror of Avatar::presenceLabel(). */
+export const presenceLabel: Record<Presence, string> = {
+  online: 'Online',
+  busy: 'Busy',
+  offline: 'Offline',
+};
+
 /** Mirror of IconSize::pixels(). */
 export const iconSize: Record<IconSize, number> = {
   sm: 16,

@@ -41,6 +41,19 @@ depending only on R0. Each returns its own conventional commit message.
 **Note:** the Tabs component is **reused by the workbench** for Preview/Code
 just like the Blade showcase — so it must match the roving-tabindex contract.
 
+> **R3 status: ✅ complete.** All eleven components shipped under
+> `resources/react/src/ui/` (`Card`, `Divider`, `Badge`, `Avatar`, `Breadcrumbs`,
+> `Tabs`/`TabPanel`, `Accordion`/`AccordionItem`, `Nav`, `Dropdown`/`DropdownItem`,
+> `EmptyState`, `Pagination`), backed by the new zero-dep `useRovingTabIndex`
+> hook (Arrow/Home/End) and reusing `useDisclosure`/`useFocusTrap`/`useDismiss`
+> for the Nav sheet and Dropdown. `variants.ts` gained `badgeSize`/`avatarSize`/
+> `presenceClasses`/`presenceLabel` mirrors and the icon registry gained
+> `kadoorie:leaf`. All are exported from `index.ts` and registered in the React
+> workbench as the `layout-nav` story. Combined functional (`R3.layout.test.tsx`)
+> and axe (`R3.a11y.test.tsx`) suites were added. Gates green: Vitest 97 passed,
+> `tsc --noEmit` clean, ESLint + Prettier clean, React workbench builds.
+> Playwright react-* matrix remains deferred to R6.
+
 **Commit**: `feat(react): Add React layout and navigation components`
 
 ---

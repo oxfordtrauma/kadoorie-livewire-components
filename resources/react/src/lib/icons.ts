@@ -17,6 +17,8 @@
  */
 
 const registry: Record<string, string> = {
+  'kadoorie:leaf':
+    '<path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>',
   'lucide:check': '<path d="M20 6 9 17l-5-5"/>',
   'lucide:chevron-down': '<path d="m6 9 6 6 6-6"/>',
   'lucide:chevron-left': '<path d="m15 18-6-6 6-6"/>',

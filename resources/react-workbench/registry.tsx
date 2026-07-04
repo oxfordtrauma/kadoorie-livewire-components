@@ -24,6 +24,17 @@ import { Spinner } from '@kadoorie/ui/Spinner';
 import { Tooltip } from '@kadoorie/ui/Tooltip';
 import { Modal } from '@kadoorie/ui/Modal';
 import { ToastProvider, useToast } from '@kadoorie/ui/Toast';
+import { Card } from '@kadoorie/ui/Card';
+import { Divider } from '@kadoorie/ui/Divider';
+import { Badge } from '@kadoorie/ui/Badge';
+import { Avatar } from '@kadoorie/ui/Avatar';
+import { Breadcrumbs } from '@kadoorie/ui/Breadcrumbs';
+import { Tabs, TabPanel } from '@kadoorie/ui/Tabs';
+import { Accordion, AccordionItem } from '@kadoorie/ui/Accordion';
+import { Nav } from '@kadoorie/ui/Nav';
+import { Dropdown, DropdownItem } from '@kadoorie/ui/Dropdown';
+import { EmptyState } from '@kadoorie/ui/EmptyState';
+import { Pagination } from '@kadoorie/ui/Pagination';
 import { useState } from 'react';
 
 /**
@@ -144,10 +155,73 @@ function ToastLauncher(): ReactElement {
   );
 }
 
+/** R3 layout & navigation gallery. */
+function LayoutNavStory(): ReactElement {
+  const [page, setPage] = useState(3);
+
+  return (
+    <section data-test="story-layout-nav" style={{ display: 'grid', gap: '1rem', padding: '1rem' }}>
+      <Nav
+        brand="Kadoorie"
+        items={[
+          { label: 'Dashboard', url: '#', active: true },
+          { label: 'Reports', url: '#' },
+        ]}
+      />
+
+      <Breadcrumbs
+        items={[{ label: 'Home', url: '#' }, { label: 'Reports', url: '#' }, { label: 'Detail' }]}
+      />
+
+      <Card title="Summary" footer={<Button variant="secondary">Action</Button>}>
+        Card body content.
+      </Card>
+
+      <Divider>or</Divider>
+
+      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+        <Badge tone="success">Active</Badge>
+        <Avatar alt="Jane Doe" initials="JD" presence="online" />
+      </div>
+
+      <Tabs
+        id="demo"
+        label="Demo tabs"
+        tabs={[
+          { id: 'a', label: 'One' },
+          { id: 'b', label: 'Two' },
+        ]}
+      >
+        <TabPanel tab="a">First panel</TabPanel>
+        <TabPanel tab="b">Second panel</TabPanel>
+      </Tabs>
+
+      <Accordion group="demo-acc">
+        <AccordionItem id="one" heading="Section one">
+          Content one.
+        </AccordionItem>
+        <AccordionItem id="two" heading="Section two">
+          Content two.
+        </AccordionItem>
+      </Accordion>
+
+      <Dropdown label="Options">
+        <DropdownItem>Edit</DropdownItem>
+        <DropdownItem href="#">View</DropdownItem>
+      </Dropdown>
+
+      <EmptyState heading="Nothing here" description="Create your first item to get started." />
+
+      <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
+    </section>
+  );
+}
+
 export const stories: Story[] = [
   { id: 'foundation', render: FoundationStory },
   { id: 'form-controls', render: FormControlsStory },
   { id: 'feedback', render: FeedbackStory },
+  { id: 'layout-nav', render: LayoutNavStory },
 ];
 
 export function findStory(id: string | null): Story | undefined {

@@ -24,6 +24,8 @@ export { useScrollLock } from './hooks/useScrollLock';
 export { useFocusTrap } from './hooks/useFocusTrap';
 export { useDismiss } from './hooks/useDismiss';
 export type { DismissOptions } from './hooks/useDismiss';
+export { useRovingTabIndex } from './hooks/useRovingTabIndex';
+export type { RovingTabIndex, RovingItemProps } from './hooks/useRovingTabIndex';
 
 // UI components — R1 form controls
 export { Icon } from './ui/Icon';
@@ -59,4 +61,28 @@ export type { ModalProps } from './ui/Modal';
 export { ToastProvider, useToast } from './ui/Toast';
 export type { ToastOptions, ToastContextValue } from './ui/Toast';
 
-// UI components are added per phase (R3–R5) and re-exported here.
+// UI components — R3 layout & navigation
+export { Card } from './ui/Card';
+export type { CardProps } from './ui/Card';
+export { Divider } from './ui/Divider';
+export type { DividerProps } from './ui/Divider';
+export { Badge } from './ui/Badge';
+export type { BadgeProps } from './ui/Badge';
+export { Avatar } from './ui/Avatar';
+export type { AvatarProps } from './ui/Avatar';
+export { Breadcrumbs } from './ui/Breadcrumbs';
+export type { BreadcrumbsProps, BreadcrumbItem } from './ui/Breadcrumbs';
+export { Tabs, TabPanel } from './ui/Tabs';
+export type { TabsProps, TabPanelProps, TabItem } from './ui/Tabs';
+export { Accordion, AccordionItem } from './ui/Accordion';
+export type { AccordionProps, AccordionItemProps } from './ui/Accordion';
+export { Nav } from './ui/Nav';
+export type { NavProps, NavItem } from './ui/Nav';
+export { Dropdown, DropdownItem } from './ui/Dropdown';
+export type { DropdownProps, DropdownItemProps } from './ui/Dropdown';
+export { EmptyState } from './ui/EmptyState';
+export type { EmptyStateProps } from './ui/EmptyState';
+export { Pagination } from './ui/Pagination';
+export type { PaginationProps } from './ui/Pagination';
+
+// UI components are added per phase (R4–R5) and re-exported here.

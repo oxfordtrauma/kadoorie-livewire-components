@@ -16,6 +16,7 @@ namespace Kadoorie\LivewireComponents;
 
 use Illuminate\Support\Facades\Blade;
 use Kadoorie\LivewireComponents\Console\BuildShowcaseCommand;
+use Kadoorie\LivewireComponents\Console\InstallCommand;
 use Kadoorie\LivewireComponents\Livewire\DataTable;
 use Kadoorie\LivewireComponents\Livewire\Modal;
 use Kadoorie\LivewireComponents\Livewire\Pages\Login;
@@ -33,7 +34,8 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
             ->hasConfigFile('kadoorie')
             ->hasViews('kadoorie')
             ->hasAssets()
-            ->hasCommand(BuildShowcaseCommand::class);
+            ->hasCommand(BuildShowcaseCommand::class)
+            ->hasCommand(InstallCommand::class);
     }
 
     public function packageBooted(): void
@@ -48,6 +50,22 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/filament' => resource_path('css/filament/kadoorie'),
         ], 'kadoorie-filament');
+
+        $this->publishes([
+            __DIR__ . '/../resources/react/src' => $this->reactPublishPath(),
+        ], 'kadoorie-react');
+    }
+
+    /**
+     * Absolute target path for the published React source. Defaults to the
+     * app's resources/js/kadoorie and is configurable via kadoorie.react.path.
+     */
+    private function reactPublishPath(): string
+    {
+        $path = config('kadoorie.react.path', 'resources/js/kadoorie');
+        $path = is_string($path) && $path !== '' ? $path : 'resources/js/kadoorie';
+
+        return str_starts_with($path, '/') ? $path : base_path($path);
     }
 
     private function registerBladeComponents(): void

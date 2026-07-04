@@ -28,6 +28,10 @@ type ViewportName = keyof typeof REFERENCE_VIEWPORTS;
 /** Live Testbench workbench (real Livewire + Alpine) for functional specs. */
 const WORKBENCH_URL = process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:8123';
 
+/** Standalone Vite app that mounts the React component set (Part 2 §R0). */
+const REACT_WORKBENCH_URL =
+  process.env.PLAYWRIGHT_REACT_BASE_URL ?? 'http://127.0.0.1:8124';
+
 /** Committed static showcase served over file:// for the axe/WCAG specs. */
 const SHOWCASE_URL = `${pathToFileURL(resolve('docs/showcase')).href}/`;
 
@@ -42,6 +46,21 @@ const cell = (suite: Suite, name: ViewportName, baseURL: string) => ({
     ...devices['Desktop Chrome'],
     viewport: REFERENCE_VIEWPORTS[name],
     baseURL,
+  },
+});
+
+/**
+ * React counterpart of `cell`, driving the standalone React workbench. Both
+ * suites point at the same Vite app; the WCAG specs scan its rendered pages
+ * with axe just like the Blade showcase.
+ */
+const reactCell = (suite: Suite, name: ViewportName) => ({
+  name: `react-${suite}-${name}`,
+  testDir: suite === 'wcag' ? './tests/ReactWCAG' : './tests/ReactPlaywright',
+  use: {
+    ...devices['Desktop Chrome'],
+    viewport: REFERENCE_VIEWPORTS[name],
+    baseURL: REACT_WORKBENCH_URL,
   },
 });
 
@@ -63,11 +82,25 @@ export default defineConfig({
     cell('wcag', 'mobile', SHOWCASE_URL),
     cell('wcag', 'tablet', SHOWCASE_URL),
     cell('wcag', 'desktop', SHOWCASE_URL),
+    reactCell('functional', 'mobile'),
+    reactCell('functional', 'tablet'),
+    reactCell('functional', 'desktop'),
+    reactCell('wcag', 'mobile'),
+    reactCell('wcag', 'tablet'),
+    reactCell('wcag', 'desktop'),
   ],
-  webServer: {
-    command: 'vendor/bin/testbench serve --port=8123',
-    url: WORKBENCH_URL,
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
+  webServer: [
+    {
+      command: 'vendor/bin/testbench serve --port=8123',
+      url: WORKBENCH_URL,
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    },
+    {
+      command: 'npm run dev:react-workbench -- --port=8124 --strictPort',
+      url: REACT_WORKBENCH_URL,
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    },
+  ],
 });

@@ -33,6 +33,16 @@ return [
         'sticky' => false,
     ],
 
+    'react' => [
+        /*
+         * Target directory (relative to the application base path, or an
+         * absolute path) where `php artisan kadoorie:install` publishes the
+         * React component source. Import it in your Vite build, e.g. via a
+         * "@/kadoorie" alias.
+         */
+        'path' => 'resources/js/kadoorie',
+    ],
+
     'login' => [
         /*
          * Optional server-side handler invoked with the validated credentials

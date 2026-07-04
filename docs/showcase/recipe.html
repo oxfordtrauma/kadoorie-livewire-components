@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Alert — Kadoorie Components</title>
+<title>Recipe — Kadoorie Components</title>
 <link rel="stylesheet" href="kadoorie.css" />
     </head>
     <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
@@ -222,7 +222,7 @@
                                 <a
                                     href="alert.html"
                                     data-test="showcase-nav-alert"
-                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
                                 >
                                     alert
                                 </a>
@@ -404,7 +404,7 @@
                                 <a
                                     href="recipe.html"
                                     data-test="showcase-nav-recipe"
-                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
                                 >
                                     recipe
                                 </a>
@@ -494,7 +494,7 @@
                             </li>
                     <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
                                     <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
-                        Alert
+                        Recipe
                     </span>
                             </li>
             </ol>
@@ -502,7 +502,7 @@
                 
                     <header class="mb-6">
         <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
-            Alert
+            Recipe
         </h1>
     </header>
 
@@ -510,7 +510,7 @@
                     
                                     <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Success</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Sign-in card</h2>
                 </div>
 
                 <div class="p-4">
@@ -528,17 +528,17 @@
 >
     <div
         role="tablist"
-        aria-label="Success view"
+        aria-label="Sign-in card view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-de1fab67-tab-preview"
+                id="ex-a2710195-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-de1fab67-panel-preview"
+                aria-controls="ex-a2710195-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -555,10 +555,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-de1fab67-tab-code"
+                id="ex-a2710195-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-de1fab67-panel-code"
+                aria-controls="ex-a2710195-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -577,8 +577,8 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-de1fab67-panel-preview"
-    aria-labelledby="ex-de1fab67-tab-preview"
+    id="ex-a2710195-panel-preview"
+    aria-labelledby="ex-a2710195-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -586,72 +586,95 @@
     class="kad-focusable text-sm text-text-body"
 >
     <div data-test="showcase-preview" class="pt-4">
-                                                                    <div
-    role="status"
-    data-test="alert"
-    x-data="{ show: true }"
-    x-show="show"
-    class="flex items-start gap-3 rounded-md border p-3 bg-success-subtle border-success"
+                                                                    <div class="max-w-sm">
+    <div
+    data-test="card"
+    class="overflow-hidden rounded-lg border border-border bg-surface shadow-sm"
 >
-    <span class="mt-0.5 shrink-0 text-success">
-        <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    width="16"
-    height="16"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    data-test="kadoorie-icon"
-            aria-hidden="true"
-        focusable="false"
-        class="kad-icon inline-block shrink-0 align-middle"
+            <div data-test="card-header" class="border-b border-border px-4 py-3">
+            <h3 class="text-base font-semibold text-text">Sign in</h3>
+        </div>
+    
+    <div data-test="card-body" class="p-4 text-sm text-text-body">
+        <form class="flex flex-col gap-4">
+            <div
+    data-test="signin-email-field"
+    class="kad-field flex flex-col gap-1.5"
 >
-        <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
-</svg>
-    </span>
-
-    <div class="flex-1 text-sm text-text-body">
-                    <p data-test="alert-title" class="font-semibold text-text">Saved</p>
-                <div data-test="alert-body">Your changes were saved.</div>
-    </div>
-
-            <button
-            type="button"
-            data-test="alert-dismiss"
-            aria-label="Dismiss"
-            x-on:click="show = false"
-            class="kad-focusable -m-1 inline-flex size-11 shrink-0 items-center justify-center rounded-md text-text-muted-large hover:bg-black/5"
+            <label
+            for="signin-email"
+            data-test="signin-email-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
         >
-            <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    width="16"
-    height="16"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    data-test="kadoorie-icon"
-            aria-hidden="true"
-        focusable="false"
-        class="kad-icon inline-block shrink-0 align-middle"
+            Email
+                    </label>
+    
+    <input
+    type="email"
+    id="signin-email"
+    name="signin-email"
+    data-test="signin-email-input"
+     placeholder="you@example.com"          autocomplete="email"                         class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+/>
+
+    
+    </div>
+            <div
+    data-test="signin-password-field"
+    class="kad-field flex flex-col gap-1.5"
 >
-        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-</svg>
-        </button>
+            <label
+            for="signin-password"
+            data-test="signin-password-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Password
+                    </label>
+    
+    <input
+    type="password"
+    id="signin-password"
+    name="signin-password"
+    data-test="signin-password-input"
+             autocomplete="current-password"                         class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+/>
+
+    
+    </div>
+            <label
+    for="signin-remember"
+    data-test="signin-remember-checkbox-label"
+    class="inline-flex min-h-11 cursor-pointer items-center gap-2"
+>
+    <input
+        type="checkbox"
+        id="signin-remember"
+        name="signin-remember"
+        value="1"
+        data-test="signin-remember-checkbox"
+                                                class="kad-focusable size-5 shrink-0 accent-primary border-border rounded"
+    />
+            <span class="text-sm text-text">Remember me</span>
+    </label>
+            <button
+    type="submit"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5 w-full"
+>
+        Sign in
+</button>
+        </form>
     </div>
 
+    </div>
+</div>
                                                             </div>
 </div>
 
                         <div
     role="tabpanel"
-    id="ex-de1fab67-panel-code"
-    aria-labelledby="ex-de1fab67-tab-code"
+    id="ex-a2710195-panel-code"
+    aria-labelledby="ex-a2710195-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -668,7 +691,20 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::alert tone=&quot;success&quot; title=&quot;Saved&quot; :dismissible=&quot;true&quot;&gt;Your changes were saved.&lt;/x-kadoorie::alert&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div class=&quot;max-w-sm&quot;&gt;
+    &lt;x-kadoorie::card title=&quot;Sign in&quot;&gt;
+        &lt;form class=&quot;flex flex-col gap-4&quot;&gt;
+            &lt;x-kadoorie::field label=&quot;Email&quot; name=&quot;signin-email&quot;&gt;
+                &lt;x-kadoorie::input type=&quot;email&quot; name=&quot;signin-email&quot; placeholder=&quot;you@example.com&quot; autocomplete=&quot;email&quot; /&gt;
+            &lt;/x-kadoorie::field&gt;
+            &lt;x-kadoorie::field label=&quot;Password&quot; name=&quot;signin-password&quot;&gt;
+                &lt;x-kadoorie::input type=&quot;password&quot; name=&quot;signin-password&quot; autocomplete=&quot;current-password&quot; /&gt;
+            &lt;/x-kadoorie::field&gt;
+            &lt;x-kadoorie::checkbox name=&quot;signin-remember&quot; label=&quot;Remember me&quot; /&gt;
+            &lt;x-kadoorie::button type=&quot;submit&quot; class=&quot;w-full&quot;&gt;Sign in&lt;/x-kadoorie::button&gt;
+        &lt;/form&gt;
+    &lt;/x-kadoorie::card&gt;
+&lt;/div&gt;</code></pre>
                             </div>
 </div>
     </div>
@@ -678,7 +714,7 @@
                     
                                     <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Danger</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Dashboard stat row</h2>
                 </div>
 
                 <div class="p-4">
@@ -696,17 +732,17 @@
 >
     <div
         role="tablist"
-        aria-label="Danger view"
+        aria-label="Dashboard stat row view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-7d1f3078-tab-preview"
+                id="ex-6a9e061a-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-7d1f3078-panel-preview"
+                aria-controls="ex-6a9e061a-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -723,10 +759,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-7d1f3078-tab-code"
+                id="ex-6a9e061a-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-7d1f3078-panel-code"
+                aria-controls="ex-6a9e061a-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -745,8 +781,310 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-7d1f3078-panel-preview"
-    aria-labelledby="ex-7d1f3078-tab-preview"
+    id="ex-6a9e061a-panel-preview"
+    aria-labelledby="ex-6a9e061a-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div data-test="small-box" class="relative overflow-hidden rounded-lg shadow-sm bg-primary text-on-primary">
+    <div class="relative p-4">
+        <p data-test="small-box-value" class="kad-nums text-3xl font-bold leading-tight">1,410</p>
+        <p data-test="small-box-label" class="text-sm">Messages</p>
+    </div>
+
+    <span
+        aria-hidden="true"
+        data-test="small-box-icon"
+        class="pointer-events-none absolute right-3 top-3 opacity-30"
+    >
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle scale-[2.2]"
+>
+        <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+</svg>
+    </span>
+
+            <a
+            href="#"
+            data-test="small-box-link"
+            class="kad-focusable relative flex min-h-11 items-center justify-center gap-1 bg-black/10 text-xs font-medium hover:bg-black/20"
+        >
+            More info
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m9 18 6-6-6-6"/>
+</svg>
+        </a>
+    </div>
+    <div data-test="small-box" class="relative overflow-hidden rounded-lg shadow-sm bg-success-solid text-white">
+    <div class="relative p-4">
+        <p data-test="small-box-value" class="kad-nums text-3xl font-bold leading-tight">410</p>
+        <p data-test="small-box-label" class="text-sm">Bookmarks</p>
+    </div>
+
+    <span
+        aria-hidden="true"
+        data-test="small-box-icon"
+        class="pointer-events-none absolute right-3 top-3 opacity-30"
+    >
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle scale-[2.2]"
+>
+        <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+</svg>
+    </span>
+
+            <a
+            href="#"
+            data-test="small-box-link"
+            class="kad-focusable relative flex min-h-11 items-center justify-center gap-1 bg-black/10 text-xs font-medium hover:bg-black/20"
+        >
+            More info
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m9 18 6-6-6-6"/>
+</svg>
+        </a>
+    </div>
+    <div data-test="info-box" class="flex items-center gap-4 overflow-hidden rounded-lg border border-border bg-surface p-4 shadow-sm">
+    <span
+        data-test="info-box-icon"
+        aria-hidden="true"
+        class="flex size-14 shrink-0 items-center justify-center rounded-md bg-info text-white"
+    >
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+</svg>
+    </span>
+
+    <div class="min-w-0 flex-1">
+        <p data-test="info-box-label" class="truncate text-sm text-text-muted">Uploads</p>
+        <p data-test="info-box-value" class="kad-nums text-2xl font-bold text-text">13,648</p>
+
+        
+            </div>
+</div>
+    <div data-test="info-box" class="flex items-center gap-4 overflow-hidden rounded-lg border border-border bg-surface p-4 shadow-sm">
+    <span
+        data-test="info-box-icon"
+        aria-hidden="true"
+        class="flex size-14 shrink-0 items-center justify-center rounded-md bg-warning text-text"
+    >
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>
+</svg>
+    </span>
+
+    <div class="min-w-0 flex-1">
+        <p data-test="info-box-label" class="truncate text-sm text-text-muted">Storage</p>
+        <p data-test="info-box-value" class="kad-nums text-2xl font-bold text-text">72%</p>
+
+                    <div
+                data-test="info-box-progress"
+                role="progressbar"
+                aria-label="Storage"
+                aria-valuenow="72"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-surface-muted"
+            >
+                <div class="h-full rounded-full bg-primary" style="width: 72%"></div>
+            </div>
+        
+                    <p data-test="info-box-description" class="mt-1 text-xs text-text-muted">72% of your quota used</p>
+            </div>
+</div>
+</div>
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-6a9e061a-panel-code"
+    aria-labelledby="ex-6a9e061a-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div class=&quot;grid gap-4 sm:grid-cols-2 lg:grid-cols-4&quot;&gt;
+    &lt;x-kadoorie::small-box tone=&quot;primary&quot; value=&quot;1,410&quot; label=&quot;Messages&quot; icon=&quot;info&quot; url=&quot;#&quot; /&gt;
+    &lt;x-kadoorie::small-box tone=&quot;success&quot; value=&quot;410&quot; label=&quot;Bookmarks&quot; icon=&quot;circle-check&quot; url=&quot;#&quot; /&gt;
+    &lt;x-kadoorie::info-box tone=&quot;info&quot; icon=&quot;info&quot; label=&quot;Uploads&quot; value=&quot;13,648&quot; /&gt;
+    &lt;x-kadoorie::info-box tone=&quot;warning&quot; icon=&quot;triangle-alert&quot; label=&quot;Storage&quot; value=&quot;72%&quot; :progress=&quot;72&quot; description=&quot;72% of your quota used&quot; /&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Settings form</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Settings form view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-65560dd5-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-65560dd5-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-65560dd5-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-65560dd5-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-65560dd5-panel-preview"
+    aria-labelledby="ex-65560dd5-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -755,6 +1093,249 @@
 >
     <div data-test="showcase-preview" class="pt-4">
                                                                     <div
+    data-test="card"
+    class="overflow-hidden rounded-lg border border-border bg-surface shadow-sm"
+>
+            <div data-test="card-header" class="border-b border-border px-4 py-3">
+            <h3 class="text-base font-semibold text-text">Profile settings</h3>
+        </div>
+    
+    <div data-test="card-body" class="p-4 text-sm text-text-body">
+        <form class="flex flex-col gap-4">
+        <div
+    data-test="settings-name-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="settings-name"
+            data-test="settings-name-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Display name
+                    </label>
+    
+    <input
+    type="text"
+    id="settings-name"
+    name="settings-name"
+    data-test="settings-name-input"
+         value="Jane Doe"                             class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+/>
+
+    
+    </div>
+        <div
+    data-test="settings-bio-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="settings-bio"
+            data-test="settings-bio-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Bio
+                    </label>
+    
+    <textarea
+    id="settings-bio"
+    name="settings-bio"
+    rows="3"
+    data-test="settings-bio-textarea"
+         aria-describedby="settings-bio-hint"                     class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 py-2 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+></textarea>
+
+            <p id="settings-bio-hint" data-test="settings-bio-hint" class="text-xs text-text-muted">
+            A short description shown on your profile.
+        </p>
+    
+    </div>
+        <label
+    data-test="settings-notify-toggle-label"
+    class="inline-flex min-h-11 cursor-pointer items-center gap-2"
+>
+    <span class="relative inline-flex shrink-0">
+        <input
+            type="checkbox"
+            role="switch"
+            id="settings-notify"
+            name="settings-notify"
+            value="1"
+            data-test="settings-notify-toggle"
+            aria-checked="true"
+            x-data
+            x-on:change="$el.setAttribute('aria-checked', $el.checked ? 'true' : 'false')"
+            checked                                                            class="peer sr-only"
+        />
+        <span
+            aria-hidden="true"
+            class="h-6 w-11 rounded-full bg-border-strong transition-colors peer-checked:bg-primary peer-focus-visible:shadow-[var(--kad-ring)] peer-disabled:opacity-50"
+        ></span>
+        <span
+            aria-hidden="true"
+            class="absolute left-0.5 top-0.5 size-5 rounded-full bg-surface shadow-sm transition-transform peer-checked:translate-x-5"
+        ></span>
+    </span>
+            <span class="text-sm text-text">Email notifications</span>
+    </label>
+    </form>
+    </div>
+
+            <div data-test="card-footer" class="border-t border-border bg-surface-muted px-4 py-3">
+            <div class="flex justify-end gap-2">
+            <button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-transparent text-text hover:bg-surface-muted text-sm px-3.5 gap-1.5"
+>
+        Cancel
+</button>
+            <button
+    type="submit"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
+>
+        Save changes
+</button>
+        </div>
+        </div>
+    </div>
+
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-65560dd5-panel-code"
+    aria-labelledby="ex-65560dd5-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::card title=&quot;Profile settings&quot;&gt;
+    &lt;form class=&quot;flex flex-col gap-4&quot;&gt;
+        &lt;x-kadoorie::field label=&quot;Display name&quot; name=&quot;settings-name&quot;&gt;
+            &lt;x-kadoorie::input name=&quot;settings-name&quot; value=&quot;Jane Doe&quot; /&gt;
+        &lt;/x-kadoorie::field&gt;
+        &lt;x-kadoorie::field label=&quot;Bio&quot; name=&quot;settings-bio&quot; hint=&quot;A short description shown on your profile.&quot;&gt;
+            &lt;x-kadoorie::textarea name=&quot;settings-bio&quot; rows=&quot;3&quot; /&gt;
+        &lt;/x-kadoorie::field&gt;
+        &lt;x-kadoorie::toggle name=&quot;settings-notify&quot; label=&quot;Email notifications&quot; :checked=&quot;true&quot; /&gt;
+    &lt;/form&gt;
+
+    &lt;x-slot:footer&gt;
+        &lt;div class=&quot;flex justify-end gap-2&quot;&gt;
+            &lt;x-kadoorie::button variant=&quot;ghost&quot;&gt;Cancel&lt;/x-kadoorie::button&gt;
+            &lt;x-kadoorie::button type=&quot;submit&quot;&gt;Save changes&lt;/x-kadoorie::button&gt;
+        &lt;/div&gt;
+    &lt;/x-slot:footer&gt;
+&lt;/x-kadoorie::card&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Destructive confirmation</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Destructive confirmation view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-0fc7ce69-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-0fc7ce69-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-0fc7ce69-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-0fc7ce69-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-0fc7ce69-panel-preview"
+    aria-labelledby="ex-0fc7ce69-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <div
+    data-test="card"
+    class="overflow-hidden rounded-lg border border-border bg-surface shadow-sm"
+>
+            <div data-test="card-header" class="border-b border-border px-4 py-3">
+            <h3 class="text-base font-semibold text-text">Delete project</h3>
+        </div>
+    
+    <div data-test="card-body" class="p-4 text-sm text-text-body">
+        <div
     role="alert"
     data-test="alert"
     x-data="{ show: true }"
@@ -782,10 +1363,31 @@
     </span>
 
     <div class="flex-1 text-sm text-text-body">
-                    <p data-test="alert-title" class="font-semibold text-text">Payment failed</p>
-                <div data-test="alert-body">Please check your card details.</div>
+                    <p data-test="alert-title" class="font-semibold text-text">This cannot be undone</p>
+                <div data-test="alert-body">Deleting this project permanently removes all of its data.</div>
     </div>
 
+    </div>
+    </div>
+
+            <div data-test="card-footer" class="border-t border-border bg-surface-muted px-4 py-3">
+            <div class="flex justify-end gap-2">
+            <button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-transparent text-text hover:bg-surface-muted text-sm px-3.5 gap-1.5"
+>
+        Cancel
+</button>
+            <button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-danger text-white hover:brightness-95 text-sm px-3.5 gap-1.5"
+>
+        Delete project
+</button>
+        </div>
+        </div>
     </div>
 
                                                             </div>
@@ -793,8 +1395,8 @@
 
                         <div
     role="tabpanel"
-    id="ex-7d1f3078-panel-code"
-    aria-labelledby="ex-7d1f3078-tab-code"
+    id="ex-0fc7ce69-panel-code"
+    aria-labelledby="ex-0fc7ce69-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -811,7 +1413,163 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::alert tone=&quot;danger&quot; title=&quot;Payment failed&quot;&gt;Please check your card details.&lt;/x-kadoorie::alert&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::card title=&quot;Delete project&quot;&gt;
+    &lt;x-kadoorie::alert tone=&quot;danger&quot; title=&quot;This cannot be undone&quot;&gt;
+        Deleting this project permanently removes all of its data.
+    &lt;/x-kadoorie::alert&gt;
+
+    &lt;x-slot:footer&gt;
+        &lt;div class=&quot;flex justify-end gap-2&quot;&gt;
+            &lt;x-kadoorie::button variant=&quot;ghost&quot;&gt;Cancel&lt;/x-kadoorie::button&gt;
+            &lt;x-kadoorie::button variant=&quot;danger&quot;&gt;Delete project&lt;/x-kadoorie::button&gt;
+        &lt;/div&gt;
+    &lt;/x-slot:footer&gt;
+&lt;/x-kadoorie::card&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Empty state with action</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Empty state with action view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-fbd147df-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-fbd147df-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-fbd147df-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-fbd147df-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-fbd147df-panel-preview"
+    aria-labelledby="ex-fbd147df-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <div
+    data-test="card"
+    class="overflow-hidden rounded-lg border border-border bg-surface shadow-sm"
+>
+    
+    <div data-test="card-body" class="p-4 text-sm text-text-body">
+        <div class="flex flex-col items-center gap-4">
+        <div
+    data-test="empty-state"
+     role="status"     class="flex flex-col items-center justify-center gap-3 p-8 text-center"
+>
+    
+    <h3 class="text-base font-semibold text-text" data-test="empty-state-heading">
+        No projects yet
+    </h3>
+
+            <p class="max-w-sm text-sm text-text-muted">Create your first project to get started.</p>
+    
+    </div>
+        <button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
+>
+        New project
+</button>
+    </div>
+    </div>
+
+    </div>
+
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-fbd147df-panel-code"
+    aria-labelledby="ex-fbd147df-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::card&gt;
+    &lt;div class=&quot;flex flex-col items-center gap-4&quot;&gt;
+        &lt;x-kadoorie::empty-state heading=&quot;No projects yet&quot; description=&quot;Create your first project to get started.&quot; /&gt;
+        &lt;x-kadoorie::button&gt;New project&lt;/x-kadoorie::button&gt;
+    &lt;/div&gt;
+&lt;/x-kadoorie::card&gt;</code></pre>
                             </div>
 </div>
     </div>

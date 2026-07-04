@@ -120,6 +120,67 @@ final class ComponentExampleRegistry
 
             ['component' => 'info-box', 'title' => 'Info boxes', 'snippet' => '<div class="grid gap-4 sm:grid-cols-2"><x-kadoorie::info-box tone="info" icon="info" label="Messages" value="1,410" /><x-kadoorie::info-box tone="success" icon="circle-check" label="Bookmarks" value="410" :progress="70" description="70% increase in 30 days" /></div>'],
 
+            ['component' => 'recipe', 'title' => 'Sign-in card', 'snippet' => '<div class="max-w-sm">
+    <x-kadoorie::card title="Sign in">
+        <form class="flex flex-col gap-4">
+            <x-kadoorie::field label="Email" name="signin-email">
+                <x-kadoorie::input type="email" name="signin-email" placeholder="you@example.com" autocomplete="email" />
+            </x-kadoorie::field>
+            <x-kadoorie::field label="Password" name="signin-password">
+                <x-kadoorie::input type="password" name="signin-password" autocomplete="current-password" />
+            </x-kadoorie::field>
+            <x-kadoorie::checkbox name="signin-remember" label="Remember me" />
+            <x-kadoorie::button type="submit" class="w-full">Sign in</x-kadoorie::button>
+        </form>
+    </x-kadoorie::card>
+</div>'],
+
+            ['component' => 'recipe', 'title' => 'Dashboard stat row', 'snippet' => '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <x-kadoorie::small-box tone="primary" value="1,410" label="Messages" icon="info" url="#" />
+    <x-kadoorie::small-box tone="success" value="410" label="Bookmarks" icon="circle-check" url="#" />
+    <x-kadoorie::info-box tone="info" icon="info" label="Uploads" value="13,648" />
+    <x-kadoorie::info-box tone="warning" icon="triangle-alert" label="Storage" value="72%" :progress="72" description="72% of your quota used" />
+</div>'],
+
+            ['component' => 'recipe', 'title' => 'Settings form', 'snippet' => '<x-kadoorie::card title="Profile settings">
+    <form class="flex flex-col gap-4">
+        <x-kadoorie::field label="Display name" name="settings-name">
+            <x-kadoorie::input name="settings-name" value="Jane Doe" />
+        </x-kadoorie::field>
+        <x-kadoorie::field label="Bio" name="settings-bio" hint="A short description shown on your profile.">
+            <x-kadoorie::textarea name="settings-bio" rows="3" />
+        </x-kadoorie::field>
+        <x-kadoorie::toggle name="settings-notify" label="Email notifications" :checked="true" />
+    </form>
+
+    <x-slot:footer>
+        <div class="flex justify-end gap-2">
+            <x-kadoorie::button variant="ghost">Cancel</x-kadoorie::button>
+            <x-kadoorie::button type="submit">Save changes</x-kadoorie::button>
+        </div>
+    </x-slot:footer>
+</x-kadoorie::card>'],
+
+            ['component' => 'recipe', 'title' => 'Destructive confirmation', 'snippet' => '<x-kadoorie::card title="Delete project">
+    <x-kadoorie::alert tone="danger" title="This cannot be undone">
+        Deleting this project permanently removes all of its data.
+    </x-kadoorie::alert>
+
+    <x-slot:footer>
+        <div class="flex justify-end gap-2">
+            <x-kadoorie::button variant="ghost">Cancel</x-kadoorie::button>
+            <x-kadoorie::button variant="danger">Delete project</x-kadoorie::button>
+        </div>
+    </x-slot:footer>
+</x-kadoorie::card>'],
+
+            ['component' => 'recipe', 'title' => 'Empty state with action', 'snippet' => '<x-kadoorie::card>
+    <div class="flex flex-col items-center gap-4">
+        <x-kadoorie::empty-state heading="No projects yet" description="Create your first project to get started." />
+        <x-kadoorie::button>New project</x-kadoorie::button>
+    </div>
+</x-kadoorie::card>'],
+
             ['component' => 'pagination', 'title' => 'Windowed', 'snippet' => '@php($paginator = new \Illuminate\Pagination\LengthAwarePaginator(range(1, 10), 95, 10, 4, [\'path\' => \'#\']))' . "\n" . '<x-kadoorie::pagination :paginator="$paginator" />'],
 
             ['component' => 'error-page', 'title' => '404', 'snippet' => '<x-kadoorie::error-page :status="404" />'],

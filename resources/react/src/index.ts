@@ -102,4 +102,12 @@ export type { ErrorPageProps } from './ui/ErrorPage';
 export { LoginForm } from './ui/LoginForm';
 export type { LoginFormProps, LoginCredentials } from './ui/LoginForm';
 
-// UI components are added per phase (R5) and re-exported here.
+// UI components — R5 widgets
+export { SmallBox } from './ui/SmallBox';
+export type { SmallBoxProps } from './ui/SmallBox';
+export { InfoBox } from './ui/InfoBox';
+export type { InfoBoxProps } from './ui/InfoBox';
+export { ProfileMenu } from './ui/ProfileMenu';
+export type { ProfileMenuProps } from './ui/ProfileMenu';
+export { Footer } from './ui/Footer';
+export type { FooterProps, FooterColumn, FooterLink } from './ui/Footer';

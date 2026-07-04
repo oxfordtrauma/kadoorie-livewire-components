@@ -105,6 +105,15 @@ just like the Blade showcase — so it must match the roving-tabindex contract.
 | ProfileMenu | wraps `Dropdown`; **logout** = an `onLogout` callback **or** a host-supplied `logoutUrl` + `csrfToken` prop rendering a POST form (React can't read `@csrf`; the host passes the token from its meta tag) | `profile-menu-trigger/-change-details/-logout` |
 | Footer | configurable columns + legal bar; `role=contentinfo` | `footer/-column/-heading/-link/-legal/-legal-link` |
 
+> **R5 status: ✅ complete.** Shipped `<SmallBox>`, `<InfoBox>`
+> (optional `role=progressbar`), `<ProfileMenu>` (wraps `<Dropdown>`; logout via
+> `onLogout` callback, or a `logoutUrl` + `csrfToken` POST form rendering a hidden
+> `_token`, or a custom `logout` slot — auth-agnostic), and a configurable
+> `<Footer>` (`role=contentinfo`). All exported from `index.ts` and registered in
+> the workbench as the `widgets` story. Tests added: `R5.widgets.test.tsx`,
+> `R5.a11y.test.tsx`. Gates green: Vitest 124 passed, `tsc --noEmit` clean,
+> ESLint + Prettier clean. Playwright react-* matrix remains deferred to R6.
+
 **Commit**: `feat(react): Add React dashboard widgets`
 
 ---

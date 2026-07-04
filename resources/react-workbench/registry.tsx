@@ -38,6 +38,10 @@ import { Pagination } from '@kadoorie/ui/Pagination';
 import { DataTable } from '@kadoorie/ui/DataTable';
 import { ErrorPage } from '@kadoorie/ui/ErrorPage';
 import { LoginForm } from '@kadoorie/ui/LoginForm';
+import { SmallBox } from '@kadoorie/ui/SmallBox';
+import { InfoBox } from '@kadoorie/ui/InfoBox';
+import { ProfileMenu } from '@kadoorie/ui/ProfileMenu';
+import { Footer } from '@kadoorie/ui/Footer';
 import { useState } from 'react';
 
 /**
@@ -252,7 +256,34 @@ export const stories: Story[] = [
   { id: 'feedback', render: FeedbackStory },
   { id: 'layout-nav', render: LayoutNavStory },
   { id: 'data-pages', render: DataPagesStory },
+  { id: 'widgets', render: WidgetsStory },
 ];
+
+/** R5 dashboard widgets gallery. */
+function WidgetsStory(): ReactElement {
+  return (
+    <section data-test="story-widgets" style={{ display: 'grid', gap: '1rem', padding: '1rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <ProfileMenu
+          name="Jane Doe"
+          email="jane@work.com"
+          initials="JD"
+          changeDetailsUrl="#"
+          onLogout={() => {}}
+        />
+      </div>
+      <SmallBox value="1,024" label="Active users" icon="info" tone="primary" url="#" />
+      <InfoBox icon="circle-check" label="Uptime" value="99.9%" tone="success" progress={92} />
+      <Footer
+        brand="Kadoorie"
+        tagline="Prebuilt accessible components."
+        columns={[{ heading: 'Product', links: [{ label: 'Docs', url: '#' }] }]}
+        copyright="(c) 2026 Kadoorie"
+        legalLinks={[{ label: 'Privacy', url: '#' }]}
+      />
+    </section>
+  );
+}
 
 export function findStory(id: string | null): Story | undefined {
   return stories.find((story) => story.id === id);

@@ -77,6 +77,19 @@ just like the Blade showcase — so it must match the roving-tabindex contract.
   host's `onSubmit`** (auth-agnostic; the "never leak the password" contract
   carries over). No dispatch/serialisation of the password.
 
+> **R4 status: ✅ complete.** Shipped `useDataTable` (bounded `MAX_PER_PAGE=100`,
+> spaceship-style stable sort, slice pagination, `ariaSort`, selection),
+> `<DataTable>` (reflow `kad-table-stack` table, sortable `aria-sort` headers,
+> optional select column, `data-table-*` pagination, EmptyState when empty),
+> `<ErrorPage>` (new `httpErrorStatus.ts` mirror of the enum: 401–502 + generic
+> fallback, per-instance overrides), and `<LoginForm>` (client validation; the
+> password stays in component state until the host's `onSubmit` — never
+> dispatched/serialised). All exported from `index.ts` and registered in the
+> workbench as the `data-pages` story. Tests added: `R4.data.test.tsx`,
+> `R4.a11y.test.tsx`, and `lib/useDataTable.test.tsx`. Gates green: Vitest 112
+> passed, `tsc --noEmit` clean, ESLint + Prettier clean, React workbench builds.
+> Playwright react-* matrix remains deferred to R6.
+
 **Commit**: `feat(react): Add React data table, error page, and login form`
 
 ---

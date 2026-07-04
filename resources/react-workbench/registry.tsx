@@ -35,6 +35,9 @@ import { Nav } from '@kadoorie/ui/Nav';
 import { Dropdown, DropdownItem } from '@kadoorie/ui/Dropdown';
 import { EmptyState } from '@kadoorie/ui/EmptyState';
 import { Pagination } from '@kadoorie/ui/Pagination';
+import { DataTable } from '@kadoorie/ui/DataTable';
+import { ErrorPage } from '@kadoorie/ui/ErrorPage';
+import { LoginForm } from '@kadoorie/ui/LoginForm';
 import { useState } from 'react';
 
 /**
@@ -217,11 +220,38 @@ function LayoutNavStory(): ReactElement {
   );
 }
 
+/** R4 data & pages gallery. */
+function DataPagesStory(): ReactElement {
+  return (
+    <section data-test="story-data-pages" style={{ display: 'grid', gap: '2rem', padding: '1rem' }}>
+      <DataTable
+        selectable
+        perPage={3}
+        columns={[
+          { field: 'name', label: 'Name', sortable: true },
+          { field: 'score', label: 'Score', sortable: true, numeric: true },
+        ]}
+        rows={[
+          { id: 1, name: 'Ada', score: 91 },
+          { id: 2, name: 'Linus', score: 88 },
+          { id: 3, name: 'Grace', score: 95 },
+          { id: 4, name: 'Alan', score: 72 },
+        ]}
+      />
+
+      <LoginForm onSubmit={() => {}} forgotUrl="#" />
+
+      <ErrorPage status={404} />
+    </section>
+  );
+}
+
 export const stories: Story[] = [
   { id: 'foundation', render: FoundationStory },
   { id: 'form-controls', render: FormControlsStory },
   { id: 'feedback', render: FeedbackStory },
   { id: 'layout-nav', render: LayoutNavStory },
+  { id: 'data-pages', render: DataPagesStory },
 ];
 
 export function findStory(id: string | null): Story | undefined {

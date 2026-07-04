@@ -26,6 +26,15 @@ export { useDismiss } from './hooks/useDismiss';
 export type { DismissOptions } from './hooks/useDismiss';
 export { useRovingTabIndex } from './hooks/useRovingTabIndex';
 export type { RovingTabIndex, RovingItemProps } from './hooks/useRovingTabIndex';
+export { useDataTable } from './hooks/useDataTable';
+export type {
+  DataTable as DataTableState,
+  UseDataTableOptions,
+  DataTableRow,
+  SortDirection,
+} from './hooks/useDataTable';
+export { httpErrorCopy } from './lib/httpErrorStatus';
+export type { HttpErrorCopy } from './lib/httpErrorStatus';
 
 // UI components — R1 form controls
 export { Icon } from './ui/Icon';
@@ -85,4 +94,12 @@ export type { EmptyStateProps } from './ui/EmptyState';
 export { Pagination } from './ui/Pagination';
 export type { PaginationProps } from './ui/Pagination';
 
-// UI components are added per phase (R4–R5) and re-exported here.
+// UI components — R4 data & pages
+export { DataTable } from './ui/DataTable';
+export type { DataTableProps, DataTableColumn } from './ui/DataTable';
+export { ErrorPage } from './ui/ErrorPage';
+export type { ErrorPageProps } from './ui/ErrorPage';
+export { LoginForm } from './ui/LoginForm';
+export type { LoginFormProps, LoginCredentials } from './ui/LoginForm';
+
+// UI components are added per phase (R5) and re-exported here.

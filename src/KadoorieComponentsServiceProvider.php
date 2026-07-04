@@ -54,6 +54,11 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/react/src' => $this->reactPublishPath(),
         ], 'kadoorie-react');
+
+        $this->publishes([
+            __DIR__ . '/../resources/stubs/tsconfig.kadoorie.json' => base_path('tsconfig.kadoorie.json'),
+            __DIR__ . '/../resources/stubs/eslint.kadoorie.cjs' => base_path('eslint.kadoorie.cjs'),
+        ], 'kadoorie-react-config');
     }
 
     /**

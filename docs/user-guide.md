@@ -57,6 +57,22 @@ components are available under the `kadoorie` namespace (for example
 `<x-kadoorie::button>`), and Livewire components under `kadoorie::` (for example
 `<livewire:kadoorie::modal>`).
 
+## Component sets: Blade and React
+
+This package ships two component sets that share the same design tokens,
+compiled CSS, `data-test` names, and WCAG 2.1 AA bar:
+
+- **Blade (Livewire)** — the default, covered by this guide.
+- **React** — a source (copy-in) distribution published into your app's
+  JavaScript. See the [React guide](react-guide.md).
+
+An interactive installer wires whichever set(s) you choose:
+
+```bash
+php artisan kadoorie:install
+# non-interactive: --set=blade|react|both  [--with-config]  [--force]
+```
+
 ## Quick start
 
 Once `composer require` has pulled the package, the service provider is
@@ -101,7 +117,7 @@ and see the [Data-binding guide](data-binding.md) for pushing data in.
 
 ## Publishing assets
 
-Four publish tags are available:
+Publish tags are available:
 
 ```bash
 # Configuration (config/kadoorie.php)
@@ -115,7 +131,16 @@ php artisan vendor:publish --tag=kadoorie-styles
 
 # Filament recolour theme (v3 + v4) -> resources/css/filament/kadoorie/
 php artisan vendor:publish --tag=kadoorie-filament
+
+# React component source -> resources/js/kadoorie (config kadoorie.react.path)
+php artisan vendor:publish --tag=kadoorie-react
+
+# React tsconfig alias + eslint a11y config -> app root
+php artisan vendor:publish --tag=kadoorie-react-config
 ```
+
+The `kadoorie:install` command wraps these tags with prompts — see the
+[React guide](react-guide.md).
 
 ## Styling: preset vs precompiled CSS
 

@@ -44,3 +44,36 @@ it('accepts both sets without error', function (): void {
 
     File::deleteDirectory($target);
 });
+
+it('publishes the tsconfig and eslint stubs with --with-config', function (): void {
+    $target = sys_get_temp_dir() . '/kad-react-' . uniqid();
+    config()->set('kadoorie.react.path', $target);
+
+    $tsconfig = base_path('tsconfig.kadoorie.json');
+    $eslint = base_path('eslint.kadoorie.cjs');
+    File::delete([$tsconfig, $eslint]);
+
+    $this->artisan('kadoorie:install', ['--set' => 'react', '--with-config' => true, '--force' => true])
+        ->assertSuccessful();
+
+    expect($tsconfig)->toBeReadableFile()
+        ->and($eslint)->toBeReadableFile();
+
+    File::deleteDirectory($target);
+    File::delete([$tsconfig, $eslint]);
+});
+
+it('does not publish the React config without --with-config when non-interactive', function (): void {
+    $target = sys_get_temp_dir() . '/kad-react-' . uniqid();
+    config()->set('kadoorie.react.path', $target);
+
+    $tsconfig = base_path('tsconfig.kadoorie.json');
+    File::delete($tsconfig);
+
+    $this->artisan('kadoorie:install', ['--set' => 'react', '--force' => true])
+        ->assertSuccessful();
+
+    expect(File::exists($tsconfig))->toBeFalse();
+
+    File::deleteDirectory($target);
+});

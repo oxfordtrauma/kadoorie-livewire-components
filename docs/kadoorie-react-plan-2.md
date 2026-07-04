@@ -39,7 +39,7 @@ R7 Installer UX (Prompts) + publish flow + CI + docs + final sweep (8)
 | R4 | Data & pages (data-table + `useDataTable`, error-page, login form) | R0 | R1–R3,R5 | 8 | ✅ |
 | R5 | Widgets (small-box, info-box, profile-menu, footer) | R0 | R1–R4 | 5 | ✅ |
 | R6 | React workbench parity + Playwright functional + WCAG | R1–R5 | — | 8 | ✅ |
-| R7 | Installer UX + publish flow + CI + docs + final sweep | R6 | — | 8 | ⬜ |
+| R7 | Installer UX + publish flow + CI + docs + final sweep | R6 | — | 8 | ✅ |
 | | **Total** | | | **81** | |
 
 **Parallelisation:** R1–R5 touch disjoint files under `resources/react/src/ui/`

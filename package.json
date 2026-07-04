@@ -7,9 +7,9 @@
     "build:workbench": "esbuild resources/js/workbench.js --bundle --format=esm --outfile=resources/dist/workbench.js",
     "build:showcase": "esbuild resources/js/showcase.js --bundle --minify --format=iife --outfile=resources/dist/showcase.js",
     "dev": "postcss resources/css/kadoorie.css -o resources/dist/kadoorie.css --watch",
-    "lint": "eslint resources/js resources/react resources/react-workbench tests/React --no-error-on-unmatched-pattern",
-    "format:check": "prettier --check --no-error-on-unmatched-pattern resources/js resources/css resources/react resources/react-workbench tests/React",
-    "format:write": "prettier --write --no-error-on-unmatched-pattern resources/js resources/css resources/react resources/react-workbench tests/React",
+    "lint": "eslint resources/js resources/react resources/react-workbench tests/React tests/ReactPlaywright tests/ReactWCAG --no-error-on-unmatched-pattern",
+    "format:check": "prettier --check --no-error-on-unmatched-pattern resources/js resources/css resources/react resources/react-workbench tests/React tests/ReactPlaywright tests/ReactWCAG",
+    "format:write": "prettier --write --no-error-on-unmatched-pattern resources/js resources/css resources/react resources/react-workbench tests/React tests/ReactPlaywright tests/ReactWCAG",
     "typecheck": "tsc --noEmit",
     "test:js": "jest --coverage",
     "test:react": "vitest run",
@@ -52,8 +52,8 @@
     "tailwindcss": "^3.4.0",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.0",
-    "vite": "^6.0.3",
-    "vitest": "^2.1.8",
+    "vite": "^6.4.3",
+    "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0"
   }
 }

@@ -171,23 +171,32 @@ h-scroll; ≥44px targets; contrast AA. **Commit**: `test(react): Add React work
 
 ### Tasks
 
-- [ ] **Installer UX** — flesh out `kadoorie:install` with **Laravel Prompts**:
-      `multiselect('Which component set(s)?', ['Blade (Livewire)', 'React'])`,
-      then `confirm('Add a tsconfig path alias and eslint a11y rules?')`; honour
-      `--set=`/`--force`; print tailored next-steps per set. Idempotent
-      (skip-existing) with a summary table of published files.
-- [ ] **Config** — `config('kadoorie.react.path')` (default `resources/js/kadoorie`)
-      + publish the stubs (`tsconfig.kadoorie.json`, vite/eslint snippets).
-- [ ] **CI** — add a `react` job to `.github/workflows/ci.yml`: `npm ci` →
-      `tsc --noEmit` → eslint/prettier (TSX) → `vitest run --coverage` → build the
-      React workbench → `playwright test --project=react-*` (Chromium `--with-deps`).
-- [ ] **Docs** — `docs/react-guide.md` (install via `kadoorie:install`, importing
-      the CSS, wiring Vite, controlled/uncontrolled, the adapters, the security
-      notes for Login/ProfileMenu) + update `docs/user-guide.md` (the two sets +
-      the installer) + a React parity note in each showcase page is **out of
-      scope** (the React set has its own workbench, not the static showcase).
-- [ ] **Final sweep** — Pint · Larastan · Pest · `tsc` · ESLint · Prettier ·
-      Vitest · Playwright (Blade **and** React matrices) · composer/npm audit.
+- [x] **Installer UX** — `kadoorie:install` uses Laravel Prompts `multiselect`
+      for the set(s), then `confirm(...)` to publish the tsconfig/eslint stubs;
+      honours `--set=`/`--with-config`/`--force`; prints a summary table + tailored
+      next-steps; idempotent (skip-existing React source, skip-existing stubs).
+- [x] **Config** — `config('kadoorie.react.path')` (default `resources/js/kadoorie`)
+      + a `kadoorie-react-config` tag publishing `resources/stubs/tsconfig.kadoorie.json`
+      and `resources/stubs/eslint.kadoorie.cjs` (vite snippet lives in the docs).
+- [x] **CI** — added a `react` job (`npm ci` → `tsc --noEmit` → `vitest run`); the
+      `browser` job now also runs `test:react:e2e` + `test:react:wcag` (Chromium
+      `--with-deps`, reusing the built `kadoorie.css`). Lint/format already cover
+      the React source and the Playwright spec dirs.
+- [x] **Docs** — `docs/react-guide.md` (install, CSS import, Vite alias,
+      controlled/uncontrolled, adapters, Login/ProfileMenu security notes) +
+      `docs/user-guide.md` gained a "Component sets" section and the two React
+      publish tags. The static showcase is Blade-only by design (React has its own
+      workbench).
+- [x] **Final sweep** — all green (see below).
+
+> **R7 status: ✅ complete.** `kadoorie:install` installs blade/react/both into a
+> fresh Testbench app (5 InstallCommand tests). Final sweep green: **Pint 96
+> files, Larastan clean, Pest 151/511, tsc + ESLint + Prettier clean, Vitest 124,
+> Playwright 431 passed / 13 skipped (all 12 Blade+React projects), composer audit
+> 0, npm audit 0**. Fixed a pre-existing dev-tooling audit failure the sweep
+> surfaced: the R0 vitest/vite toolchain pulled a **critical** (Vitest UI file
+> read) and **high** (Vite dev-server path traversal) advisory — bumped
+> `vitest` to ^3.2.4 and `vite` to ^6.4.3 (dev-only; 124 tests still pass).
 
 **DoD**: `kadoorie:install` interactively installs Blade/React/both into a fresh
 Testbench app (Pest); CI green including the React job; docs complete.

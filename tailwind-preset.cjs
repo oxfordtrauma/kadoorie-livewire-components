@@ -95,6 +95,8 @@ module.exports = {
           fg: 'var(--kad-color-footer-fg)',
           muted: 'var(--kad-color-footer-muted)',
         },
+        body: 'var(--kad-color-body)',
+        stroke: 'var(--kad-color-stroke)',
       },
       borderColor: {
         DEFAULT: 'var(--kad-color-border)',

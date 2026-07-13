@@ -43,6 +43,10 @@
   --kad-color-footer-fg: #ffffff;
   --kad-color-footer-muted: rgb(255 255 255 / 0.8);
 
+  /* App shell */
+  --kad-color-body: #f5f6f8;
+  --kad-color-stroke: #e9ebec;
+
   /* Semantic */
   --kad-color-danger: #dc2626;
   --kad-color-danger-accent: #e53935;

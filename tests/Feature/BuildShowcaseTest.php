@@ -28,6 +28,22 @@ it('builds a static showcase page for every registered component', function (): 
     File::deleteDirectory($output);
 });
 
+it('lists every available icon on the icon showcase page', function (): void {
+    $output = sys_get_temp_dir() . '/kad-showcase-' . uniqid();
+
+    $this->artisan('kadoorie:build-showcase', ['--output' => $output])->assertSuccessful();
+
+    $icon = file_get_contents($output . '/icon.html');
+
+    expect($icon)->toContain('data-test="icon-catalog"')
+        ->toContain('data-test="icon-set-lucide"')
+        ->toContain('data-test="icon-set-kadoorie"')
+        ->toContain('lucide:check')
+        ->toContain('kadoorie:leaf');
+
+    File::deleteDirectory($output);
+});
+
 it('gives Livewire components an Alpine demo or a static note', function (): void {
     $output = sys_get_temp_dir() . '/kad-showcase-' . uniqid();
 

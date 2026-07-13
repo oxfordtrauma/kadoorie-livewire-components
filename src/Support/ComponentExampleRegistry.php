@@ -62,6 +62,24 @@ final class ComponentExampleRegistry
     {
         return [
             ['component' => 'icon', 'title' => 'Labelled', 'snippet' => '<x-kadoorie::icon name="circle-check" label="Complete" class="text-success" size="lg" />'],
+            ['component' => 'icon', 'title' => 'Available icons', 'snippet' => '@php($sets = \Kadoorie\LivewireComponents\Support\IconCatalog::grouped())
+<div data-test="icon-catalog" class="flex flex-col gap-6">
+    @foreach ($sets as $set => $names)
+        <div data-test="icon-set-{{ $set }}">
+            <h3 class="mb-3 text-sm font-semibold capitalize text-text">
+                {{ $set }} <span class="font-normal text-text-muted">({{ count($names) }})</span>
+            </h3>
+            <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+                @foreach ($names as $name)
+                    <li class="flex items-center gap-3 rounded-lg border border-border bg-surface px-3 py-2">
+                        <x-kadoorie::icon :name="$set . \':\' . $name" size="lg" class="shrink-0 text-text" />
+                        <code class="truncate text-xs text-text-body">{{ $set }}:{{ $name }}</code>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endforeach
+</div>'],
 
             ['component' => 'button', 'title' => 'Primary', 'snippet' => '<x-kadoorie::button>Save changes</x-kadoorie::button>'],
             ['component' => 'button', 'title' => 'Danger / loading', 'snippet' => '<x-kadoorie::button variant="danger" :loading="true">Deleting</x-kadoorie::button>'],

@@ -21,7 +21,11 @@ const registry: Record<string, string> = {
     '<path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>',
   'kadoorie:mark':
     '<path d="M6 3v18"/><path d="M6 12c6 0 8-3 12-9"/><path d="M6 12c6 0 8 3 12 9"/>',
+  'lucide:bell':
+    '<path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>',
   'lucide:check': '<path d="M20 6 9 17l-5-5"/>',
+  'lucide:circle-help':
+    '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
   'lucide:external-link':
     '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>',
   'lucide:chevron-down': '<path d="m6 9 6 6 6-6"/>',

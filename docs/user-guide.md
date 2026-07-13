@@ -23,8 +23,8 @@ component. For pushing data into components, see the
 ## Requirements
 
 - PHP `^8.3`
-- Laravel `^11.0 || ^12.0`
-- Livewire `^3.5`
+- Laravel `^13.17`
+- Livewire `^4.3.2`
 - Tailwind CSS `^3.4` (only if you consume the preset rather than the
   precompiled stylesheet)
 

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-13
+
+### Changed
+
+- **BREAKING**: raised the minimum framework requirements to Laravel 13.17
+  (`illuminate/contracts ^13.17`) and Livewire 4.3.2 (`livewire/livewire
+  ^4.3.2`), dropping Laravel 11/12 and Livewire 3 support. Livewire components
+  are now registered through `Livewire::addNamespace()` to match Livewire 4's
+  namespace-based component resolution. The dev toolchain moves to Pest 4 and
+  Testbench 11.
+
 ## [0.1.1] - 2026-07-13
 
 ### Added
@@ -62,6 +73,7 @@ Initial release of the Kadoorie Livewire Components library.
 
 - Dark mode and RTL are intentionally out of scope for this release.
 
-[Unreleased]: https://github.com/oxfordtrauma/kadoorie-livewire-components/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/oxfordtrauma/kadoorie-livewire-components/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/oxfordtrauma/kadoorie-livewire-components/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/oxfordtrauma/kadoorie-livewire-components/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/oxfordtrauma/kadoorie-livewire-components/releases/tag/v0.1.0

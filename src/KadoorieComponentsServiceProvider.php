@@ -17,10 +17,6 @@ namespace Kadoorie\LivewireComponents;
 use Illuminate\Support\Facades\Blade;
 use Kadoorie\LivewireComponents\Console\BuildShowcaseCommand;
 use Kadoorie\LivewireComponents\Console\InstallCommand;
-use Kadoorie\LivewireComponents\Livewire\DataTable;
-use Kadoorie\LivewireComponents\Livewire\Modal;
-use Kadoorie\LivewireComponents\Livewire\Pages\Login;
-use Kadoorie\LivewireComponents\Livewire\Toast;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -80,9 +76,10 @@ final class KadoorieComponentsServiceProvider extends PackageServiceProvider
 
     private function registerLivewireComponents(): void
     {
-        Livewire::component('kadoorie::modal', Modal::class);
-        Livewire::component('kadoorie::toast', Toast::class);
-        Livewire::component('kadoorie::data-table', DataTable::class);
-        Livewire::component('kadoorie::pages.login', Login::class);
+        // Livewire 4 resolves a "::" component name (e.g. kadoorie::modal) through
+        // a registered class namespace by convention, mapping the name to
+        // Kadoorie\LivewireComponents\Livewire\{Name} (dot segments become
+        // sub-namespaces, so kadoorie::pages.login -> ...\Livewire\Pages\Login).
+        Livewire::addNamespace('kadoorie', classNamespace: 'Kadoorie\\LivewireComponents\\Livewire');
     }
 }

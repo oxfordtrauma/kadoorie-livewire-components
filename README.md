@@ -24,8 +24,8 @@ components implementing the **Kadoorie look and feel** for Laravel applications.
 ## Requirements
 
 - PHP `^8.3`
-- Laravel `^11.0 || ^12.0`
-- Livewire `^3.5`
+- Laravel `^13.17`
+- Livewire `^4.3.2`
 
 ## Installation
 

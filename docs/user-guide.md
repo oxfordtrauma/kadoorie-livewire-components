@@ -35,15 +35,15 @@ the package in your application's `composer.json`:
 
 ```json
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:oxfordtrauma/livewire-components.git"
-        }
-    ],
-    "require": {
-        "kadoorie/livewire-components": "^0.1"
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:oxfordtrauma/kadoorie-livewire-components.git"
     }
+  ],
+  "require": {
+    "oxfordtrauma/livewire-components": "^0.1"
+  }
 }
 ```
 
@@ -155,11 +155,11 @@ so the classes are generated:
 ```js
 // tailwind.config.js
 module.exports = {
-  presets: [require('kadoorie/livewire-components/tailwind-preset.cjs')],
-  content: [
-    './resources/**/*.blade.php',
-    './vendor/kadoorie/livewire-components/resources/views/**/*.blade.php',
-  ],
+    presets: [require('kadoorie/livewire-components/tailwind-preset.cjs')],
+    content: [
+        './resources/**/*.blade.php',
+        './vendor/kadoorie/livewire-components/resources/views/**/*.blade.php',
+    ],
 };
 ```
 
@@ -186,9 +186,9 @@ rebuild:
 
 ```css
 :root {
-  --kad-color-primary: #005a9c;
-  --kad-color-primary-hover: #004a80;
-  --kad-radius-md: 6px;
+    --kad-color-primary: #005a9c;
+    --kad-color-primary-hover: #004a80;
+    --kad-radius-md: 6px;
 }
 ```
 
@@ -211,8 +211,8 @@ import focus from '@alpinejs/focus';
 import collapse from '@alpinejs/collapse';
 
 document.addEventListener('alpine:init', () => {
-  window.Alpine.plugin(focus);
-  window.Alpine.plugin(collapse);
+    window.Alpine.plugin(focus);
+    window.Alpine.plugin(collapse);
 });
 ```
 
@@ -450,9 +450,9 @@ when `logout-url` is set, or you can override the action via a `logout` slot.
 
 A compact dark utility bar (distinct from the marketing `footer` above): a
 labelled row of external "useful links", an optional organisation/version meta
-block, and a logo. Links open in a new tab by default (add `'external' => false`
-to keep one in-tab). The far-right logo defaults to the Kadoorie brand mark;
-pass a `logo` slot to drop in your own lockup.
+block, and the bundled Kadoorie logo lockup
+(`resources/logos/kadoorieLogo.svg`). Links open in a new tab by default (add
+`'external' => false` to keep one in-tab).
 
 ```blade
 <x-kadoorie::app-footer
@@ -463,11 +463,7 @@ pass a `logo` slot to drop in your own lockup.
         ['label' => 'REDCap Login', 'url' => 'https://redcap.example.org'],
         ['label' => 'eTMF Portal', 'url' => 'https://etmf.example.org'],
     ]"
->
-    <x-slot:logo>
-        <img src="/img/kadoorie-oxford.svg" alt="Kadoorie Institute, University of Oxford" class="h-9" />
-    </x-slot:logo>
-</x-kadoorie::app-footer>
+/>
 ```
 
 The dark surface is driven by the `--kad-color-footer-*` tokens, so you can

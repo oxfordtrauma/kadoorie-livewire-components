@@ -27,6 +27,42 @@ components implementing the **Kadoorie look and feel** for Laravel applications.
 - Laravel `^11.0 || ^12.0`
 - Livewire `^3.5`
 
+## Installation
+
+This is a private package served from GitHub (not Packagist). Add the repository
+to your application's `composer.json`, then require it:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/oxfordtrauma/kadoorie-livewire-components.git"
+        }
+    ]
+}
+```
+
+```bash
+composer require oxfordtrauma/kadoorie-livewire-components:^0.1
+```
+
+Installing needs read access to the repository. If Composer prompts for
+authentication, configure a GitHub token once:
+
+```bash
+composer config --global github-oauth.github.com <your-token>
+```
+
+The service provider is auto-discovered. Publish the precompiled stylesheet and
+start using components — see the [user guide](docs/user-guide.md) for styling
+options (Tailwind preset vs. stylesheet), publishing tags, theming, and the full
+component catalogue.
+
+```bash
+php artisan vendor:publish --tag=kadoorie-styles
+```
+
 ## Development
 
 All quality gates run inside the `kadoorie-app` Docker container.

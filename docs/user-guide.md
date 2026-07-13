@@ -48,7 +48,7 @@ the package in your application's `composer.json`:
 ```
 
 ```bash
-composer require kadoorie/livewire-components:^0.1
+composer require oxfordtrauma/livewire-components:^0.1
 ```
 
 The service provider `Kadoorie\LivewireComponents\KadoorieComponentsServiceProvider`

@@ -1,0 +1,19 @@
+{
+  "//": "Publishable TS config fragment for apps consuming the Kadoorie React set. Merge these compilerOptions into your app tsconfig (or extend it) and add the @/kadoorie path alias to your bundler (see the user guide).",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/kadoorie": ["resources/js/kadoorie"],
+      "@/kadoorie/*": ["resources/js/kadoorie/*"]
+    }
+  }
+}

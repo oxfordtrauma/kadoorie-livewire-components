@@ -1,0 +1,104 @@
+/*
+ * Project: Kadoorie Livewire Components
+ * File: tokens.css
+ * User: dappelbe
+ * Created: 2026-07-03
+ * Last updated by: dappelbe
+ * Last updated on: 2026-07-03
+ * Version: 0.1.0
+ *
+ * Design tokens extracted from the Kadoorie Figma source (light theme only).
+ * Every value is a --kad-* custom property so the Tailwind preset and the
+ * precompiled stylesheet resolve identically, and host apps can retheme by
+ * overriding a variable. Dark mode is intentionally out of scope.
+ */
+
+:root {
+  /* Brand */
+  --kad-color-primary: #aa1a2d;
+  --kad-color-primary-hover: #af1228;
+  --kad-color-primary-emphasis: #8c0f20;
+  --kad-color-primary-subtle: #f7edee;
+  --kad-color-primary-subtle-border: rgb(170 26 45 / 0.06);
+  --kad-color-on-primary: #ffffff;
+  --kad-color-secondary: #002147;
+
+  /* Neutrals (cool, blue-tinted) */
+  --kad-color-bg: #f7f8fa;
+  --kad-color-surface: #ffffff;
+  --kad-color-surface-muted: #f0f2f5;
+  --kad-color-border: #dde2e8;
+  --kad-color-border-strong: #bec7d1;
+  --kad-color-text: #0f1620;
+  --kad-color-text-body: #2f3b4a;
+  /* AA-safe (>=4.5:1 on surface) for secondary/help body text. */
+  --kad-color-text-muted: #5f6b77;
+  /* Figma muted grey: large text (>=18px/bold), icons, and non-text UI only (3:1). */
+  --kad-color-text-muted-large: #84949e;
+  --kad-color-text-disabled: #99a1af;
+  --kad-color-text-on-dark: #ffffff;
+
+  /* Semantic */
+  --kad-color-danger: #dc2626;
+  --kad-color-danger-accent: #e53935;
+  --kad-color-danger-subtle: #fef2f2;
+  /* Darkened fills so white text clears WCAG AA (4.5:1) on solid tone widgets. */
+  --kad-color-danger-solid: #b91c1c;
+  --kad-color-success: #16a34a;
+  --kad-color-success-subtle: #f0fdf4;
+  --kad-color-success-solid: #15803d;
+  --kad-color-info: #2563eb;
+  --kad-color-info-subtle: #eff6ff;
+  --kad-color-warning: #f59e0b;
+  --kad-color-warning-subtle: #fffbeb;
+  --kad-color-accent: #7c3aed;
+  --kad-color-accent-subtle: #f5f3ff;
+
+  /* Typography */
+  --kad-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --kad-text-2xs: 0.625rem; /* 10px */
+  --kad-text-xs: 0.6875rem; /* 11px */
+  --kad-text-sm: 0.75rem; /* 12px — body default */
+  --kad-text-md: 0.8125rem; /* 13px */
+  --kad-text-base: 0.875rem; /* 14px */
+  --kad-text-lg: 1rem; /* 16px */
+  --kad-text-xl: 1.125rem; /* 18px */
+  --kad-text-2xl: 1.25rem; /* 20px */
+  --kad-text-3xl: 1.5rem; /* 24px */
+
+  /* Spacing (4px base, 2px steps) */
+  --kad-space-0-5: 2px;
+  --kad-space-1: 4px;
+  --kad-space-1-5: 6px;
+  --kad-space-2: 8px;
+  --kad-space-2-5: 10px;
+  --kad-space-3: 12px;
+  --kad-space-4: 16px;
+  --kad-space-5: 20px;
+  --kad-space-6: 24px;
+
+  /* Radii */
+  --kad-radius-sm: 4px;
+  --kad-radius-base: 6px;
+  --kad-radius-md: 8px; /* default */
+  --kad-radius-lg: 10px;
+  --kad-radius-xl: 13px;
+  --kad-radius-2xl: 20px;
+  --kad-radius-full: 9999px;
+
+  /* Elevation */
+  --kad-shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 0.1), 0 1px 3px rgb(0 0 0 / 0.1);
+  --kad-shadow-md: 0 4px 16px rgb(0 0 0 / 0.12);
+  --kad-shadow-lg: 0 8px 40px rgb(0 0 0 / 0.18);
+
+  /* Focus ring (WCAG — always visible) */
+  --kad-ring: 0 0 0 2px var(--kad-color-surface), 0 0 0 4px var(--kad-color-primary);
+
+  /* Layout */
+  --kad-container-max: 1280px;
+
+  /* Icon sizes */
+  --kad-icon-sm: 16px;
+  --kad-icon-md: 20px;
+  --kad-icon-lg: 24px;
+}

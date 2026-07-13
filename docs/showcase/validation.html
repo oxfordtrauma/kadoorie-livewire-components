@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Validation — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
+        <a
+            href="#main-content"
+            class="sr-only rounded bg-surface px-3 py-2 text-sm font-medium text-primary focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50"
+        >
+            Skip to content
+        </a>
+
+        <header
+            data-test="showcase-topbar"
+            class="sticky top-0 z-30 flex min-h-14 items-center gap-3 border-b border-border bg-surface px-4"
+        >
+            <button
+                type="button"
+                data-test="showcase-sidebar-toggle"
+                aria-label="Toggle navigation"
+                aria-controls="showcase-sidebar"
+                x-bind:aria-expanded="sidebar ? 'true' : 'false'"
+                x-on:click="sidebar = ! sidebar"
+                class="kad-focusable inline-flex size-11 items-center justify-center rounded-md text-text lg:hidden"
+            >
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+            </button>
+
+            <a href="index.html" data-test="showcase-brand" class="flex items-center gap-2 font-semibold text-text">
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-primary"
+>
+        <path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>
+</svg>
+                Kadoorie Components
+            </a>
+
+            <span class="ml-auto text-xs text-text-muted" data-test="showcase-count">
+                35 components
+            </span>
+        </header>
+
+        <div class="mx-auto flex max-w-container flex-col lg:flex-row">
+            <nav
+                id="showcase-sidebar"
+                data-test="showcase-sidebar"
+                aria-label="Components"
+                x-bind:class="{ '!block': sidebar }"
+                class="hidden border-b border-border bg-surface p-3 lg:sticky lg:top-14 lg:block lg:max-h-[calc(100dvh-3.5rem)] lg:w-60 lg:shrink-0 lg:self-start lg:overflow-y-auto lg:border-b-0 lg:border-r"
+            >
+                <a
+                    href="index.html"
+                    data-test="showcase-nav-dashboard"
+                    class="kad-focusable flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                >
+                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+                    Dashboard
+                </a>
+
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Forms
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="label.html"
+                                    data-test="showcase-nav-label"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    label
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="field.html"
+                                    data-test="showcase-nav-field"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    field
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="input.html"
+                                    data-test="showcase-nav-input"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    input
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="textarea.html"
+                                    data-test="showcase-nav-textarea"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    textarea
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="select.html"
+                                    data-test="showcase-nav-select"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    select
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="checkbox.html"
+                                    data-test="showcase-nav-checkbox"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    checkbox
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="radio.html"
+                                    data-test="showcase-nav-radio"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    radio
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="toggle.html"
+                                    data-test="showcase-nav-toggle"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    toggle
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="validation.html"
+                                    data-test="showcase-nav-validation"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                >
+                                    validation
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Actions
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="button.html"
+                                    data-test="showcase-nav-button"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    button
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="dropdown.html"
+                                    data-test="showcase-nav-dropdown"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    dropdown
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="profile-menu.html"
+                                    data-test="showcase-nav-profile-menu"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    profile menu
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Feedback
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="alert.html"
+                                    data-test="showcase-nav-alert"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    alert
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="toast.html"
+                                    data-test="showcase-nav-toast"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    toast
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="tooltip.html"
+                                    data-test="showcase-nav-tooltip"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    tooltip
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="spinner.html"
+                                    data-test="showcase-nav-spinner"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    spinner
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="modal.html"
+                                    data-test="showcase-nav-modal"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    modal
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Navigation
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="nav.html"
+                                    data-test="showcase-nav-nav"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    nav
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="breadcrumbs.html"
+                                    data-test="showcase-nav-breadcrumbs"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    breadcrumbs
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="tabs.html"
+                                    data-test="showcase-nav-tabs"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    tabs
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="accordion.html"
+                                    data-test="showcase-nav-accordion"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    accordion
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="pagination.html"
+                                    data-test="showcase-nav-pagination"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    pagination
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Data display
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="badge.html"
+                                    data-test="showcase-nav-badge"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    badge
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="card.html"
+                                    data-test="showcase-nav-card"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    card
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="avatar.html"
+                                    data-test="showcase-nav-avatar"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    avatar
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="divider.html"
+                                    data-test="showcase-nav-divider"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    divider
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="data-table.html"
+                                    data-test="showcase-nav-data-table"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    data table
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="empty-state.html"
+                                    data-test="showcase-nav-empty-state"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    empty state
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Widgets
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="small-box.html"
+                                    data-test="showcase-nav-small-box"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    small box
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="info-box.html"
+                                    data-test="showcase-nav-info-box"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    info box
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Recipes
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="recipe.html"
+                                    data-test="showcase-nav-recipe"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    recipe
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Layout
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="footer.html"
+                                    data-test="showcase-nav-footer"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    footer
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Pages
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="login.html"
+                                    data-test="showcase-nav-login"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    login
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="error-page.html"
+                                    data-test="showcase-nav-error-page"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    error page
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Media
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="icon.html"
+                                    data-test="showcase-nav-icon"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    icon
+                                </a>
+                            </li>
+                                            </ul>
+                            </nav>
+
+            <main id="main-content" class="min-w-0 flex-1 px-4 py-8">
+                                    <nav aria-label="Breadcrumb" data-test="breadcrumbs" class="mb-4">
+    <ol class="flex flex-wrap items-center gap-1 text-sm text-text-muted">
+                    <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
+                                    <a
+                        href="index.html"
+                        data-test="breadcrumb-link"
+                        class="kad-focusable rounded hover:text-primary hover:underline"
+                    >
+                        Dashboard
+                    </a>
+                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-text-muted-large"
+>
+        <path d="m9 18 6-6-6-6"/>
+</svg>
+                            </li>
+                    <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
+                                    <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
+                        Validation
+                    </span>
+                            </li>
+            </ol>
+</nav>
+                
+                    <header class="mb-6">
+        <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
+            Validation
+        </h1>
+    </header>
+
+    <div class="flex flex-col gap-6">
+                    
+                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Live validation</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Live validation view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-bf9874c4-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-bf9874c4-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-bf9874c4-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-bf9874c4-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-bf9874c4-panel-preview"
+    aria-labelledby="ex-bf9874c4-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <form
+    data-test="validation-form"
+    novalidate
+    class="flex max-w-sm flex-col gap-4"
+    x-data="{
+        values: { email: '', role: '', terms: false },
+        errors: { email: '', role: '', terms: '' },
+        done: false,
+        check(field) {
+            if (field === 'email') { this.errors.email = ! this.values.email ? 'Email is required.' : ! this.values.email.includes('@') ? 'Enter a valid email address.' : '' }
+            if (field === 'role') { this.errors.role = this.values.role ? '' : 'Please choose a role.' }
+            if (field === 'terms') { this.errors.terms = this.values.terms ? '' : 'You must accept the terms.' }
+        },
+        submit() { ['email', 'role', 'terms'].forEach((f) => this.check(f)); this.done = Object.values(this.errors).every((e) => ! e) },
+    }"
+    x-on:submit.prevent="submit()"
+>
+    <div
+    data-test="signup-email-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="signup-email"
+            data-test="signup-email-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Email
+                    </label>
+    
+    <input
+    type="email"
+    id="signup-email"
+    name="signup-email"
+    data-test="signup-email-input"
+     placeholder="you@example.com"                                 class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3" x-model="values.email" x-on:blur="check('email')" x-bind:aria-invalid="errors.email ? 'true' : 'false'" x-bind:aria-describedby="errors.email ? 'signup-email-error' : false"
+/>
+        <p data-test="signup-email-error" id="signup-email-error" role="alert" x-show="errors.email" x-cloak x-text="errors.email" class="text-xs text-danger"></p>
+
+    
+    </div>
+
+    <div
+    data-test="signup-role-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="signup-role"
+            data-test="signup-role-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Role
+                    </label>
+    
+    <div class="relative" data-test="signup-role-select-wrap">
+    <select
+        id="signup-role"
+        name="signup-role"
+        data-test="signup-role-select"
+                                        class="kad-focusable block w-full appearance-none rounded-md border border-border bg-surface text-text shadow-sm min-h-11 pr-10 aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-sm px-3" x-model="values.role" x-on:change="$nextTick(() => check('role'))" x-bind:aria-invalid="errors.role ? 'true' : 'false'" x-bind:aria-describedby="errors.role ? 'signup-role-error' : false"
+    >
+                    <option value="" disabled selected>Choose a role</option>
+                            <option value="admin" >
+                Admin
+            </option>
+                    <option value="editor" >
+                Editor
+            </option>
+                    <option value="viewer" >
+                Viewer
+            </option>
+                
+    </select>
+    <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-text-muted-large">
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+    </span>
+</div>
+        <p data-test="signup-role-error" id="signup-role-error" role="alert" x-show="errors.role" x-cloak x-text="errors.role" class="text-xs text-danger"></p>
+
+    
+    </div>
+
+    <div>
+        <label
+    for="signup-terms"
+    data-test="signup-terms-checkbox-label"
+    class="inline-flex min-h-11 cursor-pointer items-center gap-2"
+>
+    <input
+        type="checkbox"
+        id="signup-terms"
+        name="signup-terms"
+        value="1"
+        data-test="signup-terms-checkbox"
+                                                class="kad-focusable size-5 shrink-0 accent-primary border-border rounded" x-model="values.terms" x-on:change="$nextTick(() => check('terms'))" x-bind:aria-invalid="errors.terms ? 'true' : 'false'" x-bind:aria-describedby="errors.terms ? 'signup-terms-error' : false"
+    />
+            <span class="text-sm text-text">I accept the terms</span>
+    </label>
+        <p data-test="signup-terms-error" id="signup-terms-error" role="alert" x-show="errors.terms" x-cloak x-text="errors.terms" class="mt-1 text-xs text-danger"></p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button
+    type="submit"
+        aria-busy="false"
+    data-test="validation-submit" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
+>
+        Create account
+</button>
+        <p data-test="validation-success" x-show="done" x-cloak role="status" class="text-sm font-medium text-success">Account created.</p>
+    </div>
+</form>
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-bf9874c4-panel-code"
+    aria-labelledby="ex-bf9874c4-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>{{-- Client-side (Alpine) validation. In a Livewire app you would instead use
+     #[Validate] rules and :error=&quot;$errors-&gt;first(...)&quot;; see docs/data-binding.md. --}}
+&lt;form
+    data-test=&quot;validation-form&quot;
+    novalidate
+    class=&quot;flex max-w-sm flex-col gap-4&quot;
+    x-data=&quot;{
+        values: { email: &#039;&#039;, role: &#039;&#039;, terms: false },
+        errors: { email: &#039;&#039;, role: &#039;&#039;, terms: &#039;&#039; },
+        done: false,
+        check(field) {
+            if (field === &#039;email&#039;) { this.errors.email = ! this.values.email ? &#039;Email is required.&#039; : ! this.values.email.includes(&#039;@&#039;) ? &#039;Enter a valid email address.&#039; : &#039;&#039; }
+            if (field === &#039;role&#039;) { this.errors.role = this.values.role ? &#039;&#039; : &#039;Please choose a role.&#039; }
+            if (field === &#039;terms&#039;) { this.errors.terms = this.values.terms ? &#039;&#039; : &#039;You must accept the terms.&#039; }
+        },
+        submit() { [&#039;email&#039;, &#039;role&#039;, &#039;terms&#039;].forEach((f) =&gt; this.check(f)); this.done = Object.values(this.errors).every((e) =&gt; ! e) },
+    }&quot;
+    x-on:submit.prevent=&quot;submit()&quot;
+&gt;
+    &lt;x-kadoorie::field label=&quot;Email&quot; name=&quot;signup-email&quot;&gt;
+        &lt;x-kadoorie::input type=&quot;email&quot; name=&quot;signup-email&quot; placeholder=&quot;you@example.com&quot; x-model=&quot;values.email&quot; x-on:blur=&quot;check(&#039;email&#039;)&quot; x-bind:aria-invalid=&quot;errors.email ? &#039;true&#039; : &#039;false&#039;&quot; x-bind:aria-describedby=&quot;errors.email ? &#039;signup-email-error&#039; : false&quot; /&gt;
+        &lt;p data-test=&quot;signup-email-error&quot; id=&quot;signup-email-error&quot; role=&quot;alert&quot; x-show=&quot;errors.email&quot; x-cloak x-text=&quot;errors.email&quot; class=&quot;text-xs text-danger&quot;&gt;&lt;/p&gt;
+    &lt;/x-kadoorie::field&gt;
+
+    &lt;x-kadoorie::field label=&quot;Role&quot; name=&quot;signup-role&quot;&gt;
+        &lt;x-kadoorie::select name=&quot;signup-role&quot; placeholder=&quot;Choose a role&quot; :options=&quot;[&#039;admin&#039; =&gt; &#039;Admin&#039;, &#039;editor&#039; =&gt; &#039;Editor&#039;, &#039;viewer&#039; =&gt; &#039;Viewer&#039;]&quot; x-model=&quot;values.role&quot; x-on:change=&quot;$nextTick(() =&gt; check(&#039;role&#039;))&quot; x-bind:aria-invalid=&quot;errors.role ? &#039;true&#039; : &#039;false&#039;&quot; x-bind:aria-describedby=&quot;errors.role ? &#039;signup-role-error&#039; : false&quot; /&gt;
+        &lt;p data-test=&quot;signup-role-error&quot; id=&quot;signup-role-error&quot; role=&quot;alert&quot; x-show=&quot;errors.role&quot; x-cloak x-text=&quot;errors.role&quot; class=&quot;text-xs text-danger&quot;&gt;&lt;/p&gt;
+    &lt;/x-kadoorie::field&gt;
+
+    &lt;div&gt;
+        &lt;x-kadoorie::checkbox name=&quot;signup-terms&quot; label=&quot;I accept the terms&quot; x-model=&quot;values.terms&quot; x-on:change=&quot;$nextTick(() =&gt; check(&#039;terms&#039;))&quot; x-bind:aria-invalid=&quot;errors.terms ? &#039;true&#039; : &#039;false&#039;&quot; x-bind:aria-describedby=&quot;errors.terms ? &#039;signup-terms-error&#039; : false&quot; /&gt;
+        &lt;p data-test=&quot;signup-terms-error&quot; id=&quot;signup-terms-error&quot; role=&quot;alert&quot; x-show=&quot;errors.terms&quot; x-cloak x-text=&quot;errors.terms&quot; class=&quot;mt-1 text-xs text-danger&quot;&gt;&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+        &lt;x-kadoorie::button type=&quot;submit&quot; data-test=&quot;validation-submit&quot;&gt;Create account&lt;/x-kadoorie::button&gt;
+        &lt;p data-test=&quot;validation-success&quot; x-show=&quot;done&quot; x-cloak role=&quot;status&quot; class=&quot;text-sm font-medium text-success&quot;&gt;Account created.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Error states</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Error states view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-e3591e76-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-e3591e76-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-e3591e76-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-e3591e76-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-e3591e76-panel-preview"
+    aria-labelledby="ex-e3591e76-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <div class="flex max-w-sm flex-col gap-4">
+    <div
+    data-test="v-email-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="v-email"
+            data-test="v-email-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Email
+                    </label>
+    
+    <input
+    type="email"
+    id="v-email"
+    name="v-email"
+    data-test="v-email-input"
+         value="not-an-email"          aria-describedby="v-email-error"      aria-invalid="true"                 class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+/>
+
+    
+            <p
+            id="v-email-error"
+            data-test="v-email-error"
+            role="alert"
+            class="text-xs text-danger"
+        >
+            Enter a valid email address.
+        </p>
+    </div>
+    <div
+    data-test="v-bio-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="v-bio"
+            data-test="v-bio-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Bio
+                    </label>
+    
+    <textarea
+    id="v-bio"
+    name="v-bio"
+    rows="2"
+    data-test="v-bio-textarea"
+         aria-describedby="v-bio-error"      aria-invalid="true"                 class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 py-2 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+></textarea>
+
+    
+            <p
+            id="v-bio-error"
+            data-test="v-bio-error"
+            role="alert"
+            class="text-xs text-danger"
+        >
+            Bio is required.
+        </p>
+    </div>
+    <div
+    data-test="v-role-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="v-role"
+            data-test="v-role-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Role
+                    </label>
+    
+    <div class="relative" data-test="v-role-select-wrap">
+    <select
+        id="v-role"
+        name="v-role"
+        data-test="v-role-select"
+         aria-describedby="v-role-error"          aria-invalid="true"                         class="kad-focusable block w-full appearance-none rounded-md border border-border bg-surface text-text shadow-sm min-h-11 pr-10 aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed text-lg md:text-sm px-3"
+    >
+                    <option value="" disabled selected>Choose a role</option>
+                            <option value="admin" >
+                Admin
+            </option>
+                    <option value="editor" >
+                Editor
+            </option>
+                
+    </select>
+    <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-text-muted-large">
+        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m6 9 6 6 6-6"/>
+</svg>
+    </span>
+</div>
+
+    
+            <p
+            id="v-role-error"
+            data-test="v-role-error"
+            role="alert"
+            class="text-xs text-danger"
+        >
+            Please choose a role.
+        </p>
+    </div>
+    <div
+    data-test="v-terms-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="v-terms"
+            data-test="v-terms-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Accept
+                    </label>
+    
+    <label
+    for="v-terms"
+    data-test="v-terms-checkbox-label"
+    class="inline-flex min-h-11 cursor-pointer items-center gap-2"
+>
+    <input
+        type="checkbox"
+        id="v-terms"
+        name="v-terms"
+        value="1"
+        data-test="v-terms-checkbox"
+                                 aria-describedby="v-terms-error"          aria-invalid="true"         class="kad-focusable size-5 shrink-0 accent-primary border-border rounded"
+    />
+            <span class="text-sm text-text">I accept the terms</span>
+    </label>
+
+    
+            <p
+            id="v-terms-error"
+            data-test="v-terms-error"
+            role="alert"
+            class="text-xs text-danger"
+        >
+            You must accept the terms.
+        </p>
+    </div>
+</div>
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-e3591e76-panel-code"
+    aria-labelledby="ex-e3591e76-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>{{-- Any control shows its error accessibly (role=&quot;alert&quot; + aria-invalid +
+     aria-describedby) when the wrapping field is given an :error. --}}
+&lt;div class=&quot;flex max-w-sm flex-col gap-4&quot;&gt;
+    &lt;x-kadoorie::field label=&quot;Email&quot; name=&quot;v-email&quot; error=&quot;Enter a valid email address.&quot;&gt;
+        &lt;x-kadoorie::input type=&quot;email&quot; name=&quot;v-email&quot; value=&quot;not-an-email&quot; /&gt;
+    &lt;/x-kadoorie::field&gt;
+    &lt;x-kadoorie::field label=&quot;Bio&quot; name=&quot;v-bio&quot; error=&quot;Bio is required.&quot;&gt;
+        &lt;x-kadoorie::textarea name=&quot;v-bio&quot; rows=&quot;2&quot; /&gt;
+    &lt;/x-kadoorie::field&gt;
+    &lt;x-kadoorie::field label=&quot;Role&quot; name=&quot;v-role&quot; error=&quot;Please choose a role.&quot;&gt;
+        &lt;x-kadoorie::select name=&quot;v-role&quot; placeholder=&quot;Choose a role&quot; :options=&quot;[&#039;admin&#039; =&gt; &#039;Admin&#039;, &#039;editor&#039; =&gt; &#039;Editor&#039;]&quot; /&gt;
+    &lt;/x-kadoorie::field&gt;
+    &lt;x-kadoorie::field label=&quot;Accept&quot; name=&quot;v-terms&quot; error=&quot;You must accept the terms.&quot;&gt;
+        &lt;x-kadoorie::checkbox name=&quot;v-terms&quot; label=&quot;I accept the terms&quot; /&gt;
+    &lt;/x-kadoorie::field&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+            </div>
+            </main>
+        </div>
+
+        <script defer src="showcase.js"></script>
+    </body>
+</html>

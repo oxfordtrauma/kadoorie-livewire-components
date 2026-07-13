@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@kadoorie/*": ["resources/react/src/*"]
+    },
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "resources/react/**/*.ts",
+    "resources/react/**/*.tsx",
+    "resources/react-workbench/**/*.ts",
+    "resources/react-workbench/**/*.tsx",
+    "tests/React/**/*.ts",
+    "tests/React/**/*.tsx"
+  ]
+}

@@ -1,7 +1,8 @@
 {{--
     Compact application footer (dark utility bar). A labelled row of external
-    "useful links", an optional organisation/version meta block, and a logo
-    slot that defaults to the Kadoorie brand mark. Stacks on mobile.
+    "useful links", an optional organisation/version meta block, and the
+    bundled Kadoorie logo lockup (resources/logos/kadoorieLogo.svg). Stacks on
+    mobile.
 --}}
 <footer role="contentinfo" data-test="app-footer" class="bg-footer text-footer-fg">
     <div class="mx-auto flex max-w-container flex-col gap-3 px-5 py-3 md:flex-row md:items-center md:justify-between">
@@ -46,14 +47,9 @@
             @endif
 
             <div data-test="app-footer-logo" class="shrink-0">
-                @isset($logo)
-                    {{ $logo }}
-                @else
-                    <span class="inline-flex items-center gap-2 font-semibold text-footer-fg">
-                        <x-kadoorie::icon name="kadoorie:mark" size="md" />
-                        {{ $brand }}
-                    </span>
-                @endisset
+                <span role="img" aria-label="Kadoorie" class="inline-block">
+                    {!! $logo() !!}
+                </span>
             </div>
         </div>
     </div>

@@ -14,13 +14,14 @@ declare(strict_types=1);
 
 namespace Kadoorie\LivewireComponents\View\Components;
 
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
 /**
  * Compact application footer: a dark utility bar with a labelled row of
- * external "useful links", an optional organisation/version meta block, and a
- * logo slot that defaults to the Kadoorie brand mark. Stacks on mobile.
+ * external "useful links", an optional organisation/version meta block, and
+ * the bundled Kadoorie logo lockup. Stacks on mobile.
  */
 final class AppFooter extends Component
 {
@@ -32,8 +33,18 @@ final class AppFooter extends Component
         public array $links = [],
         public ?string $organisation = null,
         public ?string $version = null,
-        public string $brand = 'Kadoorie',
     ) {}
+
+    /**
+     * Inline markup for the bundled Kadoorie logo lockup shown at the end of
+     * the bar (resources/logos/kadoorieLogo.svg).
+     */
+    public function logo(): HtmlString
+    {
+        $path = dirname(__DIR__, 3) . '/resources/logos/kadoorieLogo.svg';
+
+        return new HtmlString(is_file($path) ? (string) file_get_contents($path) : '');
+    }
 
     public function render(): View
     {

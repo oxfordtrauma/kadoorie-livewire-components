@@ -35,10 +35,12 @@ it('renders a dark contentinfo bar with labelled external links and meta', funct
         ->assertSee('Site Version 1.0');
 });
 
-it('renders the brand mark logo by default and omits the meta block when empty', function (): void {
-    $this->blade('<x-kadoorie::app-footer brand="Kadoorie" />')
+it('renders the bundled Kadoorie logo and omits the meta block when empty', function (): void {
+    $this->blade('<x-kadoorie::app-footer />')
         ->assertSee('data-test="app-footer-logo"', false)
-        ->assertSee('Kadoorie')
+        ->assertSee('role="img"', false)
+        ->assertSee('aria-label="Kadoorie"', false)
+        ->assertSee('<svg', false)
         ->assertDontSee('data-test="app-footer-meta"', false);
 });
 
@@ -49,10 +51,4 @@ it('lets a link opt out of the external new-tab treatment', function (): void {
         ->assertSee('href="/home"', false)
         ->assertDontSee('target="_blank"', false)
         ->assertDontSee('opens in a new tab');
-});
-
-it('accepts a custom logo slot in place of the default brand mark', function (): void {
-    $this->blade('<x-kadoorie::app-footer><x-slot:logo><img src="/logo.svg" alt="Acme" /></x-slot:logo></x-kadoorie::app-footer>')
-        ->assertSee('src="/logo.svg"', false)
-        ->assertSee('alt="Acme"', false);
 });

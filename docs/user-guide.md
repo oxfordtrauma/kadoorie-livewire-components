@@ -38,7 +38,7 @@ the package in your application's `composer.json`:
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:kadoorie/livewire-components.git"
+            "url": "git@github.com:oxfordtrauma/livewire-components.git"
         }
     ],
     "require": {

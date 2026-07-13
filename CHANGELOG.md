@@ -48,5 +48,5 @@ Initial release of the Kadoorie Livewire Components library.
 
 - Dark mode and RTL are intentionally out of scope for this release.
 
-[Unreleased]: https://github.com/kadoorie/livewire-components/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/kadoorie/livewire-components/releases/tag/v0.1.0
+[Unreleased]: https://github.com/oxfordtrauma/kadoorie-livewire-components/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/oxfordtrauma/kadoorie-livewire-components/releases/tag/v0.1.0

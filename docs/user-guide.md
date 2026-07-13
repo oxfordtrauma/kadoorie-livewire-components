@@ -42,13 +42,13 @@ the package in your application's `composer.json`:
     }
   ],
   "require": {
-    "oxfordtrauma/livewire-components": "^0.1"
+    "oxfordtrauma/kadoorie-livewire-components": "^0.1"
   }
 }
 ```
 
 ```bash
-composer require oxfordtrauma/livewire-components:^0.1
+composer require oxfordtrauma/kadoorie-livewire-components:^0.1
 ```
 
 The service provider `Kadoorie\LivewireComponents\KadoorieComponentsServiceProvider`

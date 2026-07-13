@@ -1,9 +1,28 @@
 {
-  "name": "oxfordtrauma/livewire-components",
+  "name": "oxfordtrauma/kadoorie-livewire-components",
   "description": "Prebuilt Livewire components for the Kadoorie look and feel.",
   "type": "library",
-  "version": "0.1",
+  "keywords": [
+    "laravel",
+    "livewire",
+    "blade",
+    "components",
+    "kadoorie",
+    "ui"
+  ],
+  "homepage": "https://github.com/oxfordtrauma/kadoorie-livewire-components",
   "license": "proprietary",
+  "authors": [
+    {
+      "name": "Duncan Appelbe",
+      "email": "duncan.appelbe@ndorms.ox.ac.uk",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/oxfordtrauma/kadoorie-livewire-components/issues",
+    "source": "https://github.com/oxfordtrauma/kadoorie-livewire-components"
+  },
   "require": {
     "php": "^8.3",
     "illuminate/contracts": "^11.0 || ^12.0",
@@ -42,7 +61,6 @@
   "scripts": {
     "post-autoload-dump": "@php vendor/bin/testbench package:discover --ansi",
     "setup-hooks": "git config core.hooksPath .githooks",
-    "audit": "composer audit",
     "test": "pest --compact",
     "lint": "pint --dirty",
     "analyse": "phpstan analyse"

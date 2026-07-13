@@ -37,11 +37,11 @@ final class AppFooter extends Component
 
     /**
      * Inline markup for the bundled Kadoorie logo lockup shown at the end of
-     * the bar (resources/logos/kadoorieLogo.svg).
+     * the bar (resources/logos/kadoorieOxfordLogo.svg).
      */
     public function logo(): HtmlString
     {
-        $path = dirname(__DIR__, 3) . '/resources/logos/kadoorieLogo.svg';
+        $path = dirname(__DIR__, 3) . '/resources/logos/kadoorieOxfordLogo.svg';
 
         return new HtmlString(is_file($path) ? (string) file_get_contents($path) : '');
     }

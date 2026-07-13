@@ -451,7 +451,7 @@ when `logout-url` is set, or you can override the action via a `logout` slot.
 A compact dark utility bar (distinct from the marketing `footer` above): a
 labelled row of external "useful links", an optional organisation/version meta
 block, and the bundled Kadoorie logo lockup
-(`resources/logos/kadoorieLogo.svg`). Links open in a new tab by default (add
+(`resources/logos/kadoorieOxfordLogo.svg`). Links open in a new tab by default (add
 `'external' => false` to keep one in-tab).
 
 ```blade

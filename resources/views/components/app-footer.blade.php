@@ -1,7 +1,7 @@
 {{--
     Compact application footer (dark utility bar). A labelled row of external
     "useful links", an optional organisation/version meta block, and the
-    bundled Kadoorie logo lockup (resources/logos/kadoorieLogo.svg). Stacks on
+    bundled Kadoorie logo lockup (resources/logos/kadoorieOxfordLogo.svg). Stacks on
     mobile.
 --}}
 <footer role="contentinfo" data-test="app-footer" class="bg-footer text-footer-fg">

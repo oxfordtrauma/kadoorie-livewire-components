@@ -9,7 +9,7 @@
  */
 
 import { Icon } from './Icon';
-import { kadoorieLogo } from '../lib/kadoorieLogo';
+import { kadoorieOxfordLogo } from '../lib/kadoorieOxfordLogo';
 
 export interface AppFooterLink {
   label: string;
@@ -92,7 +92,7 @@ export function AppFooter({
               role="img"
               aria-label="Kadoorie"
               className="inline-block"
-              dangerouslySetInnerHTML={{ __html: kadoorieLogo }}
+              dangerouslySetInnerHTML={{ __html: kadoorieOxfordLogo }}
             />
           </div>
         </div>

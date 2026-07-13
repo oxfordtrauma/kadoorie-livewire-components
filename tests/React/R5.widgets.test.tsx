@@ -99,7 +99,7 @@ describe('Footer', () => {
 });
 
 describe('AppFooter', () => {
-  it('renders labelled external links, meta, and a default brand logo', () => {
+  it('renders labelled external links, meta, and the Kadoorie logo', () => {
     render(
       <AppFooter
         links={[{ label: 'REDCap Login', url: 'https://redcap.example.com' }]}
@@ -113,7 +113,10 @@ describe('AppFooter', () => {
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
     expect(screen.getByTestId('app-footer-version')).toHaveTextContent('Site Version 1.0');
-    expect(screen.getByTestId('app-footer-logo')).toHaveTextContent('Kadoorie');
+    expect(screen.getByTestId('app-footer-logo').querySelector('[role="img"]')).toHaveAttribute(
+      'aria-label',
+      'Kadoorie'
+    );
   });
 
   it('omits the meta block and the new-tab affordance when not needed', () => {

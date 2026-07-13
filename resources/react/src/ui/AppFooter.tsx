@@ -8,8 +8,8 @@
  * Version: 0.1.0
  */
 
-import type { ReactNode } from 'react';
 import { Icon } from './Icon';
+import { kadoorieLogo } from '../lib/kadoorieLogo';
 
 export interface AppFooterLink {
   label: string;
@@ -22,23 +22,19 @@ export interface AppFooterProps {
   links?: AppFooterLink[];
   organisation?: string;
   version?: string;
-  brand?: string;
-  logo?: ReactNode;
 }
 
 /**
  * Compact application footer (`role="contentinfo"`): a dark utility bar with a
  * labelled row of external "useful links", an optional organisation/version
- * meta block, and a logo that defaults to the Kadoorie brand mark. Mirrors the
- * Blade `app-footer` view. Stacks on mobile.
+ * meta block, and the bundled Kadoorie logo lockup. Mirrors the Blade
+ * `app-footer` view. Stacks on mobile.
  */
 export function AppFooter({
   label = 'Useful Links:',
   links = [],
   organisation,
   version,
-  brand = 'Kadoorie',
-  logo,
 }: AppFooterProps) {
   const hasMeta = organisation !== undefined || version !== undefined;
 
@@ -92,12 +88,12 @@ export function AppFooter({
           ) : null}
 
           <div data-test="app-footer-logo" className="shrink-0">
-            {logo ?? (
-              <span className="inline-flex items-center gap-2 font-semibold text-footer-fg">
-                <Icon name="kadoorie:mark" size="md" />
-                {brand}
-              </span>
-            )}
+            <span
+              role="img"
+              aria-label="Kadoorie"
+              className="inline-block"
+              dangerouslySetInnerHTML={{ __html: kadoorieLogo }}
+            />
           </div>
         </div>
       </div>

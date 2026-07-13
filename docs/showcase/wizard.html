@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Radio — Kadoorie Components</title>
+<title>Wizard — Kadoorie Components</title>
 <link rel="stylesheet" href="kadoorie.css" />
     </head>
     <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
@@ -152,7 +152,7 @@
                                 <a
                                     href="radio.html"
                                     data-test="showcase-nav-radio"
-                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
                                 >
                                     radio
                                 </a>
@@ -329,7 +329,7 @@
                                 <a
                                     href="wizard.html"
                                     data-test="showcase-nav-wizard"
-                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
                                 >
                                     wizard
                                 </a>
@@ -546,7 +546,7 @@
                             </li>
                     <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
                                     <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
-                        Radio
+                        Wizard
                     </span>
                             </li>
             </ol>
@@ -554,7 +554,7 @@
                 
                     <header class="mb-6">
         <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
-            Radio
+            Wizard
         </h1>
     </header>
 
@@ -562,7 +562,7 @@
                     
                                     <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Plan</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Multi-step form</h2>
                 </div>
 
                 <div class="p-4">
@@ -580,17 +580,17 @@
 >
     <div
         role="tablist"
-        aria-label="Plan view"
+        aria-label="Multi-step form view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-29b0d477-tab-preview"
+                id="ex-d5e1fa25-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-29b0d477-panel-preview"
+                aria-controls="ex-d5e1fa25-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -607,10 +607,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-29b0d477-tab-code"
+                id="ex-d5e1fa25-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-29b0d477-panel-code"
+                aria-controls="ex-d5e1fa25-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -629,8 +629,8 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-29b0d477-panel-preview"
-    aria-labelledby="ex-29b0d477-tab-preview"
+    id="ex-d5e1fa25-panel-preview"
+    aria-labelledby="ex-d5e1fa25-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -638,44 +638,244 @@
     class="kad-focusable text-sm text-text-body"
 >
     <div data-test="showcase-preview" class="pt-4">
-                                                                    <div class="flex flex-col gap-2"><label
-    for="plan-pro"
-    data-test="plan-radio-label"
-    class="inline-flex min-h-11 cursor-pointer items-center gap-2"
+                                                                    <div
+    data-test="wizard"
+    x-data="{
+        current: 0,
+        ids: JSON.parse('[\u0022account\u0022,\u0022profile\u0022,\u0022review\u0022]'),
+        linear: true,
+        isFirst() { return this.current === 0 },
+        isLast() { return this.current === this.ids.length - 1 },
+        canGo(i) { return i >= 0 && i < this.ids.length && (! this.linear || i <= this.current) },
+        go(i) { if (this.canGo(i)) { this.current = i; this.changed() } },
+        next() {
+            if (this.isLast()) { this.$dispatch('wizard-finish', { index: this.current, step: this.ids[this.current] }) }
+            else { this.current++; this.changed() }
+        },
+        prev() { if (! this.isFirst()) { this.current--; this.changed() } },
+        changed() {
+            this.$dispatch('wizard-change', { index: this.current, step: this.ids[this.current] });
+            this.$nextTick(() => this.$refs.panels?.focus());
+        },
+    }"
+    
 >
-    <input
-        type="radio"
-        id="plan-pro"
-        name="plan"
-        value="pro"
-        data-test="plan-radio"
-        checked                                        class="kad-focusable size-5 shrink-0 accent-primary border-border rounded-full"
-    />
-            <span class="text-sm text-text">Pro</span>
-    </label>
-<label
-    for="plan-team"
-    data-test="plan-radio-label"
-    class="inline-flex min-h-11 cursor-pointer items-center gap-2"
+    <ol data-test="wizard-steps" aria-label="Progress" class="mb-6 flex flex-wrap items-center gap-x-2 gap-y-3">
+                    <li class="flex flex-1 items-center gap-2">
+                <button
+                    type="button"
+                    id="signup-step-account"
+                    data-test="wizard-marker-account"
+                    x-bind:aria-current="current === 0 ? 'step' : false"
+                    x-bind:disabled="! canGo(0)"
+                    x-on:click="go(0)"
+                    class="kad-focusable inline-flex min-h-11 items-center gap-2 rounded-md text-left text-sm font-medium disabled:cursor-not-allowed"
+                >
+                    <span
+                        aria-hidden="true"
+                        class="inline-flex size-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold"
+                        x-bind:class="current > 0 ? 'border-primary bg-primary text-on-primary' : (current === 0 ? 'border-primary text-primary' : 'border-border text-text-muted')"
+                    >
+                        <span x-show="current > 0" x-cloak><svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
 >
+        <path d="M20 6 9 17l-5-5"/>
+</svg>
+</span>
+                        <span x-show="current <= 0">1</span>
+                    </span>
+                    <span x-bind:class="current === 0 ? 'text-text' : 'text-text-muted'">Account</span>
+                </button>
+
+                                    <span aria-hidden="true" class="h-px flex-1 bg-border"></span>
+                            </li>
+                    <li class="flex flex-1 items-center gap-2">
+                <button
+                    type="button"
+                    id="signup-step-profile"
+                    data-test="wizard-marker-profile"
+                    x-bind:aria-current="current === 1 ? 'step' : false"
+                    x-bind:disabled="! canGo(1)"
+                    x-on:click="go(1)"
+                    class="kad-focusable inline-flex min-h-11 items-center gap-2 rounded-md text-left text-sm font-medium disabled:cursor-not-allowed"
+                >
+                    <span
+                        aria-hidden="true"
+                        class="inline-flex size-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold"
+                        x-bind:class="current > 1 ? 'border-primary bg-primary text-on-primary' : (current === 1 ? 'border-primary text-primary' : 'border-border text-text-muted')"
+                    >
+                        <span x-show="current > 1" x-cloak><svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="M20 6 9 17l-5-5"/>
+</svg>
+</span>
+                        <span x-show="current <= 1">2</span>
+                    </span>
+                    <span x-bind:class="current === 1 ? 'text-text' : 'text-text-muted'">Profile</span>
+                </button>
+
+                                    <span aria-hidden="true" class="h-px flex-1 bg-border"></span>
+                            </li>
+                    <li class="flex flex-1 items-center gap-2">
+                <button
+                    type="button"
+                    id="signup-step-review"
+                    data-test="wizard-marker-review"
+                    x-bind:aria-current="current === 2 ? 'step' : false"
+                    x-bind:disabled="! canGo(2)"
+                    x-on:click="go(2)"
+                    class="kad-focusable inline-flex min-h-11 items-center gap-2 rounded-md text-left text-sm font-medium disabled:cursor-not-allowed"
+                >
+                    <span
+                        aria-hidden="true"
+                        class="inline-flex size-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold"
+                        x-bind:class="current > 2 ? 'border-primary bg-primary text-on-primary' : (current === 2 ? 'border-primary text-primary' : 'border-border text-text-muted')"
+                    >
+                        <span x-show="current > 2" x-cloak><svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="M20 6 9 17l-5-5"/>
+</svg>
+</span>
+                        <span x-show="current <= 2">3</span>
+                    </span>
+                    <span x-bind:class="current === 2 ? 'text-text' : 'text-text-muted'">Review</span>
+                </button>
+
+                            </li>
+            </ol>
+
+    <div data-test="wizard-panels" x-ref="panels" tabindex="-1" class="kad-focusable">
+        <div
+    role="group"
+    id="signup-panel-account"
+    aria-labelledby="signup-step-account"
+    data-test="wizard-step-account"
+    x-show="ids[current] === 'account'"
+    x-cloak
+    class="text-sm text-text-body"
+>
+    <div
+    data-test="wiz-email-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="wiz-email"
+            data-test="wiz-email-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Email
+                    </label>
+    
     <input
-        type="radio"
-        id="plan-team"
-        name="plan"
-        value="team"
-        data-test="plan-radio"
-                                                class="kad-focusable size-5 shrink-0 accent-primary border-border rounded-full"
-    />
-            <span class="text-sm text-text">Team</span>
-    </label>
+    type="email"
+    id="wiz-email"
+    name="wiz-email"
+    data-test="wiz-email-input"
+     placeholder="you@example.com"                                 class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+/>
+
+    
+    </div>
 </div>
+    <div
+    role="group"
+    id="signup-panel-profile"
+    aria-labelledby="signup-step-profile"
+    data-test="wizard-step-profile"
+    x-show="ids[current] === 'profile'"
+    x-cloak
+    class="text-sm text-text-body"
+>
+    <div
+    data-test="wiz-name-field"
+    class="kad-field flex flex-col gap-1.5"
+>
+            <label
+            for="wiz-name"
+            data-test="wiz-name-label"
+            class="inline-flex items-center gap-1 text-sm font-medium text-text"
+        >
+            Display name
+                    </label>
+    
+    <input
+    type="text"
+    id="wiz-name"
+    name="wiz-name"
+    data-test="wiz-name-input"
+                                    class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
+/>
+
+    
+    </div>
+</div>
+    <div
+    role="group"
+    id="signup-panel-review"
+    aria-labelledby="signup-step-review"
+    data-test="wizard-step-review"
+    x-show="ids[current] === 'review'"
+    x-cloak
+    class="text-sm text-text-body"
+>
+    <p>Review your details, then finish.</p>
+</div>
+    </div>
+
+    <div data-test="wizard-nav" class="mt-6 flex items-center justify-between gap-3">
+        <button
+    type="button"
+        aria-busy="false"
+    data-test="wizard-back" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-transparent text-text hover:bg-surface-muted text-sm px-3.5 gap-1.5" x-bind:disabled="isFirst()" x-on:click="prev()"
+>
+        Back
+</button>
+
+        <span data-test="wizard-status" aria-live="polite" class="text-sm text-text-muted">
+            Step <span x-text="current + 1"></span> of <span x-text="ids.length"></span>
+        </span>
+
+        <button
+    type="button"
+        aria-busy="false"
+    data-test="wizard-next" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5" x-on:click="next()"
+>
+        <span x-show="! isLast()">Next</span>
+            <span x-show="isLast()" x-cloak>Finish</span>
+</button>
+    </div>
+</div>
+
                                                             </div>
 </div>
 
                         <div
     role="tabpanel"
-    id="ex-29b0d477-panel-code"
-    aria-labelledby="ex-29b0d477-tab-code"
+    id="ex-d5e1fa25-panel-code"
+    aria-labelledby="ex-d5e1fa25-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -692,7 +892,28 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div class=&quot;flex flex-col gap-2&quot;&gt;&lt;x-kadoorie::radio name=&quot;plan&quot; value=&quot;pro&quot; label=&quot;Pro&quot; :checked=&quot;true&quot; /&gt;&lt;x-kadoorie::radio name=&quot;plan&quot; value=&quot;team&quot; label=&quot;Team&quot; /&gt;&lt;/div&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::wizard
+    id=&quot;signup&quot;
+    :steps=&quot;[
+        [&#039;id&#039; =&gt; &#039;account&#039;, &#039;label&#039; =&gt; &#039;Account&#039;],
+        [&#039;id&#039; =&gt; &#039;profile&#039;, &#039;label&#039; =&gt; &#039;Profile&#039;],
+        [&#039;id&#039; =&gt; &#039;review&#039;, &#039;label&#039; =&gt; &#039;Review&#039;],
+    ]&quot;
+&gt;
+    &lt;x-kadoorie::wizard-step step=&quot;account&quot; group=&quot;signup&quot;&gt;
+        &lt;x-kadoorie::field label=&quot;Email&quot; name=&quot;wiz-email&quot;&gt;
+            &lt;x-kadoorie::input type=&quot;email&quot; name=&quot;wiz-email&quot; placeholder=&quot;you@example.com&quot; /&gt;
+        &lt;/x-kadoorie::field&gt;
+    &lt;/x-kadoorie::wizard-step&gt;
+    &lt;x-kadoorie::wizard-step step=&quot;profile&quot; group=&quot;signup&quot;&gt;
+        &lt;x-kadoorie::field label=&quot;Display name&quot; name=&quot;wiz-name&quot;&gt;
+            &lt;x-kadoorie::input name=&quot;wiz-name&quot; /&gt;
+        &lt;/x-kadoorie::field&gt;
+    &lt;/x-kadoorie::wizard-step&gt;
+    &lt;x-kadoorie::wizard-step step=&quot;review&quot; group=&quot;signup&quot;&gt;
+        &lt;p&gt;Review your details, then finish.&lt;/p&gt;
+    &lt;/x-kadoorie::wizard-step&gt;
+&lt;/x-kadoorie::wizard&gt;</code></pre>
                             </div>
 </div>
     </div>

@@ -134,6 +134,19 @@ final class ComponentExampleRegistry
 
             ['component' => 'footer', 'title' => 'Site footer', 'snippet' => '<x-kadoorie::footer brand="Kadoorie" tagline="Accessible Livewire components in the Kadoorie style." :columns="[[\'heading\' => \'Product\', \'links\' => [[\'label\' => \'Components\', \'url\' => \'#\'], [\'label\' => \'Showcase\', \'url\' => \'#\']]], [\'heading\' => \'Resources\', \'links\' => [[\'label\' => \'User guide\', \'url\' => \'#\'], [\'label\' => \'Changelog\', \'url\' => \'#\']]], [\'heading\' => \'Company\', \'links\' => [[\'label\' => \'About\', \'url\' => \'#\'], [\'label\' => \'Contact\', \'url\' => \'#\']]]]" copyright="© 2026 Kadoorie" :legal-links="[[\'label\' => \'Privacy\', \'url\' => \'#\'], [\'label\' => \'Terms\', \'url\' => \'#\']]" />'],
 
+            ['component' => 'app-footer', 'title' => 'Application footer', 'snippet' => '<x-kadoorie::app-footer
+    organisation="Kadoorie Institute"
+    version="Site Version 1.0 · 18Jun2026"
+    :links="[
+        [\'label\' => \'Help Center\', \'url\' => \'#\'],
+        [\'label\' => \'Privacy Policy\', \'url\' => \'#\'],
+        [\'label\' => \'REDCap Login\', \'url\' => \'#\'],
+        [\'label\' => \'iPassport Login\', \'url\' => \'#\'],
+        [\'label\' => \'eTMF Portal\', \'url\' => \'#\'],
+        [\'label\' => \'Contact Support\', \'url\' => \'#\'],
+    ]"
+/>'],
+
             ['component' => 'small-box', 'title' => 'Stat boxes', 'snippet' => '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><x-kadoorie::small-box tone="primary" value="150" label="New orders" icon="info" url="#" /><x-kadoorie::small-box tone="success" value="53%" label="Bounce rate" icon="circle-check" url="#" /><x-kadoorie::small-box tone="warning" value="44" label="User registrations" icon="triangle-alert" url="#" /><x-kadoorie::small-box tone="danger" value="65" label="Unique visitors" icon="circle-alert" url="#" /></div>'],
 
             ['component' => 'info-box', 'title' => 'Info boxes', 'snippet' => '<div class="grid gap-4 sm:grid-cols-2"><x-kadoorie::info-box tone="info" icon="info" label="Messages" value="1,410" /><x-kadoorie::info-box tone="success" icon="circle-check" label="Bookmarks" value="410" :progress="70" description="70% increase in 30 days" /></div>'],

@@ -42,6 +42,7 @@ import { SmallBox } from '@kadoorie/ui/SmallBox';
 import { InfoBox } from '@kadoorie/ui/InfoBox';
 import { ProfileMenu } from '@kadoorie/ui/ProfileMenu';
 import { Footer } from '@kadoorie/ui/Footer';
+import { AppFooter } from '@kadoorie/ui/AppFooter';
 import { useState } from 'react';
 
 /**
@@ -295,6 +296,16 @@ function WidgetsStory(): ReactElement {
         columns={[{ heading: 'Product', links: [{ label: 'Docs', url: '#' }] }]}
         copyright="(c) 2026 Kadoorie"
         legalLinks={[{ label: 'Privacy', url: '#' }]}
+      />
+      <AppFooter
+        organisation="Kadoorie Institute"
+        version="Site Version 1.0 · 18Jun2026"
+        links={[
+          { label: 'Help Center', url: '#' },
+          { label: 'REDCap Login', url: '#' },
+          { label: 'eTMF Portal', url: '#' },
+          { label: 'Contact Support', url: '#' },
+        ]}
       />
     </section>
   );

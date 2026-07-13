@@ -38,6 +38,11 @@
   --kad-color-text-disabled: #99a1af;
   --kad-color-text-on-dark: #ffffff;
 
+  /* Footer — the one intentionally dark surface (Figma "900"). */
+  --kad-color-footer-bg: #1b2430;
+  --kad-color-footer-fg: #ffffff;
+  --kad-color-footer-muted: rgb(255 255 255 / 0.8);
+
   /* Semantic */
   --kad-color-danger: #dc2626;
   --kad-color-danger-accent: #e53935;

@@ -15,6 +15,7 @@ import { SmallBox } from '../../resources/react/src/ui/SmallBox';
 import { InfoBox } from '../../resources/react/src/ui/InfoBox';
 import { ProfileMenu } from '../../resources/react/src/ui/ProfileMenu';
 import { Footer } from '../../resources/react/src/ui/Footer';
+import { AppFooter } from '../../resources/react/src/ui/AppFooter';
 
 const cases: Record<string, () => React.ReactElement> = {
   SmallBox: () => <SmallBox value="1,024" label="Users" icon="info" url="/users" />,
@@ -35,6 +36,16 @@ const cases: Record<string, () => React.ReactElement> = {
       columns={[{ heading: 'Product', links: [{ label: 'Docs', url: '/docs' }] }]}
       copyright="(c) 2026"
       legalLinks={[{ label: 'Privacy', url: '/privacy' }]}
+    />
+  ),
+  AppFooter: () => (
+    <AppFooter
+      links={[
+        { label: 'Help Center', url: '/help' },
+        { label: 'REDCap Login', url: 'https://redcap.example.com' },
+      ]}
+      organisation="Kadoorie Institute"
+      version="Site Version 1.0"
     />
   ),
 };

@@ -111,3 +111,5 @@ export { ProfileMenu } from './ui/ProfileMenu';
 export type { ProfileMenuProps } from './ui/ProfileMenu';
 export { Footer } from './ui/Footer';
 export type { FooterProps, FooterColumn, FooterLink } from './ui/Footer';
+export { AppFooter } from './ui/AppFooter';
+export type { AppFooterProps, AppFooterLink } from './ui/AppFooter';

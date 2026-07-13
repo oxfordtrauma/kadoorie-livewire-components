@@ -39,7 +39,7 @@ final class BuildShowcaseCommand extends Command
         'Data display' => ['badge', 'card', 'avatar', 'divider', 'data-table', 'empty-state'],
         'Widgets' => ['small-box', 'info-box'],
         'Recipes' => ['recipe'],
-        'Layout' => ['footer'],
+        'Layout' => ['footer', 'app-footer'],
         'Pages' => ['login', 'error-page'],
         'Media' => ['icon'],
     ];

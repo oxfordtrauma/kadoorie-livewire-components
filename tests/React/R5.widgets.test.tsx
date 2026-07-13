@@ -15,6 +15,7 @@ import { SmallBox } from '../../resources/react/src/ui/SmallBox';
 import { InfoBox } from '../../resources/react/src/ui/InfoBox';
 import { ProfileMenu } from '../../resources/react/src/ui/ProfileMenu';
 import { Footer } from '../../resources/react/src/ui/Footer';
+import { AppFooter } from '../../resources/react/src/ui/AppFooter';
 
 describe('SmallBox', () => {
   it('renders value/label and an optional more-info link', () => {
@@ -94,5 +95,30 @@ describe('Footer', () => {
   it('omits the legal bar with no copyright or legal links', () => {
     render(<Footer brand="Kadoorie" />);
     expect(screen.queryByTestId('footer-legal')).toBeNull();
+  });
+});
+
+describe('AppFooter', () => {
+  it('renders labelled external links, meta, and a default brand logo', () => {
+    render(
+      <AppFooter
+        links={[{ label: 'REDCap Login', url: 'https://redcap.example.com' }]}
+        organisation="Kadoorie Institute"
+        version="Site Version 1.0"
+      />
+    );
+    expect(screen.getByTestId('app-footer')).toHaveAttribute('role', 'contentinfo');
+    const link = screen.getByTestId('app-footer-link');
+    expect(link).toHaveAttribute('href', 'https://redcap.example.com');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(screen.getByTestId('app-footer-version')).toHaveTextContent('Site Version 1.0');
+    expect(screen.getByTestId('app-footer-logo')).toHaveTextContent('Kadoorie');
+  });
+
+  it('omits the meta block and the new-tab affordance when not needed', () => {
+    render(<AppFooter links={[{ label: 'Home', url: '/home', external: false }]} />);
+    expect(screen.queryByTestId('app-footer-meta')).toBeNull();
+    expect(screen.getByTestId('app-footer-link')).not.toHaveAttribute('target');
   });
 });

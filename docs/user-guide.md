@@ -446,6 +446,33 @@ fallback for any other status.
 The profile menu is auth-agnostic: it renders a `POST` logout form with `@csrf`
 when `logout-url` is set, or you can override the action via a `logout` slot.
 
+### App footer
+
+A compact dark utility bar (distinct from the marketing `footer` above): a
+labelled row of external "useful links", an optional organisation/version meta
+block, and a logo. Links open in a new tab by default (add `'external' => false`
+to keep one in-tab). The far-right logo defaults to the Kadoorie brand mark;
+pass a `logo` slot to drop in your own lockup.
+
+```blade
+<x-kadoorie::app-footer
+    organisation="Kadoorie Institute"
+    version="Site Version 1.0 · 18Jun2026"
+    :links="[
+        ['label' => 'Help Center', 'url' => '/help'],
+        ['label' => 'REDCap Login', 'url' => 'https://redcap.example.org'],
+        ['label' => 'eTMF Portal', 'url' => 'https://etmf.example.org'],
+    ]"
+>
+    <x-slot:logo>
+        <img src="/img/kadoorie-oxford.svg" alt="Kadoorie Institute, University of Oxford" class="h-9" />
+    </x-slot:logo>
+</x-kadoorie::app-footer>
+```
+
+The dark surface is driven by the `--kad-color-footer-*` tokens, so you can
+retheme the bar without touching the component.
+
 ### Dashboard widgets (Small-box, Info-box)
 
 ```blade

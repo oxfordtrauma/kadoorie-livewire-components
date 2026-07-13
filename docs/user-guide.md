@@ -35,20 +35,20 @@ the package in your application's `composer.json`:
 
 ```json
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:oxfordtrauma/livewire-components.git"
-        }
-    ],
-    "require": {
-        "kadoorie/livewire-components": "^0.1"
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:oxfordtrauma/kadoorie-livewire-components.git"
     }
+  ],
+  "require": {
+    "oxfordtrauma/kadoorie-livewire-components": "^0.1"
+  }
 }
 ```
 
 ```bash
-composer require oxfordtrauma/livewire-components:^0.1
+composer require oxfordtrauma/kadoorie-livewire-components:^0.1
 ```
 
 The service provider `Kadoorie\LivewireComponents\KadoorieComponentsServiceProvider`
@@ -155,11 +155,11 @@ so the classes are generated:
 ```js
 // tailwind.config.js
 module.exports = {
-  presets: [require('kadoorie/livewire-components/tailwind-preset.cjs')],
-  content: [
-    './resources/**/*.blade.php',
-    './vendor/kadoorie/livewire-components/resources/views/**/*.blade.php',
-  ],
+    presets: [require('kadoorie/livewire-components/tailwind-preset.cjs')],
+    content: [
+        './resources/**/*.blade.php',
+        './vendor/kadoorie/livewire-components/resources/views/**/*.blade.php',
+    ],
 };
 ```
 
@@ -186,9 +186,9 @@ rebuild:
 
 ```css
 :root {
-  --kad-color-primary: #005a9c;
-  --kad-color-primary-hover: #004a80;
-  --kad-radius-md: 6px;
+    --kad-color-primary: #005a9c;
+    --kad-color-primary-hover: #004a80;
+    --kad-radius-md: 6px;
 }
 ```
 
@@ -211,8 +211,8 @@ import focus from '@alpinejs/focus';
 import collapse from '@alpinejs/collapse';
 
 document.addEventListener('alpine:init', () => {
-  window.Alpine.plugin(focus);
-  window.Alpine.plugin(collapse);
+    window.Alpine.plugin(focus);
+    window.Alpine.plugin(collapse);
 });
 ```
 
@@ -445,6 +445,75 @@ fallback for any other status.
 
 The profile menu is auth-agnostic: it renders a `POST` logout form with `@csrf`
 when `logout-url` is set, or you can override the action via a `logout` slot.
+
+### App footer
+
+A compact dark utility bar (distinct from the marketing `footer` above): a
+labelled row of external "useful links", an optional organisation/version meta
+block, and the bundled Kadoorie logo lockup
+(`resources/logos/kadoorieOxfordLogo.svg`). Links open in a new tab by default (add
+`'external' => false` to keep one in-tab).
+
+```blade
+<x-kadoorie::app-footer
+    organisation="Kadoorie Institute"
+    version="Site Version 1.0 · 18Jun2026"
+    :links="[
+        ['label' => 'Help Center', 'url' => '/help'],
+        ['label' => 'REDCap Login', 'url' => 'https://redcap.example.org'],
+        ['label' => 'eTMF Portal', 'url' => 'https://etmf.example.org'],
+    ]"
+/>
+```
+
+The dark surface is driven by the `--kad-color-footer-*` tokens, so you can
+retheme the bar without touching the component.
+
+### Application shell (App layout, App header)
+
+`app-layout` is the page scaffold — a skip link, a `header` slot, the main
+content region (on the `--kad-color-body` surface), and a `footer` slot.
+`app-header` is the application top bar: a logo (brand mark by default, or a
+`logo` slot), an optional `start` slot for contextual selectors, a
+right-aligned actions area (default slot), and an optional `subbar` slot for a
+second row (e.g. breadcrumbs).
+
+```blade
+<x-kadoorie::app-layout>
+    <x-slot:header>
+        <x-kadoorie::app-header brand="Kadoorie">
+            <x-slot:start>
+                <x-kadoorie::select-pill label="Page">
+                    <x-kadoorie::dropdown-item href="#">Dashboard</x-kadoorie::dropdown-item>
+                </x-kadoorie::select-pill>
+            </x-slot:start>
+
+            <x-kadoorie::select-pill label="Role" value="Manager">
+                <x-kadoorie::dropdown-item href="#">Manager</x-kadoorie::dropdown-item>
+            </x-kadoorie::select-pill>
+            <x-kadoorie::button>Pull REDCap Data</x-kadoorie::button>
+            <x-kadoorie::icon-button icon="circle-help" label="Help" />
+            <x-kadoorie::notification :count="3" />
+            <x-kadoorie::profile-menu name="User" initials="U" logout-url="/logout" />
+        </x-kadoorie::app-header>
+    </x-slot:header>
+
+    {{-- page content --}}
+
+    <x-slot:footer>
+        <x-kadoorie::app-footer organisation="Kadoorie Institute" version="Site Version 1.0" />
+    </x-slot:footer>
+</x-kadoorie::app-layout>
+```
+
+Supporting pieces used above:
+
+- **`select-pill`** — a labelled pill dropdown (`label`, optional `value`) that
+  wraps the shared `dropdown`; pass `dropdown-item`s as the menu.
+- **`icon-button`** — an icon-only button; `label` is required (aria-label),
+  `variant="pill"` adds the light rounded container.
+- **`notification`** — a bell `icon-button` with an optional unread `count`
+  badge, folded into the accessible name.
 
 ### Dashboard widgets (Small-box, Info-box)
 

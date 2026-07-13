@@ -39,6 +39,22 @@ it('sizes the icon from the size token', function (): void {
         ->assertSee('height="24"', false);
 });
 
+it('keeps monochrome line icons themeable via the source currentColor paint', function (): void {
+    $this->blade('<x-kadoorie::icon name="check" />')
+        ->assertSee('viewBox="0 0 24 24"', false)
+        ->assertSee('stroke="currentColor"', false)
+        ->assertSee('fill="none"', false);
+});
+
+it('renders a self-coloured icon on its own viewBox instead of clipping it', function (): void {
+    // The bespoke Figma badge icons are drawn on a 32x32 grid with their own
+    // fills; the wrapper must honour that grid rather than force 0 0 24 24.
+    $this->blade('<x-kadoorie::icon name="kadoorie:message" />')
+        ->assertSee('viewBox="0 0 32 32"', false)
+        ->assertDontSee('viewBox="0 0 24 24"', false)
+        ->assertSee('fill="#AA1A2D"', false);
+});
+
 it('rejects an unknown icon name', function (): void {
     (new Kadoorie\LivewireComponents\View\Components\Icon('does-not-exist'))->inner();
 })->throws(InvalidArgumentException::class, 'Unknown Kadoorie icon');

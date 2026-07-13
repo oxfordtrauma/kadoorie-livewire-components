@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-07-03
+## [0.1.0] - 2026-07-13
 
 Initial release of the Kadoorie Livewire Components library.
 
@@ -21,7 +21,8 @@ Initial release of the Kadoorie Livewire Components library.
   theme, AA-safe muted split), a Tailwind preset with responsive breakpoints
   and a capped container, a precompiled publishable stylesheet, and an
   `<x-kadoorie::icon>` component backed by a Lucide + bespoke Kadoorie SVG
-  registry.
+  registry, with a browsable icon catalogue in the showcase and per-icon
+  viewBox/paint so bespoke and monochrome icons both render correctly.
 - **Form controls**: Field wrapper, Label, Button, Input, Textarea, Select,
   Checkbox, Radio, and Toggle — all sharing the `HandlesFieldState` concern for
   label/hint/error wiring.
@@ -34,6 +35,10 @@ Initial release of the Kadoorie Livewire Components library.
   paginated Livewire Data table that reflows to stacked cards on mobile.
 - **Page templates**: an auth-agnostic Login page and a single parameterised
   HTTP error page (401/403/404/405/406/412/500/501/502 + generic).
+- **Dashboard widgets**: Small-box, Info-box, and a Profile menu.
+- **Application shell**: an `app-layout` page scaffold, an `app-header`
+  application top bar, and a compact dark `app-footer`, composed from
+  `select-pill`, `icon-button`, and `notification` controls.
 - **Showcase & docs**: a `kadoorie:build-showcase` generator, the generated
   static gallery under `docs/showcase/`, a user guide, and a data-binding guide.
 
@@ -48,5 +53,5 @@ Initial release of the Kadoorie Livewire Components library.
 
 - Dark mode and RTL are intentionally out of scope for this release.
 
-[Unreleased]: https://github.com/kadoorie/livewire-components/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/kadoorie/livewire-components/releases/tag/v0.1.0
+[Unreleased]: https://github.com/oxfordtrauma/kadoorie-livewire-components/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/oxfordtrauma/kadoorie-livewire-components/releases/tag/v0.1.0

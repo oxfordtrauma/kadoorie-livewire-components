@@ -1,17 +1,15 @@
 {{--
-    Normalised inline-SVG icon wrapper. Decorative by default (aria-hidden);
-    pass a `label` to expose it to assistive tech (role="img" + <title>).
+    Normalised inline-SVG icon wrapper. The viewBox and paint (fill/stroke/...)
+    are copied from the source SVG so line icons inherit currentColor while
+    self-coloured icons keep their own grid and colours; the view owns sizing
+    and accessibility. Decorative by default (aria-hidden); pass a `label` to
+    expose it to assistive tech (role="img" + <title>).
 --}}
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
+    {!! $rootAttributes() !!}
     width="{{ $pixels() }}"
     height="{{ $pixels() }}"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
     data-test="kadoorie-icon"
     @if ($label !== null)
         role="img"

@@ -62,6 +62,24 @@ final class ComponentExampleRegistry
     {
         return [
             ['component' => 'icon', 'title' => 'Labelled', 'snippet' => '<x-kadoorie::icon name="circle-check" label="Complete" class="text-success" size="lg" />'],
+            ['component' => 'icon', 'title' => 'Available icons', 'snippet' => '@php($sets = \Kadoorie\LivewireComponents\Support\IconCatalog::grouped())
+<div data-test="icon-catalog" class="flex flex-col gap-6">
+    @foreach ($sets as $set => $names)
+        <div data-test="icon-set-{{ $set }}">
+            <h3 class="mb-3 text-sm font-semibold capitalize text-text">
+                {{ $set }} <span class="font-normal text-text-muted">({{ count($names) }})</span>
+            </h3>
+            <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+                @foreach ($names as $name)
+                    <li class="flex items-center gap-3 rounded-lg border border-border bg-surface px-3 py-2">
+                        <x-kadoorie::icon :name="$set . \':\' . $name" size="lg" class="shrink-0 text-text" />
+                        <code class="truncate text-xs text-text-body">{{ $set }}:{{ $name }}</code>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endforeach
+</div>'],
 
             ['component' => 'button', 'title' => 'Primary', 'snippet' => '<x-kadoorie::button>Save changes</x-kadoorie::button>'],
             ['component' => 'button', 'title' => 'Danger / loading', 'snippet' => '<x-kadoorie::button variant="danger" :loading="true">Deleting</x-kadoorie::button>'],
@@ -115,6 +133,65 @@ final class ComponentExampleRegistry
             ['component' => 'profile-menu', 'title' => 'Account menu', 'snippet' => '<x-kadoorie::profile-menu name="Jane Doe" email="jane@example.com" initials="JD" change-details-url="#" logout-url="#" />'],
 
             ['component' => 'footer', 'title' => 'Site footer', 'snippet' => '<x-kadoorie::footer brand="Kadoorie" tagline="Accessible Livewire components in the Kadoorie style." :columns="[[\'heading\' => \'Product\', \'links\' => [[\'label\' => \'Components\', \'url\' => \'#\'], [\'label\' => \'Showcase\', \'url\' => \'#\']]], [\'heading\' => \'Resources\', \'links\' => [[\'label\' => \'User guide\', \'url\' => \'#\'], [\'label\' => \'Changelog\', \'url\' => \'#\']]], [\'heading\' => \'Company\', \'links\' => [[\'label\' => \'About\', \'url\' => \'#\'], [\'label\' => \'Contact\', \'url\' => \'#\']]]]" copyright="© 2026 Kadoorie" :legal-links="[[\'label\' => \'Privacy\', \'url\' => \'#\'], [\'label\' => \'Terms\', \'url\' => \'#\']]" />'],
+
+            ['component' => 'app-footer', 'title' => 'Application footer', 'snippet' => '<x-kadoorie::app-footer
+    organisation="Kadoorie Institute"
+    version="Site Version 1.0 · 18Jun2026"
+    :links="[
+        [\'label\' => \'Help Center\', \'url\' => \'#\'],
+        [\'label\' => \'Privacy Policy\', \'url\' => \'#\'],
+        [\'label\' => \'REDCap Login\', \'url\' => \'#\'],
+        [\'label\' => \'iPassport Login\', \'url\' => \'#\'],
+        [\'label\' => \'eTMF Portal\', \'url\' => \'#\'],
+        [\'label\' => \'Contact Support\', \'url\' => \'#\'],
+    ]"
+/>'],
+
+            ['component' => 'icon-button', 'title' => 'Help and pill', 'snippet' => '<div class="flex items-center gap-3"><x-kadoorie::icon-button icon="circle-help" label="Help" /><x-kadoorie::icon-button icon="bell" label="Notifications" variant="pill" /></div>'],
+
+            ['component' => 'select-pill', 'title' => 'Label and value', 'snippet' => '<div class="flex items-center gap-3"><x-kadoorie::select-pill label="Page"><x-kadoorie::dropdown-item href="#">Dashboard</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Participants</x-kadoorie::dropdown-item></x-kadoorie::select-pill><x-kadoorie::select-pill label="Role" value="Manager"><x-kadoorie::dropdown-item href="#">Manager</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Viewer</x-kadoorie::dropdown-item></x-kadoorie::select-pill></div>'],
+
+            ['component' => 'notification', 'title' => 'Bell with count', 'snippet' => '<div class="flex items-center gap-4"><x-kadoorie::notification :count="3" /><x-kadoorie::notification :count="128" /><x-kadoorie::notification /></div>'],
+
+            ['component' => 'app-header', 'title' => 'Application top bar', 'snippet' => '<x-kadoorie::app-header brand="Kadoorie">
+    <x-slot:start>
+        <x-kadoorie::select-pill label="Page"><x-kadoorie::dropdown-item href="#">Dashboard</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Participants</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
+        <x-kadoorie::select-pill label="View As"><x-kadoorie::dropdown-item href="#">Table</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Cards</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
+    </x-slot:start>
+
+    <x-kadoorie::select-pill label="Trial" value="BigBOSS"><x-kadoorie::dropdown-item href="#">BigBOSS</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">MiniBOSS</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
+    <x-kadoorie::select-pill label="Role" value="Manager"><x-kadoorie::dropdown-item href="#">Manager</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Viewer</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
+    <x-kadoorie::button>Pull REDCap Data</x-kadoorie::button>
+    <x-kadoorie::icon-button icon="circle-help" label="Help" />
+    <x-kadoorie::notification :count="3" />
+    <x-kadoorie::profile-menu name="User" initials="U" change-details-url="#" logout-url="#" />
+
+    <x-slot:subbar>
+        <x-kadoorie::breadcrumbs :items="[[\'label\' => \'Home\', \'url\' => \'#\'], [\'label\' => \'Participants\']]" />
+    </x-slot:subbar>
+</x-kadoorie::app-header>'],
+
+            ['component' => 'app-layout', 'title' => 'Page shell', 'snippet' => '<x-kadoorie::app-layout>
+    <x-slot:header>
+        <x-kadoorie::app-header brand="Kadoorie">
+            <x-slot:start>
+                <x-kadoorie::select-pill label="Page"><x-kadoorie::dropdown-item href="#">Dashboard</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
+            </x-slot:start>
+            <x-kadoorie::button>Pull REDCap Data</x-kadoorie::button>
+            <x-kadoorie::icon-button icon="circle-help" label="Help" />
+            <x-kadoorie::notification :count="3" />
+            <x-kadoorie::profile-menu name="User" initials="U" change-details-url="#" logout-url="#" />
+        </x-kadoorie::app-header>
+    </x-slot:header>
+
+    <div class="mx-auto w-full max-w-container p-6">
+        <x-kadoorie::card title="Welcome">Your page content goes here.</x-kadoorie::card>
+    </div>
+
+    <x-slot:footer>
+        <x-kadoorie::app-footer organisation="Kadoorie Institute" version="Site Version 1.0 · 18Jun2026" :links="[[\'label\' => \'Help Center\', \'url\' => \'#\'], [\'label\' => \'REDCap Login\', \'url\' => \'#\']]" />
+    </x-slot:footer>
+</x-kadoorie::app-layout>'],
 
             ['component' => 'small-box', 'title' => 'Stat boxes', 'snippet' => '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><x-kadoorie::small-box tone="primary" value="150" label="New orders" icon="info" url="#" /><x-kadoorie::small-box tone="success" value="53%" label="Bounce rate" icon="circle-check" url="#" /><x-kadoorie::small-box tone="warning" value="44" label="User registrations" icon="triangle-alert" url="#" /><x-kadoorie::small-box tone="danger" value="65" label="Unique visitors" icon="circle-alert" url="#" /></div>'],
 

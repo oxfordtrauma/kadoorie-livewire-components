@@ -42,6 +42,12 @@ import { SmallBox } from '@kadoorie/ui/SmallBox';
 import { InfoBox } from '@kadoorie/ui/InfoBox';
 import { ProfileMenu } from '@kadoorie/ui/ProfileMenu';
 import { Footer } from '@kadoorie/ui/Footer';
+import { AppFooter } from '@kadoorie/ui/AppFooter';
+import { SelectPill } from '@kadoorie/ui/SelectPill';
+import { IconButton } from '@kadoorie/ui/IconButton';
+import { Notification } from '@kadoorie/ui/Notification';
+import { AppHeader } from '@kadoorie/ui/AppHeader';
+import { AppLayout } from '@kadoorie/ui/AppLayout';
 import { useState } from 'react';
 
 /**
@@ -272,7 +278,47 @@ export const stories: Story[] = [
   { id: 'login', render: LoginStory },
   { id: 'error-page', render: ErrorPageStory },
   { id: 'widgets', render: WidgetsStory },
+  { id: 'app-shell', render: AppShellStory },
 ];
+
+/** App shell: layout scaffold with the application header and footer. */
+function AppShellStory(): ReactElement {
+  return (
+    <AppLayout
+      header={
+        <AppHeader
+          brand="Kadoorie"
+          start={
+            <SelectPill label="Page">
+              <DropdownItem href="#">Dashboard</DropdownItem>
+              <DropdownItem href="#">Participants</DropdownItem>
+            </SelectPill>
+          }
+        >
+          <SelectPill label="Role" value="Manager">
+            <DropdownItem href="#">Manager</DropdownItem>
+            <DropdownItem href="#">Viewer</DropdownItem>
+          </SelectPill>
+          <Button>Pull REDCap Data</Button>
+          <IconButton icon="circle-help" label="Help" />
+          <Notification count={3} />
+          <ProfileMenu name="User" initials="U" changeDetailsUrl="#" onLogout={() => {}} />
+        </AppHeader>
+      }
+      footer={
+        <AppFooter
+          organisation="Kadoorie Institute"
+          version="Site Version 1.0"
+          links={[{ label: 'Help Center', url: '#' }]}
+        />
+      }
+    >
+      <div style={{ padding: '1.5rem' }}>
+        <Card title="Welcome">Your page content goes here.</Card>
+      </div>
+    </AppLayout>
+  );
+}
 
 /** R5 dashboard widgets gallery. */
 function WidgetsStory(): ReactElement {
@@ -295,6 +341,16 @@ function WidgetsStory(): ReactElement {
         columns={[{ heading: 'Product', links: [{ label: 'Docs', url: '#' }] }]}
         copyright="(c) 2026 Kadoorie"
         legalLinks={[{ label: 'Privacy', url: '#' }]}
+      />
+      <AppFooter
+        organisation="Kadoorie Institute"
+        version="Site Version 1.0 · 18Jun2026"
+        links={[
+          { label: 'Help Center', url: '#' },
+          { label: 'REDCap Login', url: '#' },
+          { label: 'eTMF Portal', url: '#' },
+          { label: 'Contact Support', url: '#' },
+        ]}
       />
     </section>
   );

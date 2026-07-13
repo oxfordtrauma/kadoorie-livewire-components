@@ -90,6 +90,13 @@ module.exports = {
           DEFAULT: 'var(--kad-color-accent)',
           subtle: 'var(--kad-color-accent-subtle)',
         },
+        footer: {
+          DEFAULT: 'var(--kad-color-footer-bg)',
+          fg: 'var(--kad-color-footer-fg)',
+          muted: 'var(--kad-color-footer-muted)',
+        },
+        body: 'var(--kad-color-body)',
+        stroke: 'var(--kad-color-stroke)',
       },
       borderColor: {
         DEFAULT: 'var(--kad-color-border)',

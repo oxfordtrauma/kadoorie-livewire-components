@@ -52,6 +52,11 @@
   --kad-color-text-disabled: #99a1af;
   --kad-color-text-on-dark: #ffffff;
 
+  /* Footer — the one intentionally dark surface (Figma "900"). */
+  --kad-color-footer-bg: #1b2430;
+  --kad-color-footer-fg: #ffffff;
+  --kad-color-footer-muted: rgb(255 255 255 / 0.8);
+
   /* Semantic */
   --kad-color-danger: #dc2626;
   --kad-color-danger-accent: #e53935;
@@ -917,6 +922,11 @@ body {
   height: 3.5rem;
 }
 
+.size-3 {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
 .size-5 {
   width: 1.25rem;
   height: 1.25rem;
@@ -1056,6 +1066,10 @@ body {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1106,6 +1120,10 @@ body {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-6 {
@@ -1269,6 +1287,10 @@ body {
   background-color: var(--kad-color-danger-subtle);
 }
 
+.bg-footer {
+  background-color: var(--kad-color-footer-bg);
+}
+
 .bg-info {
   background-color: var(--kad-color-info);
 }
@@ -1378,6 +1400,11 @@ body {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .py-0\.5 {
@@ -1511,6 +1538,10 @@ body {
   font-weight: 500;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -1541,6 +1572,14 @@ body {
 
 .text-danger {
   color: var(--kad-color-danger);
+}
+
+.text-footer-fg {
+  color: var(--kad-color-footer-fg);
+}
+
+.text-footer-muted {
+  color: var(--kad-color-footer-muted);
 }
 
 .text-info {
@@ -1590,6 +1629,10 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .accent-primary {
@@ -1894,6 +1937,10 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -1927,6 +1974,26 @@ body {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .md\:text-right {
+    text-align: right;
   }
 
   .md\:text-base {

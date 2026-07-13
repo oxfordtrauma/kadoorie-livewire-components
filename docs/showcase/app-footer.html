@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Avatar — Kadoorie Components</title>
+<title>App footer — Kadoorie Components</title>
 <link rel="stylesheet" href="kadoorie.css" />
     </head>
     <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
@@ -334,7 +334,7 @@
                                 <a
                                     href="avatar.html"
                                     data-test="showcase-nav-avatar"
-                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
                                 >
                                     avatar
                                 </a>
@@ -421,7 +421,7 @@
                                 <a
                                     href="app-footer.html"
                                     data-test="showcase-nav-app-footer"
-                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
                                 >
                                     app footer
                                 </a>
@@ -492,7 +492,7 @@
                             </li>
                     <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
                                     <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
-                        Avatar
+                        App footer
                     </span>
                             </li>
             </ol>
@@ -500,7 +500,7 @@
                 
                     <header class="mb-6">
         <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
-            Avatar
+            App footer
         </h1>
     </header>
 
@@ -508,7 +508,7 @@
                     
                                     <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Initials + presence</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Application footer</h2>
                 </div>
 
                 <div class="p-4">
@@ -526,17 +526,17 @@
 >
     <div
         role="tablist"
-        aria-label="Initials + presence view"
+        aria-label="Application footer view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-c203193e-tab-preview"
+                id="ex-09c3d792-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-c203193e-panel-preview"
+                aria-controls="ex-09c3d792-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -553,10 +553,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-c203193e-tab-code"
+                id="ex-09c3d792-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-c203193e-panel-code"
+                aria-controls="ex-09c3d792-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -575,8 +575,8 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-c203193e-panel-preview"
-    aria-labelledby="ex-c203193e-tab-preview"
+    id="ex-09c3d792-panel-preview"
+    aria-labelledby="ex-09c3d792-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -584,34 +584,183 @@
     class="kad-focusable text-sm text-text-body"
 >
     <div data-test="showcase-preview" class="pt-4">
-                                                                    <span
-    data-test="avatar"
-    class="relative inline-flex shrink-0 size-12 text-base"
+                                                                    <footer role="contentinfo" data-test="app-footer" class="bg-footer text-footer-fg">
+    <div class="mx-auto flex max-w-container flex-col gap-3 px-5 py-3 md:flex-row md:items-center md:justify-between">
+        <div>
+            <p data-test="app-footer-links-label" class="text-sm font-semibold underline">
+                Useful Links:
+            </p>
+
+                            <ul data-test="app-footer-links" class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+                                                                    <li>
+                            <a
+                                href="#"
+                                data-test="app-footer-link"
+                                 target="_blank" rel="noopener noreferrer"                                 class="kad-focusable inline-flex items-center gap-1 rounded py-1 text-sm text-footer-fg hover:underline"
+                            >
+                                Help Center
+                                                                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle size-3"
 >
-            <span
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+</svg>
+                                    <span class="sr-only">(opens in a new tab)</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a
+                                href="#"
+                                data-test="app-footer-link"
+                                 target="_blank" rel="noopener noreferrer"                                 class="kad-focusable inline-flex items-center gap-1 rounded py-1 text-sm text-footer-fg hover:underline"
+                            >
+                                Privacy Policy
+                                                                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
             aria-hidden="true"
-            data-test="avatar-initials"
-            class="flex h-full w-full items-center justify-center rounded-full bg-primary-subtle font-semibold text-primary"
-        >
-            JD
-        </span>
-        <span class="sr-only">Jane Doe</span>
-    
-            <span
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle size-3"
+>
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+</svg>
+                                    <span class="sr-only">(opens in a new tab)</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a
+                                href="#"
+                                data-test="app-footer-link"
+                                 target="_blank" rel="noopener noreferrer"                                 class="kad-focusable inline-flex items-center gap-1 rounded py-1 text-sm text-footer-fg hover:underline"
+                            >
+                                REDCap Login
+                                                                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
             aria-hidden="true"
-            data-test="avatar-presence"
-            class="absolute bottom-0 right-0 block size-1/4 rounded-full ring-2 ring-surface bg-success"
-        ></span>
-        <span class="sr-only">Online</span>
-    </span>
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle size-3"
+>
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+</svg>
+                                    <span class="sr-only">(opens in a new tab)</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a
+                                href="#"
+                                data-test="app-footer-link"
+                                 target="_blank" rel="noopener noreferrer"                                 class="kad-focusable inline-flex items-center gap-1 rounded py-1 text-sm text-footer-fg hover:underline"
+                            >
+                                iPassport Login
+                                                                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle size-3"
+>
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+</svg>
+                                    <span class="sr-only">(opens in a new tab)</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a
+                                href="#"
+                                data-test="app-footer-link"
+                                 target="_blank" rel="noopener noreferrer"                                 class="kad-focusable inline-flex items-center gap-1 rounded py-1 text-sm text-footer-fg hover:underline"
+                            >
+                                eTMF Portal
+                                                                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle size-3"
+>
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+</svg>
+                                    <span class="sr-only">(opens in a new tab)</span>
+                                                            </a>
+                        </li>
+                                                                    <li>
+                            <a
+                                href="#"
+                                data-test="app-footer-link"
+                                 target="_blank" rel="noopener noreferrer"                                 class="kad-focusable inline-flex items-center gap-1 rounded py-1 text-sm text-footer-fg hover:underline"
+                            >
+                                Contact Support
+                                                                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle size-3"
+>
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+</svg>
+                                    <span class="sr-only">(opens in a new tab)</span>
+                                                            </a>
+                        </li>
+                                    </ul>
+                    </div>
+
+        <div class="flex items-center gap-5 md:justify-end">
+                            <div data-test="app-footer-meta" class="text-sm text-footer-muted md:text-right">
+                                            <p data-test="app-footer-organisation">Kadoorie Institute</p>
+                                                                <p data-test="app-footer-version">Site Version 1.0 · 18Jun2026</p>
+                                    </div>
+            
+            <div data-test="app-footer-logo" class="shrink-0">
+                                    <span class="inline-flex items-center gap-2 font-semibold text-footer-fg">
+                        <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="M6 3v18"/><path d="M6 12c6 0 8-3 12-9"/><path d="M6 12c6 0 8 3 12 9"/>
+</svg>
+                        Kadoorie
+                    </span>
+                            </div>
+        </div>
+    </div>
+</footer>
 
                                                             </div>
 </div>
 
                         <div
     role="tabpanel"
-    id="ex-c203193e-panel-code"
-    aria-labelledby="ex-c203193e-tab-code"
+    id="ex-09c3d792-panel-code"
+    aria-labelledby="ex-09c3d792-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -628,7 +777,18 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::avatar alt=&quot;Jane Doe&quot; initials=&quot;JD&quot; presence=&quot;online&quot; size=&quot;lg&quot; /&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::app-footer
+    organisation=&quot;Kadoorie Institute&quot;
+    version=&quot;Site Version 1.0 · 18Jun2026&quot;
+    :links=&quot;[
+        [&#039;label&#039; =&gt; &#039;Help Center&#039;, &#039;url&#039; =&gt; &#039;#&#039;],
+        [&#039;label&#039; =&gt; &#039;Privacy Policy&#039;, &#039;url&#039; =&gt; &#039;#&#039;],
+        [&#039;label&#039; =&gt; &#039;REDCap Login&#039;, &#039;url&#039; =&gt; &#039;#&#039;],
+        [&#039;label&#039; =&gt; &#039;iPassport Login&#039;, &#039;url&#039; =&gt; &#039;#&#039;],
+        [&#039;label&#039; =&gt; &#039;eTMF Portal&#039;, &#039;url&#039; =&gt; &#039;#&#039;],
+        [&#039;label&#039; =&gt; &#039;Contact Support&#039;, &#039;url&#039; =&gt; &#039;#&#039;],
+    ]&quot;
+/&gt;</code></pre>
                             </div>
 </div>
     </div>

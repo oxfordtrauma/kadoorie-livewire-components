@@ -1,57 +1,58 @@
 {
-    "name": "kadoorie/livewire-components",
-    "description": "Prebuilt Livewire components for the Kadoorie look and feel.",
-    "type": "library",
-    "license": "proprietary",
-    "require": {
-        "php": "^8.3",
-        "illuminate/contracts": "^11.0 || ^12.0",
-        "livewire/livewire": "^3.5",
-        "spatie/laravel-package-tools": "^1.16"
-    },
-    "require-dev": {
-        "larastan/larastan": "^3.0",
-        "laravel/pint": "^1.18",
-        "orchestra/testbench": "^9.0 || ^10.0",
-        "pestphp/pest": "^3.5",
-        "pestphp/pest-plugin-laravel": "^3.0",
-        "roave/security-advisories": "dev-latest"
-    },
-    "suggest": {
-        "filament/support": "Apply the Kadoorie recolour theme to Filament v3/v4 panels (see docs/filament.md)."
-    },
-    "autoload": {
-        "psr-4": {
-            "Kadoorie\\LivewireComponents\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Kadoorie\\LivewireComponents\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Kadoorie\\LivewireComponents\\KadoorieComponentsServiceProvider"
-            ]
-        }
-    },
-    "scripts": {
-        "post-autoload-dump": "@php vendor/bin/testbench package:discover --ansi",
-        "setup-hooks": "git config core.hooksPath .githooks",
-        "audit": "composer audit",
-        "test": "pest --compact",
-        "lint": "pint --dirty",
-        "analyse": "phpstan analyse"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+  "name": "oxfordtrauma/livewire-components",
+  "description": "Prebuilt Livewire components for the Kadoorie look and feel.",
+  "type": "library",
+  "version": "0.1",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.3",
+    "illuminate/contracts": "^11.0 || ^12.0",
+    "livewire/livewire": "^3.5",
+    "spatie/laravel-package-tools": "^1.16"
+  },
+  "require-dev": {
+    "larastan/larastan": "^3.0",
+    "laravel/pint": "^1.18",
+    "orchestra/testbench": "^9.0 || ^10.0",
+    "pestphp/pest": "^3.5",
+    "pestphp/pest-plugin-laravel": "^3.0",
+    "roave/security-advisories": "dev-latest"
+  },
+  "suggest": {
+    "filament/support": "Apply the Kadoorie recolour theme to Filament v3/v4 panels (see docs/filament.md)."
+  },
+  "autoload": {
+    "psr-4": {
+      "Kadoorie\\LivewireComponents\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kadoorie\\LivewireComponents\\Tests\\": "tests/",
+      "Workbench\\App\\": "workbench/app/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kadoorie\\LivewireComponents\\KadoorieComponentsServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": "@php vendor/bin/testbench package:discover --ansi",
+    "setup-hooks": "git config core.hooksPath .githooks",
+    "audit": "composer audit",
+    "test": "pest --compact",
+    "lint": "pint --dirty",
+    "analyse": "phpstan analyse"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }

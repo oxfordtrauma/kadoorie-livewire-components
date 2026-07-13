@@ -35,7 +35,7 @@ final class BuildShowcaseCommand extends Command
         'Forms' => ['label', 'field', 'input', 'textarea', 'select', 'checkbox', 'radio', 'toggle', 'validation'],
         'Actions' => ['button', 'icon-button', 'dropdown', 'select-pill', 'notification', 'profile-menu'],
         'Feedback' => ['alert', 'toast', 'tooltip', 'spinner', 'modal'],
-        'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'pagination'],
+        'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'wizard', 'pagination'],
         'Data display' => ['badge', 'card', 'avatar', 'divider', 'data-table', 'empty-state'],
         'Widgets' => ['small-box', 'info-box'],
         'Recipes' => ['recipe'],

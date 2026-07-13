@@ -31,6 +31,7 @@ import { Avatar } from '@kadoorie/ui/Avatar';
 import { Breadcrumbs } from '@kadoorie/ui/Breadcrumbs';
 import { Tabs, TabPanel } from '@kadoorie/ui/Tabs';
 import { Accordion, AccordionItem } from '@kadoorie/ui/Accordion';
+import { Wizard, WizardStep } from '@kadoorie/ui/Wizard';
 import { Nav } from '@kadoorie/ui/Nav';
 import { Dropdown, DropdownItem } from '@kadoorie/ui/Dropdown';
 import { EmptyState } from '@kadoorie/ui/EmptyState';
@@ -220,6 +221,19 @@ function LayoutNavStory(): ReactElement {
           Content two.
         </AccordionItem>
       </Accordion>
+
+      <Wizard
+        id="demo-wizard"
+        steps={[
+          { id: 'account', label: 'Account' },
+          { id: 'profile', label: 'Profile' },
+          { id: 'review', label: 'Review' },
+        ]}
+      >
+        <WizardStep step="account">Account details.</WizardStep>
+        <WizardStep step="profile">Profile details.</WizardStep>
+        <WizardStep step="review">Review and finish.</WizardStep>
+      </Wizard>
 
       <Dropdown label="Options">
         <DropdownItem>Edit</DropdownItem>

@@ -123,3 +123,5 @@ export { AppHeader } from './ui/AppHeader';
 export type { AppHeaderProps } from './ui/AppHeader';
 export { AppLayout } from './ui/AppLayout';
 export type { AppLayoutProps } from './ui/AppLayout';
+export { Wizard, WizardStep } from './ui/Wizard';
+export type { WizardProps, WizardStepProps, WizardStepItem } from './ui/Wizard';

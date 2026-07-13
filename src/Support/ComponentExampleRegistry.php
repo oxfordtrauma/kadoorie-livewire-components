@@ -121,6 +121,29 @@ final class ComponentExampleRegistry
             ['component' => 'accordion', 'title' => 'FAQ', 'snippet' => '<x-kadoorie::accordion id="faq"><x-kadoorie::accordion-item id="one" heading="How do I install?" group="faq">Via Composer.</x-kadoorie::accordion-item><x-kadoorie::accordion-item id="two" heading="Is it accessible?" group="faq">Yes, WCAG 2.1 AA.</x-kadoorie::accordion-item></x-kadoorie::accordion>'],
             ['component' => 'accordion', 'title' => 'Multiple open', 'snippet' => '<x-kadoorie::accordion id="specs" :multiple="true"><x-kadoorie::accordion-item id="size" heading="Dimensions" group="specs">100 x 50 cm.</x-kadoorie::accordion-item><x-kadoorie::accordion-item id="weight" heading="Weight" group="specs">2.5 kg.</x-kadoorie::accordion-item></x-kadoorie::accordion>'],
 
+            ['component' => 'wizard', 'title' => 'Multi-step form', 'snippet' => '<x-kadoorie::wizard
+    id="signup"
+    :steps="[
+        [\'id\' => \'account\', \'label\' => \'Account\'],
+        [\'id\' => \'profile\', \'label\' => \'Profile\'],
+        [\'id\' => \'review\', \'label\' => \'Review\'],
+    ]"
+>
+    <x-kadoorie::wizard-step step="account" group="signup">
+        <x-kadoorie::field label="Email" name="wiz-email">
+            <x-kadoorie::input type="email" name="wiz-email" placeholder="you@example.com" />
+        </x-kadoorie::field>
+    </x-kadoorie::wizard-step>
+    <x-kadoorie::wizard-step step="profile" group="signup">
+        <x-kadoorie::field label="Display name" name="wiz-name">
+            <x-kadoorie::input name="wiz-name" />
+        </x-kadoorie::field>
+    </x-kadoorie::wizard-step>
+    <x-kadoorie::wizard-step step="review" group="signup">
+        <p>Review your details, then finish.</p>
+    </x-kadoorie::wizard-step>
+</x-kadoorie::wizard>'],
+
             ['component' => 'breadcrumbs', 'title' => 'Trail', 'snippet' => '<x-kadoorie::breadcrumbs :items="[[\'label\' => \'Home\', \'url\' => \'#\'], [\'label\' => \'Library\', \'url\' => \'#\'], [\'label\' => \'Buttons\']]" />'],
 
             ['component' => 'nav', 'title' => 'Top bar', 'snippet' => '<x-kadoorie::nav brand="Kadoorie" :items="[[\'label\' => \'Dashboard\', \'url\' => \'#\', \'active\' => true], [\'label\' => \'Reports\', \'url\' => \'#\'], [\'label\' => \'Settings\', \'url\' => \'#\']]" />'],

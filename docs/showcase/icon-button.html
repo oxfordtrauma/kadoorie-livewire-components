@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Input — Kadoorie Components</title>
+<title>Icon button — Kadoorie Components</title>
 <link rel="stylesheet" href="kadoorie.css" />
     </head>
     <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
@@ -116,7 +116,7 @@
                                 <a
                                     href="input.html"
                                     data-test="showcase-nav-input"
-                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
                                 >
                                     input
                                 </a>
@@ -193,7 +193,7 @@
                                 <a
                                     href="icon-button.html"
                                     data-test="showcase-nav-icon-button"
-                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
                                 >
                                     icon button
                                 </a>
@@ -537,7 +537,7 @@
                             </li>
                     <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
                                     <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
-                        Input
+                        Icon button
                     </span>
                             </li>
             </ol>
@@ -545,7 +545,7 @@
                 
                     <header class="mb-6">
         <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
-            Input
+            Icon button
         </h1>
     </header>
 
@@ -553,7 +553,7 @@
                     
                                     <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Email</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Help and pill</h2>
                 </div>
 
                 <div class="p-4">
@@ -571,17 +571,17 @@
 >
     <div
         role="tablist"
-        aria-label="Email view"
+        aria-label="Help and pill view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-5d48a916-tab-preview"
+                id="ex-c9265ca6-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-5d48a916-panel-preview"
+                aria-controls="ex-c9265ca6-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -598,10 +598,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-5d48a916-tab-code"
+                id="ex-c9265ca6-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-5d48a916-panel-code"
+                aria-controls="ex-c9265ca6-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -620,8 +620,8 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-5d48a916-panel-preview"
-    aria-labelledby="ex-5d48a916-tab-preview"
+    id="ex-c9265ca6-panel-preview"
+    aria-labelledby="ex-c9265ca6-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -629,36 +629,52 @@
     class="kad-focusable text-sm text-text-body"
 >
     <div data-test="showcase-preview" class="pt-4">
-                                                                    <div
-    data-test="email-field"
-    class="kad-field flex flex-col gap-1.5"
+                                                                    <div class="flex items-center gap-3"><button
+    type="button"
+    aria-label="Help"
+    data-test="icon-button" class="kad-focusable relative inline-flex size-9 shrink-0 items-center justify-center transition disabled:opacity-50 disabled:cursor-not-allowed rounded-md text-text hover:bg-surface-muted"
 >
-            <label
-            for="email"
-            data-test="email-label"
-            class="inline-flex items-center gap-1 text-sm font-medium text-text"
-        >
-            Email
-                    </label>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+</svg>
     
-    <input
-    type="email"
-    id="email"
-    name="email"
-    data-test="email-input"
-     placeholder="you@example.com"                                 class="kad-focusable block w-full rounded-md border border-border bg-surface text-text shadow-sm min-h-11 placeholder:text-text-disabled aria-[invalid=true]:border-danger disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-surface-muted text-lg md:text-sm px-3"
-/>
-
+</button>
+<button
+    type="button"
+    aria-label="Notifications"
+    data-test="icon-button" class="kad-focusable relative inline-flex size-9 shrink-0 items-center justify-center transition disabled:opacity-50 disabled:cursor-not-allowed rounded-full bg-bg text-text hover:bg-surface-muted"
+>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>
+</svg>
     
-    </div>
-
+</button>
+</div>
                                                             </div>
 </div>
 
                         <div
     role="tabpanel"
-    id="ex-5d48a916-panel-code"
-    aria-labelledby="ex-5d48a916-tab-code"
+    id="ex-c9265ca6-panel-code"
+    aria-labelledby="ex-c9265ca6-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -675,7 +691,7 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::field label=&quot;Email&quot; name=&quot;email&quot;&gt;&lt;x-kadoorie::input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;you@example.com&quot; /&gt;&lt;/x-kadoorie::field&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div class=&quot;flex items-center gap-3&quot;&gt;&lt;x-kadoorie::icon-button icon=&quot;circle-help&quot; label=&quot;Help&quot; /&gt;&lt;x-kadoorie::icon-button icon=&quot;bell&quot; label=&quot;Notifications&quot; variant=&quot;pill&quot; /&gt;&lt;/div&gt;</code></pre>
                             </div>
 </div>
     </div>

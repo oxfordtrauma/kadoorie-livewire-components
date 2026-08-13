@@ -64,7 +64,7 @@ describe('AppHeader', () => {
         <button type="button">Action</button>
       </AppHeader>
     );
-    expect(screen.getByTestId('app-header-logo')).toHaveTextContent('Kadoorie');
+    expect(screen.getByTestId('kadoorie-logo')).toHaveAccessibleName('Kadoorie');
     expect(screen.getByTestId('app-header-start')).toHaveTextContent('Selectors');
     expect(
       within(screen.getByTestId('app-header-actions')).getByText('Action')

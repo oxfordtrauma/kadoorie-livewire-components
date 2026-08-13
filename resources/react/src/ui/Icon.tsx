@@ -28,10 +28,12 @@ export function Icon({ name, size = 'md', label, className, ...rest }: IconProps
   const pixels = iconSize[size];
   const labelled = label !== undefined && label !== '';
 
+  const isKadoorie = name.startsWith('kadoorie:');
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox={isKadoorie ? '0 0 32 32' : '0 0 24 24'}
       width={pixels}
       height={pixels}
       fill="none"

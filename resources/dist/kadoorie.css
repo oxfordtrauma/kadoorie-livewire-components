@@ -974,6 +974,10 @@ body {
   height: 1.5rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1004,6 +1008,10 @@ body {
 
 .w-11 {
   width: 2.75rem;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .w-full {

@@ -19,9 +19,7 @@ use Illuminate\View\View;
  */
 final class Logo extends Component
 {
-    public function __construct(public ?string $label = 'Kadoorie')
-    {
-    }
+    public function __construct(public ?string $label = 'Kadoorie') {}
 
     public function markup(ComponentAttributeBag $attributes): HtmlString
     {

@@ -17,14 +17,21 @@
  */
 
 const registry: Record<string, string> = {
-  'kadoorie:file-plus': '<path d="M21 12V7a1 1 0 0 0-1-1h-8.6a1 1 0 0 0-.7.3L6.3 10.6a1 1 0 0 0-.3.7V24a1 1 0 0 0 1 1h6.3"/><path d="M13 6v5H8"/><circle cx="20" cy="20" r="5"/><path d="M20 17v6M17 20h6"/>',
-  'kadoorie:user': '<circle cx="16" cy="10.5" r="4.7"/><path d="M7 25c.5-4.2 3.5-6.5 9-6.5s8.5 2.3 9 6.5"/>',
-  'kadoorie:folder': '<path d="M7 8h5l2 3h7a2 2 0 0 1 2 2l-1.5 7a2 2 0 0 1-2 1.5H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Z"/>',
+  'kadoorie:file-plus':
+    '<path d="M21 12V7a1 1 0 0 0-1-1h-8.6a1 1 0 0 0-.7.3L6.3 10.6a1 1 0 0 0-.3.7V24a1 1 0 0 0 1 1h6.3"/><path d="M13 6v5H8"/><circle cx="20" cy="20" r="5"/><path d="M20 17v6M17 20h6"/>',
+  'kadoorie:user':
+    '<circle cx="16" cy="10.5" r="4.7"/><path d="M7 25c.5-4.2 3.5-6.5 9-6.5s8.5 2.3 9 6.5"/>',
+  'kadoorie:folder':
+    '<path d="M7 8h5l2 3h7a2 2 0 0 1 2 2l-1.5 7a2 2 0 0 1-2 1.5H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Z"/>',
   'kadoorie:mail': '<rect x="7" y="9" width="18" height="14" rx="2"/><path d="m8 10 8 6 8-6"/>',
-  'kadoorie:table': '<rect x="6" y="7" width="20" height="18" rx="1"/><path d="M6 13h20M13 7v18M20 7v18"/>',
-  'kadoorie:graduate-cap': '<path d="m5 12 11-6 11 6-11 6-11-6Z"/><path d="M9 14v5c3 3 11 3 14 0v-5M27 12v7"/>',
-  'kadoorie:clipboard': '<path d="M11 7h10a3 3 0 0 1 3 3v14H8V10a3 3 0 0 1 3-3Z"/><path d="M12 7a4 4 0 0 1 8 0v1h-8V7ZM13 13h6M13 17h6M13 21h6"/>',
-  'kadoorie:lock': '<rect x="6" y="12" width="20" height="14" rx="2"/><path d="M10 12V9a6 6 0 0 1 12 0v3M16 18v3"/>',
+  'kadoorie:table':
+    '<rect x="6" y="7" width="20" height="18" rx="1"/><path d="M6 13h20M13 7v18M20 7v18"/>',
+  'kadoorie:graduate-cap':
+    '<path d="m5 12 11-6 11 6-11 6-11-6Z"/><path d="M9 14v5c3 3 11 3 14 0v-5M27 12v7"/>',
+  'kadoorie:clipboard':
+    '<path d="M11 7h10a3 3 0 0 1 3 3v14H8V10a3 3 0 0 1 3-3Z"/><path d="M12 7a4 4 0 0 1 8 0v1h-8V7ZM13 13h6M13 17h6M13 21h6"/>',
+  'kadoorie:lock':
+    '<rect x="6" y="12" width="20" height="14" rx="2"/><path d="M10 12V9a6 6 0 0 1 12 0v3M16 18v3"/>',
   'kadoorie:leaf':
     '<path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>',
   'kadoorie:mark':

@@ -34,9 +34,7 @@ export function AppHeader({ brand = 'Kadoorie', logo, start, subbar, children }:
           data-test="app-header-logo"
           className="flex shrink-0 items-center gap-2 font-semibold text-text"
         >
-          {logo ?? (
-            <KadoorieLogo alt={brand} />
-          )}
+          {logo ?? <KadoorieLogo alt={brand} />}
         </div>
 
         {start !== undefined && start !== null ? (

@@ -9,8 +9,8 @@
  */
 
 import { type ReactNode } from 'react';
-import { Icon } from './Icon';
 import { Divider } from './Divider';
+import { KadoorieLogo } from './KadoorieLogo';
 
 export interface AppHeaderProps {
   brand?: string;
@@ -35,16 +35,15 @@ export function AppHeader({ brand = 'Kadoorie', logo, start, subbar, children }:
           className="flex shrink-0 items-center gap-2 font-semibold text-text"
         >
           {logo ?? (
-            <>
-              <Icon name="kadoorie:mark" size="md" className="text-primary" />
-              {brand}
-            </>
+            <KadoorieLogo alt={brand} />
           )}
         </div>
 
         {start !== undefined && start !== null ? (
           <>
-            <Divider orientation="vertical" className="h-6 bg-stroke" />
+            <div className="flex h-6 items-center">
+              <Divider orientation="vertical" className="h-full bg-stroke" />
+            </div>
             <div data-test="app-header-start" className="flex items-center gap-3">
               {start}
             </div>

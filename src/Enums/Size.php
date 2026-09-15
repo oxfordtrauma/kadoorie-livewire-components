@@ -16,18 +16,19 @@ namespace Kadoorie\LivewireComponents\Enums;
 
 enum Size: string
 {
+    case Xs = 'xs';
     case Sm = 'sm';
     case Md = 'md';
     case Lg = 'lg';
 
     /**
-     * Horizontal padding, text size, and gap for buttons. Vertical size is
-     * governed by the shared min-height so every control meets the 44px touch
-     * target.
+     * Horizontal padding, typography, and spacing for buttons. Buttons retain
+     * the shared touch-target height in their base component styles.
      */
     public function classes(): string
     {
         return match ($this) {
+            self::Xs => 'text-xs px-2 gap-1',
             self::Sm => 'text-xs px-2.5 gap-1',
             self::Md => 'text-sm px-3.5 gap-1.5',
             self::Lg => 'text-base px-4 gap-2',
@@ -42,6 +43,7 @@ enum Size: string
     public function inputClasses(): string
     {
         return match ($this) {
+            self::Xs => 'text-lg md:text-xs px-2',
             self::Sm => 'text-lg md:text-xs px-2.5',
             self::Md => 'text-lg md:text-sm px-3',
             self::Lg => 'text-lg md:text-base px-3.5',

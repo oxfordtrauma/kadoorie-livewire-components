@@ -23,6 +23,29 @@ it('lists the bundled icons grouped by set', function (): void {
         ->and($grouped['lucide'])->toContain('check', 'search');
 });
 
+it('includes the expanded supplied icon registry', function (): void {
+    expect(IconCatalog::grouped()['kadoorie'])->toContain(
+        'admin-manage-users',
+        'folder-add',
+        'file-plus-variant-5',
+        'list-xs',
+        'shield-xs',
+        'calendar-xs',
+        'edit',
+    );
+});
+
+it('normalises every supplied icon to a 24 by 24 viewBox and currentColor paint', function (): void {
+    foreach (['admin-manage-users', 'folder-add', 'file-plus-variant-5', 'list-xs', 'shield-xs', 'calendar-xs', 'edit'] as $icon) {
+        $svg = file_get_contents(IconCatalog::pathFor('kadoorie', $icon));
+
+        expect($svg)->toContain('viewBox="0 0 24 24"')->toContain('currentColor');
+    }
+
+    expect(file_get_contents(IconCatalog::pathFor('kadoorie', 'file-plus-variant-5')))
+        ->not->toContain('<rect width="24" height="24"');
+});
+
 it('sorts icon names within each set', function (): void {
     foreach (IconCatalog::grouped() as $names) {
         $sorted = $names;

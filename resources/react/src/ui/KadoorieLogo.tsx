@@ -5,7 +5,7 @@
 import type { ImgHTMLAttributes } from 'react';
 import { cn } from '../lib/cn';
 
-const logoUrl = new URL('../assets/kadoorie-logo.svg', import.meta.url).href;
+const logoUrl = new URL('../../../svg/kadoorie/logo.svg', import.meta.url).href;
 
 export type KadoorieLogoProps = ImgHTMLAttributes<HTMLImageElement>;
 

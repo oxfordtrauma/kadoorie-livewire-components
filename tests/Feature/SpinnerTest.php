@@ -25,3 +25,8 @@ it('accepts a custom label and size', function (): void {
         ->assertSee('Saving')
         ->assertSee('text-3xl', false);
 });
+
+it('supports the extra-small size', function (): void {
+    $this->blade('<x-kadoorie::spinner size="xs" />')
+        ->assertSee('text-sm', false);
+});

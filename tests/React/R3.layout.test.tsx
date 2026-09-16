@@ -122,7 +122,7 @@ describe('Badge', () => {
     expect(screen.getByTestId('badge')).toHaveClass(
       'bg-accent-subtle',
       'border-accent',
-      'text-accent',
+      'text-accent'
     );
     expect(screen.getByTestId('badge-number')).toHaveTextContent('12');
     expect(screen.getByTestId('badge-label')).toHaveTextContent('Tasks');

@@ -63,9 +63,13 @@ it.each([
 
 it('renders leading and trailing registry icons', () => {
   const { rerender } = render(<Button leadingIcon="check">Approve</Button>);
-  expect(screen.getByTestId('kadoorie-button').querySelector('[data-test="kadoorie-icon"]')).toBeInTheDocument();
+  expect(
+    screen.getByTestId('kadoorie-button').querySelector('[data-test="kadoorie-icon"]')
+  ).toBeInTheDocument();
   rerender(<Button trailingIcon="chevron-right">Continue</Button>);
-  expect(screen.getByTestId('kadoorie-button').querySelector('[data-test="kadoorie-icon"]')).toBeInTheDocument();
+  expect(
+    screen.getByTestId('kadoorie-button').querySelector('[data-test="kadoorie-icon"]')
+  ).toBeInTheDocument();
 });
 
 it('keeps loading content understandable while suppressing optional adornments', () => {

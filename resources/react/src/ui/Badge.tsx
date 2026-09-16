@@ -60,16 +60,37 @@ export function Badge({
         'inline-flex items-center border font-medium text-text',
         color ? badgeColor[color] : toneContainer[tone],
         badgeShape[shape],
-        indicator === 'number' ? badgeSize[size].replace('gap-1', 'gap-0.5').replace('gap-1.5', 'gap-1') : badgeSize[size],
+        indicator === 'number'
+          ? badgeSize[size].replace('gap-1', 'gap-0.5').replace('gap-1.5', 'gap-1')
+          : badgeSize[size],
         className
       )}
       {...rest}
     >
       {indicator === 'icon' ? (
-          <span className={color ? badgeIconColor[color] : toneIconColor[tone]} data-test="badge-icon">
+        <span
+          className={color ? badgeIconColor[color] : toneIconColor[tone]}
+          data-test="badge-icon"
+        >
           <Icon name={toneIcon[tone]} size="sm" />
         </span>
-      ) : indicator === 'dot' ? <span className={cn('size-1.5 shrink-0 rounded-full', color ? badgeIndicatorColor[color] : toneIconColor[tone])} data-test="badge-dot" aria-hidden="true" /> : indicator === 'number' ? <span className="-mx-0.5 min-w-5 text-center font-semibold tabular-nums" data-test="badge-number">{number}</span> : null}
+      ) : indicator === 'dot' ? (
+        <span
+          className={cn(
+            'size-1.5 shrink-0 rounded-full',
+            color ? badgeIndicatorColor[color] : toneIconColor[tone]
+          )}
+          data-test="badge-dot"
+          aria-hidden="true"
+        />
+      ) : indicator === 'number' ? (
+        <span
+          className="-mx-0.5 min-w-5 text-center font-semibold tabular-nums"
+          data-test="badge-number"
+        >
+          {number}
+        </span>
+      ) : null}
       <span data-test="badge-label">{children}</span>
     </span>
   );

@@ -31,7 +31,10 @@ export function ContextPill({ label, value, className, ...rest }: ContextPillPro
         {label}
       </span>
       {value !== undefined ? (
-        <span data-test="context-pill-value" className="border-l border-text pl-1.5 font-semibold text-text">
+        <span
+          data-test="context-pill-value"
+          className="border-l border-text pl-1.5 font-semibold text-text"
+        >
           {value}
         </span>
       ) : null}

@@ -31,6 +31,8 @@ final class Button extends Component
         public string $type = 'button',
         public bool $loading = false,
         public bool $disabled = false,
+        public ?string $leadingIcon = null,
+        public ?string $trailingIcon = null,
     ) {
         $this->variant = is_string($variant) ? ButtonVariant::from($variant) : $variant;
         $this->size = is_string($size) ? Size::from($size) : $size;

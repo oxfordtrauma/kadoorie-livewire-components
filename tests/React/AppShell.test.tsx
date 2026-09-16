@@ -13,6 +13,7 @@ import { axe } from 'vitest-axe';
 import { describe, expect, it } from 'vitest';
 import { IconButton } from '../../resources/react/src/ui/IconButton';
 import { SelectPill } from '../../resources/react/src/ui/SelectPill';
+import { ContextPill } from '../../resources/react/src/ui/ContextPill';
 import { Notification } from '../../resources/react/src/ui/Notification';
 import { AppHeader } from '../../resources/react/src/ui/AppHeader';
 import { AppLayout } from '../../resources/react/src/ui/AppLayout';
@@ -24,6 +25,12 @@ describe('IconButton', () => {
     const button = screen.getByTestId('icon-button');
     expect(button).toHaveAttribute('aria-label', 'Help');
     expect(button.querySelector('svg')).not.toBeNull();
+  });
+
+  it('passes icon size through to the rendered icon', () => {
+    render(<IconButton icon="bell" label="Notifications" iconSize="xl" />);
+    expect(screen.getByTestId('kadoorie-icon')).toHaveAttribute('width', '98');
+    expect(screen.getByTestId('kadoorie-icon')).toHaveAttribute('height', '98');
   });
 });
 
@@ -37,6 +44,17 @@ describe('SelectPill', () => {
     expect(screen.getByTestId('select-pill')).toBeInTheDocument();
     expect(screen.getByTestId('select-pill-trigger')).toHaveTextContent('Role');
     expect(screen.getByTestId('select-pill-value')).toHaveTextContent('Manager');
+  });
+});
+
+describe('ContextPill', () => {
+  it('renders static label/value context without interactive behaviour', () => {
+    render(<ContextPill label="View" value="Summary" />);
+    expect(screen.getByTestId('context-pill')).toHaveTextContent('ViewSummary');
+    expect(screen.getByTestId('context-pill-value')).toHaveTextContent('Summary');
+    expect(screen.queryByRole('button')).toBeNull();
+    expect(screen.queryByTestId('select-pill-trigger')).toBeNull();
+    expect(screen.queryByTestId('kadoorie-icon')).toBeNull();
   });
 });
 
@@ -64,7 +82,7 @@ describe('AppHeader', () => {
         <button type="button">Action</button>
       </AppHeader>
     );
-    expect(screen.getByTestId('app-header-logo')).toHaveTextContent('Kadoorie');
+    expect(screen.getByTestId('kadoorie-logo')).toHaveAccessibleName('Kadoorie');
     expect(screen.getByTestId('app-header-start')).toHaveTextContent('Selectors');
     expect(
       within(screen.getByTestId('app-header-actions')).getByText('Action')

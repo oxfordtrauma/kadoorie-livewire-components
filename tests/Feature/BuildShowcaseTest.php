@@ -23,7 +23,13 @@ it('builds a static showcase page for every registered component', function (): 
     expect($output . '/index.html')->toBeReadableFile()
         ->and($output . '/kadoorie.css')->toBeReadableFile()
         ->and(file_get_contents($output . '/button.html'))->toContain('data-test="kadoorie-button"')
-        ->and(file_get_contents($output . '/index.html'))->toContain('data-test="showcase-link-button"');
+        ->and(file_get_contents($output . '/button.html'))->toContain('Size scale')
+        ->and(file_get_contents($output . '/button.html'))->toContain('leading-icon=&quot;check&quot;')
+        ->and(file_get_contents($output . '/button.html'))->toContain('size=&quot;xs&quot;')
+        ->and(file_get_contents($output . '/index.html'))->toContain('data-test="showcase-link-button"')
+        ->and($output . '/nested-data-table.html')->toBeReadableFile()
+        ->and(file_get_contents($output . '/nested-data-table.html'))->toContain('data-test="nested-data-table"')
+        ->and(file_get_contents($output . '/nested-data-table.html'))->toContain('data-test="showcase-nav-nested-data-table"');
 
     File::deleteDirectory($output);
 });

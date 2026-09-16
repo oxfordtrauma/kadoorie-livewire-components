@@ -8,20 +8,27 @@
  * Version: 0.1.0
  */
 
+import { type ReactNode } from 'react';
 import { cn } from '../lib/cn';
 import { useDataTable, type DataTableRow } from '../hooks/useDataTable';
 import { EmptyState } from './EmptyState';
 import { Icon } from './Icon';
 
-export interface DataTableColumn {
-  field: string;
-  label: string;
-  sortable?: boolean;
-  numeric?: boolean;
-}
+export type { DataTableRow } from '../hooks/useDataTable';
+
+export type DataTableColumn<Row extends DataTableRow = DataTableRow> = {
+  [Field in Extract<keyof Row, string>]: {
+    field: Field;
+    label: string;
+    sortable?: boolean;
+    numeric?: boolean;
+    className?: string;
+    render?: (value: Row[Field], row: Row) => ReactNode;
+  };
+}[Extract<keyof Row, string>];
 
 export interface DataTableProps<Row extends DataTableRow> {
-  columns: DataTableColumn[];
+  columns: DataTableColumn<Row>[];
   rows: Row[];
   perPage?: number;
   selectable?: boolean;
@@ -33,7 +40,10 @@ export interface DataTableProps<Row extends DataTableRow> {
  * Accessible data table that reflows to stacked cards below `md`
  * (`kad-table-stack`), with sortable header buttons (`aria-sort`), optional row
  * selection, and windowed pagination — a faithful port of the Livewire
- * DataTable, driven by `useDataTable`. Mirrors the Blade `data-table` view.
+ * DataTable, driven by `useDataTable`. Supports ordinary sorting, selection,
+ * pagination, and caller-defined cell rendering. Expansion is intentionally
+ * not part of this component; use `NestedDataTable` when that behaviour is
+ * explicitly required. Mirrors the Blade `data-table` view.
  */
 export function DataTable<Row extends DataTableRow>({
   columns,
@@ -70,7 +80,11 @@ export function DataTable<Row extends DataTableRow>({
                   scope="col"
                   aria-sort={table.ariaSort(col.field)}
                   data-test={`data-table-th-${col.field}`}
-                  className={cn('px-3 py-2 font-semibold', col.numeric && 'text-right')}
+                  className={cn(
+                    'px-3 py-2 font-semibold',
+                    col.numeric && 'text-right',
+                    col.className
+                  )}
                 >
                   {col.sortable ? (
                     <button
@@ -119,10 +133,11 @@ export function DataTable<Row extends DataTableRow>({
                       data-label={col.label}
                       className={cn(
                         'px-3 py-2 text-text-body',
-                        col.numeric && 'text-right kad-nums'
+                        col.numeric && 'text-right kad-nums',
+                        col.className
                       )}
                     >
-                      {String(row[col.field] ?? '')}
+                      {col.render ? col.render(row[col.field], row) : String(row[col.field] ?? '')}
                     </td>
                   ))}
                 </tr>

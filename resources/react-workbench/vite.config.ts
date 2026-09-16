@@ -43,5 +43,11 @@ export default defineConfig({
   build: {
     outDir: resolve(__dirname, '../../resources/dist/react-workbench'),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        nestedDataTable: resolve(__dirname, 'nested-data-table.html'),
+      },
+    },
   },
 });

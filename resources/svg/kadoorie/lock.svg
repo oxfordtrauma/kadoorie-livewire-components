@@ -1,0 +1,14 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Lock">
+<rect x="-19.5" y="-19.5" width="75" height="231" rx="4.5" stroke="#8A38F5" stroke-dasharray="10 5"/>
+<g id="Property 1=Default" opacity="0.9">
+<rect width="36" height="36" rx="13" fill="white"/>
+<path id="Vector" d="M27.6 15H8.4C7.07452 15 6 16.0745 6 17.4V27.6C6 28.9255 7.07452 30 8.4 30H27.6C28.9255 30 30 28.9255 30 27.6V17.4C30 16.0745 28.9255 15 27.6 15Z" stroke="#AA1A2D" stroke-width="2"/>
+<path id="Vector_2" d="M12 15V11.4C12 9.80869 12.6321 8.28257 13.7574 7.15735C14.8826 6.03213 16.4087 5.39999 18 5.39999C19.5913 5.39999 21.1174 6.03213 22.2426 7.15735C23.3679 8.28257 24 9.80869 24 11.4V15" stroke="#AA1A2D" stroke-width="2" stroke-linecap="round"/>
+<path id="Vector_3" d="M18 24.9C19.3255 24.9 20.4 23.8255 20.4 22.5C20.4 21.1745 19.3255 20.1 18 20.1C16.6745 20.1 15.6 21.1745 15.6 22.5C15.6 23.8255 16.6745 24.9 18 24.9Z" stroke="#AA1A2D"/>
+<path id="Vector_4" d="M18 24.9V27.9" stroke="#AA1A2D" stroke-linecap="round"/>
+<path id="Vector_5" d="M27.6 11.4C29.2568 11.4 30.6 10.0568 30.6 8.39999C30.6 6.74314 29.2568 5.39999 27.6 5.39999C25.9431 5.39999 24.6 6.74314 24.6 8.39999C24.6 10.0568 25.9431 11.4 27.6 11.4Z" fill="#AF1228"/>
+<path id="Vector_6" d="M26.4 8.4H28.8M27.6 7.2V9.6" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

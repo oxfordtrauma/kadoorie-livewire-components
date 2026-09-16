@@ -28,10 +28,27 @@ export function Icon({ name, size = 'md', label, className, ...rest }: IconProps
   const pixels = iconSize[size];
   const labelled = label !== undefined && label !== '';
 
+  const normalizedKadoorie = [
+    'admin-manage-users',
+    'folder-add',
+    'file-plus-variant-5',
+    'list-xs',
+    'shield-xs',
+    'calendar-xs',
+    'edit',
+  ].some((icon) => name === `kadoorie:${icon}`);
+  const isKadoorie = name.startsWith('kadoorie:') || name === 'circle-help';
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox={
+        normalizedKadoorie || name === 'circle-help'
+          ? '0 0 24 24'
+          : isKadoorie
+            ? '0 0 32 32'
+            : '0 0 24 24'
+      }
       width={pixels}
       height={pixels}
       fill="none"

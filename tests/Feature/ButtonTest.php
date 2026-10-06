@@ -33,7 +33,15 @@ it('resolves a string variant into styling', function (): void {
         ->assertSee('bg-danger', false);
 });
 
-it('applies a minimum touch target height', function (): void {
-    $this->blade('<x-kadoorie::button>Go</x-kadoorie::button>')
-        ->assertSee('min-h-11', false);
+it('keeps the shared button touch target across the size scale', function (): void {
+    foreach (['xs', 'sm', 'md', 'lg'] as $size) {
+        $this->blade("<x-kadoorie::button size=\"{$size}\">Go</x-kadoorie::button>")
+            ->assertSee('min-h-11', false);
+    }
+});
+
+it('suppresses optional icons while loading but keeps the label', function (): void {
+    $this->blade('<x-kadoorie::button leading-icon="check" :loading="true">Saving</x-kadoorie::button>')
+        ->assertSee('Saving')
+        ->assertDontSee('data-test="kadoorie-icon"', false);
 });

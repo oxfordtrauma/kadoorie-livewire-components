@@ -18,6 +18,7 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 /** Mirror of Spinner::diameterClass(): the spinner scales to its font-size. */
 const diameter: Record<Size, string> = {
+  xs: 'text-sm',
   sm: 'text-base',
   md: 'text-2xl',
   lg: 'text-3xl',

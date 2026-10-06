@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nested data table — Kadoorie Components</title>
+<link rel="stylesheet" href="kadoorie.css" />
+    </head>
+    <body class="min-h-dvh bg-bg text-text-body" x-data="{ sidebar: false }">
+        <a
+            href="#main-content"
+            class="sr-only rounded bg-surface px-3 py-2 text-sm font-medium text-primary focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50"
+        >
+            Skip to content
+        </a>
+
+        <header
+            data-test="showcase-topbar"
+            class="sticky top-0 z-30 flex min-h-14 items-center gap-3 border-b border-border bg-surface px-4"
+        >
+            <button
+                type="button"
+                data-test="showcase-sidebar-toggle"
+                aria-label="Toggle navigation"
+                aria-controls="showcase-sidebar"
+                x-bind:aria-expanded="sidebar ? 'true' : 'false'"
+                x-on:click="sidebar = ! sidebar"
+                class="kad-focusable inline-flex size-11 items-center justify-center rounded-md text-text lg:hidden"
+            >
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+            </button>
+
+            <a href="index.html" data-test="showcase-brand" class="flex items-center gap-2 font-semibold text-text">
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-primary"
+>
+        <path d="M11 20A7 7 0 0 1 4 13C4 8 7 4 12 2c2 4 4 6 5 8a7 7 0 0 1-6 10Z"/><path d="M11 20c0-4 1.5-7.5 5-10"/>
+</svg>
+                Kadoorie Components
+            </a>
+
+            <span class="ml-auto text-xs text-text-muted" data-test="showcase-count">
+                46 components
+            </span>
+        </header>
+
+        <div class="mx-auto flex max-w-container flex-col lg:flex-row">
+            <nav
+                id="showcase-sidebar"
+                data-test="showcase-sidebar"
+                aria-label="Components"
+                x-bind:class="{ '!block': sidebar }"
+                class="hidden border-b border-border bg-surface p-3 lg:sticky lg:top-14 lg:block lg:max-h-[calc(100dvh-3.5rem)] lg:w-60 lg:shrink-0 lg:self-start lg:overflow-y-auto lg:border-b-0 lg:border-r"
+            >
+                <a
+                    href="index.html"
+                    data-test="showcase-nav-dashboard"
+                    class="kad-focusable flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium text-text-body hover:bg-surface-muted"
+                >
+                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+</svg>
+                    Dashboard
+                </a>
+
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Forms
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="label.html"
+                                    data-test="showcase-nav-label"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    label
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="field.html"
+                                    data-test="showcase-nav-field"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    field
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="input.html"
+                                    data-test="showcase-nav-input"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    input
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="textarea.html"
+                                    data-test="showcase-nav-textarea"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    textarea
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="select.html"
+                                    data-test="showcase-nav-select"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    select
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="checkbox.html"
+                                    data-test="showcase-nav-checkbox"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    checkbox
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="radio.html"
+                                    data-test="showcase-nav-radio"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    radio
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="toggle.html"
+                                    data-test="showcase-nav-toggle"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    toggle
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="validation.html"
+                                    data-test="showcase-nav-validation"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    validation
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Actions
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="button.html"
+                                    data-test="showcase-nav-button"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    button
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="icon-button.html"
+                                    data-test="showcase-nav-icon-button"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    icon button
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="dropdown.html"
+                                    data-test="showcase-nav-dropdown"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    dropdown
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="select-pill.html"
+                                    data-test="showcase-nav-select-pill"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    select pill
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="context-pill.html"
+                                    data-test="showcase-nav-context-pill"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    context pill
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="notification.html"
+                                    data-test="showcase-nav-notification"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    notification
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="profile-menu.html"
+                                    data-test="showcase-nav-profile-menu"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    profile menu
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Feedback
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="alert.html"
+                                    data-test="showcase-nav-alert"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    alert
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="toast.html"
+                                    data-test="showcase-nav-toast"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    toast
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="tooltip.html"
+                                    data-test="showcase-nav-tooltip"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    tooltip
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="spinner.html"
+                                    data-test="showcase-nav-spinner"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    spinner
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="modal.html"
+                                    data-test="showcase-nav-modal"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    modal
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Navigation
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="nav.html"
+                                    data-test="showcase-nav-nav"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    nav
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="breadcrumbs.html"
+                                    data-test="showcase-nav-breadcrumbs"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    breadcrumbs
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="tabs.html"
+                                    data-test="showcase-nav-tabs"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    tabs
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="accordion.html"
+                                    data-test="showcase-nav-accordion"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    accordion
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="wizard.html"
+                                    data-test="showcase-nav-wizard"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    wizard
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="pagination.html"
+                                    data-test="showcase-nav-pagination"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    pagination
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="sidebar.html"
+                                    data-test="showcase-nav-sidebar"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    sidebar
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Data display
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="badge.html"
+                                    data-test="showcase-nav-badge"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    badge
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="card.html"
+                                    data-test="showcase-nav-card"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    card
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="avatar.html"
+                                    data-test="showcase-nav-avatar"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    avatar
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="divider.html"
+                                    data-test="showcase-nav-divider"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    divider
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="data-table.html"
+                                    data-test="showcase-nav-data-table"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    data table
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="nested-data-table.html"
+                                    data-test="showcase-nav-nested-data-table"
+                                     aria-current="page"                                     class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize bg-primary-subtle font-medium text-primary"
+                                >
+                                    nested data table
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="data-table-container.html"
+                                    data-test="showcase-nav-data-table-container"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    data table container
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="empty-state.html"
+                                    data-test="showcase-nav-empty-state"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    empty state
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Widgets
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="small-box.html"
+                                    data-test="showcase-nav-small-box"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    small box
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="info-box.html"
+                                    data-test="showcase-nav-info-box"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    info box
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Recipes
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="recipe.html"
+                                    data-test="showcase-nav-recipe"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    recipe
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Layout
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="footer.html"
+                                    data-test="showcase-nav-footer"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    footer
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="app-footer.html"
+                                    data-test="showcase-nav-app-footer"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    app footer
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="app-header.html"
+                                    data-test="showcase-nav-app-header"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    app header
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="app-layout.html"
+                                    data-test="showcase-nav-app-layout"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    app layout
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Pages
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="login.html"
+                                    data-test="showcase-nav-login"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    login
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="error-page.html"
+                                    data-test="showcase-nav-error-page"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    error page
+                                </a>
+                            </li>
+                                            </ul>
+                                    <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        Media
+                    </p>
+                    <ul class="mt-1 flex flex-col">
+                                                    <li>
+                                <a
+                                    href="icon.html"
+                                    data-test="showcase-nav-icon"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    icon
+                                </a>
+                            </li>
+                                            </ul>
+                            </nav>
+
+            <main id="main-content" class="min-w-0 flex-1 px-4 py-8">
+                                    <nav aria-label="Breadcrumb" data-test="breadcrumbs" class="mb-4">
+    <ol class="flex flex-wrap items-center gap-1 text-sm text-text-muted">
+                    <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
+                                    <a
+                        href="index.html"
+                        data-test="breadcrumb-link"
+                        class="kad-focusable rounded hover:text-primary hover:underline"
+                    >
+                        Dashboard
+                    </a>
+                    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle text-text-muted-large"
+>
+        <path d="m9 18 6-6-6-6"/>
+</svg>
+                            </li>
+                    <li class="inline-flex items-center gap-1" data-test="breadcrumb-item">
+                                    <span aria-current="page" data-test="breadcrumb-current" class="font-medium text-text">
+                        Nested data table
+                    </span>
+                            </li>
+            </ol>
+</nav>
+                
+                    <header class="mb-6">
+        <h1 data-test="showcase-heading" class="text-3xl font-semibold capitalize text-text">
+            Nested data table
+        </h1>
+    </header>
+
+    <div class="flex flex-col gap-6">
+                    
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Expandable rows</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Expandable rows view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-b8382188-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-b8382188-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-b8382188-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-b8382188-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-b8382188-panel-preview"
+    aria-labelledby="ex-b8382188-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <div data-test="nested-data-table" x-data="{ expanded: null }" class="w-full">
+    <div class="relative w-full overflow-x-auto rounded-lg border border-border">
+        <table class="w-full min-w-max text-left text-sm" data-test="nested-data-table-table">
+            <thead class="bg-surface-muted text-xs uppercase tracking-wide text-text-muted">
+                <tr>
+                    <th scope="col" class="w-10 px-3 py-2"><span class="sr-only">Expand row</span></th>
+                    <th scope="col" class="px-3 py-2 font-semibold">Name</th>
+                    <th scope="col" class="px-3 py-2 font-semibold">Role</th>
+                    <th scope="col" class="px-3 py-2 font-semibold">Status</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-border bg-surface">
+                <tr data-test="nested-data-table-row">
+                    <td class="px-3 py-2">
+                        <button type="button" data-test="nested-data-table-toggle" x-on:click="expanded = expanded === 'ada' ? null : 'ada'" x-bind:aria-expanded="expanded === 'ada' ? 'true' : 'false'" x-bind:aria-controls="expanded === 'ada' ? 'nested-data-table-expanded-ada' : null" aria-label="Expand Ada Lovelace row" class="kad-focusable inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:text-text"><span aria-hidden="true" x-text="expanded === 'ada' ? '−' : '+'"></span></button>
+                    </td>
+                    <td class="px-3 py-2 text-text-body">Ada Lovelace</td>
+                    <td class="px-3 py-2 text-text-body">Researcher</td>
+                    <td class="px-3 py-2 text-text-body"><span
+    data-test="badge"
+    class="inline-flex items-center border font-medium text-text bg-success-subtle border-success rounded-md gap-1 px-2 py-0.5 text-xs"
+>
+            <span class="text-success" data-test="badge-icon" aria-hidden="true">
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+</svg>
+        </span>
+        <span data-test="badge-label">active</span>
+</span>
+</td>
+                </tr>
+                <tr x-show="expanded === 'ada'" x-cloak data-test="nested-data-table-expanded-row">
+                    <td id="nested-data-table-expanded-ada" colspan="4" data-test="nested-data-table-expanded-content" class="bg-surface-muted px-3 py-3 text-text-body">Ada's controlled expanded-row details.</td>
+                </tr>
+                <tr data-test="nested-data-table-row">
+                    <td class="px-3 py-2">
+                        <button type="button" data-test="nested-data-table-toggle" x-on:click="expanded = expanded === 'linus' ? null : 'linus'" x-bind:aria-expanded="expanded === 'linus' ? 'true' : 'false'" x-bind:aria-controls="expanded === 'linus' ? 'nested-data-table-expanded-linus' : null" aria-label="Expand Linus Torvalds row" class="kad-focusable inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:text-text"><span aria-hidden="true" x-text="expanded === 'linus' ? '−' : '+'"></span></button>
+                    </td>
+                    <td class="px-3 py-2 text-text-body">Linus Torvalds</td>
+                    <td class="px-3 py-2 text-text-body">Maintainer</td>
+                    <td class="px-3 py-2 text-text-body"><span
+    data-test="badge"
+    class="inline-flex items-center border font-medium text-text bg-warning-subtle border-warning rounded-md gap-1 px-2 py-0.5 text-xs"
+>
+            <span class="text-warning" data-test="badge-icon" aria-hidden="true">
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="16"
+    height="16"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>
+</svg>
+        </span>
+        <span data-test="badge-label">pending</span>
+</span>
+</td>
+                </tr>
+                <tr x-show="expanded === 'linus'" x-cloak data-test="nested-data-table-expanded-row">
+                    <td id="nested-data-table-expanded-linus" colspan="4" data-test="nested-data-table-expanded-content" class="bg-surface-muted px-3 py-3 text-text-body">Linus' controlled expanded-row details.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-b8382188-panel-code"
+    aria-labelledby="ex-b8382188-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div data-test=&quot;nested-data-table&quot; x-data=&quot;{ expanded: null }&quot; class=&quot;w-full&quot;&gt;
+    &lt;div class=&quot;relative w-full overflow-x-auto rounded-lg border border-border&quot;&gt;
+        &lt;table class=&quot;w-full min-w-max text-left text-sm&quot; data-test=&quot;nested-data-table-table&quot;&gt;
+            &lt;thead class=&quot;bg-surface-muted text-xs uppercase tracking-wide text-text-muted&quot;&gt;
+                &lt;tr&gt;
+                    &lt;th scope=&quot;col&quot; class=&quot;w-10 px-3 py-2&quot;&gt;&lt;span class=&quot;sr-only&quot;&gt;Expand row&lt;/span&gt;&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot; class=&quot;px-3 py-2 font-semibold&quot;&gt;Name&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot; class=&quot;px-3 py-2 font-semibold&quot;&gt;Role&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot; class=&quot;px-3 py-2 font-semibold&quot;&gt;Status&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody class=&quot;divide-y divide-border bg-surface&quot;&gt;
+                &lt;tr data-test=&quot;nested-data-table-row&quot;&gt;
+                    &lt;td class=&quot;px-3 py-2&quot;&gt;
+                        &lt;button type=&quot;button&quot; data-test=&quot;nested-data-table-toggle&quot; x-on:click=&quot;expanded = expanded === &#039;ada&#039; ? null : &#039;ada&#039;&quot; x-bind:aria-expanded=&quot;expanded === &#039;ada&#039; ? &#039;true&#039; : &#039;false&#039;&quot; x-bind:aria-controls=&quot;expanded === &#039;ada&#039; ? &#039;nested-data-table-expanded-ada&#039; : null&quot; aria-label=&quot;Expand Ada Lovelace row&quot; class=&quot;kad-focusable inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:text-text&quot;&gt;&lt;span aria-hidden=&quot;true&quot; x-text=&quot;expanded === &#039;ada&#039; ? &#039;−&#039; : &#039;+&#039;&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+                    &lt;/td&gt;
+                    &lt;td class=&quot;px-3 py-2 text-text-body&quot;&gt;Ada Lovelace&lt;/td&gt;
+                    &lt;td class=&quot;px-3 py-2 text-text-body&quot;&gt;Researcher&lt;/td&gt;
+                    &lt;td class=&quot;px-3 py-2 text-text-body&quot;&gt;&lt;x-kadoorie::badge tone=&quot;success&quot;&gt;active&lt;/x-kadoorie::badge&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr x-show=&quot;expanded === &#039;ada&#039;&quot; x-cloak data-test=&quot;nested-data-table-expanded-row&quot;&gt;
+                    &lt;td id=&quot;nested-data-table-expanded-ada&quot; colspan=&quot;4&quot; data-test=&quot;nested-data-table-expanded-content&quot; class=&quot;bg-surface-muted px-3 py-3 text-text-body&quot;&gt;Ada&#039;s controlled expanded-row details.&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr data-test=&quot;nested-data-table-row&quot;&gt;
+                    &lt;td class=&quot;px-3 py-2&quot;&gt;
+                        &lt;button type=&quot;button&quot; data-test=&quot;nested-data-table-toggle&quot; x-on:click=&quot;expanded = expanded === &#039;linus&#039; ? null : &#039;linus&#039;&quot; x-bind:aria-expanded=&quot;expanded === &#039;linus&#039; ? &#039;true&#039; : &#039;false&#039;&quot; x-bind:aria-controls=&quot;expanded === &#039;linus&#039; ? &#039;nested-data-table-expanded-linus&#039; : null&quot; aria-label=&quot;Expand Linus Torvalds row&quot; class=&quot;kad-focusable inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:text-text&quot;&gt;&lt;span aria-hidden=&quot;true&quot; x-text=&quot;expanded === &#039;linus&#039; ? &#039;−&#039; : &#039;+&#039;&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+                    &lt;/td&gt;
+                    &lt;td class=&quot;px-3 py-2 text-text-body&quot;&gt;Linus Torvalds&lt;/td&gt;
+                    &lt;td class=&quot;px-3 py-2 text-text-body&quot;&gt;Maintainer&lt;/td&gt;
+                    &lt;td class=&quot;px-3 py-2 text-text-body&quot;&gt;&lt;x-kadoorie::badge tone=&quot;warning&quot;&gt;pending&lt;/x-kadoorie::badge&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr x-show=&quot;expanded === &#039;linus&#039;&quot; x-cloak data-test=&quot;nested-data-table-expanded-row&quot;&gt;
+                    &lt;td id=&quot;nested-data-table-expanded-linus&quot; colspan=&quot;4&quot; data-test=&quot;nested-data-table-expanded-content&quot; class=&quot;bg-surface-muted px-3 py-3 text-text-body&quot;&gt;Linus&#039; controlled expanded-row details.&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+            </div>
+            </main>
+        </div>
+
+        <script defer src="showcase.js"></script>
+    </body>
+</html>

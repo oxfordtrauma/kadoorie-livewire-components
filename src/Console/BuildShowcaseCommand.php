@@ -33,10 +33,10 @@ final class BuildShowcaseCommand extends Command
      */
     private const CATEGORIES = [
         'Forms' => ['label', 'field', 'input', 'textarea', 'select', 'checkbox', 'radio', 'toggle', 'validation'],
-        'Actions' => ['button', 'icon-button', 'dropdown', 'select-pill', 'notification', 'profile-menu'],
+        'Actions' => ['button', 'icon-button', 'dropdown', 'select-pill', 'context-pill', 'notification', 'profile-menu'],
         'Feedback' => ['alert', 'toast', 'tooltip', 'spinner', 'modal'],
-        'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'wizard', 'pagination'],
-        'Data display' => ['badge', 'card', 'avatar', 'divider', 'data-table', 'empty-state'],
+        'Navigation' => ['nav', 'breadcrumbs', 'tabs', 'accordion', 'wizard', 'pagination', 'sidebar'],
+        'Data display' => ['badge', 'card', 'avatar', 'divider', 'data-table', 'nested-data-table', 'data-table-container', 'empty-state'],
         'Widgets' => ['small-box', 'info-box'],
         'Recipes' => ['recipe'],
         'Layout' => ['footer', 'app-footer', 'app-header', 'app-layout'],

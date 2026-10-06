@@ -35,6 +35,7 @@ final class Avatar extends Component
     public function sizeClasses(): string
     {
         return match ($this->size) {
+            Size::Xs => 'size-6 text-xs',
             Size::Sm => 'size-8 text-xs',
             Size::Md => 'size-10 text-sm',
             Size::Lg => 'size-12 text-base',

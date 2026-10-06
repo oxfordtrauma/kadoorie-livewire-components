@@ -81,9 +81,14 @@ final class ComponentExampleRegistry
     @endforeach
 </div>'],
 
-            ['component' => 'button', 'title' => 'Primary', 'snippet' => '<x-kadoorie::button>Save changes</x-kadoorie::button>'],
+            ['component' => 'button', 'title' => 'Variants', 'snippet' => '<div class="flex flex-wrap items-center gap-2"><x-kadoorie::button>Primary</x-kadoorie::button><x-kadoorie::button variant="secondary">Secondary</x-kadoorie::button><x-kadoorie::button variant="danger">Danger</x-kadoorie::button><x-kadoorie::button variant="ghost">Ghost</x-kadoorie::button></div>'],
+            ['component' => 'button', 'title' => 'Size scale', 'snippet' => '<div class="flex flex-wrap items-center gap-2"><x-kadoorie::button size="xs">Row action</x-kadoorie::button><x-kadoorie::button size="sm">Small</x-kadoorie::button><x-kadoorie::button>Medium</x-kadoorie::button><x-kadoorie::button size="lg">Large</x-kadoorie::button></div>'],
+            ['component' => 'button', 'title' => 'Leading icon', 'snippet' => '<x-kadoorie::button leading-icon="check">Approve request</x-kadoorie::button>'],
+            ['component' => 'button', 'title' => 'Trailing icon', 'snippet' => '<x-kadoorie::button trailing-icon="chevron-right">Continue</x-kadoorie::button>'],
             ['component' => 'button', 'title' => 'Danger / loading', 'snippet' => '<x-kadoorie::button variant="danger" :loading="true">Deleting</x-kadoorie::button>'],
-            ['component' => 'button', 'title' => 'Ghost', 'snippet' => '<x-kadoorie::button variant="ghost">Cancel</x-kadoorie::button>'],
+            ['component' => 'button', 'title' => 'Disabled', 'snippet' => '<x-kadoorie::button :disabled="true">Unavailable</x-kadoorie::button>'],
+
+            ['component' => 'context-pill', 'title' => 'Static context', 'snippet' => '<x-kadoorie::context-pill label="View" value="Summary" />'],
 
             ['component' => 'label', 'title' => 'Required', 'snippet' => '<x-kadoorie::label for="email" :required="true">Email</x-kadoorie::label>'],
 
@@ -102,8 +107,14 @@ final class ComponentExampleRegistry
             ['component' => 'toggle', 'title' => 'Notifications', 'snippet' => '<x-kadoorie::toggle name="notify" label="Email notifications" :checked="true" />'],
 
             ['component' => 'badge', 'title' => 'Tones', 'snippet' => '<div class="flex flex-wrap gap-2"><x-kadoorie::badge tone="success">Active</x-kadoorie::badge><x-kadoorie::badge tone="warning">Pending</x-kadoorie::badge><x-kadoorie::badge tone="danger" shape="pill">Failed</x-kadoorie::badge></div>'],
+            ['component' => 'badge', 'title' => 'Palette', 'snippet' => '<div class="flex flex-wrap gap-2"><x-kadoorie::badge color="neutral">Neutral</x-kadoorie::badge><x-kadoorie::badge color="red">Red</x-kadoorie::badge><x-kadoorie::badge color="pink">Pink</x-kadoorie::badge><x-kadoorie::badge color="purple">Purple</x-kadoorie::badge><x-kadoorie::badge color="green">Green</x-kadoorie::badge><x-kadoorie::badge color="blue">Blue</x-kadoorie::badge><x-kadoorie::badge color="light-blue">Light blue</x-kadoorie::badge><x-kadoorie::badge color="amber">Amber</x-kadoorie::badge></div>'],
+            ['component' => 'badge', 'title' => 'Indicators', 'snippet' => '<div class="flex flex-wrap items-center gap-2"><x-kadoorie::badge color="neutral" indicator="none">Text only</x-kadoorie::badge><x-kadoorie::badge color="green" indicator="dot">Active</x-kadoorie::badge><x-kadoorie::badge color="blue" indicator="number" number="7">Tasks</x-kadoorie::badge><x-kadoorie::badge color="purple" indicator="icon">Review</x-kadoorie::badge></div>'],
 
             ['component' => 'card', 'title' => 'With header', 'snippet' => '<x-kadoorie::card title="Monthly report">Revenue is up 12% on last month.</x-kadoorie::card>'],
+
+            ['component' => 'sidebar', 'title' => 'Composition', 'snippet' => '<x-kadoorie::sidebar><x-slot:actions><x-kadoorie::button size="sm">New section</x-kadoorie::button></x-slot:actions><x-slot:search><x-kadoorie::input name="sidebar-search" placeholder="Search sections" /></x-slot:search><x-slot:sidebar><div class="grid gap-1"><a href="#">Overview</a><a href="#">People</a></div></x-slot:sidebar><x-slot:footer><span class="text-sm text-text-muted">2 sections</span></x-slot:footer><x-kadoorie::card title="Page content">Adjacent content.</x-kadoorie::card></x-kadoorie::sidebar>'],
+
+            ['component' => 'data-table-container', 'title' => 'Table frame', 'snippet' => '<x-kadoorie::data-table-container title="People"><x-slot:icon><x-kadoorie::icon name="kadoorie:table" label="Directory" /></x-slot:icon><x-slot:description>A generic frame for table or directory content.</x-slot:description><x-slot:summary>3 records</x-slot:summary><x-slot:actions><x-kadoorie::button variant="secondary" size="sm">Export</x-kadoorie::button></x-slot:actions><x-slot:toolbar><span class="text-sm text-text-muted">Toolbar content supplied by the application.</span></x-slot:toolbar><x-kadoorie::card>Table or list content.</x-kadoorie::card></x-kadoorie::data-table-container>'],
 
             ['component' => 'avatar', 'title' => 'Initials + presence', 'snippet' => '<x-kadoorie::avatar alt="Jane Doe" initials="JD" presence="online" size="lg" />'],
 
@@ -170,7 +181,7 @@ final class ComponentExampleRegistry
     ]"
 />'],
 
-            ['component' => 'icon-button', 'title' => 'Help and pill', 'snippet' => '<div class="flex items-center gap-3"><x-kadoorie::icon-button icon="circle-help" label="Help" /><x-kadoorie::icon-button icon="bell" label="Notifications" variant="pill" /></div>'],
+            ['component' => 'icon-button', 'title' => 'Help and pill', 'snippet' => '<div class="flex items-center gap-3"><x-kadoorie::icon-button icon="circle-help" label="Help" variant="pill" /><x-kadoorie::icon-button icon="bell" label="Notifications" variant="pill" /></div>'],
 
             ['component' => 'select-pill', 'title' => 'Label and value', 'snippet' => '<div class="flex items-center gap-3"><x-kadoorie::select-pill label="Page"><x-kadoorie::dropdown-item href="#">Dashboard</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Participants</x-kadoorie::dropdown-item></x-kadoorie::select-pill><x-kadoorie::select-pill label="Role" value="Manager"><x-kadoorie::dropdown-item href="#">Manager</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Viewer</x-kadoorie::dropdown-item></x-kadoorie::select-pill></div>'],
 
@@ -185,7 +196,7 @@ final class ComponentExampleRegistry
     <x-kadoorie::select-pill label="Trial" value="BigBOSS"><x-kadoorie::dropdown-item href="#">BigBOSS</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">MiniBOSS</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
     <x-kadoorie::select-pill label="Role" value="Manager"><x-kadoorie::dropdown-item href="#">Manager</x-kadoorie::dropdown-item><x-kadoorie::dropdown-item href="#">Viewer</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
     <x-kadoorie::button>Pull REDCap Data</x-kadoorie::button>
-    <x-kadoorie::icon-button icon="circle-help" label="Help" />
+    <x-kadoorie::icon-button icon="circle-help" label="Help" variant="pill" />
     <x-kadoorie::notification :count="3" />
     <x-kadoorie::profile-menu name="User" initials="U" change-details-url="#" logout-url="#" />
 
@@ -201,7 +212,7 @@ final class ComponentExampleRegistry
                 <x-kadoorie::select-pill label="Page"><x-kadoorie::dropdown-item href="#">Dashboard</x-kadoorie::dropdown-item></x-kadoorie::select-pill>
             </x-slot:start>
             <x-kadoorie::button>Pull REDCap Data</x-kadoorie::button>
-            <x-kadoorie::icon-button icon="circle-help" label="Help" />
+            <x-kadoorie::icon-button icon="circle-help" label="Help" variant="pill" />
             <x-kadoorie::notification :count="3" />
             <x-kadoorie::profile-menu name="User" initials="U" change-details-url="#" logout-url="#" />
         </x-kadoorie::app-header>
@@ -348,6 +359,45 @@ final class ComponentExampleRegistry
 
             ['component' => 'data-table', 'title' => 'Sortable', 'snippet' => '<livewire:kadoorie::data-table :columns="[[\'field\' => \'name\', \'label\' => \'Name\', \'sortable\' => true], [\'field\' => \'age\', \'label\' => \'Age\', \'sortable\' => true, \'numeric\' => true]]" :rows="[[\'id\' => 1, \'name\' => \'Alice\', \'age\' => 30], [\'id\' => 2, \'name\' => \'Bob\', \'age\' => 25]]" />'],
             ['component' => 'data-table', 'title' => 'Selectable and paginated', 'snippet' => '@php($rows = collect(range(1, 12))->map(fn (int $n): array => [\'id\' => $n, \'name\' => \'User \' . $n, \'age\' => 20 + $n])->all())' . "\n" . '<livewire:kadoorie::data-table :selectable="true" :columns="[[\'field\' => \'name\', \'label\' => \'Name\', \'sortable\' => true], [\'field\' => \'age\', \'label\' => \'Age\', \'sortable\' => true, \'numeric\' => true]]" :rows="$rows" />'],
+
+            ['component' => 'nested-data-table', 'title' => 'Expandable rows', 'snippet' => '<div data-test="nested-data-table" x-data="{ expanded: null }" class="w-full">
+    <div class="relative w-full overflow-x-auto rounded-lg border border-border">
+        <table class="w-full min-w-max text-left text-sm" data-test="nested-data-table-table">
+            <thead class="bg-surface-muted text-xs uppercase tracking-wide text-text-muted">
+                <tr>
+                    <th scope="col" class="w-10 px-3 py-2"><span class="sr-only">Expand row</span></th>
+                    <th scope="col" class="px-3 py-2 font-semibold">Name</th>
+                    <th scope="col" class="px-3 py-2 font-semibold">Role</th>
+                    <th scope="col" class="px-3 py-2 font-semibold">Status</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-border bg-surface">
+                <tr data-test="nested-data-table-row">
+                    <td class="px-3 py-2">
+                        <button type="button" data-test="nested-data-table-toggle" x-on:click="expanded = expanded === \'ada\' ? null : \'ada\'" x-bind:aria-expanded="expanded === \'ada\' ? \'true\' : \'false\'" x-bind:aria-controls="expanded === \'ada\' ? \'nested-data-table-expanded-ada\' : null" aria-label="Expand Ada Lovelace row" class="kad-focusable inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:text-text"><span aria-hidden="true" x-text="expanded === \'ada\' ? \'−\' : \'+\'"></span></button>
+                    </td>
+                    <td class="px-3 py-2 text-text-body">Ada Lovelace</td>
+                    <td class="px-3 py-2 text-text-body">Researcher</td>
+                    <td class="px-3 py-2 text-text-body"><x-kadoorie::badge tone="success">active</x-kadoorie::badge></td>
+                </tr>
+                <tr x-show="expanded === \'ada\'" x-cloak data-test="nested-data-table-expanded-row">
+                    <td id="nested-data-table-expanded-ada" colspan="4" data-test="nested-data-table-expanded-content" class="bg-surface-muted px-3 py-3 text-text-body">Ada\'s controlled expanded-row details.</td>
+                </tr>
+                <tr data-test="nested-data-table-row">
+                    <td class="px-3 py-2">
+                        <button type="button" data-test="nested-data-table-toggle" x-on:click="expanded = expanded === \'linus\' ? null : \'linus\'" x-bind:aria-expanded="expanded === \'linus\' ? \'true\' : \'false\'" x-bind:aria-controls="expanded === \'linus\' ? \'nested-data-table-expanded-linus\' : null" aria-label="Expand Linus Torvalds row" class="kad-focusable inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:text-text"><span aria-hidden="true" x-text="expanded === \'linus\' ? \'−\' : \'+\'"></span></button>
+                    </td>
+                    <td class="px-3 py-2 text-text-body">Linus Torvalds</td>
+                    <td class="px-3 py-2 text-text-body">Maintainer</td>
+                    <td class="px-3 py-2 text-text-body"><x-kadoorie::badge tone="warning">pending</x-kadoorie::badge></td>
+                </tr>
+                <tr x-show="expanded === \'linus\'" x-cloak data-test="nested-data-table-expanded-row">
+                    <td id="nested-data-table-expanded-linus" colspan="4" data-test="nested-data-table-expanded-content" class="bg-surface-muted px-3 py-3 text-text-body">Linus\' controlled expanded-row details.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>'],
 
             ['component' => 'login', 'title' => 'Sign in', 'snippet' => '<livewire:kadoorie::pages.login forgot-url="#" />'],
         ];

@@ -24,3 +24,9 @@ it('applies the pill variant container', function (): void {
         ->assertSee('rounded-full', false)
         ->assertSee('bg-bg', false);
 });
+
+it('passes the requested icon size to the icon', function (): void {
+    $this->blade('<x-kadoorie::icon-button icon="bell" label="Notifications" icon-size="xl" />')
+        ->assertSee('width="98"', false)
+        ->assertSee('height="98"', false);
+});

@@ -14,5 +14,11 @@
     @if ($loading)
         <span data-test="kadoorie-button-spinner" class="kad-spinner" aria-hidden="true"></span>
     @endif
+    @if (!$loading && $leadingIcon)
+        <x-kadoorie::icon :name="$leadingIcon" :size="$size->value" />
+    @endif
     {{ $slot }}
+    @if (!$loading && $trailingIcon)
+        <x-kadoorie::icon :name="$trailingIcon" :size="$size->value" />
+    @endif
 </button>

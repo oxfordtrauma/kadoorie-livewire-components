@@ -16,16 +16,20 @@ namespace Kadoorie\LivewireComponents\Enums;
 
 enum IconSize: string
 {
+    case Xs = 'xs';
     case Sm = 'sm';
     case Md = 'md';
     case Lg = 'lg';
+    case Xl = 'xl';
 
     public function pixels(): int
     {
         return match ($this) {
+            self::Xs => 12,
             self::Sm => 16,
             self::Md => 20,
             self::Lg => 24,
+            self::Xl => 98,
         };
     }
 }

@@ -13,7 +13,7 @@
                  reserved (the component instance), so the demo needs its own name. --}}
             @php($componentName = $component)
             @php($exampleId = substr(md5($component . '-' . $example->title), 0, 8))
-            <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+            <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
                     <h2 class="text-sm font-medium text-text-muted">{{ $example->title }}</h2>
                 </div>

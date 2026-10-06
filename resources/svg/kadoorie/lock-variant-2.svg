@@ -1,0 +1,14 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Lock">
+<rect x="-19.5" y="-71.5" width="75" height="231" rx="4.5" stroke="#8A38F5" stroke-dasharray="10 5"/>
+<g id="Property 1=Variant2" opacity="0.9">
+<rect width="36" height="36" rx="13" fill="#AA1A2D"/>
+<path id="Vector" d="M26.2 14.5333H9.13333C7.95513 14.5333 7 15.4885 7 16.6667V25.7333C7 26.9115 7.95513 27.8667 9.13333 27.8667H26.2C27.3782 27.8667 28.3333 26.9115 28.3333 25.7333V16.6667C28.3333 15.4885 27.3782 14.5333 26.2 14.5333Z" stroke="white" stroke-width="2"/>
+<path id="Vector_2" d="M17.6665 23.3333V25.9999" stroke="white" stroke-linecap="round"/>
+<path id="Vector_3" d="M17.6665 23.3333C18.8447 23.3333 19.7999 22.3782 19.7999 21.2C19.7999 20.0218 18.8447 19.0667 17.6665 19.0667C16.4883 19.0667 15.5332 20.0218 15.5332 21.2C15.5332 22.3782 16.4883 23.3333 17.6665 23.3333Z" stroke="white"/>
+<path id="Vector_4" d="M12.333 14.5333V11.3333C12.333 9.91885 12.8949 8.56229 13.8951 7.5621C14.8953 6.5619 16.2519 6 17.6663 6C19.0808 6 20.4374 6.5619 21.4376 7.5621C22.4378 8.56229 22.9997 9.91885 22.9997 11.3333V14.5333" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path id="Vector_5" d="M27 12C28.6569 12 30 10.6569 30 9C30 7.34315 28.6569 6 27 6C25.3431 6 24 7.34315 24 9C24 10.6569 25.3431 12 27 12Z" fill="white"/>
+<path id="Vector_6" d="M25 9H29M27 7V11" stroke="#AA1A2D" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

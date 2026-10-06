@@ -10,6 +10,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { getIcon, hasIcon, registerIcon } from '../../../resources/react/src/lib/icons';
+import { bundledIconRegistry } from '../../../resources/react/src/lib/bundledIcons';
 import { cn } from '../../../resources/react/src/lib/cn';
 
 describe('icons registry', () => {
@@ -22,6 +23,16 @@ describe('icons registry', () => {
     expect(getIcon('lucide:x')).toContain('<path');
     expect(hasIcon('does-not-exist')).toBe(false);
     expect(getIcon('does-not-exist')).toBeUndefined();
+  });
+
+  it('includes every bundled SVG icon, including message-clear', () => {
+    expect(Object.keys(bundledIconRegistry)).toHaveLength(97);
+    expect(hasIcon('kadoorie:message-clear')).toBe(true);
+    expect(hasIcon('kadoorie:list-variant-5')).toBe(true);
+
+    for (const name of Object.keys(bundledIconRegistry)) {
+      expect(getIcon(name)).toBe(bundledIconRegistry[name]);
+    }
   });
 
   it('lets a caller register a new icon', () => {

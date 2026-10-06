@@ -16,7 +16,10 @@
  * defaults to "lucide".
  */
 
+import { bundledIconRegistry } from './bundledIcons';
+
 const registry: Record<string, string> = {
+  ...bundledIconRegistry,
   'kadoorie:admin-manage-users':
     '<g transform="scale(.25)" opacity=".9"><path d="M30.4 42.4A12 12 0 1 0 30.4 18.4a12 12 0 0 0 0 24Z"/><path d="M9.6 70.4c0-11.52 9.28-20.8 20.8-20.8H40"/><path d="M64 42.4a12 12 0 1 0 0-24 12 12 0 0 0 0 24Z" opacity=".5"/><path d="M44.8 70.4c0-11.52 9.28-20.8 20.8-20.8h1.6" opacity=".5"/><circle cx="77.6" cy="73.6" r="8.8" fill="currentColor"/><path d="M74.4 73.6h6.4M77.6 70.4v6.4" stroke="white" stroke-width="2"/></g>',
   'kadoorie:folder-add':

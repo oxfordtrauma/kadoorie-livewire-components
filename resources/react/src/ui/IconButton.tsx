@@ -10,11 +10,13 @@
 
 import { cn } from '../lib/cn';
 import { Icon } from './Icon';
+import type { IconSize } from '../lib/variants';
 
 export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: string;
   label: string;
   variant?: 'ghost' | 'pill';
+  iconSize?: IconSize;
 }
 
 const VARIANTS: Record<NonNullable<IconButtonProps['variant']>, string> = {
@@ -31,6 +33,7 @@ export function IconButton({
   icon,
   label,
   variant = 'ghost',
+  iconSize = 'md',
   type = 'button',
   className,
   children,
@@ -48,7 +51,7 @@ export function IconButton({
       )}
       {...rest}
     >
-      <Icon name={icon} size="md" />
+      <Icon name={icon} size={iconSize} />
       {children}
     </button>
   );

@@ -3,8 +3,8 @@
  * File: R3.layout.test.tsx
  * User: dappelbe
  * Created: 2026-07-04
- * Last updated by: dappelbe
- * Last updated on: 2026-07-04
+ * Last updated by: stodd
+ * Last updated on: 2026-09-15
  * Version: 0.1.0
  */
 
@@ -22,6 +22,44 @@ import { Nav } from '../../resources/react/src/ui/Nav';
 import { Dropdown, DropdownItem } from '../../resources/react/src/ui/Dropdown';
 import { EmptyState } from '../../resources/react/src/ui/EmptyState';
 import { Pagination } from '../../resources/react/src/ui/Pagination';
+import { Sidebar } from '../../resources/react/src/ui/Sidebar';
+import { DataTableContainer } from '../../resources/react/src/ui/DataTableContainer';
+
+describe('Sidebar', () => {
+  it('renders supplied regions with semantic landmarks and responsive classes', () => {
+    render(
+      <Sidebar sidebar="Links" actions="Actions" search="Search" footer="Footer">
+        Page
+      </Sidebar>
+    );
+    expect(screen.getByRole('complementary')).toHaveTextContent('Links');
+    expect(screen.getByRole('navigation', { name: 'Sidebar navigation' })).toHaveTextContent(
+      'Links'
+    );
+    expect(screen.getByRole('main')).toHaveTextContent('Page');
+    expect(screen.getByTestId('sidebar')).toHaveClass('lg:grid-cols-[auto_1fr]');
+  });
+
+  it('omits optional regions when not supplied', () => {
+    render(<Sidebar sidebar="Links" />);
+    expect(screen.queryByTestId('sidebar-search')).toBeNull();
+    expect(screen.queryByTestId('sidebar-footer')).toBeNull();
+  });
+});
+
+describe('DataTableContainer', () => {
+  it('renders optional heading and toolbar regions only when supplied', () => {
+    render(
+      <DataTableContainer title="People" summary="2 records" toolbar="Filters">
+        Table
+      </DataTableContainer>
+    );
+    expect(screen.getByRole('heading', { name: 'People' })).toBeInTheDocument();
+    expect(screen.getByTestId('data-table-container-toolbar')).toHaveTextContent('Filters');
+    expect(screen.getByTestId('data-table-container-content')).toHaveTextContent('Table');
+    expect(screen.queryByTestId('data-table-container-actions')).toBeNull();
+  });
+});
 
 describe('Card', () => {
   it('renders header (from title), body, and footer regions', () => {
@@ -73,6 +111,31 @@ describe('Badge', () => {
   it('omits the icon when icon is false', () => {
     render(<Badge icon={false}>Plain</Badge>);
     expect(screen.queryByTestId('badge-icon')).toBeNull();
+  });
+
+  it('renders palette colours, dot indicators, and numbers with labels', () => {
+    render(
+      <Badge color="purple" indicator="number" number={12}>
+        Tasks
+      </Badge>
+    );
+    expect(screen.getByTestId('badge')).toHaveClass(
+      'bg-accent-subtle',
+      'border-accent',
+      'text-accent'
+    );
+    expect(screen.getByTestId('badge-number')).toHaveTextContent('12');
+    expect(screen.getByTestId('badge-label')).toHaveTextContent('Tasks');
+  });
+
+  it('uses a transparent text colour for palette icons', () => {
+    render(
+      <Badge color="amber" indicator="icon">
+        Review
+      </Badge>
+    );
+    expect(screen.getByTestId('badge-icon')).toHaveClass('text-warning');
+    expect(screen.getByTestId('badge-icon')).not.toHaveClass('bg-warning');
   });
 });
 

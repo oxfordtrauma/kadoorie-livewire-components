@@ -34,9 +34,16 @@ it('resolves a bespoke Kadoorie icon set via the name prefix', function (): void
 });
 
 it('sizes the icon from the size token', function (): void {
-    $this->blade('<x-kadoorie::icon name="check" size="lg" />')
-        ->assertSee('width="24"', false)
-        ->assertSee('height="24"', false);
+    foreach (['xs' => 12, 'sm' => 16, 'md' => 20, 'lg' => 24, 'xl' => 98] as $size => $pixels) {
+        $this->blade("<x-kadoorie::icon name=\"check\" size=\"{$size}\" />")
+            ->assertSee("width=\"{$pixels}\"", false)
+            ->assertSee("height=\"{$pixels}\"", false);
+    }
+});
+
+it('normalises the supplied question artwork as a glyph without its button background', function (): void {
+    $this->blade('<x-kadoorie::icon name="circle-help" />')
+        ->assertSee('viewBox="0 0 24 24"', false);
 });
 
 it('keeps monochrome line icons themeable via the source currentColor paint', function (): void {

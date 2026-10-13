@@ -27,7 +27,8 @@ function mount(): void {
     return;
   }
 
-  const id = new URLSearchParams(window.location.search).get('component');
+  const id =
+    document.body.dataset.component ?? new URLSearchParams(window.location.search).get('component');
   const story = findStory(id);
   // Render the story as a component element (not story.render()) so its hooks run
   // inside React's render cycle; calling it as a plain function triggers an

@@ -64,6 +64,6 @@ describe('variants', () => {
   it('mirrors the badge shape and icon size maps', () => {
     expect(badgeShape.rounded).toBe('rounded-md');
     expect(badgeShape.pill).toBe('rounded-full');
-    expect(iconSize).toEqual({ sm: 16, md: 20, lg: 24 });
+    expect(iconSize).toEqual({ xs: 12, sm: 16, md: 20, lg: 24, xl: 98 });
   });
 });

@@ -37,6 +37,7 @@ import { Dropdown, DropdownItem } from '@kadoorie/ui/Dropdown';
 import { EmptyState } from '@kadoorie/ui/EmptyState';
 import { Pagination } from '@kadoorie/ui/Pagination';
 import { DataTable } from '@kadoorie/ui/DataTable';
+import { NestedDataTable } from '@kadoorie/ui/NestedDataTable';
 import { ErrorPage } from '@kadoorie/ui/ErrorPage';
 import { LoginForm } from '@kadoorie/ui/LoginForm';
 import { SmallBox } from '@kadoorie/ui/SmallBox';
@@ -49,6 +50,8 @@ import { IconButton } from '@kadoorie/ui/IconButton';
 import { Notification } from '@kadoorie/ui/Notification';
 import { AppHeader } from '@kadoorie/ui/AppHeader';
 import { AppLayout } from '@kadoorie/ui/AppLayout';
+import { Sidebar } from '@kadoorie/ui/Sidebar';
+import { DataTableContainer } from '@kadoorie/ui/DataTableContainer';
 import { useState } from 'react';
 
 /**
@@ -196,10 +199,44 @@ function LayoutNavStory(): ReactElement {
 
       <Divider>or</Divider>
 
-      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-        <Badge tone="success">Active</Badge>
-        <Avatar alt="Jane Doe" initials="JD" presence="online" />
-      </div>
+      <Card title="Tones">
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <Badge tone="success">Active</Badge>
+          <Badge tone="warning">Pending</Badge>
+          <Badge tone="danger" shape="pill">
+            Failed
+          </Badge>
+        </div>
+      </Card>
+      <Card title="Palette">
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <Badge color="neutral">Neutral</Badge>
+          <Badge color="red">Red</Badge>
+          <Badge color="pink">Pink</Badge>
+          <Badge color="purple">Purple</Badge>
+          <Badge color="green">Green</Badge>
+          <Badge color="blue">Blue</Badge>
+          <Badge color="light-blue">Light blue</Badge>
+          <Badge color="amber">Amber</Badge>
+        </div>
+      </Card>
+      <Card title="Indicators">
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <Badge color="neutral" indicator="none">
+            Text only
+          </Badge>
+          <Badge color="green" indicator="dot">
+            Active
+          </Badge>
+          <Badge color="blue" indicator="number" number={7}>
+            Tasks
+          </Badge>
+          <Badge color="purple" indicator="icon">
+            Review
+          </Badge>
+        </div>
+      </Card>
+      <Avatar alt="Jane Doe" initials="JD" presence="online" />
 
       <Tabs
         id="demo"
@@ -269,6 +306,101 @@ function DataTableStory(): ReactElement {
   );
 }
 
+/** Sidebar and data table container gallery. */
+function SidebarStory(): ReactElement {
+  return (
+    <section data-test="story-sidebar" style={{ display: 'grid', gap: '1rem', padding: '1rem' }}>
+      <Sidebar
+        actions={<Button size="sm">New section</Button>}
+        search={
+          <Input
+            name="directory-search"
+            placeholder="Search sections"
+            aria-label="Search sections"
+          />
+        }
+        sidebar={
+          <div className="grid gap-1">
+            <a href="#overview">Overview</a>
+            <a href="#people">People</a>
+          </div>
+        }
+        footer={<span className="text-sm text-text-muted">2 sections</span>}
+      >
+        <DataTableContainer
+          headingIcon={<Icon name="table" label="Directory" />}
+          title="People"
+          description="A generic content frame for a directory or table."
+          summary="3 records"
+          actions={
+            <Button variant="secondary" size="sm">
+              Export
+            </Button>
+          }
+          toolbar={
+            <span className="text-sm text-text-muted">
+              Toolbar content is supplied by the application.
+            </span>
+          }
+        >
+          <DataTable
+            columns={[{ field: 'name', label: 'Name' }]}
+            rows={[
+              { id: 1, name: 'Ada Lovelace' },
+              { id: 2, name: 'Grace Hopper' },
+            ]}
+          />
+        </DataTableContainer>
+      </Sidebar>
+    </section>
+  );
+}
+
+/** Controlled expandable-row table with custom cell content. */
+function NestedDataTableStory(): ReactElement {
+  const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
+  const rows = [
+    { id: 'ada', name: 'Ada Lovelace', role: 'Researcher', status: 'active' as const },
+    { id: 'linus', name: 'Linus Torvalds', role: 'Maintainer', status: 'pending' as const },
+    { id: 'grace', name: 'Grace Hopper', role: 'Engineer', status: 'active' as const },
+  ];
+
+  return (
+    <section
+      data-test="story-nested-data-table"
+      style={{ display: 'grid', gap: '1rem', padding: '1rem' }}
+    >
+      <p className="text-sm text-text-muted">
+        Expand a row to reveal controlled, table-native detail content.
+      </p>
+      <NestedDataTable
+        columns={[
+          { field: 'name', label: 'Name' },
+          { field: 'role', label: 'Role' },
+          {
+            field: 'status',
+            label: 'Status',
+            render: (status: 'active' | 'pending') => (
+              <Badge tone={status === 'active' ? 'success' : 'warning'}>{status}</Badge>
+            ),
+          },
+        ]}
+        rows={rows}
+        getRowId={(row) => row.id}
+        expandedRowId={expandedRowId}
+        onExpandedRowChange={setExpandedRowId}
+        renderExpandedContent={(row) => (
+          <div className="grid gap-1">
+            <strong>{row.name}</strong>
+            <span>Assigned role: {row.role}</span>
+            <span>Current status: {row.status}</span>
+          </div>
+        )}
+      />
+    </section>
+  );
+}
+
 /**
  * R4 login page. Rendered as its own story (not stacked with the error page) so
  * a single `<main id="main-content">` lands on the page — the page templates
@@ -289,6 +421,8 @@ export const stories: Story[] = [
   { id: 'feedback', render: FeedbackStory },
   { id: 'layout-nav', render: LayoutNavStory },
   { id: 'data-table', render: DataTableStory },
+  { id: 'sidebar', render: SidebarStory },
+  { id: 'nested-data-table', render: NestedDataTableStory },
   { id: 'login', render: LoginStory },
   { id: 'error-page', render: ErrorPageStory },
   { id: 'widgets', render: WidgetsStory },
@@ -314,7 +448,7 @@ function AppShellStory(): ReactElement {
             <DropdownItem href="#">Viewer</DropdownItem>
           </SelectPill>
           <Button>Pull REDCap Data</Button>
-          <IconButton icon="circle-help" label="Help" />
+          <IconButton icon="circle-help" label="Help" variant="pill" />
           <Notification count={3} />
           <ProfileMenu name="User" initials="U" changeDetailsUrl="#" onLogout={() => {}} />
         </AppHeader>

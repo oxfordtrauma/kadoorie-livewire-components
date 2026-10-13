@@ -36,6 +36,7 @@ final class Spinner extends Component
     public function diameterClass(): string
     {
         return match ($this->size) {
+            Size::Xs => 'text-sm',
             Size::Sm => 'text-base',
             Size::Md => 'text-2xl',
             Size::Lg => 'text-3xl',

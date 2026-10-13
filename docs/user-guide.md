@@ -403,6 +403,57 @@ Copy-paste usage for each component. Rendered previews live in the
 />
 ```
 
+### Sidebar and DataTableContainer (React)
+
+`Sidebar` composes supplied sidebar content with adjacent page content. Its
+`search` slot accepts application-owned UI; it does not search or manage query
+state. `DataTableContainer` provides a generic heading, toolbar, and content
+frame for tables, lists, or directories.
+
+```tsx
+import { DataTableContainer, Sidebar } from '@kadoorie/ui';
+
+<Sidebar sidebar={<nav>Sections</nav>} search={<input aria-label="Search" />}>
+  <DataTableContainer title="People" summary="24 records" actions={<button>Export</button>}>
+    {/* supply your own table or list */}
+  </DataTableContainer>
+</Sidebar>;
+```
+
+### Nested data table (React)
+
+`NestedDataTable` is an opt-in React component for one controlled expanded row
+at a time. It does not alter the standard `DataTable` behaviour. Supply a
+stable row ID, the expanded ID state, and an expanded-content callback. Columns
+are typed from the row shape and can render any React component, including a
+`Badge`.
+
+```tsx
+import { Badge, NestedDataTable } from '@kadoorie/ui';
+
+const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
+
+<NestedDataTable
+  columns={[
+    { field: 'name', label: 'Name' },
+    {
+      field: 'status',
+      label: 'Status',
+      render: (status) => <Badge tone="success">{status}</Badge>,
+    },
+  ]}
+  rows={people}
+  getRowId={(person) => person.id}
+  expandedRowId={expandedRowId}
+  onExpandedRowChange={setExpandedRowId}
+  renderExpandedContent={(person) => <p>Details for {person.name}</p>}
+/>;
+```
+
+Use `bordered={false}`, `className`, `containerClassName`, and
+`tableClassName` to tailor its outer presentation. The live React workbench
+also builds a dedicated [NestedDataTable HTML page](../resources/dist/react-workbench/nested-data-table.html).
+
 ### Login page
 
 ```blade
@@ -492,7 +543,7 @@ second row (e.g. breadcrumbs).
                 <x-kadoorie::dropdown-item href="#">Manager</x-kadoorie::dropdown-item>
             </x-kadoorie::select-pill>
             <x-kadoorie::button>Pull REDCap Data</x-kadoorie::button>
-            <x-kadoorie::icon-button icon="circle-help" label="Help" />
+            <x-kadoorie::icon-button icon="circle-help" label="Help" variant="pill" />
             <x-kadoorie::notification :count="3" />
             <x-kadoorie::profile-menu name="User" initials="U" logout-url="/logout" />
         </x-kadoorie::app-header>

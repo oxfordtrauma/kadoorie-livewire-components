@@ -82,6 +82,16 @@ module.exports = {
           DEFAULT: 'var(--kad-color-info)',
           subtle: 'var(--kad-color-info-subtle)',
         },
+        pink: {
+          DEFAULT: 'var(--kad-color-pink)',
+          subtle: 'var(--kad-color-pink-subtle)',
+          border: 'var(--kad-color-pink-border)',
+        },
+        'light-blue': {
+          DEFAULT: 'var(--kad-color-light-blue)',
+          subtle: 'var(--kad-color-light-blue-subtle)',
+          border: 'var(--kad-color-light-blue-border)',
+        },
         warning: {
           DEFAULT: 'var(--kad-color-warning)',
           subtle: 'var(--kad-color-warning-subtle)',

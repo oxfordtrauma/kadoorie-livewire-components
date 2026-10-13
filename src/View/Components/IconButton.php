@@ -16,6 +16,7 @@ namespace Kadoorie\LivewireComponents\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Kadoorie\LivewireComponents\Enums\IconSize;
 
 /**
  * Icon-only button. Requires an accessible `label` (rendered as aria-label).
@@ -29,7 +30,12 @@ final class IconButton extends Component
         public string $label,
         public string $variant = 'ghost',
         public string $type = 'button',
-    ) {}
+        IconSize|string $iconSize = IconSize::Md,
+    ) {
+        $this->iconSize = is_string($iconSize) ? IconSize::from($iconSize) : $iconSize;
+    }
+
+    public IconSize $iconSize;
 
     public function variantClasses(): string
     {

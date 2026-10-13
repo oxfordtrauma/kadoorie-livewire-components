@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="list">
+<rect x="-19.5" y="-73.5" width="71" height="233" rx="4.5" stroke="#8A38F5" stroke-dasharray="10 5"/>
+<g id="Property 1=Variant2">
+<rect width="32" height="32" rx="13" fill="#1B2430"/>
+<path id="Vector" d="M5 7.67647L6.73684 9.35294L10.2105 6M5 15.5L6.73684 17.1765L10.2105 13.8235M5 23.3235L6.73684 25L10.2105 21.6471M14.2632 15.5H27M14.2632 23.3235H27M14.2632 7.67647H27" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

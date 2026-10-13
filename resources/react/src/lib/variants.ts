@@ -16,10 +16,13 @@
  */
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
-export type Size = 'sm' | 'md' | 'lg';
+export type Size = 'xs' | 'sm' | 'md' | 'lg';
 export type Tone = 'info' | 'success' | 'warning' | 'danger' | 'primary' | 'secondary' | 'accent';
 export type BadgeShape = 'rounded' | 'pill';
-export type IconSize = 'sm' | 'md' | 'lg';
+export type BadgeColor =
+  'neutral' | 'red' | 'pink' | 'purple' | 'green' | 'blue' | 'light-blue' | 'amber';
+export type BadgeIndicator = 'none' | 'icon' | 'dot' | 'number';
+export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 /** Mirror of ButtonVariant::classes(). */
 export const buttonVariant: Record<ButtonVariant, string> = {
@@ -31,6 +34,7 @@ export const buttonVariant: Record<ButtonVariant, string> = {
 
 /** Mirror of Size::classes() (buttons and action controls). */
 export const buttonSize: Record<Size, string> = {
+  xs: 'text-xs px-2 gap-1',
   sm: 'text-xs px-2.5 gap-1',
   md: 'text-sm px-3.5 gap-1.5',
   lg: 'text-base px-4 gap-2',
@@ -38,6 +42,7 @@ export const buttonSize: Record<Size, string> = {
 
 /** Mirror of Size::inputClasses() (text-entry controls; iOS 16px on mobile). */
 export const inputSize: Record<Size, string> = {
+  xs: 'text-lg md:text-xs px-2',
   sm: 'text-lg md:text-xs px-2.5',
   md: 'text-lg md:text-sm px-3',
   lg: 'text-lg md:text-base px-3.5',
@@ -100,6 +105,7 @@ export const badgeShape: Record<BadgeShape, string> = {
 
 /** Mirror of Badge::sizeClasses(). */
 export const badgeSize: Record<Size, string> = {
+  xs: 'gap-1 px-1.5 py-0.5 text-xs',
   sm: 'gap-1 px-2 py-0.5 text-xs',
   md: 'gap-1.5 px-2.5 py-1 text-sm',
   lg: 'gap-1.5 px-3 py-1.5 text-base',
@@ -107,6 +113,7 @@ export const badgeSize: Record<Size, string> = {
 
 /** Mirror of Avatar::sizeClasses(). */
 export const avatarSize: Record<Size, string> = {
+  xs: 'size-6 text-xs',
   sm: 'size-8 text-xs',
   md: 'size-10 text-sm',
   lg: 'size-12 text-base',
@@ -130,7 +137,39 @@ export const presenceLabel: Record<Presence, string> = {
 
 /** Mirror of IconSize::pixels(). */
 export const iconSize: Record<IconSize, number> = {
+  xs: 12,
   sm: 16,
   md: 20,
   lg: 24,
+  xl: 98,
+};
+export const badgeColor: Record<BadgeColor, string> = {
+  neutral: 'bg-surface-muted border-border text-text-body',
+  red: 'bg-danger-subtle border-danger text-danger',
+  pink: 'bg-pink-subtle border-pink-border text-pink',
+  purple: 'bg-accent-subtle border-accent text-accent',
+  green: 'bg-success-subtle border-success text-success',
+  blue: 'bg-info-subtle border-info text-info',
+  'light-blue': 'bg-light-blue-subtle border-light-blue-border text-light-blue',
+  amber: 'bg-warning-subtle border-warning text-text',
+};
+export const badgeIndicatorColor: Record<BadgeColor, string> = {
+  neutral: 'bg-text-muted',
+  red: 'bg-danger-solid',
+  pink: 'bg-pink',
+  purple: 'bg-accent',
+  green: 'bg-success',
+  blue: 'bg-info',
+  'light-blue': 'bg-light-blue',
+  amber: 'bg-warning',
+};
+export const badgeIconColor: Record<BadgeColor, string> = {
+  neutral: 'text-text-muted',
+  red: 'text-danger',
+  pink: 'text-pink',
+  purple: 'text-accent',
+  green: 'text-success',
+  blue: 'text-info',
+  'light-blue': 'text-light-blue',
+  amber: 'text-warning',
 };

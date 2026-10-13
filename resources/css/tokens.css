@@ -58,6 +58,12 @@
   --kad-color-success-solid: #15803d;
   --kad-color-info: #2563eb;
   --kad-color-info-subtle: #eff6ff;
+  --kad-color-pink: #db2777;
+  --kad-color-pink-subtle: #fdf2f8;
+  --kad-color-pink-border: #f9a8d4;
+  --kad-color-light-blue: #0284c7;
+  --kad-color-light-blue-subtle: #f0f9ff;
+  --kad-color-light-blue-border: #7dd3fc;
   --kad-color-warning: #f59e0b;
   --kad-color-warning-subtle: #fffbeb;
   --kad-color-accent: #7c3aed;
@@ -107,7 +113,9 @@
   --kad-container-max: 1280px;
 
   /* Icon sizes */
+  --kad-icon-xs: 12px;
   --kad-icon-sm: 16px;
   --kad-icon-md: 20px;
   --kad-icon-lg: 24px;
+  --kad-icon-xl: 98px;
 }

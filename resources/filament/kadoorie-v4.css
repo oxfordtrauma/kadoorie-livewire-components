@@ -4,7 +4,7 @@
  * User: dappelbe
  * Created: 2026-07-03
  * Last updated by: dappelbe
- * Last updated on: 2026-07-03
+ * Last updated on: 2026-10-20
  * Version: 0.1.0
  */
 
@@ -24,7 +24,7 @@
 @import '../css/tokens.css';
 
 @theme {
-    --font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --radius-lg: var(--kad-radius-lg, 0.5rem);
 }
 

@@ -103,12 +103,20 @@ export const badgeShape: Record<BadgeShape, string> = {
   pill: 'rounded-full',
 };
 
-/** Mirror of Badge::sizeClasses(). */
+/** Mirror of Badge::sizeClasses() without the gap (see badgeGap). */
 export const badgeSize: Record<Size, string> = {
-  xs: 'gap-1 px-1.5 py-0.5 text-xs',
-  sm: 'gap-1 px-2 py-0.5 text-xs',
-  md: 'gap-1.5 px-2.5 py-1 text-sm',
-  lg: 'gap-1.5 px-3 py-1.5 text-base',
+  xs: 'px-1.5 py-0.5 text-xs',
+  sm: 'px-2 py-0.5 text-xs',
+  md: 'px-2.5 py-1 text-sm',
+  lg: 'px-3 py-1.5 text-base',
+};
+
+/** Mirror of Badge::gapClass(); the number indicator tightens the gap one step. */
+export const badgeGap: Record<Size, { default: string; number: string }> = {
+  xs: { default: 'gap-1', number: 'gap-0.5' },
+  sm: { default: 'gap-1', number: 'gap-0.5' },
+  md: { default: 'gap-1.5', number: 'gap-1' },
+  lg: { default: 'gap-1.5', number: 'gap-1' },
 };
 
 /** Mirror of Avatar::sizeClasses(). */

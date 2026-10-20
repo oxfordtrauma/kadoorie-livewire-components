@@ -137,6 +137,28 @@ describe('Badge', () => {
     expect(screen.getByTestId('badge-icon')).toHaveClass('text-warning');
     expect(screen.getByTestId('badge-icon')).not.toHaveClass('bg-warning');
   });
+
+  it.each([
+    ['xs', 'gap-1', 'gap-0.5'],
+    ['sm', 'gap-1', 'gap-0.5'],
+    ['md', 'gap-1.5', 'gap-1'],
+    ['lg', 'gap-1.5', 'gap-1'],
+  ] as const)('uses the %s gap, tightened one step for numbers', (size, gap, numberGap) => {
+    render(
+      <>
+        <Badge size={size} data-test="badge-default">
+          Default
+        </Badge>
+        <Badge size={size} indicator="number" number={3} data-test="badge-numbered">
+          Numbered
+        </Badge>
+      </>
+    );
+    const gapClasses = (testId: string) =>
+      [...screen.getByTestId(testId).classList].filter((name) => name.startsWith('gap-'));
+    expect(gapClasses('badge-default')).toEqual([gap]);
+    expect(gapClasses('badge-numbered')).toEqual([numberGap]);
+  });
 });
 
 describe('Avatar', () => {

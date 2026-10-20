@@ -46,6 +46,19 @@ it('renders a numbered indicator while keeping the label accessible', function (
         ->assertSee('Tasks');
 });
 
+it('tightens the gap one step for a numbered indicator', function (string $size, string $gap, string $numberGap): void {
+    $this->blade('<x-kadoorie::badge size="' . $size . '">Default</x-kadoorie::badge>')
+        ->assertSee(' ' . $gap . ' px-', false);
+
+    $this->blade('<x-kadoorie::badge size="' . $size . '" indicator="number" number="3">Numbered</x-kadoorie::badge>')
+        ->assertSee(' ' . $numberGap . ' px-', false);
+})->with([
+    'xs' => ['xs', 'gap-1', 'gap-0.5'],
+    'sm' => ['sm', 'gap-1', 'gap-0.5'],
+    'md' => ['md', 'gap-1.5', 'gap-1'],
+    'lg' => ['lg', 'gap-1.5', 'gap-1'],
+]);
+
 it('keeps palette icons transparent', function (): void {
     $this->blade('<x-kadoorie::badge color="amber" indicator="icon">Review</x-kadoorie::badge>')
         ->assertSee('class="text-warning"', false)

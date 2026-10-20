@@ -10,6 +10,7 @@
 
 import { cn } from '../lib/cn';
 import {
+  badgeGap,
   badgeShape,
   badgeSize,
   toneContainer,
@@ -60,9 +61,8 @@ export function Badge({
         'inline-flex items-center border font-medium text-text',
         color ? badgeColor[color] : toneContainer[tone],
         badgeShape[shape],
-        indicator === 'number'
-          ? badgeSize[size].replace('gap-1', 'gap-0.5').replace('gap-1.5', 'gap-1')
-          : badgeSize[size],
+        badgeGap[size][indicator === 'number' ? 'number' : 'default'],
+        badgeSize[size],
         className
       )}
       {...rest}

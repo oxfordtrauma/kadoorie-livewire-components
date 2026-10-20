@@ -3,7 +3,7 @@
     {{ $attributes->merge([
         'class' =>
             'inline-flex items-center border font-medium text-text '
-            . ($useColor ? $colorClasses() : $tone->containerClasses()) . ' ' . $shape->classes() . ' ' . ($indicator->value === 'number' ? str_replace(['gap-1.5', 'gap-1'], ['gap-1', 'gap-0.5'], $sizeClasses()) : $sizeClasses()),
+            . ($useColor ? $colorClasses() : $tone->containerClasses()) . ' ' . $shape->classes() . ' ' . $sizeClasses(),
     ]) }}
 >
     @if ($indicator->value === 'icon')

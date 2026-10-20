@@ -77,11 +77,24 @@ final class Badge extends Component
 
     public function sizeClasses(): string
     {
+        return $this->gapClass() . ' ' . match ($this->size) {
+            Size::Xs => 'px-1.5 py-0.5 text-xs',
+            Size::Sm => 'px-2 py-0.5 text-xs',
+            Size::Md => 'px-2.5 py-1 text-sm',
+            Size::Lg => 'px-3 py-1.5 text-base',
+        };
+    }
+
+    /**
+     * The number indicator tightens the gap by one step to sit closer to its label.
+     */
+    public function gapClass(): string
+    {
+        $compact = $this->indicator === BadgeIndicator::Number;
+
         return match ($this->size) {
-            Size::Xs => 'gap-1 px-1.5 py-0.5 text-xs',
-            Size::Sm => 'gap-1 px-2 py-0.5 text-xs',
-            Size::Md => 'gap-1.5 px-2.5 py-1 text-sm',
-            Size::Lg => 'gap-1.5 px-3 py-1.5 text-base',
+            Size::Xs, Size::Sm => $compact ? 'gap-0.5' : 'gap-1',
+            Size::Md, Size::Lg => $compact ? 'gap-1' : 'gap-1.5',
         };
     }
 

@@ -18,11 +18,20 @@ docker exec kadoorie-app ./vendor/bin/pest --compact
 docker exec kadoorie-app npm run lint
 docker exec kadoorie-app npm run format:check
 docker exec kadoorie-app npm run test:js
+docker exec kadoorie-app npm run typecheck
+docker exec kadoorie-app npm run test:react
 docker exec kadoorie-app composer audit
 docker exec kadoorie-app npm audit --audit-level=high
 ```
 
-Rebuild the publishable stylesheet and the static showcase so both are current:
+`npm run test:react` also runs the Tailwind theme parity test, which checks
+that `resources/css/theme.css` and the deprecated `tailwind-preset.cjs` still
+compile to the same utilities.
+
+Rebuild the publishable stylesheet and the static showcase so both are current.
+The stylesheet is built with Tailwind CSS v4 through `@tailwindcss/postcss`;
+its configuration lives in `resources/css/kadoorie.css` (sources) and
+`resources/css/theme.css` (theme), and there is no `tailwind.config.cjs`:
 
 ```bash
 docker exec kadoorie-app npm run build
@@ -33,7 +42,7 @@ docker exec kadoorie-app vendor/bin/testbench kadoorie:build-showcase
 Then:
 
 - [ ] `CHANGELOG.md` has a dated section for the new version.
-- [ ] `resources/dist/kadoorie.css` is rebuilt and committed.
+- [ ] `resources/dist/kadoorie.css` is rebuilt without warnings and committed.
 - [ ] `docs/showcase/` is regenerated and committed.
 - [ ] CI is green on the release commit.
 

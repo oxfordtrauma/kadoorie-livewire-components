@@ -13,7 +13,7 @@ component. For pushing data into components, see the
 - [Installation](#installation)
 - [Quick start](#quick-start)
 - [Publishing assets](#publishing-assets)
-- [Styling: preset vs precompiled CSS](#styling-preset-vs-precompiled-css)
+- [Styling: Tailwind theme vs precompiled CSS](#styling-tailwind-theme-vs-precompiled-css)
 - [Theming with design tokens](#theming-with-design-tokens)
 - [Alpine plugins](#alpine-plugins)
 - [Accessibility](#accessibility)
@@ -25,8 +25,10 @@ component. For pushing data into components, see the
 - PHP `^8.3`
 - Laravel `^13.17`
 - Livewire `^4.3.2`
-- Tailwind CSS `^3.4` (only if you consume the preset rather than the
-  precompiled stylesheet)
+- Tailwind CSS `^4.3` (only if you compile the components into your own
+  Tailwind build rather than linking the precompiled stylesheet)
+- A modern browser: Safari 16.4+, Chrome 111+, or Firefox 128+ (the baseline
+  for Tailwind CSS v4 and the precompiled stylesheet)
 
 ## Installation
 
@@ -92,8 +94,8 @@ Link it in your layout `<head>`:
 <link rel="stylesheet" href="{{ asset('vendor/kadoorie/kadoorie.css') }}" />
 ```
 
-Tailwind apps can consume the preset instead — see
-[Styling](#styling-preset-vs-precompiled-css).
+Tailwind v4 apps can compile the components into their own build instead — see
+[Styling](#styling-tailwind-theme-vs-precompiled-css).
 
 **2. (Recommended) Register the Alpine plugins** so overlays trap focus and the
 accordion animates — see [Alpine plugins](#alpine-plugins). The components still
@@ -142,32 +144,85 @@ php artisan vendor:publish --tag=kadoorie-react-config
 The `kadoorie:install` command wraps these tags with prompts — see the
 [React guide](react-guide.md).
 
-## Styling: preset vs precompiled CSS
+## Styling: Tailwind theme vs precompiled CSS
 
 You can style the components in one of two ways.
 
-### Option A — Tailwind preset (recommended for Tailwind apps)
+### Option A — Tailwind theme (recommended for Tailwind apps)
 
-Extend the shipped preset so the `--kad-*` tokens and component utilities are
-available in your own build, and add the package views to your `content` paths
-so the classes are generated:
-
-```js
-// tailwind.config.js
-module.exports = {
-    presets: [require('kadoorie/livewire-components/tailwind-preset.cjs')],
-    content: [
-        './resources/**/*.blade.php',
-        './vendor/kadoorie/livewire-components/resources/views/**/*.blade.php',
-    ],
-};
-```
-
-Import the token layer once in your CSS entry point:
+Tailwind CSS v4 is configured in CSS. Import the package tokens and its
+CSS-first theme after Tailwind, then point `@source` at the package views and
+PHP source so the component classes are generated:
 
 ```css
-@import 'kadoorie/livewire-components/resources/css/tokens.css';
+/* resources/css/app.css */
+@import 'tailwindcss';
+@import '../../vendor/oxfordtrauma/kadoorie-livewire-components/resources/css/tokens.css';
+@import '../../vendor/oxfordtrauma/kadoorie-livewire-components/resources/css/theme.css';
+
+@source '../../vendor/oxfordtrauma/kadoorie-livewire-components/resources/views';
+@source '../../vendor/oxfordtrauma/kadoorie-livewire-components/src';
 ```
+
+- `tokens.css` defines the `--kad-*` design tokens on `:root`.
+- `theme.css` is an `@theme inline` block that maps Tailwind's theme variables
+  (colours, font, text sizes, radii, shadows, breakpoints, and
+  `max-w-container`) to those tokens. The class names are the same as in the
+  Tailwind 3 preset, and overriding a token still restyles the components with
+  no rebuild.
+- Both `@source` lines are needed. Tailwind v4 skips git-ignored directories
+  (`vendor/` usually is) during automatic source detection, and some component classes are
+  generated from PHP enums under `src/`, not only from the Blade views.
+
+`theme.css` applies to your whole build, not only to the Kadoorie components. It
+replaces Tailwind's default breakpoints with the Kadoorie set (`sm` 480px, `md`
+768px, `lg` 1024px, `xl` 1280px, `2xl` 1536px) and maps several defaults (for
+example `text-sm`, `rounded`, and `shadow-sm`) to Kadoorie tokens. It also
+restores four Tailwind 3 behaviours the components rely on: `hover:` variants
+apply on every device, borders default to `--kad-color-border`, buttons get a
+pointer cursor, and `divide-y` draws a top border on each visible child after
+the first (v4 draws a bottom border on every child but the last, which adds a
+stray rule under a list whose last child is hidden).
+
+#### Upgrading from Tailwind 3 / the JS preset
+
+Earlier releases shipped only a Tailwind 3 JavaScript preset. To move a host app
+to Tailwind v4:
+
+1. Upgrade the app itself to Tailwind CSS v4 (Tailwind's
+   `npx @tailwindcss/upgrade` tool handles most of the app-level changes).
+2. Remove `tailwind-preset.cjs` from the `presets` array of your
+   `tailwind.config.js`, and remove the package paths from its `content` array.
+3. Add the `@import` and `@source` lines from Option A to your CSS entry point.
+
+If you cannot migrate yet, the preset still works in Tailwind v4 through
+`@config`. This path is **deprecated** and the preset will be removed in the
+next major release:
+
+```css
+/* resources/css/app.css */
+@import 'tailwindcss';
+@import '../../vendor/oxfordtrauma/kadoorie-livewire-components/resources/css/tokens.css';
+@config '../../vendor/oxfordtrauma/kadoorie-livewire-components/tailwind-preset.cjs';
+
+@source '../../vendor/oxfordtrauma/kadoorie-livewire-components/resources/views';
+@source '../../vendor/oxfordtrauma/kadoorie-livewire-components/src';
+```
+
+If your own `tailwind.config.js` already lists the preset under `presets`, you
+can point `@config` at that file instead.
+
+Differences between `theme.css` and the preset:
+
+- The preset's `container` settings (centred, `1rem` padding, capped at
+  `--kad-container-max`) are not carried into `theme.css`, so with `theme.css`
+  the `container` utility uses Tailwind's defaults. The components do not use
+  `container`; they use `max-w-container`, which is unchanged. If your own
+  markup relies on the centred container, add `mx-auto px-4` where you use it.
+- The Tailwind 3 behaviours restored by `theme.css` (`hover:` on every device,
+  the button pointer cursor, and `divide-y` border placement) are not part of
+  the preset. On the `@config` path you get Tailwind v4's defaults for these;
+  for example, the nested data table shows an extra rule under its last row.
 
 ### Option B — Precompiled stylesheet (no Tailwind required)
 
@@ -177,6 +232,15 @@ path for apps that do not use Tailwind:
 ```blade
 <link rel="stylesheet" href="{{ asset('vendor/kadoorie/kadoorie.css') }}" />
 ```
+
+The precompiled stylesheet is built with Tailwind CSS v4, so it needs Safari
+16.4+, Chrome 111+, or Firefox 128+.
+
+It also uses native CSS cascade layers (`@layer theme, base, components,
+utilities`). Unlayered CSS always wins over layered CSS, so any unlayered rule in
+your own stylesheets now takes precedence over the Kadoorie utilities, whatever
+its specificity or load order. If a host rule unexpectedly overrides a
+component, scope it more narrowly or move it into a layer of your own.
 
 ## Theming with design tokens
 

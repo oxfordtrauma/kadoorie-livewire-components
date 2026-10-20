@@ -27,6 +27,7 @@
     "resources/react-workbench/**/*.ts",
     "resources/react-workbench/**/*.tsx",
     "tests/React/**/*.ts",
-    "tests/React/**/*.tsx"
+    "tests/React/**/*.tsx",
+    "tests/Build/**/*.ts"
   ]
 }

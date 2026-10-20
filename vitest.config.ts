@@ -4,7 +4,7 @@
  * User: dappelbe
  * Created: 2026-07-04
  * Last updated by: dappelbe
- * Last updated on: 2026-07-04
+ * Last updated on: 2026-10-20
  * Version: 0.1.0
  */
 
@@ -17,7 +17,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./tests/React/setup.ts'],
-    include: ['tests/React/**/*.test.{ts,tsx}'],
+    include: ['tests/React/**/*.test.{ts,tsx}', 'tests/Build/**/*.test.ts'],
     coverage: {
       provider: 'v8',
       include: ['resources/react/src/**/*.{ts,tsx}'],

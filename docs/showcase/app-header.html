@@ -712,7 +712,7 @@
             <div data-test="app-header-start" class="flex items-center gap-3">
                 <div
     x-data="{ open: false }"
-    x-on:keydown.escape="open = false"
+    x-on:keydown.escape="if (open) { open = false; $nextTick(() => $refs.trigger.focus()) }"
     data-test="select-pill" class="relative inline-block text-left"
 >
     <button
@@ -746,7 +746,7 @@
         data-test="dropdown-menu"
         x-show="open"
         x-cloak
-        x-trap="open"
+        x-trap.noreturn="open"
         x-on:click.outside="open = false"
         x-on:keydown.down.prevent="$focus.wrap().next()"
         x-on:keydown.up.prevent="$focus.wrap().previous()"
@@ -768,7 +768,7 @@
 </div>
         <div
     x-data="{ open: false }"
-    x-on:keydown.escape="open = false"
+    x-on:keydown.escape="if (open) { open = false; $nextTick(() => $refs.trigger.focus()) }"
     data-test="select-pill" class="relative inline-block text-left"
 >
     <button
@@ -802,7 +802,7 @@
         data-test="dropdown-menu"
         x-show="open"
         x-cloak
-        x-trap="open"
+        x-trap.noreturn="open"
         x-on:click.outside="open = false"
         x-on:keydown.down.prevent="$focus.wrap().next()"
         x-on:keydown.up.prevent="$focus.wrap().previous()"
@@ -827,7 +827,7 @@
         <div data-test="app-header-actions" class="ml-auto flex items-center gap-3">
             <div
     x-data="{ open: false }"
-    x-on:keydown.escape="open = false"
+    x-on:keydown.escape="if (open) { open = false; $nextTick(() => $refs.trigger.focus()) }"
     data-test="select-pill" class="relative inline-block text-left"
 >
     <button
@@ -864,7 +864,7 @@
         data-test="dropdown-menu"
         x-show="open"
         x-cloak
-        x-trap="open"
+        x-trap.noreturn="open"
         x-on:click.outside="open = false"
         x-on:keydown.down.prevent="$focus.wrap().next()"
         x-on:keydown.up.prevent="$focus.wrap().previous()"
@@ -886,7 +886,7 @@
 </div>
     <div
     x-data="{ open: false }"
-    x-on:keydown.escape="open = false"
+    x-on:keydown.escape="if (open) { open = false; $nextTick(() => $refs.trigger.focus()) }"
     data-test="select-pill" class="relative inline-block text-left"
 >
     <button
@@ -923,7 +923,7 @@
         data-test="dropdown-menu"
         x-show="open"
         x-cloak
-        x-trap="open"
+        x-trap.noreturn="open"
         x-on:click.outside="open = false"
         x-on:keydown.down.prevent="$focus.wrap().next()"
         x-on:keydown.up.prevent="$focus.wrap().previous()"
@@ -999,7 +999,7 @@
     </div>
     <div
     x-data="{ open: false }"
-    x-on:keydown.escape="open = false"
+    x-on:keydown.escape="if (open) { open = false; $nextTick(() => $refs.trigger.focus()) }"
     data-test="profile-menu" class="relative inline-block text-left"
 >
     <button
@@ -1047,7 +1047,7 @@
         data-test="dropdown-menu"
         x-show="open"
         x-cloak
-        x-trap="open"
+        x-trap.noreturn="open"
         x-on:click.outside="open = false"
         x-on:keydown.down.prevent="$focus.wrap().next()"
         x-on:keydown.up.prevent="$focus.wrap().previous()"

@@ -4,19 +4,25 @@
  * User: dappelbe
  * Created: 2026-07-03
  * Last updated by: dappelbe
- * Last updated on: 2026-07-03
+ * Last updated on: 2026-10-20
  * Version: 0.1.0
  *
- * Entry stylesheet. Imports the design tokens, layers Tailwind, and defines the
- * shared accessibility helpers. `npm run build` compiles this to
- * resources/dist/kadoorie.css (committed, publishable to non-Tailwind hosts).
+ * Entry stylesheet. Imports Tailwind CSS v4, the design tokens, and the
+ * Kadoorie theme, and defines the shared accessibility helpers.
+ * `npm run build` compiles this to resources/dist/kadoorie.css (committed,
+ * publishable to non-Tailwind hosts).
  */
 
+@import 'tailwindcss' source(none);
 @import './tokens.css';
+@import './theme.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Explicit sources: never auto-scan docs/showcase HTML, .claude/, or vendor. */
+@source '../views';
+@source '../js';
+@source '../react/src';
+@source '../../src';
+@source '../../workbench';
 
 @layer base {
   body {

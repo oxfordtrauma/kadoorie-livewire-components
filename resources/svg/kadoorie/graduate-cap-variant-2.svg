@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Graduate Cap">
+<rect x="-25" y="-57.5" width="82" height="277" rx="4.5" stroke="#8A38F5" stroke-dasharray="10 5"/>
+<g id="Property 1=Variant2">
+<rect width="32" height="32" rx="13" fill="#AA1A2D"/>
+<g id="Group">
+<path id="Vector" d="M6 12.3598L16.1836 7L26.3673 12.3598L16.1836 17.7196L6 12.3598Z" fill="#AA1A2D" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M9.21594 14.5037V22.2562C9.21594 23.0408 9.7814 23.7156 10.5404 23.915C11.7222 24.2259 13.5338 24.8047 15.3025 25.7749C15.8498 26.075 16.5171 26.075 17.0649 25.7749C18.8336 24.8047 20.6452 24.2259 21.827 23.915C22.586 23.7156 23.1515 23.0419 23.1515 22.2562V14.5037" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path id="Vector_3" d="M26.3673 12.3598V20.9355" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>

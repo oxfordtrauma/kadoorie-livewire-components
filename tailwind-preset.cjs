@@ -4,8 +4,14 @@
  * User: dappelbe
  * Created: 2026-07-03
  * Last updated by: dappelbe
- * Last updated on: 2026-07-03
+ * Last updated on: 2026-10-20
  * Version: 0.1.0
+ *
+ * DEPRECATED in 0.3.0: Tailwind v4 apps should @import resources/css/theme.css
+ * instead. Kept for consumers loading it through Tailwind v4's @config, and
+ * removed in the next major release. Do not change its values: the
+ * tests/Build/tailwind-theme-parity.test.ts suite keeps it in step with
+ * theme.css.
  *
  * Kadoorie Tailwind preset. Consumers extend it:
  *   presets: [require('kadoorie-livewire-components/tailwind-preset.cjs')]
@@ -81,6 +87,16 @@ module.exports = {
         info: {
           DEFAULT: 'var(--kad-color-info)',
           subtle: 'var(--kad-color-info-subtle)',
+        },
+        pink: {
+          DEFAULT: 'var(--kad-color-pink)',
+          subtle: 'var(--kad-color-pink-subtle)',
+          border: 'var(--kad-color-pink-border)',
+        },
+        'light-blue': {
+          DEFAULT: 'var(--kad-color-light-blue)',
+          subtle: 'var(--kad-color-light-blue-subtle)',
+          border: 'var(--kad-color-light-blue-border)',
         },
         warning: {
           DEFAULT: 'var(--kad-color-warning)',

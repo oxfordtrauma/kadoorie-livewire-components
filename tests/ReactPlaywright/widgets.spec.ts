@@ -4,7 +4,7 @@
  * User: dappelbe
  * Created: 2026-07-04
  * Last updated by: dappelbe
- * Last updated on: 2026-07-04
+ * Last updated on: 2026-10-20
  * Version: 0.1.0
  */
 
@@ -44,7 +44,10 @@ test('the info box exposes an accessible progress bar', async ({ page }) => {
 });
 
 test('the footer is a contentinfo landmark with legal links', async ({ page }) => {
-  await expect(page.getByRole('contentinfo')).toBeVisible();
+  // AppFooter is also a contentinfo landmark on this page, so target Footer.
+  const footer = page.getByTestId('footer');
+  await expect(footer).toBeVisible();
+  await expect(footer).toHaveRole('contentinfo');
   await expect(page.getByTestId('footer-copyright')).toContainText('2026');
   await expect(page.getByTestId('footer-legal-link').first()).toBeVisible();
 });

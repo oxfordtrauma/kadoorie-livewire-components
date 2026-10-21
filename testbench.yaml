@@ -10,3 +10,6 @@ workbench:
 
 env:
   - APP_NAME="Kadoorie Components Workbench"
+  # The workbench runs on an in-memory SQLite database with no cache table, and
+  # Livewire rate-limits checksum failures through the cache on every update.
+  - CACHE_STORE=array

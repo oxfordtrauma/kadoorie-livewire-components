@@ -1,0 +1,139 @@
+/*
+ * Project: Kadoorie Livewire Components
+ * File: theme.css
+ * User: dappelbe
+ * Created: 2026-10-20
+ * Last updated by: dappelbe
+ * Last updated on: 2026-10-20
+ * Version: 0.1.0
+ *
+ * Tailwind CSS v4 theme for the Kadoorie components, ported from
+ * tailwind-preset.cjs. Import it after `tailwindcss` and tokens.css. Every
+ * value maps to a --kad-* token; `inline` makes utilities reference
+ * var(--kad-*) directly, so overriding a token on any element restyles its
+ * subtree exactly as the v3 preset did. Class names are unchanged from v3.
+ */
+
+@theme inline {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --font-sans: var(--kad-font-sans);
+
+  --text-2xs: var(--kad-text-2xs);
+  --text-2xs--line-height: 1.5;
+  --text-xs: var(--kad-text-xs);
+  --text-xs--line-height: 1.5;
+  --text-sm: var(--kad-text-sm);
+  --text-sm--line-height: 1.5;
+  --text-md: var(--kad-text-md);
+  --text-md--line-height: 1.54;
+  --text-base: var(--kad-text-base);
+  --text-base--line-height: 1.43;
+  --text-lg: var(--kad-text-lg);
+  --text-lg--line-height: 1.5;
+  --text-xl: var(--kad-text-xl);
+  --text-xl--line-height: 1.56;
+  --text-2xl: var(--kad-text-2xl);
+  --text-2xl--line-height: 1.4;
+  --text-3xl: var(--kad-text-3xl);
+  --text-3xl--line-height: 1.33;
+
+  /* Colours extend the default palette: bg-black/5 and friends are used. */
+  --color-primary: var(--kad-color-primary);
+  --color-primary-hover: var(--kad-color-primary-hover);
+  --color-primary-emphasis: var(--kad-color-primary-emphasis);
+  --color-primary-subtle: var(--kad-color-primary-subtle);
+  --color-on-primary: var(--kad-color-on-primary);
+  --color-secondary: var(--kad-color-secondary);
+  --color-bg: var(--kad-color-bg);
+  --color-surface: var(--kad-color-surface);
+  --color-surface-muted: var(--kad-color-surface-muted);
+  --color-border: var(--kad-color-border);
+  --color-border-strong: var(--kad-color-border-strong);
+  --color-text: var(--kad-color-text);
+  --color-text-body: var(--kad-color-text-body);
+  --color-text-muted: var(--kad-color-text-muted);
+  --color-text-muted-large: var(--kad-color-text-muted-large);
+  --color-text-disabled: var(--kad-color-text-disabled);
+  --color-danger: var(--kad-color-danger);
+  --color-danger-subtle: var(--kad-color-danger-subtle);
+  --color-danger-solid: var(--kad-color-danger-solid);
+  --color-success: var(--kad-color-success);
+  --color-success-subtle: var(--kad-color-success-subtle);
+  --color-success-solid: var(--kad-color-success-solid);
+  --color-info: var(--kad-color-info);
+  --color-info-subtle: var(--kad-color-info-subtle);
+  --color-pink: var(--kad-color-pink);
+  --color-pink-subtle: var(--kad-color-pink-subtle);
+  --color-pink-border: var(--kad-color-pink-border);
+  --color-light-blue: var(--kad-color-light-blue);
+  --color-light-blue-subtle: var(--kad-color-light-blue-subtle);
+  --color-light-blue-border: var(--kad-color-light-blue-border);
+  --color-warning: var(--kad-color-warning);
+  --color-warning-subtle: var(--kad-color-warning-subtle);
+  --color-accent: var(--kad-color-accent);
+  --color-accent-subtle: var(--kad-color-accent-subtle);
+  --color-footer: var(--kad-color-footer-bg);
+  --color-footer-fg: var(--kad-color-footer-fg);
+  --color-footer-muted: var(--kad-color-footer-muted);
+  --color-body: var(--kad-color-body);
+  --color-stroke: var(--kad-color-stroke);
+
+  /* Bare `rounded` reads --radius; keep the v3 scale names (no v4 xs rename). */
+  --radius: var(--kad-radius-base);
+  --radius-sm: var(--kad-radius-sm);
+  --radius-base: var(--kad-radius-base);
+  --radius-md: var(--kad-radius-md);
+  --radius-lg: var(--kad-radius-lg);
+  --radius-xl: var(--kad-radius-xl);
+  --radius-2xl: var(--kad-radius-2xl);
+  --radius-full: var(--kad-radius-full);
+
+  --shadow-sm: var(--kad-shadow-sm);
+  --shadow-md: var(--kad-shadow-md);
+  --shadow-lg: var(--kad-shadow-lg);
+
+  --max-width-container: var(--kad-container-max);
+}
+
+/* v3 behaviour: hover applies on every device, not only hover-capable ones. */
+@custom-variant hover (&:hover);
+
+/*
+ * v3 divide-y: a top border on every visible child after the first. v4 puts a
+ * bottom border on every child but the last, which draws an extra rule when
+ * the last child is a collapsed (x-show) row. A visible last child takes its
+ * colour from the base border-color rule below, which matches divide-border.
+ */
+@utility divide-y {
+  & > :not([hidden]) {
+    border-bottom-width: 0;
+  }
+
+  & > :not([hidden]) ~ :not([hidden]) {
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+}
+
+@layer base {
+  /* v3 default border colour (the preset's borderColor.DEFAULT). */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--kad-color-border, currentcolor);
+  }
+
+  /* v3 preflight gave buttons a pointer cursor; v4 removed it. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}

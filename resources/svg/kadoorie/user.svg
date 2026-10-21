@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="User">
+<rect x="-19.5" y="-19.5" width="71" height="227" rx="4.5" stroke="#8A38F5" stroke-dasharray="10 5"/>
+<g id="Property 1=Default">
+<rect width="32" height="32" rx="13" fill="#D9D9D9"/>
+<g id="Icon">
+<path id="Vector" d="M16 15.1667C18.5774 15.1667 20.6667 13.0773 20.6667 10.5C20.6667 7.92268 18.5774 5.83334 16 5.83334C13.4227 5.83334 11.3334 7.92268 11.3334 10.5C11.3334 13.0773 13.4227 15.1667 16 15.1667Z" stroke="#4E5965" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M24.1667 26.1667V23.8333C24.1667 22.5957 23.675 21.4087 22.7999 20.5335C21.9247 19.6583 20.7377 19.1667 19.5 19.1667H12.5C11.2624 19.1667 10.0754 19.6583 9.20021 20.5335C8.32504 21.4087 7.83337 22.5957 7.83337 23.8333V26.1667" stroke="#4E5965" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>

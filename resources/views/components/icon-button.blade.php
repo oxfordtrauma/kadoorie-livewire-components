@@ -7,6 +7,6 @@
             . 'transition disabled:opacity-50 disabled:cursor-not-allowed ' . $variantClasses(),
     ]) }}
 >
-    <x-kadoorie::icon :name="$icon" size="md" />
+    <x-kadoorie::icon :name="$icon" :size="$iconSize" />
     {{ $slot }}
 </button>

@@ -3,7 +3,7 @@
 A private Composer package of prebuilt [Livewire 3](https://livewire.laravel.com)
 components implementing the **Kadoorie look and feel** for Laravel applications.
 
-- **Stack:** PHP 8.3+, Laravel 11/12, Livewire 3, Alpine.js, Tailwind CSS
+- **Stack:** PHP 8.3+, Laravel 11/12, Livewire 3, Alpine.js, Tailwind CSS v4
   (with a publishable precompiled stylesheet).
 - **Standards:** WCAG 2.1 AA, PER Coding Style 3.0, strict types, `data-test`
   selectors, fully responsive (mobile 360×800 · tablet 768×1024 · desktop
@@ -56,7 +56,7 @@ composer config --global github-oauth.github.com <your-token>
 
 The service provider is auto-discovered. Publish the precompiled stylesheet and
 start using components — see the [user guide](docs/user-guide.md) for styling
-options (Tailwind preset vs. stylesheet), publishing tags, theming, and the full
+options (Tailwind theme vs. stylesheet), publishing tags, theming, and the full
 component catalogue.
 
 ```bash

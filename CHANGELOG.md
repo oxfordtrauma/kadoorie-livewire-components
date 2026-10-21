@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **BREAKING**: the precompiled stylesheet and the Tailwind integration now
+  target Tailwind CSS v4 (`^4.3`). Tailwind apps should `@import`
+  `resources/css/theme.css` (new, CSS-first `@theme inline` that maps the
+  Tailwind theme to the `--kad-*` tokens) after `tokens.css`, and add `@source`
+  paths for the package `resources/views` and `src`. Component class names are
+  unchanged. The precompiled `kadoorie.css` now requires Safari 16.4+,
+  Chrome 111+ and Firefox 128+, and uses native cascade layers, so unlayered
+  host CSS now takes precedence over Kadoorie utilities. The preset's
+  `container` centring and padding are not carried into `theme.css`; the
+  components do not use the `container` utility.
+- Dev toolchain: Jest 30, Vitest 4, postcss-cli 12 and `@tailwindcss/postcss`
+  replace Jest 29, Vitest 3, postcss-cli 11, `tailwindcss` v3,
+  `autoprefixer` and `postcss-import`. The build-only `tailwind.config.cjs` is
+  removed. This resolves the high/critical `npm audit` advisories (tinypool,
+  braces, source-map-js) that were failing CI.
+
+### Deprecated
+
+- `tailwind-preset.cjs`: still works via `@config` in Tailwind v4; it will be
+  removed in the next major release.
+
+### Fixed
+
+- Filament v4 theme used the v3 `--font-family-sans` variable name; it now
+  sets `--font-sans`.
+- **Dropdown** (and Profile menu): pressing Escape now always returns focus to
+  the trigger. Focus could previously fall back to the page body, because the
+  focus trap returned it to the first menu item, which was already hidden.
+  Clicking outside the open menu no longer moves focus back to the trigger.
+
 ## [0.2.0] - 2026-07-13
 
 ### Changed

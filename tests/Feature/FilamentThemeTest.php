@@ -6,7 +6,7 @@
  * User: dappelbe
  * Created: 2026-07-03
  * Last updated by: dappelbe
- * Last updated on: 2026-07-03
+ * Last updated on: 2026-10-20
  * Version: 0.1.0
  */
 
@@ -40,6 +40,14 @@ it('ships v3 and v4 theme css referencing the Kadoorie tokens', function (string
         ->toContain('tokens.css')
         ->toContain('--kad-color-primary');
 })->with(['kadoorie-v3.css', 'kadoorie-v4.css']);
+
+it('uses the Tailwind v4 font namespace in the v4 theme', function (): void {
+    $css = (string) file_get_contents(dirname(__DIR__, 2) . '/resources/filament/kadoorie-v4.css');
+
+    expect($css)
+        ->toContain('--font-sans:')
+        ->not->toContain('--font-family-sans');
+});
 
 it('registers the kadoorie-filament publish tag', function (): void {
     expect(ServiceProvider::$publishGroups)->toHaveKey('kadoorie-filament');

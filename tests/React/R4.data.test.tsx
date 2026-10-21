@@ -11,14 +11,17 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { DataTable } from '../../resources/react/src/ui/DataTable';
+import { DataTable, type DataTableColumn } from '../../resources/react/src/ui/DataTable';
+import { Badge } from '../../resources/react/src/ui/Badge';
 import { ErrorPage } from '../../resources/react/src/ui/ErrorPage';
 import { LoginForm } from '../../resources/react/src/ui/LoginForm';
+
+type DataRow = { id: number; name: string; score: number };
 
 const columns = [
   { field: 'name', label: 'Name', sortable: true },
   { field: 'score', label: 'Score', sortable: true, numeric: true },
-];
+] satisfies DataTableColumn<DataRow>[];
 
 const rows = [
   { id: 1, name: 'Ada', score: 91 },
@@ -61,6 +64,28 @@ describe('DataTable', () => {
     expect(firstCheckbox).not.toBeChecked();
     await userEvent.click(firstCheckbox);
     expect(firstCheckbox).toBeChecked();
+  });
+
+  it('renders shared cells through the normal column callback and preserves classes', () => {
+    render(
+      <DataTable
+        columns={[
+          { field: 'name', label: 'Name', className: 'name-column' },
+          {
+            field: 'score',
+            label: 'Score',
+            className: 'score-column',
+            render: (score) => <Badge tone="success">{String(score)}</Badge>,
+          },
+        ]}
+        rows={rows}
+      />
+    );
+
+    expect(screen.getAllByTestId('badge')[0]).toHaveTextContent('91');
+    expect(screen.getAllByTestId('badge')[0].parentElement).toHaveClass('score-column', {
+      exact: false,
+    });
   });
 
   it('shows an empty state when there are no rows', () => {

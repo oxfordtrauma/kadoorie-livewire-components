@@ -1,7 +1,10 @@
-{{-- Alpine menu. Arrow-key roving and focus return use the Alpine Focus plugin. --}}
+{{-- Alpine menu. Arrow-key roving uses the Alpine Focus plugin. Escape returns
+     focus to the trigger explicitly: x-trap would return it to whichever element
+     was focused when the trap activated, which races the first-item focus and can
+     land on a now-hidden menu item. --}}
 <div
     x-data="{ open: false }"
-    x-on:keydown.escape="open = false"
+    x-on:keydown.escape="if (open) { open = false; $nextTick(() => $refs.trigger.focus()) }"
     {{ $attributes->merge(['data-test' => 'dropdown', 'class' => 'relative inline-block text-left']) }}
 >
     <button
@@ -28,7 +31,7 @@
         data-test="dropdown-menu"
         x-show="open"
         x-cloak
-        x-trap="open"
+        x-trap.noreturn="open"
         x-on:click.outside="open = false"
         x-on:keydown.down.prevent="$focus.wrap().next()"
         x-on:keydown.up.prevent="$focus.wrap().previous()"

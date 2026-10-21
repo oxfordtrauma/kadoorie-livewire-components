@@ -58,7 +58,7 @@
             </a>
 
             <span class="ml-auto text-xs text-text-muted" data-test="showcase-count">
-                42 components
+                46 components
             </span>
         </header>
 
@@ -218,6 +218,15 @@
                             </li>
                                                     <li>
                                 <a
+                                    href="context-pill.html"
+                                    data-test="showcase-nav-context-pill"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    context pill
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
                                     href="notification.html"
                                     data-test="showcase-nav-notification"
                                                                         class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
@@ -343,6 +352,15 @@
                                     pagination
                                 </a>
                             </li>
+                                                    <li>
+                                <a
+                                    href="sidebar.html"
+                                    data-test="showcase-nav-sidebar"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    sidebar
+                                </a>
+                            </li>
                                             </ul>
                                     <p class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-text-muted">
                         Data display
@@ -391,6 +409,24 @@
                                                                         class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
                                 >
                                     data table
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="nested-data-table.html"
+                                    data-test="showcase-nav-nested-data-table"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    nested data table
+                                </a>
+                            </li>
+                                                    <li>
+                                <a
+                                    href="data-table-container.html"
+                                    data-test="showcase-nav-data-table-container"
+                                                                        class="kad-focusable flex min-h-11 items-center rounded-md px-3 text-sm capitalize text-text-body hover:bg-surface-muted"
+                                >
+                                    data table container
                                 </a>
                             </li>
                                                     <li>
@@ -560,9 +596,9 @@
 
     <div class="flex flex-col gap-6">
                     
-                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Primary</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Variants</h2>
                 </div>
 
                 <div class="p-4">
@@ -580,17 +616,17 @@
 >
     <div
         role="tablist"
-        aria-label="Primary view"
+        aria-label="Variants view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-95c689db-tab-preview"
+                id="ex-14a388bb-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-95c689db-panel-preview"
+                aria-controls="ex-14a388bb-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -607,10 +643,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-95c689db-tab-code"
+                id="ex-14a388bb-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-95c689db-panel-code"
+                aria-controls="ex-14a388bb-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -629,8 +665,8 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-95c689db-panel-preview"
-    aria-labelledby="ex-95c689db-tab-preview"
+    id="ex-14a388bb-panel-preview"
+    aria-labelledby="ex-14a388bb-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -638,21 +674,42 @@
     class="kad-focusable text-sm text-text-body"
 >
     <div data-test="showcase-preview" class="pt-4">
-                                                                    <button
+                                                                    <div class="flex flex-wrap items-center gap-2"><button
     type="button"
         aria-busy="false"
     data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
 >
-        Save changes
-</button>
-
+            Primary
+    </button>
+<button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-surface text-text border border-border hover:bg-surface-muted text-sm px-3.5 gap-1.5"
+>
+            Secondary
+    </button>
+<button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-danger text-white hover:brightness-95 text-sm px-3.5 gap-1.5"
+>
+            Danger
+    </button>
+<button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-transparent text-text hover:bg-surface-muted text-sm px-3.5 gap-1.5"
+>
+            Ghost
+    </button>
+</div>
                                                             </div>
 </div>
 
                         <div
     role="tabpanel"
-    id="ex-95c689db-panel-code"
-    aria-labelledby="ex-95c689db-tab-code"
+    id="ex-14a388bb-panel-code"
+    aria-labelledby="ex-14a388bb-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -669,7 +726,7 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::button&gt;Save changes&lt;/x-kadoorie::button&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div class=&quot;flex flex-wrap items-center gap-2&quot;&gt;&lt;x-kadoorie::button&gt;Primary&lt;/x-kadoorie::button&gt;&lt;x-kadoorie::button variant=&quot;secondary&quot;&gt;Secondary&lt;/x-kadoorie::button&gt;&lt;x-kadoorie::button variant=&quot;danger&quot;&gt;Danger&lt;/x-kadoorie::button&gt;&lt;x-kadoorie::button variant=&quot;ghost&quot;&gt;Ghost&lt;/x-kadoorie::button&gt;&lt;/div&gt;</code></pre>
                             </div>
 </div>
     </div>
@@ -677,7 +734,403 @@
                 </div>
             </article>
                     
-                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Size scale</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Size scale view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-e52a68ff-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-e52a68ff-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-e52a68ff-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-e52a68ff-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-e52a68ff-panel-preview"
+    aria-labelledby="ex-e52a68ff-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <div class="flex flex-wrap items-center gap-2"><button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-xs px-2 gap-1"
+>
+            Row action
+    </button>
+<button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-xs px-2.5 gap-1"
+>
+            Small
+    </button>
+<button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
+>
+            Medium
+    </button>
+<button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-base px-4 gap-2"
+>
+            Large
+    </button>
+</div>
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-e52a68ff-panel-code"
+    aria-labelledby="ex-e52a68ff-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;div class=&quot;flex flex-wrap items-center gap-2&quot;&gt;&lt;x-kadoorie::button size=&quot;xs&quot;&gt;Row action&lt;/x-kadoorie::button&gt;&lt;x-kadoorie::button size=&quot;sm&quot;&gt;Small&lt;/x-kadoorie::button&gt;&lt;x-kadoorie::button&gt;Medium&lt;/x-kadoorie::button&gt;&lt;x-kadoorie::button size=&quot;lg&quot;&gt;Large&lt;/x-kadoorie::button&gt;&lt;/div&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Leading icon</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Leading icon view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-824a8a94-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-824a8a94-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-824a8a94-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-824a8a94-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-824a8a94-panel-preview"
+    aria-labelledby="ex-824a8a94-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
+>
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="M20 6 9 17l-5-5"/>
+</svg>
+        Approve request
+    </button>
+
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-824a8a94-panel-code"
+    aria-labelledby="ex-824a8a94-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::button leading-icon=&quot;check&quot;&gt;Approve request&lt;/x-kadoorie::button&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
+                <div class="border-b border-border px-4 py-2">
+                    <h2 class="text-sm font-medium text-text-muted">Trailing icon</h2>
+                </div>
+
+                <div class="p-4">
+                    <div
+    data-test="tabs"
+    x-data="{
+        active: 'preview',
+        ids: JSON.parse('[\u0022preview\u0022,\u0022code\u0022]'),
+        focus(id) { this.$refs['tab-' + id]?.focus() },
+        go(id) { this.active = id; this.focus(id) },
+        next(cur) { this.go(this.ids[(this.ids.indexOf(cur) + 1) % this.ids.length]) },
+        prev(cur) { this.go(this.ids[(this.ids.indexOf(cur) - 1 + this.ids.length) % this.ids.length]) },
+    }"
+    
+>
+    <div
+        role="tablist"
+        aria-label="Trailing icon view"
+        data-test="tabs-list"
+        class="flex gap-1 overflow-x-auto border-b border-border"
+    >
+                    <button
+                type="button"
+                role="tab"
+                id="ex-9ecc58a9-tab-preview"
+                x-ref="tab-preview"
+                data-test="tab-preview"
+                aria-controls="ex-9ecc58a9-panel-preview"
+                aria-selected="true"
+                tabindex="0"
+                x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'preview' ? '0' : '-1'"
+                x-on:click="active = 'preview'"
+                x-on:keydown.arrow-right.prevent="next('preview')"
+                x-on:keydown.arrow-left.prevent="prev('preview')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Preview
+            </button>
+                    <button
+                type="button"
+                role="tab"
+                id="ex-9ecc58a9-tab-code"
+                x-ref="tab-code"
+                data-test="tab-code"
+                aria-controls="ex-9ecc58a9-panel-code"
+                aria-selected="false"
+                tabindex="-1"
+                x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
+                x-bind:tabindex="active === 'code' ? '0' : '-1'"
+                x-on:click="active = 'code'"
+                x-on:keydown.arrow-right.prevent="next('code')"
+                x-on:keydown.arrow-left.prevent="prev('code')"
+                x-on:keydown.home.prevent="go(ids[0])"
+                x-on:keydown.end.prevent="go(ids[ids.length - 1])"
+                class="kad-focusable -mb-px min-h-11 whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-medium text-text-muted aria-selected:border-primary aria-selected:text-primary"
+            >
+                Code
+            </button>
+            </div>
+
+    <div data-test="tabs-panels" class="pt-3">
+        <div
+    role="tabpanel"
+    id="ex-9ecc58a9-panel-preview"
+    aria-labelledby="ex-9ecc58a9-tab-preview"
+    data-test="tab-panel-preview"
+    tabindex="0"
+    x-show="active === 'preview'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-preview" class="pt-4">
+                                                                    <button
+    type="button"
+        aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
+>
+            Continue
+            <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    width="20"
+    height="20"
+    data-test="kadoorie-icon"
+            aria-hidden="true"
+        focusable="false"
+        class="kad-icon inline-block shrink-0 align-middle"
+>
+        <path d="m9 18 6-6-6-6"/>
+</svg>
+    </button>
+
+                                                            </div>
+</div>
+
+                        <div
+    role="tabpanel"
+    id="ex-9ecc58a9-panel-code"
+    aria-labelledby="ex-9ecc58a9-tab-code"
+    data-test="tab-panel-code"
+    tabindex="0"
+    x-show="active === 'code'"
+    x-cloak
+    class="kad-focusable text-sm text-text-body"
+>
+    <div data-test="showcase-code" x-data="{ copied: false }" class="relative pt-4">
+                                <button
+                                    type="button"
+                                    data-test="showcase-copy"
+                                    x-on:click="navigator.clipboard?.writeText($refs.snippet.textContent.trim()); copied = true; setTimeout(() => copied = false, 1500)"
+                                    class="kad-focusable absolute right-2 top-5 z-10 inline-flex min-h-11 items-center gap-1 rounded-md border border-border bg-surface px-3 text-xs font-medium text-text-body hover:bg-surface-muted"
+                                >
+                                    <span x-show="! copied">Copy</span>
+                                    <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
+                                </button>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::button trailing-icon=&quot;chevron-right&quot;&gt;Continue&lt;/x-kadoorie::button&gt;</code></pre>
+                            </div>
+</div>
+    </div>
+</div>
+                </div>
+            </article>
+                    
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
                     <h2 class="text-sm font-medium text-text-muted">Danger / loading</h2>
                 </div>
@@ -761,8 +1214,8 @@
     data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-danger text-white hover:brightness-95 text-sm px-3.5 gap-1.5"
 >
             <span data-test="kadoorie-button-spinner" class="kad-spinner" aria-hidden="true"></span>
-        Deleting
-</button>
+            Deleting
+    </button>
 
                                                             </div>
 </div>
@@ -795,9 +1248,9 @@
                 </div>
             </article>
                     
-                                    <article data-test="showcase-example" class="overflow-hidden rounded-lg border border-border bg-surface">
+                                    <article data-test="showcase-example" class="overflow-visible rounded-lg border border-border bg-surface">
                 <div class="border-b border-border px-4 py-2">
-                    <h2 class="text-sm font-medium text-text-muted">Ghost</h2>
+                    <h2 class="text-sm font-medium text-text-muted">Disabled</h2>
                 </div>
 
                 <div class="p-4">
@@ -815,17 +1268,17 @@
 >
     <div
         role="tablist"
-        aria-label="Ghost view"
+        aria-label="Disabled view"
         data-test="tabs-list"
         class="flex gap-1 overflow-x-auto border-b border-border"
     >
                     <button
                 type="button"
                 role="tab"
-                id="ex-3cbaff88-tab-preview"
+                id="ex-1a1b156d-tab-preview"
                 x-ref="tab-preview"
                 data-test="tab-preview"
-                aria-controls="ex-3cbaff88-panel-preview"
+                aria-controls="ex-1a1b156d-panel-preview"
                 aria-selected="true"
                 tabindex="0"
                 x-bind:aria-selected="active === 'preview' ? 'true' : 'false'"
@@ -842,10 +1295,10 @@
                     <button
                 type="button"
                 role="tab"
-                id="ex-3cbaff88-tab-code"
+                id="ex-1a1b156d-tab-code"
                 x-ref="tab-code"
                 data-test="tab-code"
-                aria-controls="ex-3cbaff88-panel-code"
+                aria-controls="ex-1a1b156d-panel-code"
                 aria-selected="false"
                 tabindex="-1"
                 x-bind:aria-selected="active === 'code' ? 'true' : 'false'"
@@ -864,8 +1317,8 @@
     <div data-test="tabs-panels" class="pt-3">
         <div
     role="tabpanel"
-    id="ex-3cbaff88-panel-preview"
-    aria-labelledby="ex-3cbaff88-tab-preview"
+    id="ex-1a1b156d-panel-preview"
+    aria-labelledby="ex-1a1b156d-tab-preview"
     data-test="tab-panel-preview"
     tabindex="0"
     x-show="active === 'preview'"
@@ -875,19 +1328,19 @@
     <div data-test="showcase-preview" class="pt-4">
                                                                     <button
     type="button"
-        aria-busy="false"
-    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-transparent text-text hover:bg-surface-muted text-sm px-3.5 gap-1.5"
+    disabled    aria-busy="false"
+    data-test="kadoorie-button" class="kad-focusable inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium min-h-11 transition select-none disabled:opacity-50 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-hover text-sm px-3.5 gap-1.5"
 >
-        Cancel
-</button>
+            Unavailable
+    </button>
 
                                                             </div>
 </div>
 
                         <div
     role="tabpanel"
-    id="ex-3cbaff88-panel-code"
-    aria-labelledby="ex-3cbaff88-tab-code"
+    id="ex-1a1b156d-panel-code"
+    aria-labelledby="ex-1a1b156d-tab-code"
     data-test="tab-panel-code"
     tabindex="0"
     x-show="active === 'code'"
@@ -904,7 +1357,7 @@
                                     <span x-show="! copied">Copy</span>
                                     <span x-show="copied" x-cloak data-test="showcase-copied" class="text-success">Copied</span>
                                 </button>
-                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::button variant=&quot;ghost&quot;&gt;Cancel&lt;/x-kadoorie::button&gt;</code></pre>
+                                <pre tabindex="0" x-ref="snippet" class="overflow-x-auto rounded-md bg-surface-muted p-4 pr-24 text-xs text-text-body"><code>&lt;x-kadoorie::button :disabled=&quot;true&quot;&gt;Unavailable&lt;/x-kadoorie::button&gt;</code></pre>
                             </div>
 </div>
     </div>

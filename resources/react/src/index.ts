@@ -93,10 +93,20 @@ export { EmptyState } from './ui/EmptyState';
 export type { EmptyStateProps } from './ui/EmptyState';
 export { Pagination } from './ui/Pagination';
 export type { PaginationProps } from './ui/Pagination';
+export { Sidebar } from './ui/Sidebar';
+export type { SidebarProps } from './ui/Sidebar';
+export { DataTableContainer } from './ui/DataTableContainer';
+export type { DataTableContainerProps } from './ui/DataTableContainer';
 
 // UI components — R4 data & pages
 export { DataTable } from './ui/DataTable';
 export type { DataTableProps, DataTableColumn } from './ui/DataTable';
+export { NestedDataTable } from './ui/NestedDataTable';
+export type {
+  NestedDataTableProps,
+  NestedDataTableColumn,
+  NestedDataTableRowId,
+} from './ui/NestedDataTable';
 export { ErrorPage } from './ui/ErrorPage';
 export type { ErrorPageProps } from './ui/ErrorPage';
 export { LoginForm } from './ui/LoginForm';
@@ -117,6 +127,8 @@ export { IconButton } from './ui/IconButton';
 export type { IconButtonProps } from './ui/IconButton';
 export { SelectPill } from './ui/SelectPill';
 export type { SelectPillProps } from './ui/SelectPill';
+export { ContextPill } from './ui/ContextPill';
+export type { ContextPillProps } from './ui/ContextPill';
 export { Notification } from './ui/Notification';
 export type { NotificationProps } from './ui/Notification';
 export { AppHeader } from './ui/AppHeader';

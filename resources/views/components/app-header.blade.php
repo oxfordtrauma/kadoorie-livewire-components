@@ -7,13 +7,14 @@
             @isset($logo)
                 {{ $logo }}
             @else
-                <x-kadoorie::icon name="kadoorie:mark" size="md" class="text-primary" />
-                {{ $brand }}
+                <x-kadoorie::logo :label="$brand" />
             @endisset
         </div>
 
         @isset($start)
-            <x-kadoorie::divider orientation="vertical" class="h-6 bg-stroke" />
+            <div class="flex h-6 items-center">
+                <x-kadoorie::divider orientation="vertical" class="h-full bg-stroke" />
+            </div>
             <div data-test="app-header-start" class="flex items-center gap-3">
                 {{ $start }}
             </div>

@@ -31,6 +31,48 @@ it('can omit the icon', function (): void {
         ->assertSee('Error');
 });
 
+it('supports the constrained palette and dot indicator', function (): void {
+    $this->blade('<x-kadoorie::badge color="light-blue" indicator="dot">In progress</x-kadoorie::badge>')
+        ->assertSee('bg-light-blue-subtle', false)
+        ->assertSee('data-test="badge-dot"', false)
+        ->assertSee('In progress');
+});
+
+it('renders a numbered indicator while keeping the label accessible', function (): void {
+    $this->blade('<x-kadoorie::badge color="amber" indicator="number" number="7">Tasks</x-kadoorie::badge>')
+        ->assertSee('data-test="badge-number"', false)
+        ->assertSee('>7</span>', false)
+        ->assertSee('data-test="badge-label"', false)
+        ->assertSee('Tasks');
+});
+
+it('tightens the gap one step for a numbered indicator', function (string $size, string $gap, string $numberGap): void {
+    $this->blade('<x-kadoorie::badge size="' . $size . '">Default</x-kadoorie::badge>')
+        ->assertSee(' ' . $gap . ' px-', false);
+
+    $this->blade('<x-kadoorie::badge size="' . $size . '" indicator="number" number="3">Numbered</x-kadoorie::badge>')
+        ->assertSee(' ' . $numberGap . ' px-', false);
+})->with([
+    'xs' => ['xs', 'gap-1', 'gap-0.5'],
+    'sm' => ['sm', 'gap-1', 'gap-0.5'],
+    'md' => ['md', 'gap-1.5', 'gap-1'],
+    'lg' => ['lg', 'gap-1.5', 'gap-1'],
+]);
+
+it('keeps palette icons transparent', function (): void {
+    $this->blade('<x-kadoorie::badge color="amber" indicator="icon">Review</x-kadoorie::badge>')
+        ->assertSee('class="text-warning"', false)
+        ->assertDontSee('class="bg-warning"', false);
+});
+
+it('supports a text-only indicator', function (): void {
+    $this->blade('<x-kadoorie::badge color="neutral" indicator="none">Text only</x-kadoorie::badge>')
+        ->assertDontSee('data-test="badge-icon"', false)
+        ->assertDontSee('data-test="badge-dot"', false)
+        ->assertDontSee('data-test="badge-number"', false)
+        ->assertSee('Text only');
+});
+
 it('is the single component covering Badge, Tag, and Pill (rule 14)', function (): void {
     expect(class_exists(Kadoorie\LivewireComponents\View\Components\Tag::class))->toBeFalse()
         ->and(class_exists(Kadoorie\LivewireComponents\View\Components\Pill::class))->toBeFalse();

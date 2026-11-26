@@ -6,8 +6,8 @@
  * User: dappelbe
  * Created: 2026-07-13
  * Last updated by: dappelbe
- * Last updated on: 2026-07-13
- * Version: 0.1.0
+ * Last updated on: 2026-11-24
+ * Version: 0.1.1
  */
 
 declare(strict_types=1);
@@ -23,6 +23,11 @@ use Illuminate\View\View;
  * Finish navigation. Client-side (Alpine) step state; dispatches
  * `wizard-change` on navigation and `wizard-finish` from the last step so a
  * host form or Livewire component can gate and submit.
+ *
+ * `controlled` hands the step to the host: navigation only dispatches
+ * `wizard-back` / `wizard-next` / `wizard-go` (and `wizard-finish`), and the
+ * host binds the step index through `x-modelable="current"` (for Livewire,
+ * `wire:model="stepIndex"` on the component), validating before it moves.
  */
 final class Wizard extends Component
 {
@@ -45,6 +50,7 @@ final class Wizard extends Component
         public string $backLabel = 'Back',
         public string $nextLabel = 'Next',
         public string $finishLabel = 'Finish',
+        public bool $controlled = false,
     ) {
         $this->steps = $steps;
         $this->default = $default ?? ($steps[0]['id'] ?? '');

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `wizard`: a `controlled` prop. Back, Next and the step markers then only
+  dispatch `wizard-back`, `wizard-next` and `wizard-go` (`{index, step, from}`;
+  Finish still dispatches `wizard-finish`), and the root exposes
+  `x-modelable="current"`, so a Livewire host binds the step
+  (`wire:model="stepIndex"`) and moves it only after server validation. Focus
+  moves and `wizard-change` fire when the bound step changes. Uncontrolled
+  behaviour is unchanged.
+
 ### Changed
 
 - **BREAKING**: the precompiled stylesheet and the Tailwind integration now
